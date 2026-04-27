@@ -474,6 +474,143 @@ footer {
 .text-red   { color: var(--red);   font-weight: 600; }
 .text-gold  { color: #b8860b;      font-weight: 600; }
 hr.divider { border: none; border-top: 2px solid var(--surface-2); margin: 24px 0; }
+
+/* ═══════════════════════════════════════════════════════
+   ENHANCED RESPONSIVE — FULL MOBILE / TABLET OVERHAUL (ch6)
+═══════════════════════════════════════════════════════ */
+
+/* 0 — Global overflow safety */
+html, body { overflow-x: hidden; }
+
+/* 1 — Tables: always scrollable */
+.sym-table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+.sym-table th, .sym-table td { white-space: nowrap; }
+
+/* 2 — Formula box overflow (MathJax) */
+.formula-box {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
+
+/* 3 — CF diagram + SVG */
+.cf-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 4 — Solution panels */
+.solution-panel, .fs-solution, .example-body { overflow-x: auto; }
+
+/* Scroll-hint wrapper (added by JS) */
+.table-scroll-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
+.table-scroll-wrap::after {
+  content: '← اسحب للتمرير →';
+  display: none;
+  text-align: center;
+  font-size: 11px;
+  color: #4a6fa5;
+  padding: 4px 0 0;
+  direction: rtl;
+}
+
+/* ── Tablet  481–768 px ── */
+@media (max-width: 768px) {
+  .container       { padding: 28px 18px 52px; }
+  .toc             { padding: 22px 24px; margin-bottom: 28px; }
+  .toc h2          { font-size: 18px; }
+  .site-header     { padding: 44px 24px 36px; }
+  .section-header  { padding: 18px 24px; gap: 12px; }
+  .sec-num         { width: 34px; height: 34px; font-size: 14px; }
+  .section-header h2 { font-size: 18px; }
+  .section-body    { padding: 24px 22px; }
+  .formula-box     { padding: 22px 24px; }
+  .example-body    { padding: 18px 20px; }
+  .question-body   { padding: 16px 18px; }
+  .final-section   { padding: 28px 26px 32px; }
+}
+
+/* ── Mobile  ≤ 600 px ── */
+@media (max-width: 600px) {
+  .site-header     { padding: 32px 16px 28px; }
+  .site-header h1  { font-size: clamp(22px, 6.5vw, 34px); }
+  .site-header .subtitle { font-size: 14.5px; }
+  .header-tag      { font-size: 10px; letter-spacing: 1.5px; padding: 4px 14px; }
+  .badge-row       { gap: 7px; }
+  .badge           { font-size: 12px; padding: 5px 12px; }
+
+  .container       { padding: 20px 14px 44px; }
+
+  .toc             { padding: 18px 16px; margin-bottom: 20px; }
+  .toc h2          { font-size: 17px; }
+  .toc ol          { padding-right: 16px; }
+  .toc li          { margin-bottom: 5px; font-size: 14px; }
+
+  .section-card    { margin-bottom: 20px; }
+  .section-header  { padding: 15px 16px; gap: 10px; flex-wrap: wrap; }
+  .sec-num         { width: 32px; height: 32px; min-width: 32px; font-size: 13px; }
+  .section-header h2 { font-size: 16px; }
+  .section-body    { padding: 18px 14px; }
+  .section-body p  { font-size: 14.5px; }
+
+  .info-grid, .compare-grid { grid-template-columns: 1fr; gap: 10px; }
+  .info-card       { padding: 14px 14px; }
+  .info-card p     { font-size: 13.5px; }
+
+  .def-box         { padding: 14px 16px; font-size: 14.5px; }
+  .note-box        { padding: 12px 14px; font-size: 14px; gap: 8px; }
+
+  .formula-box     { padding: 18px 14px; border-radius: 10px; }
+  .formula-box .formula-label { font-size: 10px; letter-spacing: 1px; }
+  .formula-box .formula-eq    { font-size: 17px; }
+  .formula-box .formula-desc  { font-size: 13px; }
+
+  .steps-list li   { padding: 10px 12px; gap: 10px; font-size: 14.5px; }
+  .step-num        { width: 24px; height: 24px; min-width: 24px; font-size: 11px; }
+
+  .example-box     { margin: 16px 0; }
+  .example-header  { padding: 10px 14px; font-size: 13px; }
+  .example-body    { padding: 14px 14px; }
+  .sol-step        { padding: 10px 12px; font-size: 14px; }
+  .sol-label       { font-size: 11px; }
+
+  .sym-table       { min-width: 460px; font-size: 13px; }
+  .sym-table th    { padding: 9px 12px; font-size: 12px; }
+  .sym-table td    { padding: 8px 12px; }
+  .table-scroll-wrap::after { display: block; }
+
+  .question-body   { padding: 14px 14px; }
+  .q-text          { padding: 12px 14px; font-size: 14px; }
+  .toggle-btn      { font-size: 12.5px; padding: 8px 16px; }
+  .solution-panel  { border-radius: 8px; }
+
+  .final-section   { padding: 20px 14px 24px; border-radius: 10px; }
+  .final-section h2 { font-size: 20px; }
+  .final-section .fs-sub { font-size: 13px; margin-bottom: 18px; }
+  .fq-item         { padding: 14px 14px; }
+  .fq-label        { font-size: 11px; }
+  .fq-text         { font-size: 13.5px; line-height: 1.65; }
+  .fq-options      { font-size: 13px; line-height: 1.8; }
+  .sol-btn         { font-size: 12px; padding: 7px 14px; }
+  .fs-solution     { padding: 12px 12px; font-size: 13px; }
+  .ans-highlight   { font-size: 14px; }
+}
+
+/* ── Extra-small  ≤ 380 px ── */
+@media (max-width: 380px) {
+  .container      { padding: 16px 10px 40px; }
+  .toc            { padding: 14px 12px; }
+  .section-body   { padding: 14px 12px; }
+  .formula-box    { padding: 14px 12px; }
+  .final-section  { padding: 16px 12px 20px; }
+  .fq-item        { padding: 12px 10px; }
+}
 </style>
 </head>
 <body>
@@ -1502,6 +1639,29 @@ function toggleFS(btn) {
 document.querySelectorAll('.section-card').forEach((card, i) => {
   card.style.animationDelay = `${i * 0.08}s`;
 });
+
+// Auto-wrap tables and wide SVGs in scrollable containers for mobile
+(function() {
+  document.querySelectorAll('.sym-table').forEach(function(tbl) {
+    if (tbl.parentElement.classList.contains('table-scroll-wrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'table-scroll-wrap';
+    tbl.parentNode.insertBefore(wrap, tbl);
+    wrap.appendChild(tbl);
+  });
+
+  document.querySelectorAll('svg').forEach(function(svg) {
+    if (svg.parentElement.dataset.svgWrap) return;
+    var w = parseInt(svg.getAttribute('width') || 0);
+    if (w > 300) {
+      var wrap = document.createElement('div');
+      wrap.style.cssText = 'overflow-x:auto;-webkit-overflow-scrolling:touch;text-align:center;';
+      wrap.dataset.svgWrap = '1';
+      svg.parentNode.insertBefore(wrap, svg);
+      wrap.appendChild(svg);
+    }
+  });
+})();
 </script>
 </body>
 </html>

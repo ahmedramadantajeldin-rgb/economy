@@ -413,14 +413,6 @@
     font-size: 13px;
   }
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 680px) {
-    .info-grid, .compare-grid { grid-template-columns: 1fr; }
-    .section-body { padding: 20px 16px; }
-    .site-header { padding: 36px 20px 30px; }
-    .final-section { padding: 24px 18px; }
-  }
-
   /* ─── UTILS ─── */
   p { margin: 10px 0; }
   .mt { margin-top: 16px; }
@@ -432,6 +424,147 @@
   .highlight { background: rgba(14,144,210,0.10); border-radius: 4px; padding: 1px 5px; color: var(--primary); font-weight: 600; }
   .dir-ltr { direction: ltr; text-align: left; }
   .math-inline { background: #f0f6ff; padding: 2px 8px; border-radius: 5px; font-family: monospace; font-size: 14px; color: var(--primary); }
+
+  /* ═══════════════════════════════════════════════════════
+     RESPONSIVE — FULL MOBILE / TABLET OVERHAUL (ch5)
+  ═══════════════════════════════════════════════════════ */
+
+  /* 0 — Global overflow safety */
+  html, body { overflow-x: hidden; }
+
+  /* 1 — Tables: scrollable on all screen sizes */
+  .sym-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  .sym-table th,
+  .sym-table td { white-space: nowrap; }
+
+  /* 2 — Formula boxes: MathJax overflow */
+  .formula-box {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
+
+  /* 3 — CF diagrams / SVG scroll */
+  .cf-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 4 — Solution panels: no clipping */
+  .sol-panel, .fq-sol, .example-body { overflow-x: auto; }
+
+  /* Scroll hint wrapper (added by JS) */
+  .table-scroll-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+  }
+  .table-scroll-wrap::after {
+    content: '← اسحب للتمرير →';
+    display: none;
+    text-align: center;
+    font-size: 11px;
+    color: #4a6fa5;
+    padding: 4px 0 0;
+    direction: rtl;
+  }
+
+  /* ── Tablet  481–768 px ── */
+  @media (max-width: 768px) {
+    .container      { padding: 28px 18px 52px; }
+    .toc-card       { padding: 22px 22px; margin-bottom: 28px; }
+    .toc-card h2    { font-size: 19px; }
+    .site-header    { padding: 44px 24px 36px; }
+    .section-header { padding: 18px 24px; gap: 12px; }
+    .section-num    { width: 34px; height: 34px; font-size: 14px; }
+    .section-header h2 { font-size: 18px; }
+    .section-body   { padding: 24px 22px; }
+    .formula-box    { padding: 22px 24px; }
+    .example-body   { padding: 18px 20px; }
+    .question-body  { padding: 16px 18px; }
+    .final-section  { padding: 28px 26px; }
+  }
+
+  /* ── Mobile  ≤ 600 px ── */
+  @media (max-width: 600px) {
+    .site-header    { padding: 32px 16px 28px; }
+    .site-header h1 { font-size: clamp(22px, 6.5vw, 34px); }
+    .site-header .subtitle { font-size: 14.5px; }
+    .header-tag     { font-size: 10px; letter-spacing: 1.5px; padding: 4px 14px; }
+    .badge-row      { gap: 7px; }
+    .badge          { font-size: 12px; padding: 5px 12px; }
+
+    .container      { padding: 20px 14px 44px; }
+
+    .toc-card       { padding: 18px 16px; margin-bottom: 22px; }
+    .toc-card h2    { font-size: 17px; }
+    .toc-card ol    { padding-right: 16px; }
+    .toc-card ol li { margin: 5px 0; font-size: 14px; }
+
+    .section-card   { margin-bottom: 22px; }
+    .section-header { padding: 15px 16px; gap: 10px; flex-wrap: wrap; }
+    .section-num    { width: 32px; height: 32px; font-size: 13px; flex-shrink: 0; }
+    .section-header h2 { font-size: 16px; }
+    .section-body   { padding: 18px 14px; }
+    .section-body p { font-size: 14.5px; }
+
+    .info-grid, .compare-grid { grid-template-columns: 1fr; gap: 10px; }
+    .info-card      { padding: 14px 14px; }
+    .info-card h4   { font-size: 14px; }
+    .info-card p    { font-size: 13.5px; }
+
+    .def-box        { padding: 14px 16px; font-size: 14.5px; }
+    .note-box       { padding: 12px 14px; font-size: 14px; gap: 8px; }
+    .note-box .icon { font-size: 17px; }
+
+    .formula-box    { padding: 18px 14px; border-radius: 10px; }
+    .formula-box .formula-label { font-size: 10px; letter-spacing: 1px; }
+    .formula-box .formula-main  { font-size: 18px; }
+    .formula-box .formula-desc  { font-size: 13px; }
+
+    .steps-list li  { padding: 10px 12px; gap: 10px; font-size: 14px; }
+    .step-num       { width: 24px; height: 24px; font-size: 11px; }
+
+    .example-box    { margin: 16px 0; }
+    .example-header { padding: 10px 14px; font-size: 13px; }
+    .example-body   { padding: 14px 14px; }
+    .sol-step       { padding: 10px 12px; font-size: 14px; }
+
+    /* Tables mobile */
+    .sym-table      { min-width: 460px; font-size: 13px; }
+    .sym-table th   { padding: 9px 12px; font-size: 12px; }
+    .sym-table td   { padding: 8px 12px; }
+    .table-scroll-wrap::after { display: block; }
+
+    .question-body  { padding: 14px 14px; }
+    .question-text, .q-text { padding: 12px 14px; font-size: 14px; }
+    .toggle-btn     { font-size: 12.5px; padding: 8px 16px; }
+    .sol-panel      { padding: 14px 14px; }
+
+    .final-section  { padding: 20px 14px; border-radius: 10px; }
+    .final-section h2 { font-size: 20px; }
+    .final-section .fsub { font-size: 13px; margin-bottom: 18px; }
+    .fq-item        { padding: 14px 14px; }
+    .fq-text        { font-size: 13.5px; line-height: 1.65; }
+    .fq-btn         { font-size: 12px; padding: 7px 14px; }
+    .fq-sol         { padding: 12px 12px; font-size: 13px; }
+    .fq-sol .ans    { font-size: 14px; }
+  }
+
+  /* ── Extra-small  ≤ 380 px ── */
+  @media (max-width: 380px) {
+    .container      { padding: 16px 10px 40px; }
+    .toc-card       { padding: 14px 12px; }
+    .section-body   { padding: 14px 12px; }
+    .formula-box    { padding: 14px 12px; }
+    .final-section  { padding: 16px 12px; }
+    .fq-item        { padding: 12px 12px; }
+  }
 </style>
 </head>
 <body>
@@ -1658,6 +1791,29 @@
     panel.classList.toggle('open');
     btn.textContent = panel.classList.contains('open') ? '🔼 إخفاء الحل' : '🔍 إظهار الحل';
   }
+
+  // Auto-wrap tables and wide SVGs in scrollable containers for mobile
+  (function() {
+    document.querySelectorAll('.sym-table').forEach(function(tbl) {
+      if (tbl.parentElement.classList.contains('table-scroll-wrap')) return;
+      var wrap = document.createElement('div');
+      wrap.className = 'table-scroll-wrap';
+      tbl.parentNode.insertBefore(wrap, tbl);
+      wrap.appendChild(tbl);
+    });
+
+    document.querySelectorAll('svg').forEach(function(svg) {
+      if (svg.parentElement.dataset.svgWrap) return;
+      var w = parseInt(svg.getAttribute('width') || 0);
+      if (w > 300) {
+        var wrap = document.createElement('div');
+        wrap.style.cssText = 'overflow-x:auto;-webkit-overflow-scrolling:touch;text-align:center;';
+        wrap.dataset.svgWrap = '1';
+        svg.parentNode.insertBefore(wrap, svg);
+        wrap.appendChild(svg);
+      }
+    });
+  })();
 </script>
 </body>
 </html>

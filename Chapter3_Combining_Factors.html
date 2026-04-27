@@ -290,13 +290,6 @@ body{
 /* ── FOOTER ── */
 footer{background:var(--primary);color:rgba(255,255,255,0.55);text-align:center;font-size:13px;padding:20px;}
 
-/* ── RESPONSIVE ── */
-@media(max-width:680px){
-  .info-grid,.compare-grid{grid-template-columns:1fr;}
-  .section-body,.section-header,.toc{padding:18px;}
-  .final-section{padding:24px 18px;}
-}
-
 /* ── UTIL ── */
 .arabic{font-family:'Amiri',serif;font-size:17px;line-height:2;}
 .en{direction:ltr;display:inline-block;}
@@ -307,6 +300,195 @@ footer{background:var(--primary);color:rgba(255,255,255,0.55);text-align:center;
 .text-red{color:var(--red);font-weight:600;}
 .text-gold{color:#b8860b;font-weight:600;}
 .divider{border:none;border-top:2px solid var(--surface-2);margin:20px 0;}
+
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCED RESPONSIVE — FULL MOBILE / TABLET OVERHAUL (ch3)
+   Pure CSS only — zero HTML modifications
+═══════════════════════════════════════════════════════════════ */
+
+/* ── 0. Global overflow safety ── */
+html, body  { overflow-x: hidden; }
+
+/* ── 1. Tables always horizontally scrollable ──
+   .sym-table contains MathJax inline equations — these are
+   often wider than a phone screen, so we let them scroll     */
+.sym-table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+.sym-table th,
+.sym-table td { white-space: nowrap; }
+
+/* ── 2. Formula boxes — MathJax overflow ── */
+.formula-box {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+mjx-container,
+.MathJax_Display { max-width: 100%; overflow-x: auto; }
+
+/* ── 3. Cash-flow SVG diagrams — scroll, don't squish ── */
+/* .cf-wrap already has overflow-x:auto from the original CSS;
+   reinforce it and add momentum scrolling                    */
+.cf-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* min-width kept by SVG's intrinsic width attribute */
+}
+.cf-wrap svg { max-width: none; }
+
+/* ── 4. Solution / answer panels ── */
+.sol-panel,
+.final-sol,
+.example-body { overflow-x: auto; }
+
+/* ── 5. Scroll-hint wrapper injected by JS ── */
+.table-scroll-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
+.table-scroll-wrap::after {
+  content: '← اسحب للتمرير →';
+  display: none;      /* shown only on mobile via media query below */
+  text-align: center;
+  font-size: 11px;
+  color: var(--accent);
+  padding: 4px 0 0;
+  direction: rtl;
+}
+
+/* ════════════════════════════════════════
+   TABLET  481 – 768 px
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .main            { padding: 28px 18px 52px; }
+  .site-header     { padding: 44px 24px 36px; }
+  .site-header .subtitle { font-size: 15px; }
+  .badges          { gap: 8px; }
+
+  .toc             { padding: 22px 22px; margin-bottom: 28px; }
+  .toc h2          { font-size: 18px; }
+
+  .section-header  { padding: 18px 24px; gap: 12px; }
+  .sec-num         { width: 34px; height: 34px; font-size: 14px; }
+  .section-header h2 { font-size: 18px; }
+  .section-body    { padding: 22px 20px; }
+
+  .formula-box     { padding: 20px 22px; }
+  .example-body    { padding: 16px 18px; }
+  .q-body          { padding: 14px 16px; }
+  .final-section   { padding: 28px 26px; }
+}
+
+/* ════════════════════════════════════════
+   MOBILE  ≤ 600 px
+════════════════════════════════════════ */
+@media (max-width: 600px) {
+
+  /* Header */
+  .site-header     { padding: 32px 16px 26px; }
+  .site-header h1  { font-size: clamp(22px, 6.5vw, 34px); }
+  .site-header .subtitle { font-size: 14px; margin-bottom: 16px; }
+  .header-tag      { font-size: 10px; letter-spacing: 1.5px; padding: 4px 14px; }
+  .badges          { gap: 6px; }
+  .badge           { font-size: 11.5px; padding: 4px 11px; }
+
+  /* Main wrapper */
+  .main            { padding: 18px 13px 44px; }
+
+  /* TOC */
+  .toc             { padding: 16px 14px; margin-bottom: 20px; }
+  .toc h2          { font-size: 17px; }
+  .toc ol          { padding-right: 16px; }
+  .toc li          { margin-bottom: 5px; font-size: 14px; }
+
+  /* Section cards */
+  .section-card    { margin-bottom: 20px; }
+  .section-header  { padding: 14px 15px; gap: 10px; flex-wrap: wrap; }
+  .sec-num         { width: 32px; height: 32px; font-size: 13px; }
+  .section-header h2 { font-size: 16px; line-height: 1.3; }
+  .section-body    { padding: 16px 13px; }
+  .section-body p  { font-size: 14.5px; }
+  .section-body h3 { font-size: 15px; }
+
+  /* Grids → single column */
+  .info-grid,
+  .compare-grid    { grid-template-columns: 1fr; gap: 10px; }
+  .info-card       { padding: 13px 13px; }
+  .info-card p     { font-size: 13.5px; padding-left: 26px; }
+
+  /* Definition & note boxes */
+  .def-box         { padding: 13px 14px; font-size: 14.5px; }
+  .def-box .def-title { font-size: 14px; }
+  .note-box        { padding: 12px 13px; gap: 8px; }
+  .note-box p      { font-size: 14px; }
+  .note-icon       { font-size: 17px; }
+
+  /* Formula boxes */
+  .formula-box     { padding: 16px 13px; border-radius: 10px; }
+  .formula-label   { font-size: 10px; letter-spacing: 1px; }
+  .formula-box .formula-eq { font-size: 15px; }
+  .formula-desc    { font-size: 13px; }
+
+  /* Steps */
+  .steps-list li   { padding: 10px 12px; gap: 10px; font-size: 14px; }
+  .step-num        { width: 24px; height: 24px; font-size: 12px; }
+
+  /* Example boxes */
+  .example-box     { margin: 14px 0; }
+  .example-header  { padding: 9px 13px; font-size: 13px; }
+  .example-body    { padding: 13px 13px; }
+  .sol-step        { padding: 10px 12px; font-size: 14px; }
+  .sol-step .step-label { font-size: 12px; }
+
+  /* Symbols table — keep width, let wrapper scroll */
+  .sym-table       { min-width: 560px; font-size: 13px; }
+  .sym-table th    { padding: 9px 11px; font-size: 12px; }
+  .sym-table td    { padding: 8px 11px; font-size: 13px; }
+  .table-scroll-wrap::after { display: block; }
+
+  /* Question blocks */
+  .q-body          { padding: 13px 13px; }
+  .q-text          { padding: 11px 13px; font-size: 14px; }
+  .toggle-btn      { font-size: 12.5px; padding: 8px 15px; }
+  .sol-panel       { padding: 12px 13px; font-size: 14px; }
+  .sol-panel .answer { font-size: 14.5px; }
+
+  /* Compare cards */
+  .green-card,
+  .red-card,
+  .blue-card       { padding: 12px 13px; }
+  .card-title      { font-size: 14px; }
+
+  /* Final questions section */
+  .final-section   { padding: 18px 13px 22px; border-radius: 10px; margin-top: 24px; }
+  .final-section h2 { font-size: 19px; }
+  .final-section .final-sub { font-size: 13px; margin-bottom: 16px; }
+  .final-q         { padding: 13px 13px; margin-bottom: 13px; }
+  .final-q-text    { font-size: 13.5px; line-height: 1.65; margin-bottom: 9px; }
+  .final-toggle    { font-size: 12px; padding: 7px 13px; }
+  .final-sol       { padding: 11px 12px; font-size: 13px; }
+  .final-sol .ans  { font-size: 14px; }
+
+  /* Footer */
+  footer           { font-size: 12px; padding: 16px 14px; }
+}
+
+/* ════════════════════════════════════════
+   EXTRA-SMALL  ≤ 380 px
+════════════════════════════════════════ */
+@media (max-width: 380px) {
+  .main            { padding: 14px 10px 40px; }
+  .toc             { padding: 13px 11px; }
+  .section-body    { padding: 13px 11px; }
+  .formula-box     { padding: 13px 11px; }
+  .final-section   { padding: 15px 11px 18px; }
+  .final-q         { padding: 11px 11px; }
+  .sym-table       { min-width: 520px; }
+}
 </style>
 </head>
 <body>
@@ -1714,6 +1896,34 @@ function toggleFinal(btn) {
   panel.classList.toggle('open', !isOpen);
   btn.textContent = isOpen ? 'Show Solution ▼' : 'Hide Solution ▲';
 }
+
+/* ─── Auto-wrap wide content for mobile scrolling ─── */
+(function () {
+  /* 1. Wrap every .sym-table in a .table-scroll-wrap div
+        so the scroll-hint ::after pseudo-element can appear  */
+  document.querySelectorAll('.sym-table').forEach(function (tbl) {
+    if (tbl.parentElement.classList.contains('table-scroll-wrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'table-scroll-wrap';
+    tbl.parentNode.insertBefore(wrap, tbl);
+    wrap.appendChild(tbl);
+  });
+
+  /* 2. Wrap any inline SVG wider than 300 px in a
+        horizontally-scrollable container                     */
+  document.querySelectorAll('svg').forEach(function (svg) {
+    if (svg.parentElement.dataset.svgWrap) return;
+    var w = parseInt(svg.getAttribute('width') || 0);
+    if (w > 300) {
+      var wrap = document.createElement('div');
+      wrap.style.cssText =
+        'overflow-x:auto;-webkit-overflow-scrolling:touch;text-align:center;';
+      wrap.dataset.svgWrap = '1';
+      svg.parentNode.insertBefore(wrap, svg);
+      wrap.appendChild(svg);
+    }
+  });
+})();
 </script>
 </body>
 </html>

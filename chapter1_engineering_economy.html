@@ -441,11 +441,178 @@
     margin-top: 52px;
   }
 
-  /* ─── RESPONSIVE ──────────────────────────── */
   @media(max-width: 680px) {
     .info-grid, .two-col { grid-template-columns: 1fr; }
     .section-body { padding: 20px 18px; }
     .site-header { padding: 36px 20px 30px; }
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     ENHANCED RESPONSIVE — COMPLETE MOBILE / TABLET OVERHAUL
+  ═══════════════════════════════════════════════════════ */
+
+  /* 0. Global overflow safety */
+  html, body { overflow-x: hidden; }
+  * { max-width: 100%; }
+
+  /* 1. Allow all tables to scroll horizontally
+        — wrap every naked table in a scrollable layer */
+  .sym-table,
+  .comp-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;   /* keep columns from collapsing */
+    border-radius: 0;
+  }
+
+  /* Scroll-hint pseudo-element on the wrapper cells */
+  .sym-table td,  .sym-table th,
+  .comp-table td, .comp-table th {
+    white-space: nowrap;
+  }
+
+  /* 2. SVG / cash-flow diagrams → scrollable */
+  .cf-diagram {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px 12px;
+  }
+  .cf-svg { max-width: none; }  /* let it keep its intrinsic size */
+
+  /* 3. MathJax / formula overflow */
+  .formula-box {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .formula-box .math,
+  .MathJax_Display,
+  mjx-container { max-width: 100%; overflow-x: auto; }
+
+  /* 4. Example & solution blocks overflow */
+  .example-body,
+  .solution-content,
+  .sol-step { overflow-x: auto; }
+
+  /* ── Tablet (481–768px) ── */
+  @media (max-width: 768px) {
+    .container     { padding: 0 18px 60px; }
+    .toc-wrapper   { padding: 0 18px; }
+    .toc           { padding: 22px 22px; }
+    .section-body  { padding: 22px 20px; }
+    .section-header { padding: 18px 22px; gap: 12px; }
+    .section-num   { width: 34px; height: 34px; font-size: 14px; }
+    .section-header h2 { font-size: 17px; }
+    .section-header h2 .ar { font-size: 15px; }
+    .formula-box   { padding: 20px 18px; }
+    .example-body  { padding: 16px 18px; }
+    .question-body { padding: 16px 18px; }
+    .final-section { padding: 24px 20px; }
+    .final-q       { padding: 16px 18px; }
+  }
+
+  /* ── Mobile (≤ 600px) ── */
+  @media (max-width: 600px) {
+    .site-header    { padding: 32px 16px 26px; }
+    .site-header h1 { font-size: clamp(22px, 6vw, 34px); }
+    .header-badges  { gap: 7px; }
+    .badge          { font-size: 11px; padding: 4px 10px; }
+
+    .toc-wrapper    { padding: 0 14px; margin-top: 22px; }
+    .toc            { padding: 18px 16px; }
+    .toc h2         { font-size: 16px; }
+    .toc a          { font-size: 13px; }
+
+    .container      { padding: 0 14px 52px; }
+
+    .section        { margin-top: 36px; }
+    .section-header { padding: 15px 16px; gap: 10px; flex-wrap: wrap; }
+    .section-num    { width: 32px; height: 32px; font-size: 13px; }
+    .section-header h2 { font-size: 15px; }
+    .section-header h2 .ar { font-size: 13.5px; }
+    .section-body   { padding: 18px 14px; }
+    .section-body p { font-size: 14.5px; }
+    .section-body h3 { font-size: 15px; }
+
+    .formula-box    { padding: 18px 14px; border-radius: 10px; }
+    .formula-box .label { letter-spacing: 1px; font-size: 11px; }
+    .formula-box .math  { font-size: 15px; }
+
+    /* Tables: allow horizontal scroll on mobile */
+    .sym-table,
+    .comp-table {
+      font-size: 13px;
+      min-width: 480px;   /* keep layout, let container scroll */
+    }
+    .sym-table th,
+    .comp-table th { padding: 9px 12px; font-size: 12px; }
+    .sym-table td,
+    .comp-table td { padding: 8px 12px; }
+
+    /* Scroll hint bar */
+    .sym-table + .scroll-hint,
+    .comp-table + .scroll-hint {
+      font-size: 11px;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .info-grid, .two-col { grid-template-columns: 1fr; }
+    .info-card { padding: 14px 14px; }
+
+    .steps li { padding: 12px 14px; gap: 10px; }
+    .def-box  { padding: 14px 16px; }
+    .note-box { padding: 12px 14px; }
+
+    .example-body { padding: 14px 14px; }
+    .example-body .given { padding: 10px 12px; }
+    .sol-step { padding: 10px 12px; }
+    .answer-badge { font-size: 12.5px; padding: 6px 14px; }
+
+    .question-body { padding: 16px 14px; }
+    .question-body .q-text { padding: 12px 14px; font-size: 14px; }
+    .solution-toggle { font-size: 12.5px; padding: 8px 16px; }
+
+    .final-section { padding: 20px 14px; border-radius: 10px; }
+    .final-section h2 { font-size: 18px; }
+    .final-section .sub { font-size: 13px; }
+    .final-q { padding: 14px 14px; }
+    .final-q .qt { font-size: 13.5px; line-height: 1.65; }
+    .final-q .sol-btn { font-size: 12px; padding: 7px 14px; }
+    .final-q .sol-content { padding: 12px 12px; }
+    .final-q .sol-content p { font-size: 13px; }
+  }
+
+  /* ── Extra-small (≤ 380px) ── */
+  @media (max-width: 380px) {
+    .container  { padding: 0 10px 44px; }
+    .toc-wrapper { padding: 0 10px; }
+    .section-body { padding: 14px 12px; }
+    .section-body p { font-size: 14px; }
+    .formula-box { padding: 14px 12px; }
+    .final-section { padding: 16px 12px; }
+    .final-q { padding: 12px 12px; }
+  }
+
+  /* Scrollable table wrapper helper (added by JS below) */
+  .table-scroll-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    position: relative;
+  }
+  .table-scroll-wrap::after {
+    content: '← اسحب للتمرير →';
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-light);
+    padding: 4px 0 0;
+    direction: rtl;
+  }
+  @media (min-width: 601px) {
+    .table-scroll-wrap::after { display: none; }
   }
 
   /* ─── UTILITY ─────────────────────────────── */
@@ -1677,6 +1844,28 @@ function toggleFinal(btn) {
   content.classList.toggle('open', !isOpen);
   btn.textContent = isOpen ? '▶ Show Solution' : '▼ Hide Solution';
 }
+
+// Wrap wide tables + SVGs in scrollable containers for mobile
+(function() {
+  // Wrap all tables that aren't already in a scroll wrapper
+  document.querySelectorAll('.sym-table, .comp-table').forEach(function(tbl) {
+    if (tbl.parentElement.classList.contains('table-scroll-wrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'table-scroll-wrap';
+    tbl.parentNode.insertBefore(wrap, tbl);
+    wrap.appendChild(tbl);
+  });
+
+  // Make SVGs inside solution content scrollable
+  document.querySelectorAll('.sol-content svg, .example-body svg, .final-q svg').forEach(function(svg) {
+    if (svg.parentElement.classList.contains('svg-scroll')) return;
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'overflow-x:auto;-webkit-overflow-scrolling:touch;text-align:center;';
+    wrap.className = 'svg-scroll';
+    svg.parentNode.insertBefore(wrap, svg);
+    wrap.appendChild(svg);
+  });
+})();
 </script>
 </body>
 </html>
