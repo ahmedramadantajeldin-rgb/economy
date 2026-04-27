@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 6 – Annual Worth Analysis | Engineering Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<style>
+:root {
+  --primary:      #1a3a6b;
+  --primary-mid:  #2155a3;
+  --accent:       #0e90d2;
+  --accent-light: #4fb8e8;
+  --surface:      #f0f6ff;
+  --surface-2:    #ddeeff;
+  --gold:         #e8b84b;
+  --green:        #1a7f5a;
+  --green-bg:     #edfaf4;
+  --red:          #c0392b;
+  --red-bg:       #fdf0ef;
+  --warn-bg:      #fffbea;
+  --radius:       14px;
+  --shadow-sm:    0 2px 8px rgba(26,58,107,0.10);
+  --shadow-md:    0 6px 24px rgba(26,58,107,0.15);
+  --shadow-lg:    0 12px 40px rgba(26,58,107,0.20);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: #1e2d4a;
+  background: linear-gradient(160deg, #e8f2ff, #f5f9ff, #eef5ff);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  position: relative;
+  background: linear-gradient(135deg, #1a3a6b, #0f2554, #152f6e);
+  border-bottom: 4px solid var(--gold);
+  padding: 52px 40px 44px;
+  text-align: center;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 50%, rgba(14,144,210,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 85% 50%, rgba(232,184,75,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.header-tag {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: rgba(232,184,75,0.12);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+}
+.site-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 10px;
+  position: relative;
+}
+.site-header .subtitle {
+  color: rgba(255,255,255,0.72);
+  font-weight: 300;
+  font-size: 17px;
+  margin-bottom: 22px;
+}
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.badge {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 980px; margin: 0 auto; padding: 36px 20px 60px; }
+
+/* ── TOC ── */
+.toc {
+  background: #fff;
+  border: 1px solid var(--surface-2);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  padding: 28px 36px;
+  margin-bottom: 36px;
+}
+.toc h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--primary);
+  font-size: 20px;
+  border-bottom: 2px solid var(--surface-2);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+.toc ol { padding-right: 20px; }
+.toc li { margin-bottom: 6px; }
+.toc a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.toc a:hover { text-decoration: underline; }
+
+/* ── SECTION CARD ── */
+.section-card {
+  background: #fff;
+  border: 1px solid rgba(33,85,163,0.09);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 32px;
+  animation: fadeUp 0.5s ease both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.section-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-mid));
+  color: #fff;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.sec-num {
+  width: 38px; height: 38px;
+  min-width: 38px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 15px;
+}
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+.section-body { padding: 28px 32px; }
+
+/* ── INFO GRID ── */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 18px 0;
+}
+.info-card {
+  background: var(--surface);
+  border: 1px solid rgba(33,85,163,0.13);
+  border-radius: 10px;
+  padding: 16px 18px;
+  position: relative;
+}
+.info-card .num-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 22px; height: 22px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+}
+.info-card p { font-size: 14.5px; }
+.info-card strong { color: var(--primary); }
+
+/* ── STEPS LIST ── */
+.steps-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.steps-list li {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--surface);
+  border-radius: 10px;
+  border-right: 3px solid var(--accent-light);
+  padding: 13px 16px;
+  font-size: 15px;
+}
+.step-num {
+  min-width: 26px; height: 26px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+}
+
+/* ── DEFINITION BOX ── */
+.def-box {
+  background: linear-gradient(135deg, var(--surface), var(--surface-2));
+  border-right: 4px solid var(--primary);
+  border-left: 4px solid var(--primary);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+
+/* ── NOTE BOX ── */
+.note-box {
+  background: var(--warn-bg);
+  border: 1.5px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex; gap: 12px; align-items: flex-start;
+  margin: 16px 0;
+  color: #7a5800;
+  font-size: 14.5px;
+}
+
+/* ── FORMULA BOX ── */
+.formula-box {
+  background: linear-gradient(135deg, var(--primary), #1a4080);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  margin: 22px 0;
+}
+.formula-box .formula-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.formula-box .formula-eq { font-size: 20px; margin-bottom: 10px; }
+.formula-box .formula-desc { font-size: 14px; color: rgba(255,255,255,0.80); }
+
+/* ── EXAMPLE BOX ── */
+.example-box {
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 22px 0;
+}
+.example-header {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.example-body {
+  background: #f5fbff;
+  padding: 20px 24px;
+}
+.sol-step {
+  background: #fff;
+  border-right: 3px solid var(--green);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  font-size: 14.5px;
+}
+.sol-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+/* ── COMPARE CARDS ── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 18px 0;
+}
+.green-card { background: var(--green-bg); border: 1px solid rgba(26,127,90,0.25); border-radius: 10px; padding: 16px 18px; }
+.red-card   { background: var(--red-bg);   border: 1px solid rgba(192,57,43,0.25);  border-radius: 10px; padding: 16px 18px; }
+.blue-card  { background: var(--surface);  border: 1px solid rgba(33,85,163,0.2);   border-radius: 10px; padding: 16px 18px; }
+.green-card strong { color: var(--green); }
+.red-card strong   { color: var(--red); }
+.blue-card strong  { color: var(--primary); }
+.card-title { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+
+/* ── SYMBOLS TABLE ── */
+.sym-table { width: 100%; border-collapse: collapse; margin: 18px 0; border-radius: 10px; overflow: hidden; }
+.sym-table th { background: var(--primary); color: #fff; padding: 12px 16px; font-size: 14px; text-align: right; }
+.sym-table td { padding: 11px 16px; font-size: 14.5px; border-bottom: 1px solid var(--surface-2); }
+.sym-table tr:nth-child(even) td { background: var(--surface); }
+.sym-table tr:hover td { background: #e0eeff; }
+.sym-table .sym-col { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 16px; font-weight: 700; }
+
+/* ── QUESTION BLOCK ── */
+.question-block {
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 22px 0;
+  background: linear-gradient(#fff9e6, #fffdf5);
+}
+.question-header {
+  background: var(--gold);
+  color: var(--primary);
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.question-body { padding: 18px 22px; }
+.q-text {
+  background: #fff;
+  border-right: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  direction: ltr;
+  text-align: left;
+}
+.toggle-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.toggle-btn:hover { background: var(--accent); }
+.solution-panel {
+  display: none;
+  margin-top: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.solution-panel.open {
+  display: block;
+  animation: fadeDown 0.3s ease;
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── FINAL QUESTIONS ── */
+.final-section {
+  background: linear-gradient(135deg, var(--primary), #0f2554);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 36px 36px 40px;
+  margin-top: 40px;
+}
+.final-section h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+.final-section .fs-sub {
+  color: rgba(255,255,255,0.65);
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+.fq-item {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+.fq-label {
+  color: var(--accent-light);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.fq-text {
+  color: #fff;
+  font-size: 15px;
+  direction: ltr;
+  text-align: left;
+  margin-bottom: 14px;
+}
+.fq-options {
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+  direction: ltr;
+  text-align: left;
+  margin-bottom: 14px;
+  line-height: 2;
+}
+.sol-btn {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.sol-btn:hover { background: rgba(255,255,255,0.25); }
+.fs-solution {
+  display: none;
+  margin-top: 14px;
+  background: rgba(255,255,255,0.05);
+  border-right: 3px solid var(--accent-light);
+  border-radius: 8px;
+  padding: 16px 18px;
+  color: rgba(255,255,255,0.82);
+  font-size: 14px;
+  direction: ltr;
+  text-align: left;
+  animation: fadeDown 0.3s ease;
+}
+.fs-solution.open { display: block; }
+.ans-highlight { color: var(--accent-light); font-weight: 700; font-size: 15px; }
+
+/* ── CASH FLOW SVG ── */
+.cf-container {
+  background: #f5fbff;
+  border: 1px solid var(--surface-2);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin: 18px 0;
+  overflow-x: auto;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  font-size: 13px;
+  padding: 20px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 680px) {
+  .info-grid, .compare-grid { grid-template-columns: 1fr; }
+  .section-body { padding: 20px 18px; }
+  .site-header { padding: 36px 20px 30px; }
+  .final-section { padding: 24px 18px 28px; }
+}
+
+.arabic { font-family: 'Amiri', serif; font-size: 17px; line-height: 2; }
+.en { direction: ltr; display: inline-block; }
+.text-green { color: var(--green); font-weight: 600; }
+.text-red   { color: var(--red);   font-weight: 600; }
+.text-gold  { color: #b8860b;      font-weight: 600; }
+hr.divider { border: none; border-top: 2px solid var(--surface-2); margin: 24px 0; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header class="site-header">
+  <div class="header-tag">Engineering Economics</div>
+  <h1>Chapter 6: Annual Worth Analysis</h1>
+  <p class="subtitle">تحليل القيمة السنوية المكافئة — مفاهيم، تطبيقات، وحلول</p>
+  <div class="badge-row">
+    <span class="badge">📐 AW Analysis</span>
+    <span class="badge">💰 Capital Recovery</span>
+    <span class="badge">♾ Permanent Investments</span>
+    <span class="badge">🔄 Life-Cycle Cost</span>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ CONTAINER ═══════════════════════════ -->
+<div class="container">
+
+<!-- ── TOC ── -->
+<nav class="toc">
+  <h2>📋 محتويات المحاضرة</h2>
+  <ol>
+    <li><a href="#s1">مقدمة في تحليل القيمة السنوية (Annual Worth Analysis)</a></li>
+    <li><a href="#s2">المصطلحات الأساسية (Key Terminology)</a></li>
+    <li><a href="#s3">قاعدة AW = Constant عبر دورات الحياة المتعددة</a></li>
+    <li><a href="#s4">Capital Recovery (CR) — تعريف وحساب</a></li>
+    <li><a href="#s5">مقارنة البدائل بطريقة AW — أمثلة تطبيقية</a></li>
+    <li><a href="#s6">AW للاستثمارات الدائمة (Permanent Investment)</a></li>
+    <li><a href="#s7">تحليل تكاليف دورة الحياة (Life-Cycle Cost Analysis)</a></li>
+    <li><a href="#s8">أسئلة شاملة (Comprehensive Questions)</a></li>
+  </ol>
+</nav>
+
+<!-- ═══════════════════════════ SECTION 1 ═══════════════════════════ -->
+<div class="section-card" id="s1">
+  <div class="section-header">
+    <div class="sec-num">1</div>
+    <h2>مقدمة في تحليل القيمة السنوية — Annual Worth Analysis</h2>
+  </div>
+  <div class="section-body">
+
+    <p>في الفصول السابقة تعلمنا كيفية استخدام <strong>Present Worth (PW)</strong> لتقييم المشاريع، حيث كنا نُحوّل جميع التدفقات النقدية إلى قيمة حاضرة عند نقطة الزمن صفر. أما في هذا الفصل، فسنتعلم طريقة مكافئة تماماً، لكنها تعمل بالاتجاه المعاكس من حيث الفكرة: بدلاً من التحويل إلى نقطة واحدة في البداية، نُحوّل كل التدفقات النقدية إلى <strong>دفعة سنوية ثابتة ومتساوية</strong> تمتد طوال عمر المشروع.</p>
+
+    <div class="def-box">
+      <strong>تعريف Annual Worth (AW):</strong><br>
+      هي القيمة السنوية المكافئة (Equivalent Uniform Annual Worth) لجميع التدفقات النقدية الداخلة والخارجة في المشروع، وتُعبّر عن صافي التدفق النقدي كمبلغ ثابت يتكرر كل عام على مدى عمر المشروع.
+    </div>
+
+    <p>الفكرة الجوهرية هي أننا نتحدث بلغة "كم تكلفني (أو تُدرّ عليّ) هذا المشروع <em>سنوياً</em>؟" وهو سؤال بديهي جداً في اتخاذ القرار الهندسي.</p>
+
+    <hr class="divider">
+    <h3 style="color:var(--primary); margin-bottom:12px;">⚖️ قاعدة القبول والرفض</h3>
+    <p>تماماً مثل طريقة PW، تعتمد طريقة AW نفس منطق القرار:</p>
+
+    <div class="compare-grid">
+      <div class="green-card">
+        <div class="card-title">✅ المشروع مقبول</div>
+        <strong>IF: AW ≥ 0</strong>
+        <p style="font-size:14px; margin-top:6px;">المشروع يُحقق على الأقل معدل العائد المطلوب (MARR)، وبالتالي فهو مجدٍ اقتصادياً.</p>
+      </div>
+      <div class="red-card">
+        <div class="card-title">❌ المشروع مرفوض</div>
+        <strong>IF: AW &lt; 0</strong>
+        <p style="font-size:14px; margin-top:6px;">المشروع لا يُغطي تكلفة رأس المال المطلوبة، وبالتالي غير مجدٍ اقتصادياً.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+    <h3 style="color:var(--primary); margin-bottom:12px;">🔀 أنواع المقترحات (Types of Alternatives)</h3>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="num-badge">1</div>
+        <p style="margin-top:4px;"><strong>Mutually Exclusive (ME):</strong><br>المشاريع المتنافية — لا يمكن اختيار أكثر من مشروع واحد في آنٍ معاً. القاعدة: <strong>اختر المشروع ذا الـ AW الأكبر</strong> (الأقل سلبيةً إذا كانت جميعها سالبة).</p>
+      </div>
+      <div class="info-card">
+        <div class="num-badge">2</div>
+        <p style="margin-top:4px;"><strong>Independent Projects:</strong><br>مشاريع مستقلة — يمكن اختيار أي عدد منها. القاعدة: <strong>اختر كل مشروع AW ≥ 0</strong>، بشرط توافر الميزانية اللازمة.</p>
+      </div>
+    </div>
+
+    <!-- QUESTION BLOCK -->
+    <div class="question-block">
+      <div class="question-header">📝 سؤال اختبار الفهم — Section 1</div>
+      <div class="question-body">
+        <div class="q-text">
+          Q1: The annual worth of an alternative can be calculated from the alternative's:<br>
+          (a) Present worth by multiplying by (A/P, i, n)<br>
+          (b) Future worth by multiplying by (A/F, i, n)<br>
+          (c) Either (a) or (b)<br>
+          (d) None of the above
+        </div>
+        <button class="toggle-btn" onclick="toggleSol(this)">عرض الحل ▼</button>
+        <div class="solution-panel">
+          <div class="sol-step">
+            <div class="sol-label">الإجابة الصحيحة</div>
+            <strong>(c) Either (a) or (b)</strong>
+          </div>
+          <div class="sol-step">
+            <div class="sol-label">الشرح</div>
+            يمكن تحويل أي قيمة (PW أو FW) إلى AW باستخدام عوامل التحويل المناسبة:
+            <ul style="margin-top:8px; padding-right:20px;">
+              <li>من PW إلى AW: نضرب في (A/P, i%, n)</li>
+              <li>من FW إلى AW: نضرب في (A/F, i%, n)</li>
+            </ul>
+            وكلا الطريقتين تُعطيان نفس النتيجة تماماً.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECTION 2 ═══════════════════════════ -->
+<div class="section-card" id="s2">
+  <div class="section-header">
+    <div class="sec-num">2</div>
+    <h2>المصطلحات الأساسية — Key Terminology</h2>
+  </div>
+  <div class="section-body">
+
+    <p>قبل أن ندخل في التطبيقات، لا بد من مراجعة المصطلحات الأساسية التي سنستخدمها باستمرار في هذا الفصل:</p>
+
+    <table class="sym-table">
+      <thead>
+        <tr>
+          <th>الرمز / Symbol</th>
+          <th>الاسم الكامل</th>
+          <th>التعريف والتوضيح</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sym-col">P</td>
+          <td>Initial Investment / First Cost</td>
+          <td>التكلفة الابتدائية للمشروع أو الأصل — تحدث عند الزمن t=0 وتُعتبر تدفقاً خارجاً (Cash Out)</td>
+        </tr>
+        <tr>
+          <td class="sym-col">S</td>
+          <td>Salvage Value</td>
+          <td>القيمة المتبقية (الإنقاذية) للأصل في نهاية عمره الإنتاجي — تُعتبر تدفقاً داخلاً (Cash In)</td>
+        </tr>
+        <tr>
+          <td class="sym-col">A</td>
+          <td>Annual Amount (AOC)</td>
+          <td>المبلغ السنوي المتساوي — مثل تكاليف التشغيل السنوية (Annual Operating Cost). إذا كانت تكلفة فهي خارجة وتأخذ إشارة سالبة</td>
+        </tr>
+        <tr>
+          <td class="sym-col">n</td>
+          <td>Useful Life</td>
+          <td>العمر الإنتاجي (الاقتصادي) للأصل أو المشروع بالسنوات</td>
+        </tr>
+        <tr>
+          <td class="sym-col">i</td>
+          <td>Interest Rate / MARR</td>
+          <td>معدل الفائدة، أو الحد الأدنى المقبول لمعدل العائد (Minimum Attractive Rate of Return)</td>
+        </tr>
+        <tr>
+          <td class="sym-col">AW</td>
+          <td>Annual Worth</td>
+          <td>صافي القيمة السنوية المكافئة لكل التدفقات النقدية في المشروع</td>
+        </tr>
+        <tr>
+          <td class="sym-col">CR</td>
+          <td>Capital Recovery</td>
+          <td>استرداد رأس المال — القيمة السنوية المكافئة للتكلفة الابتدائية والقيمة المتبقية فقط</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <span style="font-size:20px;">⚠️</span>
+      <div>
+        <strong>تذكير مهم:</strong> في مسائل AW، عندما نتعامل مع التكاليف (Costs) نأخذها بإشارة سالبة، والإيرادات (Revenues) بإشارة موجبة. القيمة المتبقية S دائماً موجبة لأنها مبلغ نستردّه.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECTION 3 ═══════════════════════════ -->
+<div class="section-card" id="s3">
+  <div class="section-header">
+    <div class="sec-num">3</div>
+    <h2>AW ثابت عبر دورات الحياة — لماذا لا نحتاج LCM؟</h2>
+  </div>
+  <div class="section-body">
+
+    <p>تذكر في طريقة PW عندما كانت عمار المشاريع مختلفة، كنا مضطرين لاستخدام <strong>LCM (Least Common Multiple)</strong> — المضاعف المشترك الأصغر — حتى تتساوى الفترات الزمنية قبل المقارنة. هذا كان مُرهقاً حسابياً خصوصاً إذا كانت الأعمار كبيرة (مثلاً 7 سنوات و9 سنوات → LCM = 63 سنة!).</p>
+
+    <div class="def-box">
+      <strong>🌟 الخاصية الأهم في AW:</strong><br>
+      القيمة السنوية (AW) المحسوبة لدورة حياة واحدة (one life cycle) تبقى <strong>ثابتة تماماً</strong> لو كررت المشروع مرتين أو ثلاثاً أو حتى لا نهاية! لذلك <strong>لا حاجة مطلقاً لاستخدام LCM</strong> عند مقارنة البدائل بطريقة AW.
+    </div>
+
+    <p>دعنا نُثبت هذه الخاصية الرياضية بمثال عملي كامل:</p>
+
+    <!-- Example 1 -->
+    <div class="example-box">
+      <div class="example-header">📊 Example 1 — Proving AW is Constant Across Life Cycles</div>
+      <div class="example-body">
+        <p style="margin-bottom:14px;"><strong>Problem:</strong> An asset has a first cost of $20,000, an annual operating cost of $8,000 and a salvage value of $5,000 after 3 years. Calculate the AW for one and two life cycles at i = 10% per year.</p>
+
+        <!-- Cash Flow One Cycle -->
+        <p style="font-weight:600; color:var(--primary); margin-bottom:8px;">Cash Flow Diagram — One Life Cycle (3 years):</p>
+        <div class="cf-container">
+          <svg viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:420px;">
+            <!-- Legend -->
+            <rect x="380" y="10" width="130" height="54" rx="6" fill="white" stroke="#ddeeff" stroke-width="1.5"/>
+            <line x1="390" y1="25" x2="410" y2="25" stroke="#1a7f5a" stroke-width="2.5"/>
+            <polygon points="410,22 415,25 410,28" fill="#1a7f5a"/>
+            <text x="418" y="29" font-size="11" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">Cash In</text>
+            <line x1="390" y1="48" x2="410" y2="48" stroke="#c0392b" stroke-width="2.5"/>
+            <polygon points="410,45 415,48 410,51" fill="#c0392b"/>
+            <text x="418" y="52" font-size="11" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">Cash Out</text>
+            <!-- Timeline -->
+            <line x1="40" y1="100" x2="460" y2="100" stroke="#1a3a6b" stroke-width="2.5"/>
+            <polygon points="455,96 464,100 455,104" fill="#1a3a6b"/>
+            <!-- Ticks & Labels -->
+            <line x1="60" y1="95" x2="60" y2="105" stroke="#1a3a6b" stroke-width="2"/>
+            <text x="56" y="118" font-size="12" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">0</text>
+            <line x1="180" y1="95" x2="180" y2="105" stroke="#1a3a6b" stroke-width="2"/>
+            <text x="176" y="118" font-size="12" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">1</text>
+            <line x1="300" y1="95" x2="300" y2="105" stroke="#1a3a6b" stroke-width="2"/>
+            <text x="296" y="118" font-size="12" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">2</text>
+            <line x1="420" y1="95" x2="420" y2="105" stroke="#1a3a6b" stroke-width="2"/>
+            <text x="416" y="118" font-size="12" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">3</text>
+            <text x="200" y="135" font-size="12" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif" text-anchor="middle">Year</text>
+            <!-- P = 20K down at 0 -->
+            <line x1="60" y1="100" x2="60" y2="145" stroke="#c0392b" stroke-width="2.5"/>
+            <polygon points="57,145 60,152 63,145" fill="#c0392b"/>
+            <text x="63" y="150" font-size="11" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">P=$20K</text>
+            <!-- AOC down at 1,2 -->
+            <line x1="180" y1="100" x2="180" y2="130" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="177,130 180,136 183,130" fill="#c0392b"/>
+            <text x="165" y="148" font-size="10" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">$8K</text>
+            <line x1="300" y1="100" x2="300" y2="130" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="297,130 300,136 303,130" fill="#c0392b"/>
+            <text x="285" y="148" font-size="10" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">$8K</text>
+            <!-- S = 5K up at 3 -->
+            <line x1="420" y1="100" x2="420" y2="60" stroke="#1a7f5a" stroke-width="2.5"/>
+            <polygon points="417,60 420,53 423,60" fill="#1a7f5a"/>
+            <text x="424" y="58" font-size="11" fill="#1a7f5a" font-family="IBM Plex Sans,sans-serif">S=$5K</text>
+            <!-- AOC at 3 (down) -->
+            <line x1="420" y1="100" x2="420" y2="130" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="417,130 420,136 423,130" fill="#c0392b"/>
+            <text x="427" y="148" font-size="10" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">$8K</text>
+          </svg>
+        </div>
+
+        <div class="sol-step">
+          <div class="sol-label">One Life Cycle Solution</div>
+          <p>AW<sub>one</sub> (10%) = −20,000 (A/P, 10%, 3) − 8,000 + 5,000 (A/F, 10%, 3)</p>
+          <p>= −20,000 × <strong>0.4021</strong> − 8,000 + 5,000 × <strong>0.3021</strong></p>
+          <p>= −8,042 − 8,000 + 1,510</p>
+          <p class="text-red">= <strong>$−14,532 / year</strong></p>
+        </div>
+
+        <!-- Cash Flow Two Cycles -->
+        <p style="font-weight:600; color:var(--primary); margin:16px 0 8px;">Cash Flow Diagram — Two Life Cycles (6 years):</p>
+        <div class="cf-container">
+          <svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:560px;">
+            <!-- Timeline -->
+            <line x1="30" y1="100" x2="660" y2="100" stroke="#1a3a6b" stroke-width="2.5"/>
+            <polygon points="655,96 664,100 655,104" fill="#1a3a6b"/>
+            <!-- Years 0-6 -->
+            <line x1="55" y1="95" x2="55" y2="105" stroke="#1a3a6b" stroke-width="2"/><text x="51" y="118" font-size="11" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">0</text>
+            <line x1="155" y1="95" x2="155" y2="105" stroke="#1a3a6b" stroke-width="2"/><text x="151" y="118" font-size="11" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">1</text>
+            <line x1="255" y1="95" x2="255" y2="105" stroke="#1a3a6b" stroke-width="2"/><text x="251" y="118" font-size="11" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">2</text>
+            <line x1="355" y1="95" x2="355" y2="105" stroke="#1a3a6b" stroke-width="2"/><text x="351" y="118" font-size="11" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">3</text>
+            <line x1="455" y1="95" x2="455" y2="105" stroke="#1a3a6b" stroke-width="2"/><text x="451" y="118" font-size="11" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">4</text>
+            <line x1="555" y1="95" x2="555" y2="105" stroke="#1a3a6b" stroke-width="2"/><text x="551" y="118" font-size="11" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">5</text>
+            <line x1="635" y1="95" x2="635" y2="105" stroke="#1a3a6b" stroke-width="2"/><text x="631" y="118" font-size="11" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">6</text>
+            <!-- P0 down -->
+            <line x1="55" y1="100" x2="55" y2="148" stroke="#c0392b" stroke-width="2.5"/>
+            <polygon points="52,148 55,155 58,148" fill="#c0392b"/>
+            <text x="10" y="160" font-size="10" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">$20K</text>
+            <!-- AOC at 1,2 down -->
+            <line x1="155" y1="100" x2="155" y2="128" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="152,128 155,134 158,128" fill="#c0392b"/>
+            <text x="140" y="146" font-size="9" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">$8K</text>
+            <line x1="255" y1="100" x2="255" y2="128" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="252,128 255,134 258,128" fill="#c0392b"/>
+            <text x="240" y="146" font-size="9" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">$8K</text>
+            <!-- At year 3: P2 down + AOC down (net = 20K-5K+8K=23K net out) + S up -->
+            <!-- Actually: S=5K up AND new P=20K down AND AOC=8K down -->
+            <line x1="355" y1="100" x2="355" y2="60" stroke="#1a7f5a" stroke-width="2.5"/>
+            <polygon points="352,60 355,53 358,60" fill="#1a7f5a"/>
+            <text x="360" y="56" font-size="9" fill="#1a7f5a" font-family="IBM Plex Sans,sans-serif">S=$5K</text>
+            <line x1="355" y1="100" x2="355" y2="148" stroke="#c0392b" stroke-width="2.5"/>
+            <polygon points="352,148 355,155 358,148" fill="#c0392b"/>
+            <text x="310" y="163" font-size="9" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">$20K+$8K</text>
+            <!-- AOC at 4,5 -->
+            <line x1="455" y1="100" x2="455" y2="128" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="452,128 455,134 458,128" fill="#c0392b"/>
+            <text x="440" y="146" font-size="9" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">$8K</text>
+            <line x1="555" y1="100" x2="555" y2="128" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="552,128 555,134 558,128" fill="#c0392b"/>
+            <text x="540" y="146" font-size="9" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">$8K</text>
+            <!-- At year 6: S up, AOC down -->
+            <line x1="635" y1="100" x2="635" y2="60" stroke="#1a7f5a" stroke-width="2.5"/>
+            <polygon points="632,60 635,53 638,60" fill="#1a7f5a"/>
+            <text x="641" y="56" font-size="9" fill="#1a7f5a" font-family="IBM Plex Sans,sans-serif">S=$5K</text>
+            <line x1="635" y1="100" x2="635" y2="128" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="632,128 635,134 638,128" fill="#c0392b"/>
+            <text x="620" y="146" font-size="9" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">$8K</text>
+            <text x="250" y="135" font-size="11" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif" text-anchor="middle">Year</text>
+          </svg>
+        </div>
+
+        <div class="sol-step">
+          <div class="sol-label">Two Life Cycles Solution</div>
+          <p>AW<sub>two</sub> (10%) = −20,000(A/P,10%,6) − 8,000 − 15,000(P/F,10%,3)(A/P,10%,6) + 5,000(A/F,10%,6)</p>
+          <p style="font-size:13px; color:#555;">ملاحظة: $15,000 = $20,000 − $5,000 = صافي التكلفة عند بداية الدورة الثانية (سنة 3)</p>
+          <p class="text-red">= <strong>$−14,532 / year ← نفس القيمة تماماً! 🎯</strong></p>
+        </div>
+
+        <div class="note-box">
+          <span style="font-size:20px;">🎓</span>
+          <div>
+            <strong>الاستنتاج:</strong> AW لدورة حياة واحدة = AW لدورتين = AW لثلاث دورات = ... = AW لعدد لا نهائي من الدورات. لذلك عند مقارنة بدائل بأعمار مختلفة بطريقة AW، نحسب AW لكل بديل على أساس عمره الأصلي فقط، ولا نحتاج LCM أبداً!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION -->
+    <div class="question-block">
+      <div class="question-header">📝 سؤال اختبار الفهم — Section 3</div>
+      <div class="question-body">
+        <div class="q-text">
+          An asset has a first cost of $20,000, an annual operating cost of $12,000 and a $4,000 salvage value after its 4-year life. If the project will be needed for 6 years, what would the market (salvage) value of the 2-year-old asset have to be for the annual worth to be the same as it is for one life cycle? Use i = 10% per year.
+        </div>
+        <button class="toggle-btn" onclick="toggleSol(this)">عرض الحل ▼</button>
+        <div class="solution-panel">
+          <div class="sol-step">
+            <div class="sol-label">الخطوة 1 — احسب AW لدورة واحدة</div>
+            <p>AW = −20,000(A/P,10%,4) − 12,000 + 4,000(A/F,10%,4)</p>
+            <p>= −20,000(0.3155) − 12,000 + 4,000(0.2155)</p>
+            <p>= −6,310 − 12,000 + 862 = <strong>$−17,448/year</strong></p>
+          </div>
+          <div class="sol-step">
+            <div class="sol-label">الخطوة 2 — اكتب معادلة AW للـ 6 سنوات</div>
+            <p>للسنوات 1-4: نفس الدورة الأولى</p>
+            <p>للسنوات 5-6: نُشغّل الأصل لـ 2 سنة فقط، وقيمة البيع = MV (مجهولة)</p>
+            <p>AW(6-year) = −20,000(A/P,10%,6) − 12,000 − (20,000 − MV)(P/F,10%,4)(A/P,10%,6) + MV(P/F,10%,6)(A/P,10%,6)</p>
+          </div>
+          <div class="sol-step">
+            <div class="sol-label">الخطوة 3 — ضع AW(6 years) = −17,448 وأحلّ</div>
+            <p>بعد الحل: <strong class="text-green">MV ≈ $12,756</strong></p>
+            <p>أي أن القيمة السوقية للأصل بعد سنتين من استخدامه يجب أن تكون $12,756 ليبقى الـ AW ثابتاً.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECTION 4 ═══════════════════════════ -->
+<div class="section-card" id="s4">
+  <div class="section-header">
+    <div class="sec-num">4</div>
+    <h2>Capital Recovery (CR) — استرداد رأس المال</h2>
+  </div>
+  <div class="section-body">
+
+    <p>لنفهم مصطلح <strong>Capital Recovery (CR)</strong> بشكل عميق: عندما تستثمر في أصل ما، أنت تدفع P الآن وتسترد S في النهاية. السؤال: ما هو المبلغ السنوي المكافئ لهذا الاستثمار الأولي والقيمة المتبقية؟ هذا بالضبط هو CR.</p>
+
+    <div class="def-box">
+      <strong>تعريف Capital Recovery (CR):</strong><br>
+      هو القيمة السنوية المكافئة (AW) للتكلفة الابتدائية P والقيمة المتبقية S فقط — أي استرداد تكلفة الأصل الرأسمالي موزعةً على سنوات عمره مع مراعاة تكلفة الفرصة البديلة (معدل الفائدة i). يُعبّر عنه رياضياً كما يلي:
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-label">Capital Recovery Formula</div>
+      <div class="formula-eq">\[ CR = P \cdot (A/P, i\%, n) - S \cdot (A/F, i\%, n) \]</div>
+      <div class="formula-desc">CR يُعطي القيمة الموجبة (تكلفة) — كلما كان CR أصغر، كان الاستثمار أكثر كفاءة في استرداد رأس المال</div>
+    </div>
+
+    <p>والآن العلاقة الكاملة بين AW و CR:</p>
+
+    <div class="formula-box" style="background: linear-gradient(135deg, #1a4080, #0e3060);">
+      <div class="formula-label">Complete AW Formula</div>
+      <div class="formula-eq">\[ AW = CR + A \]</div>
+      <div class="formula-desc">حيث A = التدفق السنوي المتساوي (مثل AOC) — إذا كان تكلفة يكون سالباً</div>
+    </div>
+
+    <div class="note-box">
+      <span style="font-size:20px;">🔍</span>
+      <div>
+        <strong>لماذا CR مفيد؟</strong> يستخدم CR لتحديد الحد الأدنى من الإيرادات السنوية المطلوبة لتغطية الاستثمار الأولي. مثلاً: إذا علمت أن CR = $50,000/year، فأنت تعرف أنك تحتاج على الأقل $50,000 سنوياً من الإيرادات قبل حساب تكاليف التشغيل.
+      </div>
+    </div>
+
+    <!-- Example 4 -->
+    <div class="example-box">
+      <div class="example-header">📊 Example 4 — Capital Recovery Calculation</div>
+      <div class="example-body">
+        <p style="margin-bottom:14px;"><strong>Problem:</strong> An asset has a first cost of $20,000, an annual operating cost of $8,000 and a salvage value of $5,000 after 3 years. Calculate its capital recovery cost at i = 10%.</p>
+        <div class="cf-container">
+          <svg viewBox="0 0 420 150" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:360px;">
+            <line x1="40" y1="90" x2="380" y2="90" stroke="#1a3a6b" stroke-width="2.5"/>
+            <polygon points="375,86 384,90 375,94" fill="#1a3a6b"/>
+            <line x1="60" y1="85" x2="60" y2="95" stroke="#1a3a6b" stroke-width="2"/><text x="55" y="108" font-size="12" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">0</text>
+            <line x1="160" y1="85" x2="160" y2="95" stroke="#1a3a6b" stroke-width="2"/><text x="155" y="108" font-size="12" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">1</text>
+            <line x1="260" y1="85" x2="260" y2="95" stroke="#1a3a6b" stroke-width="2"/><text x="255" y="108" font-size="12" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">2</text>
+            <line x1="360" y1="85" x2="360" y2="95" stroke="#1a3a6b" stroke-width="2"/><text x="355" y="108" font-size="12" fill="#1e2d4a" font-family="IBM Plex Sans,sans-serif">3</text>
+            <!-- P down -->
+            <line x1="60" y1="90" x2="60" y2="135" stroke="#c0392b" stroke-width="2.5"/>
+            <polygon points="57,135 60,142 63,135" fill="#c0392b"/>
+            <text x="18" y="145" font-size="11" fill="#c0392b" font-family="IBM Plex Sans,sans-serif">P=$20K</text>
+            <!-- S up at 3 -->
+            <line x1="360" y1="90" x2="360" y2="50" stroke="#1a7f5a" stroke-width="2.5"/>
+            <polygon points="357,50 360,43 363,50" fill="#1a7f5a"/>
+            <text x="366" y="46" font-size="11" fill="#1a7f5a" font-family="IBM Plex Sans,sans-serif">S=$5K</text>
+            <!-- AOC note -->
+            <text x="160" y="125" font-size="11" fill="#c0392b" font-family="IBM Plex Sans,sans-serif" text-anchor="middle">AOC=$8K/yr (not included in CR)</text>
+          </svg>
+        </div>
+        <div class="sol-step">
+          <div class="sol-label">الحل</div>
+          <p>CR = P(A/P, i%, n) − S(A/F, i%, n)</p>
+          <p>CR = 20,000 × (A/P, 10%, 3) − 5,000 × (A/F, 10%, 3)</p>
+          <p>CR = 20,000 × <strong>0.4021</strong> − 5,000 × <strong>0.3021</strong></p>
+          <p>CR = 8,042 − 1,510.5</p>
+          <p class="text-red">= <strong>$6,531.5 ≈ $6,532 / year</strong></p>
+        </div>
+        <div class="sol-step">
+          <div class="sol-label">التحقق — AW الكامل</div>
+          <p>AW = CR + A = −6,532 + (−8,000) = <strong>$−14,532/year</strong> ✓ (نفس مثال 1)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION -->
+    <div class="question-block">
+      <div class="question-header">📝 سؤال اختبار الفهم — Section 4</div>
+      <div class="question-body">
+        <div class="q-text">
+          Humana Hospital Corporation installed a new MRI machine at a cost of $750,000 this year. This state-of-the-art system is expected to be used for 5 years and then sold for $75,000. Humana uses a return requirement of 24% per year. Determine the minimum annual revenue required to realize the expected recovery and return (i.e., find the Capital Recovery amount).
+        </div>
+        <button class="toggle-btn" onclick="toggleSol(this)">عرض الحل ▼</button>
+        <div class="solution-panel">
+          <div class="sol-step">
+            <div class="sol-label">المعطيات</div>
+            <p>P = $750,000 | S = $75,000 | n = 5 years | i = 24%/year</p>
+          </div>
+          <div class="sol-step">
+            <div class="sol-label">الحل</div>
+            <p>CR = P(A/P, 24%, 5) − S(A/F, 24%, 5)</p>
+            <p>CR = 750,000 × (A/P, 24%, 5) − 75,000 × (A/F, 24%, 5)</p>
+            <p>CR = 750,000 × <strong>0.3759</strong> − 75,000 × <strong>0.1359</strong></p>
+            <p>CR = 281,925 − 10,192</p>
+            <p class="text-red">CR ≈ <strong>$271,733 ≈ $263,869/year</strong></p>
+            <p style="font-size:13px; color:#555;">يُعني ذلك أن المستشفى يجب أن يُحقق على الأقل $263,869 سنوياً من الأشعة المغناطيسية لتغطية تكلفة الجهاز وحده (دون تكاليف التشغيل).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECTION 5 ═══════════════════════════ -->
+<div class="section-card" id="s5">
+  <div class="section-header">
+    <div class="sec-num">5</div>
+    <h2>مقارنة البدائل — Alternative Comparison Using AW</h2>
+  </div>
+  <div class="section-body">
+
+    <p>من أقوى تطبيقات طريقة AW هي مقارنة بدائل متعددة ذات أعمار مختلفة بشكل مباشر ودون الحاجة لتوحيد الفترات الزمنية. الخطوات دائماً:</p>
+
+    <ul class="steps-list">
+      <li><div class="step-num">1</div><div>احسب AW لكل بديل على حدة باستخدام عمره الأصلي</div></li>
+      <li><div class="step-num">2</div><div>قارن القيم: اختر البديل ذا الـ AW الأعلى (الأقل سلبيةً للمشاريع الخدمية)</div></li>
+      <li><div class="step-num">3</div><div>إذا كانت الـ AW موجبة، فكلا المشروعَين مقبولَين — اختر الأفضل منهما</div></li>
+    </ul>
+
+    <!-- Example 2 -->
+    <div class="example-box">
+      <div class="example-header">📊 Example 2 — Machine Selection (Different Lives)</div>
+      <div class="example-body">
+        <p><strong>Problem:</strong> A company is considering two machines. Machine X has a first cost of $30,000, AOC of $18,000, and S of $7,000 after 4 years. Machine Y will cost $50,000 with an AOC of $16,000 and S of $9,000 after 6 years. Which machine should the company select at i = 12% per year?</p>
+
+        <div class="compare-grid" style="margin: 14px 0;">
+          <div class="blue-card">
+            <div class="card-title">🔧 Machine X</div>
+            <p>P = $30,000 | AOC = $18,000/yr<br>S = $7,000 | n = 4 years</p>
+          </div>
+          <div class="blue-card">
+            <div class="card-title">⚙️ Machine Y</div>
+            <p>P = $50,000 | AOC = $16,000/yr<br>S = $9,000 | n = 6 years</p>
+          </div>
+        </div>
+
+        <div class="sol-step">
+          <div class="sol-label">Machine X — AW Calculation</div>
+          <p>AW<sub>X</sub> = −30,000(A/P, 12%, 4) − 18,000 + 7,000(A/F, 12%, 4)</p>
+          <p>= −30,000 × <strong>0.3292</strong> − 18,000 + 7,000 × <strong>0.2092</strong></p>
+          <p>= −9,876 − 18,000 + 1,464</p>
+          <p class="text-red">= <strong>$−26,412 / year</strong></p>
+        </div>
+
+        <div class="sol-step">
+          <div class="sol-label">Machine Y — AW Calculation</div>
+          <p>AW<sub>Y</sub> = −50,000(A/P, 12%, 6) − 16,000 + 9,000(A/F, 12%, 6)</p>
+          <p>= −50,000 × <strong>0.2432</strong> − 16,000 + 9,000 × <strong>0.1232</strong></p>
+          <p>= −12,160 − 16,000 + 1,108.8</p>
+          <p class="text-red">= <strong>$−27,051 / year</strong></p>
+        </div>
+
+        <div class="sol-step">
+          <div class="sol-label">القرار</div>
+          <p>AW<sub>X</sub> = −$26,412 &nbsp;>&nbsp; AW<sub>Y</sub> = −$27,051</p>
+          <p class="text-green"><strong>✅ اختر Machine X</strong> — تكلفتها السنوية أقل بحوالي $639/year</p>
+          <p style="font-size:13px; margin-top:6px;">ملاحظة: لا داعي لـ LCM رغم أن أعمارهما مختلفة (4 و6 سنوات)!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example MCQ 1 -->
+    <div class="example-box">
+      <div class="example-header">📊 Example — Method Comparison (MCQ Type)</div>
+      <div class="example-body">
+        <p><strong>Problem:</strong> Two methods for producing a machine part. Method A: first cost $60,000, S = $15,000, n = 3 years, AOC = $35,000/year. Method B: first cost $45,000, S = $10,000, n = 2 years, AOC = $25,000/year. At i = 12% per year:</p>
+        <p>(A) AW<sub>A</sub> = −$55,540, AW<sub>B</sub> = −$56,340 &nbsp;&nbsp; (B) AW<sub>A</sub> = −$55,540, AW<sub>B</sub> = −$46,910</p>
+        <p>(C) AW<sub>A</sub> = −$61,420, AW<sub>B</sub> = −$46,910 &nbsp;&nbsp; (D) AW<sub>A</sub> = −$61,420, AW<sub>B</sub> = −$56,340</p>
+
+        <div class="sol-step">
+          <div class="sol-label">Method A</div>
+          <p>AW<sub>A</sub> = −60,000(A/P,12%,3) − 35,000 + 15,000(A/F,12%,3)</p>
+          <p>= −60,000(0.4163) − 35,000 + 15,000(0.2963)</p>
+          <p>= −24,978 − 35,000 + 4,444.5 = <strong class="text-red">$−55,533 ≈ −$55,540</strong></p>
+        </div>
+        <div class="sol-step">
+          <div class="sol-label">Method B</div>
+          <p>AW<sub>B</sub> = −45,000(A/P,12%,2) − 25,000 + 10,000(A/F,12%,2)</p>
+          <p>= −45,000(0.5917) − 25,000 + 10,000(0.4717)</p>
+          <p>= −26,626.5 − 25,000 + 4,717 = <strong class="text-red">$−46,909 ≈ −$46,910</strong></p>
+        </div>
+        <div class="sol-step">
+          <div class="sol-label">الإجابة</div>
+          <p class="text-green"><strong>(B) AW<sub>A</sub> = −$55,540, AW<sub>B</sub> = −$46,910 → اختر Method B</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example Process J & K -->
+    <div class="example-box">
+      <div class="example-header">📊 Example — Process Comparison (MCQ Type)</div>
+      <div class="example-body">
+        <p><strong>Problem:</strong> Compare two metal sorting processes at i = 10%/year:</p>
+        <table class="sym-table" style="margin-bottom:14px;">
+          <tr><th>Item</th><th>Process J</th><th>Process K</th></tr>
+          <tr><td>First cost, $</td><td>90,000</td><td>120,000</td></tr>
+          <tr><td>Annual operating cost, $</td><td>70,000</td><td>60,000</td></tr>
+          <tr><td>Salvage value, $</td><td>10,000</td><td>40,000</td></tr>
+          <tr><td>Life, years</td><td>5</td><td>4</td></tr>
+        </table>
+        <div class="sol-step">
+          <div class="sol-label">Process J</div>
+          <p>AW<sub>J</sub> = −90,000(A/P,10%,5) − 70,000 + 10,000(A/F,10%,5)</p>
+          <p>= −90,000(0.2638) − 70,000 + 10,000(0.1638)</p>
+          <p>= −23,742 − 70,000 + 1,638 = <strong class="text-red">$−92,104 ≈ −$92,100</strong></p>
+        </div>
+        <div class="sol-step">
+          <div class="sol-label">Process K</div>
+          <p>AW<sub>K</sub> = −120,000(A/P,10%,4) − 60,000 + 40,000(A/F,10%,4)</p>
+          <p>= −120,000(0.3155) − 60,000 + 40,000(0.2155)</p>
+          <p>= −37,860 − 60,000 + 8,620 = <strong class="text-red">$−89,240</strong></p>
+        </div>
+        <div class="sol-step">
+          <div class="sol-label">الإجابة</div>
+          <p class="text-green"><strong>(C) AW<sub>J</sub> = −$92,100, AW<sub>K</sub> = −$89,240 → اختر Process K</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION -->
+    <div class="question-block">
+      <div class="question-header">📝 سؤال اختبار الفهم — Section 5</div>
+      <div class="question-body">
+        <div class="q-text">
+          TT Racing Corporation wishes to evaluate two CNC machines using AW method at i = 10% per year:<br><br>
+          Machine R: First cost = $250,000 | AOC = $40,000/yr | S = $20,000 | n = 3 years<br>
+          Machine S: First cost = $370,500 | AOC = $50,000/yr | S = $30,000 | n = 5 years<br><br>
+          Which machine should be selected?
+        </div>
+        <button class="toggle-btn" onclick="toggleSol(this)">عرض الحل ▼</button>
+        <div class="solution-panel">
+          <div class="sol-step">
+            <div class="sol-label">Machine R</div>
+            <p>AW<sub>R</sub> = −250,000(A/P,10%,3) − 40,000 + 20,000(A/F,10%,3)</p>
+            <p>= −250,000(0.4021) − 40,000 + 20,000(0.3021)</p>
+            <p>= −100,525 − 40,000 + 6,042 = <strong class="text-red">$−134,483</strong></p>
+          </div>
+          <div class="sol-step">
+            <div class="sol-label">Machine S</div>
+            <p>AW<sub>S</sub> = −370,500(A/P,10%,5) − 50,000 + 30,000(A/F,10%,5)</p>
+            <p>= −370,500(0.2638) − 50,000 + 30,000(0.1638)</p>
+            <p>= −97,725.9 − 50,000 + 4,914 = <strong class="text-red">$−142,812</strong></p>
+          </div>
+          <div class="sol-step">
+            <div class="sol-label">القرار</div>
+            <p class="text-green"><strong>✅ Select Machine R</strong> (AW<sub>R</sub> = −$134,483 > AW<sub>S</sub> = −$142,812)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECTION 6 ═══════════════════════════ -->
+<div class="section-card" id="s6">
+  <div class="section-header">
+    <div class="sec-num">6</div>
+    <h2>AW للاستثمارات الدائمة — Permanent Investment (n → ∞)</h2>
+  </div>
+  <div class="section-body">
+
+    <p>بعض المشاريع الكبيرة مثل السدود، والجسور، والطرق، والمباني الحكومية تُصمَّم لتدوم إلى الأبد (أو على الأقل فترة زمنية طويلة جداً تُعامَل رياضياً كأنها لا نهاية). كيف نحسب AW في هذه الحالة؟</p>
+
+    <div class="def-box">
+      <strong>مبدأ Capitalized Cost:</strong><br>
+      عندما n → ∞، تتحول معادلة AW إلى:
+      <div style="text-align:center; margin-top:12px; font-size:18px; font-weight:700; color:var(--primary);">
+        A = P × i
+      </div>
+      <p style="margin-top:8px;">وهذا مشتق من: A = P(A/P, i%, n) عندما n → ∞، يصبح (A/P) = i</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-label">AW for Permanent / Infinite-Life Investment</div>
+      <div class="formula-eq">\[ AW_\infty = P \cdot i \]</div>
+      <div class="formula-desc">للاستثمار ذو العمر غير المحدود (n → ∞) — أي دفع P الآن يكافئ دفع (P×i) سنوياً للأبد</div>
+    </div>
+
+    <div class="note-box">
+      <span style="font-size:20px;">⚙️</span>
+      <div>
+        <strong>ماذا عن تكاليف التجديد المتكررة في المشاريع الدائمة؟</strong><br>
+        إذا كان هناك تكلفة متكررة كل n سنوات (مثل صيانة كبرى كل 10 سنوات)، فإننا نحوّلها أولاً إلى PW ثم نحسب A المكافئة:
+        <br><br>
+        A = P<sub>recurring</sub> × (A/F, i%, n) &nbsp;&nbsp; [للتكاليف المتكررة]
+        <br>أو:&nbsp; A = P<sub>recurring</sub> × (A/P, i%, n) &nbsp;&nbsp; [إذا كانت في بداية الدورة]
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="example-box">
+      <div class="example-header">📊 Example 3 — Permanent vs Finite Life (Compare C and D)</div>
+      <div class="example-body">
+        <table class="sym-table" style="margin-bottom:14px;">
+          <tr><th>Item</th><th>Alternative C</th><th>Alternative D</th></tr>
+          <tr><td>First Cost, $</td><td>−50,000</td><td>−250,000</td></tr>
+          <tr><td>Annual Operating Cost, $/year</td><td>−20,000</td><td>−9,000</td></tr>
+          <tr><td>Salvage Value, $</td><td>5,000</td><td>75,000</td></tr>
+          <tr><td>Life, years</td><td>5</td><td>∞</td></tr>
+        </table>
+
+        <div class="sol-step">
+          <div class="sol-label">Alternative C — Finite Life (n = 5)</div>
+          <p>AW<sub>C</sub> = −50,000(A/P,10%,5) − 20,000 + 5,000(A/F,10%,5)</p>
+          <p>= −50,000(0.2638) − 20,000 + 5,000(0.1638)</p>
+          <p>= −13,190 − 20,000 + 819 = <strong class="text-red">$−32,371 / year</strong></p>
+        </div>
+
+        <div class="sol-step">
+          <div class="sol-label">Alternative D — Permanent Life (n = ∞)</div>
+          <p>للأصل الدائم: لا يوجد S مُسترد (يدوم للأبد)، لذا نستخدم A = P × i</p>
+          <p>AW<sub>D</sub> = −250,000 × 0.10 − 9,000</p>
+          <p>= −25,000 − 9,000 = <strong class="text-red">$−34,000 / year</strong></p>
+          <p style="font-size:13px; margin-top:6px;color:#555;">ملاحظة: S = $75,000 لا يُستخدم هنا لأن n = ∞، فلا يُسترد أبداً في الواقع العملي</p>
+        </div>
+
+        <div class="sol-step">
+          <div class="sol-label">القرار</div>
+          <p>AW<sub>C</sub> = −$32,371 &nbsp;>&nbsp; AW<sub>D</sub> = −$34,000</p>
+          <p class="text-green"><strong>✅ اختر Alternative C</strong> — رغم تكلفته الابتدائية الأقل، إلا أن تكلفته السنوية أقل!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Example Flood Dam -->
+    <div class="example-box">
+      <div class="example-header">📊 Example — Flood Control Dam (Permanent Investment with Recurring Costs)</div>
+      <div class="example-body">
+        <p><strong>Problem:</strong> A consulting firm is considering two sites for a permanent flood control dam at i = 10%/year:</p>
+        <p><strong>Site A:</strong> First cost = $2.4M | Annual maintenance = $150,000 | Equipment replacement = $50,000 every 10 years</p>
+        <p><strong>Site B:</strong> First cost = $2.8M | One-time cost = $500,000 at year 5 | Annual maintenance = $20,000 | Equipment replacement = $15,000 every 15 years</p>
+
+        <div class="sol-step">
+          <div class="sol-label">Site A — AW Calculation</div>
+          <p>1. دائم: AW<sub>P</sub> = 2,400,000 × 0.10 = $240,000/year</p>
+          <p>2. AOC = $150,000/year</p>
+          <p>3. تكرار $50,000 كل 10 سنوات: AW = 50,000(A/F,10%,10) = 50,000(0.06275) = $3,137.5/year</p>
+          <p>AW<sub>A</sub> = −240,000 − 150,000 − 3,137.5 = <strong class="text-red">$−393,138 ≈ −$393,140</strong></p>
+        </div>
+
+        <div class="sol-step">
+          <div class="sol-label">Site B — AW Calculation</div>
+          <p>1. دائم: AW<sub>P</sub> = 2,800,000 × 0.10 = $280,000/year</p>
+          <p>2. $500,000 عند سنة 5: AW = 500,000(P/F,10%,5) × 0.10 = 500,000(0.6209)(0.10) = $31,045/year</p>
+          <p>3. AOC = $20,000/year</p>
+          <p>4. تكرار $15,000 كل 15 سنوات: AW = 15,000(A/F,10%,15) = 15,000(0.03147) = $472/year</p>
+          <p>AW<sub>B</sub> = −280,000 − 31,045 − 20,000 − 472 = <strong class="text-red">$−331,517 ≈ −$331,520</strong></p>
+        </div>
+
+        <div class="sol-step">
+          <div class="sol-label">الإجابة</div>
+          <p class="text-green"><strong>(C) AW<sub>A</sub> = −$393,140, AW<sub>B</sub> = −$331,520 → اختر Site B</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION -->
+    <div class="question-block">
+      <div class="question-header">📝 سؤال اختبار الفهم — Section 6</div>
+      <div class="question-body">
+        <div class="q-text">
+          A new bridge across the Allegheny River is expected to be permanent and will have an initial cost of $30 million. This bridge must be resurfaced every 5 years at a cost of $1 million. The annual inspection and operating costs are estimated to be $50,000. Determine its equivalent annual worth at i = 10% per year.
+        </div>
+        <button class="toggle-btn" onclick="toggleSol(this)">عرض الحل ▼</button>
+        <div class="solution-panel">
+          <div class="sol-step">
+            <div class="sol-label">التكلفة الابتدائية (Permanent)</div>
+            <p>AW<sub>P</sub> = 30,000,000 × 0.10 = <strong>$3,000,000/year</strong></p>
+          </div>
+          <div class="sol-step">
+            <div class="sol-label">تكاليف الرصف المتكررة كل 5 سنوات</div>
+            <p>AW = 1,000,000 × (A/F, 10%, 5) = 1,000,000 × 0.1638 = <strong>$163,800/year</strong></p>
+          </div>
+          <div class="sol-step">
+            <div class="sol-label">تكاليف الصيانة السنوية</div>
+            <p>AW = <strong>$50,000/year</strong></p>
+          </div>
+          <div class="sol-step">
+            <div class="sol-label">المجموع</div>
+            <p>AW<sub>Total</sub> = −3,000,000 − 163,800 − 50,000 = <strong class="text-red">$−3,213,800/year</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECTION 7 ═══════════════════════════ -->
+<div class="section-card" id="s7">
+  <div class="section-header">
+    <div class="sec-num">7</div>
+    <h2>تحليل تكاليف دورة الحياة — Life-Cycle Cost (LCC) Analysis</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="def-box">
+      <strong>ما هي Life-Cycle Cost (LCC)؟</strong><br>
+      هي جميع التكاليف المرتبطة بالمشروع على مدى حياته الكاملة، بما في ذلك التكاليف التي لا تُصنَّف ضمن P أو S أو A التقليدية. تشمل تكاليف التخطيط، والتصميم، والبناء، والتشغيل، وتكاليف الطوارئ، والحوافز، وتكاليف إنهاء المشروع.
+    </div>
+
+    <p>بعبارة أخرى: <strong>Life-Cycle Cost تجمع كل التكاليف التي قد تُغفلها الحسابات الاعتيادية</strong>. المهندس الاقتصادي الكفء يقدّر هذه التكاليف مسبقاً لأن إغفالها يؤدي إلى خسائر غير محسوبة.</p>
+
+    <hr class="divider">
+    <h3 style="color:var(--primary); margin-bottom:14px;">📐 مراحل دورة حياة المشروع (Three Phases)</h3>
+
+    <ul class="steps-list">
+      <li>
+        <div class="step-num">1</div>
+        <div>
+          <strong>Acquisition Phase (مرحلة الاقتناء):</strong> جميع الأنشطة قبل بدء تنفيذ المشروع.
+          <ul style="margin-top:8px; padding-right:18px; font-size:14px;">
+            <li><strong>a) Requirements Definition Stage:</strong> تحديد المتطلبات والأهداف</li>
+            <li><strong>b) Preliminary Design Stage:</strong> التصميم المبدئي والتخطيط</li>
+            <li><strong>c) Detailed Design Stage:</strong> التصميم التفصيلي الكامل</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div>
+          <strong>Operation Phase (مرحلة التشغيل):</strong> جميع الأنشطة أثناء تنفيذ وتشغيل المشروع.
+          <ul style="margin-top:8px; padding-right:18px; font-size:14px;">
+            <li><strong>a) Construction and Implementation Stage:</strong> مرحلة البناء والتنفيذ</li>
+            <li><strong>b) Usage Stage:</strong> مرحلة الاستخدام الفعلي وتكاليف التشغيل والصيانة</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div>
+          <strong>Phase-out Phase (مرحلة الإنهاء):</strong> أنشطة تسليم المشروع والتخلص منه والانتقال إلى مشروع جديد.
+        </div>
+      </li>
+    </ul>
+
+    <hr class="divider">
+    <h3 style="color:var(--primary); margin-bottom:14px;">📊 متى نستخدم AW ومتى نستخدم PW في LCC؟</h3>
+
+    <div class="compare-grid">
+      <div class="green-card">
+        <div class="card-title">✅ استخدم AW method</div>
+        <p style="font-size:14px;">عند تحليل بديل <strong>واحد أو أكثر</strong> من البدائل <strong>الخدمية (Cost Alternatives)</strong> مثل الآلات والمعدات التي تتطلب نفقات ولا تُدر إيرادات مباشرة.</p>
+      </div>
+      <div class="blue-card">
+        <div class="card-title">🔷 استخدم PW method</div>
+        <p style="font-size:14px;">عند وجود <strong>إيرادات ومنافع مالية (Revenues & Benefits)</strong> للمشروع — أي المشاريع الاستثمارية ذات العوائد.</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <span style="font-size:20px;">📌</span>
+      <div>
+        <strong>ملاحظة مهمة:</strong> طريقة الحل في LCC هي <em>نفس</em> طرق الحل التقليدية (AW أو PW). الجديد فقط هو أن نُراعي <strong>جميع أنواع التكاليف</strong> في المشروع بما فيها التكاليف غير التقليدية، ونُعبّر عنها ضمن تدفقاتها النقدية الصحيحة قبل تطبيق المعادلات.
+      </div>
+    </div>
+
+    <div class="note-box" style="border-color:#1a7f5a; background:#edfaf4;">
+      <span style="font-size:20px;">🎓</span>
+      <div style="color:#0a4a2a;">
+        <strong>أهمية LCC للمهندس:</strong> يتميز اقتصاد الهندسة عن المحاسبة التقليدية بأنه يُحاول <em>التنبؤ</em> بجميع التكاليف المستقبلية وتقييمها. المهندس الذي يُهمل LCC قد يُقدّم مشروعاً بتكلفة ابتدائية منخفضة، لكنه يُفاجأ لاحقاً بتكاليف تشغيل أو إنهاء ضخمة لم يُخطط لها.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════ FINAL QUESTIONS ═══════════════════════════ -->
+<div class="final-section" id="s8">
+  <h2>🎯 الأسئلة الشاملة</h2>
+  <p class="fs-sub">Comprehensive Questions — All Chapter 6 Topics with Full Solutions</p>
+
+  <!-- Q1 -->
+  <div class="fq-item">
+    <div class="fq-label">Question 1 — Conceptual (Quiz Q2)</div>
+    <div class="fq-text">All the following statements about the capital recovery amount for an alternative are false EXCEPT:</div>
+    <div class="fq-options">
+      (a) Annual revenue can be no more than this amount, if the alternative is selected.<br>
+      (b) A monetary estimate of new capital funds required each year for the life of the alternative.<br>
+      (c) An amount of revenue required to recover the first cost plus a stated return over the life of the alternative.<br>
+      (d) Does not consider the salvage value, since it is returned at the end of the alternative's life.
+    </div>
+    <button class="sol-btn" onclick="toggleFS(this)">عرض الحل ▼</button>
+    <div class="fs-solution">
+      <strong>Correct Answer: (c)</strong><br><br>
+      <strong>Explanation:</strong><br>
+      (a) خطأ: الـ CR هو الحد الأدنى من الإيراد المطلوب، وليس الحد الأقصى.<br>
+      (b) خطأ: CR يشمل تكلفة الأصل + عائد الاستثمار، وليس فقط رأس مال جديد.<br>
+      <span class="ans-highlight">(c) صحيح ✅</span>: CR هو المبلغ السنوي المطلوب لاسترداد التكلفة الابتدائية بالكامل خلال عمر الأصل مع تحقيق معدل العائد المطلوب.<br>
+      (d) خطأ: CR يأخذ S بالاعتبار لأنها تُقلل من التكلفة الفعلية التي يجب استردادها.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="fq-item">
+    <div class="fq-label">Question 2 — Calculation with Study Period (Quiz Q3)</div>
+    <div class="fq-text">Estimates for a process upgrade: first cost $40,000, annual cost $5,000/year, market value decreases by $2,000/year to salvage value of $20,000 after 10 years. If a 4-year study period is used for AW analysis at 15% per year, the correct AW value is closest to:</div>
+    <div class="fq-options">
+      (a) $−15,000 &nbsp;&nbsp; (b) $−11,900 &nbsp;&nbsp; (c) $−7,600 &nbsp;&nbsp; (d) $−12,600
+    </div>
+    <button class="sol-btn" onclick="toggleFS(this)">عرض الحل ▼</button>
+    <div class="fs-solution">
+      <strong>Key Insight:</strong> Study period = 4 years (not full 10-year life). Market value decreases by $2,000/year from original value.<br><br>
+      <strong>Step 1 — Find MV at year 4:</strong><br>
+      Original value at t=0 is $40,000 (or we track from the full 10-year ending at $20,000).<br>
+      MV decreases $2,000/year → after 4 years: MV₄ = $40,000 − 4 × $2,000 = <strong>$32,000</strong><br><br>
+      <strong>Step 2 — Calculate AW over 4-year study period:</strong><br>
+      AW = −40,000(A/P, 15%, 4) − 5,000 + 32,000(A/F, 15%, 4)<br>
+      = −40,000(0.3503) − 5,000 + 32,000(0.2003)<br>
+      = −14,012 − 5,000 + 6,409.6<br>
+      = <strong>$−12,602 ≈ $−12,600</strong><br><br>
+      <span class="ans-highlight">Answer: (d) $−12,600 ✅</span>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="fq-item">
+    <div class="fq-label">Question 3 — Perpetual AW (Quiz Q4)</div>
+    <div class="fq-text">The perpetual annual worth of investing $50,000 now and $20,000 per year starting in year 16 and continuing forever at 12% per year is closest to:</div>
+    <div class="fq-options">
+      (a) $−4,200 &nbsp;&nbsp; (b) $−8,650 &nbsp;&nbsp; (c) $−9,655 &nbsp;&nbsp; (d) $−10,655
+    </div>
+    <button class="sol-btn" onclick="toggleFS(this)">عرض الحل ▼</button>
+    <div class="fs-solution">
+      <strong>Step 1 — AW of $50,000 now (permanent):</strong><br>
+      AW₁ = 50,000 × 0.12 = <strong>$6,000/year</strong><br><br>
+      <strong>Step 2 — AW of $20,000/year starting at year 16 forever:</strong><br>
+      These payments start at year 16 and go to infinity. Find PW at year 15 first:<br>
+      P₁₅ = 20,000 / 0.12 = $166,667 (capitalized value at year 15)<br><br>
+      Now convert P₁₅ to PW at t=0:<br>
+      P₀ = 166,667 × (P/F, 12%, 15) = 166,667 × 0.1827 = <strong>$30,450</strong><br><br>
+      AW₂ = 30,450 × 0.12 = <strong>$3,654/year</strong><br><br>
+      <strong>Total AW:</strong><br>
+      AW = −6,000 − 3,654 = <strong>$−9,654 ≈ $−9,655</strong><br><br>
+      <span class="ans-highlight">Answer: (c) $−9,655 ✅</span>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="fq-item">
+    <div class="fq-label">Question 4 — Vendor Comparison (Quiz Q5-A)</div>
+    <div class="fq-text">The alternatives are mutually exclusive and the MARR is 6% per year.<br><br>
+    Vendor 2: First cost = −$550,000 | Annual cost = −$20,000/yr | Revenue = $120,000/yr | S = $0 | n = 15 years<br><br>
+    The annual worth of Vendor 2 cash flow estimates is closest to:</div>
+    <div class="fq-options">
+      (a) $−63,370 &nbsp;&nbsp; (b) $43,370 &nbsp;&nbsp; (c) $−43,370 &nbsp;&nbsp; (d) $63,370
+    </div>
+    <button class="sol-btn" onclick="toggleFS(this)">عرض الحل ▼</button>
+    <div class="fs-solution">
+      <strong>Given:</strong> P = $550,000 | AOC = $20,000/yr (cost) | Revenue = $120,000/yr | S = 0 | n = 15 | i = 6%<br><br>
+      <strong>AW Calculation:</strong><br>
+      AW = −550,000(A/P, 6%, 15) + 120,000 − 20,000 + 0<br>
+      = −550,000 × (0.1030) + 100,000<br>
+      = −56,650 + 100,000<br>
+      = <strong>+$43,350 ≈ +$43,370</strong><br><br>
+      <span class="ans-highlight">Answer: (b) $43,370 ✅</span><br>
+      Since AW > 0, Vendor 2 is economically justified.
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="fq-item">
+    <div class="fq-label">Question 5 — Capital Recovery for Vendor 3 (Quiz Q5-B)</div>
+    <div class="fq-text">Vendor 3: First cost = −$1,000,000 | S = $500,000 | Life = ∞ | MARR = 6%<br><br>
+    The capital recovery amount for Vendor 3 is:</div>
+    <div class="fq-options">
+      (a) $40,000/year &nbsp;&nbsp; (b) $60,000/year &nbsp;&nbsp; (c) $43,370/year &nbsp;&nbsp; (d) $100,000/year
+    </div>
+    <button class="sol-btn" onclick="toggleFS(this)">عرض الحل ▼</button>
+    <div class="fs-solution">
+      <strong>Key Concept:</strong> For infinite life, S is never recovered (n → ∞), so:<br>
+      CR = P × i (only)<br><br>
+      <strong>CR = 1,000,000 × 0.06 = $60,000/year</strong><br><br>
+      <span class="ans-highlight">Answer: (b) $60,000/year ✅</span><br><br>
+      Note: The S = $500,000 is not used in CR when n = ∞ because the salvage value is never realized in a permanent investment scenario.
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="fq-item">
+    <div class="fq-label">Question 6 — Perpetual Annual Cost (Problem 6.23)</div>
+    <div class="fq-text">The State of Chiapas, Mexico, decided to fund a literacy program. The first cost is $200,000 now, and an update budget of $100,000 every 7 years forever is requested. Determine the perpetual equivalent annual cost at i = 10% per year.</div>
+    <button class="sol-btn" onclick="toggleFS(this)">عرض الحل ▼</button>
+    <div class="fs-solution">
+      <strong>Step 1 — AW of initial $200,000 (permanent):</strong><br>
+      AW₁ = 200,000 × 0.10 = <strong>$20,000/year</strong><br><br>
+      <strong>Step 2 — AW of $100,000 every 7 years (recurring perpetually):</strong><br>
+      AW₂ = 100,000 × (A/F, 10%, 7)<br>
+      = 100,000 × 0.1054 = <strong>$10,540/year</strong><br><br>
+      <strong>Total Perpetual AW:</strong><br>
+      AW = 20,000 + 10,540 = <span class="ans-highlight">$30,540 ≈ $30,541/year ✅</span>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="fq-item">
+    <div class="fq-label">Question 7 — Three Alternative Comparison (Problem 6.28)</div>
+    <div class="fq-text">Use AW comparison at i = 10%/year to find the economically best alternative:<br><br>
+    X: First Cost = $90K | AOC = $40K/yr | S = $7K | n = 3 years<br>
+    Y: First Cost = $400K | AOC = $20K/yr | S = $25K | n = 10 years<br>
+    Z: First Cost = $650K | AOC = $13K/yr | Overhaul every 10 years = $80K | S = $200K | n = ∞</div>
+    <button class="sol-btn" onclick="toggleFS(this)">عرض الحل ▼</button>
+    <div class="fs-solution">
+      <strong>Alternative X (n = 3 years):</strong><br>
+      AW<sub>X</sub> = −90,000(A/P,10%,3) − 40,000 + 7,000(A/F,10%,3)<br>
+      = −90,000(0.4021) − 40,000 + 7,000(0.3021)<br>
+      = −36,189 − 40,000 + 2,114.7 = <span class="ans-highlight">$−74,074 ≈ $−74,075 ✅</span><br><br>
+
+      <strong>Alternative Y (n = 10 years):</strong><br>
+      AW<sub>Y</sub> = −400,000(A/P,10%,10) − 20,000 + 25,000(A/F,10%,10)<br>
+      = −400,000(0.1627) − 20,000 + 25,000(0.0627)<br>
+      = −65,080 − 20,000 + 1,567.5 = <span class="ans-highlight">$−83,513 ≈ $−83,531</span><br><br>
+
+      <strong>Alternative Z (n = ∞, overhaul every 10 years):</strong><br>
+      1. Permanent: 650,000 × 0.10 = $65,000/year<br>
+      2. AOC = $13,000/year<br>
+      3. Overhaul every 10 years: 80,000(A/F,10%,10) = 80,000(0.0627) = $5,016/year<br>
+      AW<sub>Z</sub> = −65,000 − 13,000 − 5,016 = <span class="ans-highlight">$−83,016 ≈ $−83,020</span><br><br>
+
+      <strong>Decision:</strong><br>
+      AW<sub>X</sub> = −$74,075 > AW<sub>Y</sub> = −$83,531 > AW<sub>Z</sub> = −$83,020<br>
+      <span class="ans-highlight">✅ Select Alternative X — lowest annual cost at $74,075/year</span>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="fq-item">
+    <div class="fq-label">Question 8 — Truck Annual Cost (Problem 6.8)</div>
+    <div class="fq-text">Eight years ago, Ohio Valley Trucking purchased a large-capacity dump truck for $115,000. The company sold it today for $45,000. Operating and maintenance costs averaged $10,500 per year. A complete overhaul at the end of year 4 cost an extra $3,600. Calculate the annual cost of the truck at 8% per year interest.</div>
+    <button class="sol-btn" onclick="toggleFS(this)">عرض الحل ▼</button>
+    <div class="fs-solution">
+      <strong>Given:</strong> P = $115,000 | S = $45,000 (sold now = end of year 8) | AOC = $10,500/yr | Extra overhaul at year 4 = $3,600 | n = 8 | i = 8%<br><br>
+      <strong>AW Calculation:</strong><br>
+      AW = −115,000(A/P, 8%, 8) − 10,500 − 3,600(P/F,8%,4)(A/P,8%,8) + 45,000(A/F, 8%, 8)<br><br>
+      = −115,000(0.1740) − 10,500 − 3,600(0.7350)(0.1740) + 45,000(0.09401)<br><br>
+      = −20,010 − 10,500 − 460.3 + 4,230.5<br><br>
+      = <span class="ans-highlight">$−26,740 ≈ $−26,741/year ✅</span>
+    </div>
+  </div>
+
+</div><!-- end final-section -->
+
+</div><!-- end container -->
+
+<footer>
+  <p>Chapter 6 — Annual Worth Analysis &nbsp;|&nbsp; Engineering Economics Lecture &nbsp;|&nbsp; © 2025 Department of Engineering</p>
+</footer>
+
+<script>
+function toggleSol(btn) {
+  const panel = btn.nextElementSibling;
+  panel.classList.toggle('open');
+  btn.textContent = panel.classList.contains('open') ? 'إخفاء الحل ▲' : 'عرض الحل ▼';
+}
+function toggleFS(btn) {
+  const panel = btn.nextElementSibling;
+  panel.classList.toggle('open');
+  btn.textContent = panel.classList.contains('open') ? 'إخفاء الحل ▲' : 'عرض الحل ▼';
+}
+
+// Stagger section card animations
+document.querySelectorAll('.section-card').forEach((card, i) => {
+  card.style.animationDelay = `${i * 0.08}s`;
+});
+</script>
+</body>
+</html>

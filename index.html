@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ٱلِٱقْتِصَادُ ٱلْهَنْدَسِيّ — Engineering Economy</title>
+
+  <!-- Google Fonts: El Messiri (Arabic calligraphic) + Cormorant Garamond (English serif) -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+  </style>
+
+  <style>
+    /* ═══════════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════════ */
+    :root {
+      --cream:       #F0ECE3;
+      --cream-deep:  #E6E0D4;
+      --card-bg:     #F7F4EE;
+      --card-hover:  #FDFAF5;
+      --gold:        #A8782A;
+      --gold-mid:    #C99237;
+      --gold-pale:   rgba(168,120,42,0.08);
+      --gold-border: rgba(168,120,42,0.20);
+      --ink:         #1A1410;
+      --ink-2:       #3C3328;
+      --ink-3:       #7A6E5E;
+      --line:        rgba(58,47,34,0.12);
+      --shadow-card: 0 1px 6px rgba(26,20,16,0.06), 0 4px 18px rgba(26,20,16,0.07);
+      --shadow-lift: 0 6px 28px rgba(26,20,16,0.14), 0 2px 8px rgba(26,20,16,0.08);
+      --radius:      12px;
+    }
+
+    /* ═══════════════════════════════════════════
+       RESET
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ═══════════════════════════════════════════
+       BODY + BACKGROUND TEXTURE
+    ═══════════════════════════════════════════ */
+    body {
+      min-height: 100vh;
+      background-color: var(--cream);
+      /* subtle diagonal grain */
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23F0ECE3'/%3E%3Crect x='0' y='0' width='1' height='1' fill='rgba(168,120,42,0.035)'/%3E%3Crect x='2' y='2' width='1' height='1' fill='rgba(168,120,42,0.035)'/%3E%3C/svg%3E");
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ═══════════════════════════════════════════
+       WRAPPER
+    ═══════════════════════════════════════════ */
+    .page {
+      width: 100%;
+      max-width: 780px;
+      padding: 68px 28px 90px;
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO HEADER
+    ═══════════════════════════════════════════ */
+    .hero {
+      text-align: center;
+      margin-bottom: 62px;
+      animation: riseIn .8s cubic-bezier(.22,.68,0,1.15) both;
+    }
+
+    /* small label pill */
+    .course-pill {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      background: var(--gold-pale);
+      padding: 5px 20px;
+      border-radius: 50px;
+      margin-bottom: 30px;
+      direction: ltr;
+    }
+
+    /* Arabic title — calligraphic */
+    .title-ar {
+      font-family: 'El Messiri', 'Amiri', 'Arabic Typesetting', serif;
+      font-weight: 700;
+      font-size: clamp(40px, 9vw, 76px);
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: .5px;
+      margin-bottom: 12px;
+      /* gold highlight on the last word */
+    }
+    .title-ar .accent { color: var(--gold-mid); }
+
+    /* English title — italic serif */
+    .title-en {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(15px, 3vw, 22px);
+      color: var(--ink-3);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      direction: ltr;
+      margin-bottom: 34px;
+    }
+
+    /* ornamental rule */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .orn-line {
+      height: 1px;
+      width: 72px;
+      background: linear-gradient(to right, transparent, var(--gold-mid));
+    }
+    .orn-line.flip { background: linear-gradient(to left, transparent, var(--gold-mid)); }
+    .orn-center {
+      width: 44px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .orn-dot { width: 5px; height: 5px; background: var(--gold-mid); border-radius: 50%; }
+    .orn-diamond {
+      width: 9px; height: 9px;
+      background: var(--gold-mid);
+      transform: rotate(45deg);
+      border-radius: 1.5px;
+    }
+
+    /* ═══════════════════════════════════════════
+       CHAPTERS SECTION LABEL
+    ═══════════════════════════════════════════ */
+    .chapters-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      margin-top: 58px;
+      animation: fadeSlide .6s ease .2s both;
+    }
+    .chapters-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to left, var(--line), transparent);
+    }
+    .chapters-label span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      white-space: nowrap;
+      direction: ltr;
+    }
+
+    /* ═══════════════════════════════════════════
+       CHAPTER CARDS — WIDE HORIZONTAL LIST
+    ═══════════════════════════════════════════ */
+    .chapters-list {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .chapter-card {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px 28px 22px 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition:
+        transform    .30s cubic-bezier(.22,.68,0,1.2),
+        box-shadow   .30s ease,
+        background   .22s ease,
+        border-color .22s ease;
+      animation: fadeSlide .55s ease both;
+      gap: 24px;
+    }
+    .chapter-card:nth-child(1) { animation-delay: .15s; }
+    .chapter-card:nth-child(2) { animation-delay: .22s; }
+    .chapter-card:nth-child(3) { animation-delay: .29s; }
+    .chapter-card:nth-child(4) { animation-delay: .36s; }
+    .chapter-card:nth-child(5) { animation-delay: .43s; }
+    .chapter-card:nth-child(6) { animation-delay: .50s; }
+
+    /* left gold accent bar */
+    .chapter-card::before {
+      content: '';
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--gold-mid), var(--gold));
+      opacity: 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      transition: opacity .25s ease;
+    }
+
+    /* big faded number */
+    .chapter-card::after {
+      content: attr(data-seq);
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 92px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--ink);
+      opacity: .04;
+      line-height: 1;
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+      direction: ltr;
+    }
+
+    .chapter-card:hover {
+      transform: translateY(-4px) scale(1.008);
+      box-shadow: var(--shadow-lift);
+      background: var(--card-hover);
+      border-color: var(--gold-border);
+    }
+    .chapter-card:hover::before { opacity: 1; }
+    .chapter-card:hover::after  { opacity: .07; transform: translateY(-50%) scale(1.05); }
+
+    /* number badge */
+    .card-num {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      border: 1.5px solid var(--gold-border);
+      background: var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gold);
+      direction: ltr;
+      transition: background .22s, border-color .22s, color .22s, transform .22s;
+    }
+    .chapter-card:hover .card-num {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+      transform: scale(1.08);
+    }
+
+    /* text block */
+    .card-text { flex: 1; min-width: 0; }
+
+    .card-ar {
+      font-family: 'El Messiri', 'Amiri', serif;
+      font-size: clamp(16px, 2.8vw, 19px);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+    .card-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(12px, 1.8vw, 14px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-3);
+      letter-spacing: .6px;
+      direction: ltr;
+    }
+
+    /* arrow chevron */
+    .card-arrow {
+      flex-shrink: 0;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .card-arrow svg {
+      width: 14px; height: 14px;
+      fill: none;
+      stroke: var(--gold-mid);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .chapter-card:hover .card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    .site-footer {
+      margin-top: 68px;
+      padding-bottom: 44px;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--ink-3);
+      letter-spacing: 1.5px;
+      animation: fadeSlide .6s ease .55s both;
+      direction: ltr;
+    }
+    .footer-sep {
+      display: inline-block;
+      width: 4px; height: 4px;
+      background: var(--gold-mid);
+      border-radius: 50%;
+      vertical-align: middle;
+      margin: 0 10px;
+    }
+
+    /* ═══════════════════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════════════════ */
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(32px) scale(.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 620px) {
+      .page          { padding: 48px 18px 64px; }
+      .title-ar      { font-size: clamp(34px, 11vw, 52px); }
+      .chapter-card  { padding: 18px 18px 18px 16px; gap: 16px; }
+      .card-num      { width: 38px; height: 38px; font-size: 14px; }
+      .chapter-card::after { font-size: 72px; }
+      .chapters-label { margin-top: 40px; }
+      .card-arrow    { display: none; }
+    }
+    @media (max-width: 400px) {
+      .title-ar { font-size: clamp(28px, 10vw, 42px); }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- ══════════  HERO  ══════════ -->
+  <header class="hero">
+
+    <div class="course-pill">Course Overview &nbsp;·&nbsp; دليل المادة</div>
+
+    <h1 class="title-ar">ٱلِٱقْتِصَادُ <span class="accent">ٱلْهَنْدَسِيّ</span></h1>
+    <p class="title-en">Engineering Economy</p>
+
+    <div class="ornament">
+      <span class="orn-line"></span>
+      <span class="orn-center">
+        <span class="orn-dot"></span>
+        <span class="orn-diamond"></span>
+        <span class="orn-dot"></span>
+      </span>
+      <span class="orn-line flip"></span>
+    </div>
+
+  </header>
+
+  <!-- ══════════  CHAPTERS  ══════════ -->
+  <div class="chapters-label">
+    <span>Chapters &nbsp;·&nbsp; الفصول</span>
+  </div>
+
+  <nav class="chapters-list" aria-label="Course Chapters">
+
+    <a href="chapter1.html" class="chapter-card" data-seq="1">
+      <div class="card-num">01</div>
+      <div class="card-text">
+        <div class="card-ar">الفصل 1: أسس الاقتصاد الهندسي</div>
+        <div class="card-en">Chapter 1: Foundations of Engineering Economy</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+    </a>
+
+    <a href="chapter2.html" class="chapter-card" data-seq="2">
+      <div class="card-num">02</div>
+      <div class="card-text">
+        <div class="card-ar">الفصل 2: معاملات الفائدة المركبة</div>
+        <div class="card-en">Chapter 2: Compound Interest Factors</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+    </a>
+
+    <a href="chapter3.html" class="chapter-card" data-seq="3">
+      <div class="card-num">03</div>
+      <div class="card-text">
+        <div class="card-ar">الفصل 3: الجمع بين المعاملات والسلاسل المزاحة</div>
+        <div class="card-en">Chapter 3: Combining Factors — Shifted Series</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+    </a>
+
+    <a href="chapter5.html" class="chapter-card" data-seq="5">
+      <div class="card-num">05</div>
+      <div class="card-text">
+        <div class="card-ar">الفصل 5: تحليل القيمة الحالية</div>
+        <div class="card-en">Chapter 5: Present Worth Analysis</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+    </a>
+
+    <a href="chapter6.html" class="chapter-card" data-seq="6">
+      <div class="card-num">06</div>
+      <div class="card-text">
+        <div class="card-ar">الفصل 6: تحليل القيمة السنوية</div>
+        <div class="card-en">Chapter 6: Annual Worth Analysis</div>
+      </div>
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+    </a>
+
+  </nav>
+
+  <!-- ══════════  FOOTER  ══════════ -->
+  <footer class="site-footer">
+    Engineering Economy
+    <span class="footer-sep"></span>
+    Blank &amp; Tarquin
+    <span class="footer-sep"></span>
+    5 Chapters
+  </footer>
+
+</div>
+</body>
+</html>

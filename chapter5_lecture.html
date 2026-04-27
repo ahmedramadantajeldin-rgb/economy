@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 5 – Present Worth Analysis | Engineering Economy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<style>
+  :root {
+    --primary:      #1a3a6b;
+    --primary-mid:  #2155a3;
+    --accent:       #0e90d2;
+    --accent-light: #4fb8e8;
+    --surface:      #f0f6ff;
+    --surface-2:    #ddeeff;
+    --gold:         #e8b84b;
+    --green:        #1a7f5a;
+    --green-bg:     #edfaf4;
+    --red:          #c0392b;
+    --red-bg:       #fdf0ef;
+    --warn-bg:      #fffbea;
+    --radius:       14px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'IBM Plex Sans', 'Amiri', sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+    color: #1e2d4a;
+    background: linear-gradient(160deg, #e8f2ff, #f5f9ff, #eef5ff);
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  .site-header {
+    position: relative;
+    background: linear-gradient(135deg, #1a3a6b, #0f2554, #152f6e);
+    border-bottom: 4px solid var(--gold);
+    padding: 52px 40px 44px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 15% 50%, rgba(14,144,210,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 85% 40%, rgba(232,184,75,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .header-tag {
+    display: inline-block;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    background: rgba(232,184,75,0.10);
+    padding: 5px 18px;
+    border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .site-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(26px, 4vw, 42px);
+    color: #fff;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .site-header .subtitle {
+    color: rgba(255,255,255,0.72);
+    font-weight: 300;
+    font-size: 17px;
+    margin-bottom: 22px;
+  }
+  .badge-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+  .badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* ─── LAYOUT ─── */
+  .container { max-width: 960px; margin: 0 auto; padding: 36px 20px 60px; }
+
+  /* ─── TOC ─── */
+  .toc-card {
+    background: #fff;
+    border: 1px solid var(--surface-2);
+    box-shadow: 0 2px 8px rgba(26,58,107,0.10);
+    border-radius: var(--radius);
+    padding: 28px 36px;
+    margin-bottom: 36px;
+  }
+  .toc-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--surface-2);
+    margin-bottom: 16px;
+  }
+  .toc-card ol { padding-right: 22px; }
+  .toc-card ol li { margin: 7px 0; }
+  .toc-card ol li a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .toc-card ol li a:hover { text-decoration: underline; }
+
+  /* ─── SECTION ─── */
+  .section-card {
+    background: #fff;
+    border: 1px solid rgba(33,85,163,0.09);
+    box-shadow: 0 2px 8px rgba(26,58,107,0.10);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 32px;
+    animation: fadeUp 0.55s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-mid));
+    color: #fff;
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-num {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 20px;
+  }
+  .section-body { padding: 28px 32px; }
+
+  /* ─── INFO GRID ─── */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+  .info-card {
+    background: var(--surface);
+    border: 1px solid rgba(33,85,163,0.12);
+    border-radius: 10px;
+    padding: 16px 18px;
+    position: relative;
+  }
+  .info-card .num-badge {
+    position: absolute; top: 12px; left: 12px;
+    width: 22px; height: 22px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .info-card h4 { color: var(--primary); font-weight: 600; margin-bottom: 5px; font-size: 15px; }
+  .info-card p { font-size: 14.5px; color: #3a4a6a; }
+
+  /* ─── STEPS ─── */
+  .steps-list { list-style: none; margin: 16px 0; }
+  .steps-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--surface);
+    border-radius: 10px;
+    border-right: 3px solid var(--accent-light);
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .step-num {
+    width: 26px; height: 26px;
+    background: var(--accent);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ─── DEFINITION BOX ─── */
+  .def-box {
+    background: linear-gradient(135deg, var(--surface), var(--surface-2));
+    border-right: 4px solid var(--primary);
+    border-left: 4px solid var(--primary);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  .def-box strong { color: var(--primary); }
+
+  /* ─── NOTE BOX ─── */
+  .note-box {
+    background: var(--warn-bg);
+    border: 1.5px solid var(--gold);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    color: #7a5800;
+    font-size: 14.5px;
+  }
+  .note-box .icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
+  /* ─── FORMULA BOX ─── */
+  .formula-box {
+    background: linear-gradient(135deg, var(--primary), #1a4080);
+    color: #fff;
+    border-radius: 12px;
+    padding: 24px 32px;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(26,58,107,0.15);
+    margin: 20px 0;
+  }
+  .formula-box .formula-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 10px;
+  }
+  .formula-box .formula-desc { font-size: 14px; opacity: 0.8; margin-top: 10px; }
+  .formula-box .formula-main { font-size: 22px; font-weight: 600; margin: 6px 0; }
+
+  /* ─── COMPARE CARDS ─── */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+  .green-card {
+    background: var(--green-bg);
+    border: 1px solid rgba(26,127,90,0.25);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .red-card {
+    background: var(--red-bg);
+    border: 1px solid rgba(192,57,43,0.25);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .blue-card {
+    background: var(--surface);
+    border: 1px solid rgba(33,85,163,0.18);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .green-card h4 { color: var(--green); }
+  .red-card h4 { color: var(--red); }
+  .blue-card h4 { color: var(--primary); }
+
+  /* ─── EXAMPLE BOX ─── */
+  .example-box {
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .example-header {
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px; font-weight: 600;
+  }
+  .example-body { background: #f5fbff; padding: 20px 24px; }
+  .sol-step {
+    background: #fff;
+    border-right: 3px solid var(--green);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 10px 0;
+    font-size: 14.5px;
+  }
+  .sol-step strong { color: var(--green); }
+
+  /* ─── SVG CASH FLOW ─── */
+  .cf-wrap {
+    background: #f5fbff;
+    border: 1.5px solid var(--surface-2);
+    border-radius: var(--radius);
+    padding: 10px;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+
+  /* ─── QUESTION BLOCK ─── */
+  .question-block {
+    border: 2px solid var(--gold);
+    border-radius: var(--radius);
+    background: linear-gradient(#fff9e6, #fffdf5);
+    margin: 22px 0;
+    overflow: hidden;
+  }
+  .question-header {
+    background: var(--gold);
+    color: var(--primary);
+    padding: 10px 20px;
+    font-weight: 700; font-size: 14px;
+  }
+  .question-body { padding: 18px 20px; }
+  .question-text {
+    background: #fff;
+    border-right: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    direction: ltr; text-align: left;
+    font-size: 14.5px;
+  }
+  .toggle-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none; cursor: pointer;
+    padding: 9px 22px;
+    border-radius: 8px;
+    font-size: 13px; font-weight: 600;
+    font-family: 'IBM Plex Sans', sans-serif;
+    transition: background 0.2s;
+  }
+  .toggle-btn:hover { background: var(--accent); }
+  .sol-panel {
+    display: none;
+    padding: 16px 20px;
+    background: #f8fbff;
+    border-top: 1px solid var(--surface-2);
+    animation: fadeDown 0.3s ease;
+  }
+  .sol-panel.open { display: block; }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── FINAL QUESTIONS ─── */
+  .final-section {
+    background: linear-gradient(135deg, var(--primary), #0f2554);
+    border-radius: var(--radius);
+    padding: 36px 36px;
+    margin-bottom: 32px;
+    box-shadow: 0 12px 40px rgba(26,58,107,0.20);
+  }
+  .final-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+  .final-section .fsub { color: rgba(255,255,255,0.65); margin-bottom: 24px; }
+  .fq-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .fq-text { color: #fff; font-size: 14.5px; direction: ltr; text-align: left; margin-bottom: 12px; }
+  .fq-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff; cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 13px; font-weight: 600;
+    font-family: 'IBM Plex Sans', sans-serif;
+    transition: background 0.2s;
+  }
+  .fq-btn:hover { background: rgba(255,255,255,0.25); }
+  .fq-sol {
+    display: none;
+    background: rgba(255,255,255,0.05);
+    border-right: 3px solid var(--accent-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    color: rgba(255,255,255,0.82);
+    font-size: 14px;
+    direction: ltr; text-align: left;
+    animation: fadeDown 0.3s ease;
+  }
+  .fq-sol.open { display: block; }
+  .fq-sol .ans { color: var(--accent-light); font-weight: 700; font-size: 16px; }
+
+  /* ─── SYMBOLS TABLE ─── */
+  .sym-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  .sym-table th {
+    background: var(--primary); color: #fff;
+    padding: 10px 14px; text-align: right;
+  }
+  .sym-table td { padding: 9px 14px; border-bottom: 1px solid var(--surface-2); }
+  .sym-table tr:nth-child(even) td { background: var(--surface); }
+  .sym-table tr:hover td { background: #e0eeff; }
+  .sym { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--primary); font-weight: 700; }
+
+  /* ─── FOOTER ─── */
+  .site-footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 680px) {
+    .info-grid, .compare-grid { grid-template-columns: 1fr; }
+    .section-body { padding: 20px 16px; }
+    .site-header { padding: 36px 20px 30px; }
+    .final-section { padding: 24px 18px; }
+  }
+
+  /* ─── UTILS ─── */
+  p { margin: 10px 0; }
+  .mt { margin-top: 16px; }
+  .mb { margin-bottom: 16px; }
+  .text-green { color: var(--green); font-weight: 600; }
+  .text-red { color: var(--red); font-weight: 600; }
+  .text-accent { color: var(--accent); font-weight: 600; }
+  .text-gold { color: #b8860b; font-weight: 600; }
+  .highlight { background: rgba(14,144,210,0.10); border-radius: 4px; padding: 1px 5px; color: var(--primary); font-weight: 600; }
+  .dir-ltr { direction: ltr; text-align: left; }
+  .math-inline { background: #f0f6ff; padding: 2px 8px; border-radius: 5px; font-family: monospace; font-size: 14px; color: var(--primary); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="site-header">
+  <div class="header-tag">Engineering Economy</div>
+  <h1>Chapter 5: Present Worth Analysis</h1>
+  <p class="subtitle">مقارنة البدائل الاقتصادية — Present Worth · Future Worth · Capitalized Cost</p>
+  <div class="badge-row">
+    <span class="badge">Present Worth (PW)</span>
+    <span class="badge">Future Worth (FW)</span>
+    <span class="badge">Capitalized Cost (CC)</span>
+    <span class="badge">MARR</span>
+    <span class="badge">LCM Method</span>
+  </div>
+</header>
+
+<!-- ═══════════════ CONTAINER ═══════════════ -->
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc-card">
+    <h2>📋 محتويات المحاضرة — Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">مقدمة — Introduction to Comparison of Alternatives</a></li>
+      <li><a href="#s2">أنواع البدائل — Types of Alternatives</a></li>
+      <li><a href="#s3">أنواع التدفقات النقدية — Cash Flow Types</a></li>
+      <li><a href="#s4">مفهوم الـ MARR وعلاقته بالـ PW</a></li>
+      <li><a href="#s5">Present Worth Analysis — تحليل القيمة الحالية</a></li>
+      <li><a href="#s6">حالة Equal-Life Alternatives</a></li>
+      <li><a href="#s7">حالة Different-Life Alternatives — طريقة LCM</a></li>
+      <li><a href="#s8">حالة Different-Life Alternatives — طريقة Study Period</a></li>
+      <li><a href="#s9">Future Worth Analysis — تحليل القيمة المستقبلية</a></li>
+      <li><a href="#s10">Capitalized Cost (CC) Analysis</a></li>
+      <li><a href="#s11">أسئلة شاملة — Chapter Problems</a></li>
+    </ol>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 1 — INTRODUCTION
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>مقدمة — Why Do We Compare Alternatives?</h2>
+    </div>
+    <div class="section-body">
+      <p>بعد أن تعلمنا في الفصول السابقة كيف نحسب <span class="highlight">Cash Flows</span> وكيف نحسب <span class="highlight">Interest Rate</span>، يصبح السؤال الطبيعي: <strong>كيف نستخدم هذه الأدوات في اتخاذ قرارات اقتصادية حقيقية؟</strong></p>
+      <p>الجواب الأساسي هو أننا نستخدم هذه الأدوات لاتخاذ قرارين جوهريين:</p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="num-badge">1</div>
+          <h4>قبول أو رفض المشروع</h4>
+          <p>هل المشروع مربح ومقبول <strong>أم</strong> غير مربح ويجب رفضه؟ هذا القرار يعتمد على مقارنة العائد مع الحد الأدنى المقبول.</p>
+        </div>
+        <div class="info-card">
+          <div class="num-badge">2</div>
+          <h4>اختيار الأفضل من بين بدائل</h4>
+          <p>لو عندنا أكثر من مشروع أو طريقة، أيها أفضل اقتصادياً؟ هذا هو محور الـ Chapter 5 كله.</p>
+        </div>
+      </div>
+
+      <div class="def-box">
+        <strong>الفكرة الأساسية:</strong> نقوم بتحويل جميع التدفقات النقدية (Cash Flows) إلى نقطة زمنية واحدة (الحاضر أو المستقبل أو سنوي) باستخدام نسبة الفائدة <strong>MARR</strong>، ثم نقارن القيم للوصول إلى القرار الأفضل.
+      </div>
+
+      <p>في هذا الـ Chapter سوف ندرس ثلاث طرق رئيسية للمقارنة:</p>
+      <ul class="steps-list">
+        <li><div class="step-num">1</div><div><strong>Present Worth (PW) Method</strong> — نحول كل شيء إلى قيمة حالية عند t=0</div></li>
+        <li><div class="step-num">2</div><div><strong>Future Worth (FW) Method</strong> — نحول كل شيء إلى قيمة مستقبلية عند نهاية المشروع</div></li>
+        <li><div class="step-num">3</div><div><strong>Capitalized Cost (CC) Method</strong> — نسخة خاصة من الـ PW للمشاريع التي عمرها لانهائي (Infinite Life)</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 2 — TYPES OF ALTERNATIVES
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>أنواع البدائل — Types of Alternatives &amp; Projects</h2>
+    </div>
+    <div class="section-body">
+
+      <p>قبل أن نبدأ بالحسابات، لازم نفهم أنواع البدائل المتاحة أمامنا. الـ <strong>Alternatives</strong> هي الخيارات المتوفرة، والـ <strong>Projects</strong> هي المشاريع المقترحة.</p>
+
+      <div class="note-box"><div class="icon">📌</div><div>المصطلح <strong>Alternatives</strong> يعني الخيارات أو البدائل، أما <strong>Projects</strong> فيعني المشاريع. الفرق أن البدائل هي ما بين أيدينا لنختار منها، والمشاريع هي الأعمال الفعلية التي سنقوم بتنفيذها.</div></div>
+
+      <h3 class="mt" style="color:var(--primary); font-size:17px; margin-bottom:10px;">🔹 النوع الأول: من حيث العلاقة بين المشاريع</h3>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="num-badge">1</div>
+          <h4>Mutually Exclusive (ME)</h4>
+          <p>مشاريع <strong>متنافية</strong> — يمكن اختيار مشروع واحد فقط منها. اختيار أحدها يعني رفض الباقي تلقائياً. <em>مثال: اختيار موقع واحد لبناء مصنع.</em></p>
+        </div>
+        <div class="info-card">
+          <div class="num-badge">2</div>
+          <h4>Independent Projects</h4>
+          <p>مشاريع <strong>مستقلة</strong> — يمكن اختيار أكثر من واحد أو حتى كلها. قرار كل مشروع مستقل عن الآخر. <em>مثال: تطوير قسمين مختلفين في نفس الوقت.</em></p>
+        </div>
+        <div class="info-card">
+          <div class="num-badge">3</div>
+          <h4>Dependent Projects</h4>
+          <p>مشاريع <strong>معتمدة على بعضها</strong> — لازم تأخذها كلها أو لا تأخذ أي منها. <em>مثال: لا يمكنك بناء الجسر بدون بناء الطريق المؤدي إليه.</em></p>
+        </div>
+        <div class="info-card">
+          <div class="num-badge">4</div>
+          <h4>Do Nothing (DN)</h4>
+          <p>خيار <strong>عدم فعل أي شيء</strong> — وهو دائماً خيار متاح. قيمته الحالية = صفر. يُختار عندما تكون كل المشاريع المتاحة غير مربحة.</p>
+        </div>
+      </div>
+
+      <h3 class="mt" style="color:var(--primary); font-size:17px; margin-bottom:10px;">🔹 النوع الثاني: من حيث نوع التدفق المالي</h3>
+      <div class="compare-grid">
+        <div class="green-card">
+          <h4>💰 Revenue Alternative (استثماري)</h4>
+          <p>مشروع له <strong>تكاليف ابتدائية</strong> + <strong>عوائد مالية</strong> (Revenues). الهدف منه تحقيق ربح. مثال: شراء سيارة للعمل على تطبيق توصيل — ستدفع ثمن السيارة لكنها ستحقق لك دخلاً شهرياً.</p>
+        </div>
+        <div class="red-card">
+          <h4>🔧 Cost Alternative (خدمي)</h4>
+          <p>مشروع فيه <strong>تكاليف فقط</strong> بدون عوائد مالية مباشرة، لكنه يوفر خدمة أو يوفّر تكاليف. مثال: شراء موبايل — تدفع لكنه يوفر عليك وقت وجهد. في هذه الحالة نختار <strong>أقل تكلفة</strong>.</p>
+        </div>
+      </div>
+
+      <div class="note-box"><div class="icon">💡</div><div><strong>قاعدة مهمة:</strong> عندما تكون جميع البدائل من نوع <strong>Cost Alternative</strong> وكلها بـ PW سالبة، فنحن نختار المشروع الذي له <strong>أقل خسارة</strong> أي الـ PW الأكبر قيمة (الأقل سلبية). لكن لو كانت جميعها غير مقبولة فنختار <strong>Do Nothing (DN)</strong>.</div></div>
+
+      <h3 class="mt" style="color:var(--primary); font-size:17px; margin-bottom:10px;">🔹 عدد الاحتمالات من المشاريع المستقلة</h3>
+      <div class="def-box">
+        <strong>للمشاريع المستقلة (Independent Projects):</strong> إذا كان عدد المشاريع = <em>P</em>، فإن عدد الاحتمالات الممكنة = <span class="math-inline">2<sup>P</sup></span><br><br>
+        مثال: 4 مشاريع (W, X, Y, Z) → عدد الاحتمالات = 2<sup>4</sup> = <strong>16 احتمالاً</strong> (تشمل DN وهو اختيار لا أي منها)
+      </div>
+
+      <!-- QUESTION 1 -->
+      <div class="question-block">
+        <div class="question-header">✏️ سؤال على الفهم — Section 2</div>
+        <div class="question-body">
+          <div class="question-text">
+            <strong>Problem 5.3:</strong> (a) How many alternatives are possible from four independent projects identified as W, X, Y, and Z?
+            (b) List all of the possibilities.
+          </div>
+          <button class="toggle-btn" onclick="toggleSol(this)">🔍 إظهار الحل</button>
+          <div class="sol-panel">
+            <div class="sol-step"><strong>Part (a):</strong> Number of possibilities = 2<sup>P</sup> = 2<sup>4</sup> = <span class="text-green">16 alternatives</span></div>
+            <div class="sol-step"><strong>Part (b) — All 16 possibilities:</strong><br><br>
+              <span class="dir-ltr" style="display:block; font-size:13.5px; line-height:2;">
+              1. DN (Do Nothing) &nbsp;&nbsp; 2. W only &nbsp;&nbsp; 3. X only &nbsp;&nbsp; 4. Y only<br>
+              5. Z only &nbsp;&nbsp; 6. W&X &nbsp;&nbsp; 7. W&Y &nbsp;&nbsp; 8. W&Z<br>
+              9. X&Y &nbsp;&nbsp; 10. X&Z &nbsp;&nbsp; 11. Y&Z &nbsp;&nbsp; 12. W&X&Y<br>
+              13. W&X&Z &nbsp;&nbsp; 14. W&Y&Z &nbsp;&nbsp; 15. X&Y&Z &nbsp;&nbsp; 16. W&X&Y&Z
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 3 — CASH FLOW ELEMENTS
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>عناصر التدفق النقدي — Cash Flow Elements</h2>
+    </div>
+    <div class="section-body">
+      <p>لكي نقارن أي بدائل اقتصادية، لازم نعرف العناصر الأربعة التي تشكّل أي مشروع:</p>
+
+      <table class="sym-table">
+        <thead><tr><th>العنصر</th><th>الرمز</th><th>التوقيت</th><th>الشرح</th></tr></thead>
+        <tbody>
+          <tr><td class="sym">First Cost (P)</td><td>P أو FC</td><td>Year 0 (الحاضر)</td><td>التكلفة الابتدائية — المبلغ الذي تدفعه الآن لشراء الآلة أو تنفيذ المشروع</td></tr>
+          <tr><td class="sym">Operating & Maintenance Cost (O&M)</td><td>A</td><td>كل سنة (Annually)</td><td>تكاليف التشغيل والصيانة السنوية المتكررة طوال عمر المشروع</td></tr>
+          <tr><td class="sym">Revenue</td><td>A</td><td>كل سنة (Annually)</td><td>الإيرادات السنوية الناتجة عن المشروع (تدخل في الحساب كقيمة موجبة)</td></tr>
+          <tr><td class="sym">Salvage Value (S)</td><td>S أو SV</td><td>نهاية العمر الإنتاجي</td><td>قيمة بيع الآلة أو المعدة بعد انتهاء عمرها الإنتاجي (Revenue إيجابي)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note-box"><div class="icon">💡</div><div><strong>Cost Saving:</strong> هي المبالغ التي وفّرتها (أي تكاليف كنت ستدفعها لكنك لم تدفعها). تُعامل معاملة الـ Revenue وتُدخَل كقيمة موجبة في الحسابات. مثال: لو كان بإمكانك شراء منتج بـ$15 لكنك تفاوضت وأخذته بـ$13، فأنت وفّرت $2 وهذا يُعتبر Revenue بقيمة $2.</div></div>
+
+      <div class="note-box"><div class="icon">⚠️</div><div><strong>Cases in Comparing Alternatives — أنواع الحالات عند المقارنة:</strong><br>
+        • <strong>Equal-Life Alternatives:</strong> عمر المشاريع متساوٍ — مباشرة نقارن.<br>
+        • <strong>Different-Life Alternatives:</strong> عمر المشاريع مختلف — نستخدم إحدى طريقتين: <strong>LCM</strong> أو <strong>Study Period</strong>.
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 4 — MARR & PW RELATIONSHIP
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>مفهوم الـ MARR وعلاقته بالـ PW</h2>
+    </div>
+    <div class="section-body">
+
+      <h3 style="color:var(--primary); font-size:17px; margin-bottom:10px;">ما هو الـ MARR؟</h3>
+      <p>لنفترض أن عندنا مشروعاً بسيطاً: ندفع $100 اليوم ونستلم $110 بعد سنة. نسبة الفائدة = (110-100)/100 × 100% = 10%.</p>
+      <p>لكي نقول هل هذا المشروع مقبول أو لا، نحتاج إلى معرفة <strong>أقل نسبة فائدة مقبولة</strong> بالنسبة لنا كمستثمرين. هذه النسبة تُسمى:</p>
+
+      <div class="formula-box">
+        <div class="formula-label">Minimum Attractive Rate of Return</div>
+        <div class="formula-main">MARR</div>
+        <div class="formula-desc">أقل نسبة عائد مقبولة — الحد الأدنى الذي يجب أن يحققه المشروع لنقبله</div>
+      </div>
+
+      <div class="compare-grid">
+        <div class="green-card">
+          <h4>✅ المشروع مقبول إذا:</h4>
+          <p class="dir-ltr"><strong>i ≥ MARR</strong><br>أي أن نسبة عائد المشروع أكبر من أو تساوي الحد الأدنى المطلوب.</p>
+        </div>
+        <div class="red-card">
+          <h4>❌ المشروع غير مقبول إذا:</h4>
+          <p class="dir-ltr"><strong>i &lt; MARR</strong><br>أي أن نسبة عائد المشروع أقل من الحد الأدنى المطلوب.</p>
+        </div>
+      </div>
+
+      <h3 class="mt" style="color:var(--primary); font-size:17px; margin-bottom:10px;">🔗 العلاقة بين PW والـ MARR</h3>
+      <p>المشكلة تبدأ عندما يكون المشروع معقداً (عدة سنوات، عدة دفعات) ولا نستطيع حساب نسبة الفائدة مباشرة. الحل هو حساب الـ <strong>Present Worth (PW)</strong> عند MARR، فالعلاقة بينهما هي:</p>
+
+      <div class="compare-grid">
+        <div class="green-card">
+          <h4>✅ المشروع مقبول إذا:</h4>
+          <p class="dir-ltr"><strong>PW ≥ 0</strong><br>
+          يعني أن المشروع يعطي عائداً ≥ MARR</p>
+        </div>
+        <div class="red-card">
+          <h4>❌ المشروع غير مقبول إذا:</h4>
+          <p class="dir-ltr"><strong>PW &lt; 0</strong><br>
+          يعني أن المشروع يعطي عائداً &lt; MARR</p>
+        </div>
+      </div>
+
+      <div class="note-box"><div class="icon">🎯</div><div><strong>البرهان بالمثال:</strong> ثلاثة مشاريع بسيطة (مدة سنة واحدة) مع MARR = 10%:<br>
+      <span class="dir-ltr" style="display:block; margin-top:8px; font-size:14px;">
+        (A) i=9% &lt; MARR → Not acceptable: PA = -100 + 109×(P/F,10%,1) = -100 + 109×0.9091 = <strong class="text-red">–$0.91</strong><br>
+        (B) i=10% = MARR → Acceptable: PB = -100 + 110×0.9091 = <strong class="text-gold">$0.00</strong><br>
+        (C) i=11% &gt; MARR → Acceptable: PC = -100 + 111×0.9091 = <strong class="text-green">+$0.91</strong>
+      </span>
+      <br>الاستنتاج: PW سالبة → غير مقبول | PW = صفر → مقبول بالحد الأدنى | PW موجبة → مقبول.</div></div>
+
+      <h3 class="mt" style="color:var(--primary); font-size:17px; margin-bottom:10px;">📊 قواعد الاختيار — Selection Rules</h3>
+      <ul class="steps-list">
+        <li><div class="step-num">1</div><div><strong>مشروع واحد (Independent):</strong> اقبله إذا كان PW ≥ 0</div></li>
+        <li><div class="step-num">2</div><div><strong>Mutually Exclusive Alternatives:</strong> اختر الذي له <strong>أكبر PW</strong> (حتى لو كانت كلها سالبة — اختر أقل خسارة، إلا لو كلها سالبة وفي خيار DN فاختر DN)</div></li>
+        <li><div class="step-num">3</div><div><strong>Independent Projects:</strong> اختر <strong>كل</strong> المشاريع التي PW &gt; 0</div></li>
+        <li><div class="step-num">4</div><div><strong>Do Nothing (DN):</strong> قيمته PW = 0 دائماً. يُختار عندما لا يوجد بديل مقبول لمشاريع Revenue</div></li>
+      </ul>
+
+      <!-- QUESTION -->
+      <div class="question-block">
+        <div class="question-header">✏️ سؤال على الفهم — Section 4</div>
+        <div class="question-body">
+          <div class="question-text">
+            For the alternatives shown below, which should be selected if they are (a) mutually exclusive; (b) independent?
+            <br><br>
+            <table style="direction:ltr; border-collapse:collapse; font-size:13.5px;">
+              <tr style="background:#f0f6ff;"><th style="padding:6px 14px; border:1px solid #ddeeff;">Project ID</th><th style="padding:6px 14px; border:1px solid #ddeeff;">Present Worth</th></tr>
+              <tr><td style="padding:6px 14px; border:1px solid #ddeeff;">A</td><td style="padding:6px 14px; border:1px solid #ddeeff; color:green;">$30,000</td></tr>
+              <tr><td style="padding:6px 14px; border:1px solid #ddeeff;">B</td><td style="padding:6px 14px; border:1px solid #ddeeff; color:green;">$12,500</td></tr>
+              <tr><td style="padding:6px 14px; border:1px solid #ddeeff;">C</td><td style="padding:6px 14px; border:1px solid #ddeeff; color:red;">-$4,000</td></tr>
+              <tr><td style="padding:6px 14px; border:1px solid #ddeeff;">D</td><td style="padding:6px 14px; border:1px solid #ddeeff; color:green;">$2,000</td></tr>
+            </table>
+          </div>
+          <button class="toggle-btn" onclick="toggleSol(this)">🔍 إظهار الحل</button>
+          <div class="sol-panel">
+            <div class="sol-step"><strong>Part (a) — Mutually Exclusive:</strong> نختار المشروع الذي له أكبر PW → <span class="text-green">Select Project A ($30,000)</span></div>
+            <div class="sol-step"><strong>Part (b) — Independent Projects:</strong> نختار كل المشاريع التي PW > 0 → <span class="text-green">Select A, B, and D</span> (C مرفوض لأن PW سالبة)</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 5 — PW ANALYSIS
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Present Worth Analysis — مفهوم وخطوات الحل</h2>
+    </div>
+    <div class="section-body">
+
+      <p>تحليل القيمة الحالية (PW Analysis) هو العملية التي نحوّل فيها <strong>جميع التدفقات النقدية</strong> لأي مشروع إلى قيمتها الحالية عند t=0 باستخدام معدل الفائدة MARR.</p>
+
+      <div class="def-box">
+        <strong>تعريف:</strong> الـ Present Worth (PW) هو مجموع القيمة الحالية لكل التدفقات النقدية الواردة (Cash Inflows) مطروحاً منها مجموع القيمة الحالية لكل التدفقات الصادرة (Cash Outflows)، محسوبة جميعها عند MARR.
+      </div>
+
+      <h3 class="mt" style="color:var(--primary); font-size:17px; margin-bottom:10px;">📋 خطوات حل أي مسألة PW</h3>
+      <ul class="steps-list">
+        <li><div class="step-num">1</div><div>ارسم الـ <strong>Cash Flow Diagram</strong> لكل بديل</div></li>
+        <li><div class="step-num">2</div><div>تأكد أن <strong>الفترات الزمنية متساوية</strong> لجميع البدائل (سنبحث هذه المسألة في الأقسام التالية)</div></li>
+        <li><div class="step-num">3</div><div>حوّل كل Cash Flow إلى قيمتها عند t=0 باستخدام الـ <strong>Factors</strong> المناسبة (P/F, P/A, P/G)</div></li>
+        <li><div class="step-num">4</div><div>ضع إشارة <strong>سالبة للتكاليف (Costs)</strong> وإشارة <strong>موجبة للإيرادات (Revenues)</strong></div></li>
+        <li><div class="step-num">5</div><div>قارن النتائج واختر البديل بأكبر PW</div></li>
+      </ul>
+
+      <div class="formula-box">
+        <div class="formula-label">General PW Formula — صيغة عامة</div>
+        <div class="formula-main">PW(i%) = –P – A(P/A, i%, n) + S(P/F, i%, n)</div>
+        <div class="formula-desc">P = First Cost (موجبة في المسألة، سالبة في المعادلة) | A = Annual Cost/Revenue | S = Salvage Value | n = عدد السنوات</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 6 — EQUAL LIFE
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Equal-Life Alternatives — البدائل بعمر متساوٍ</h2>
+    </div>
+    <div class="section-body">
+
+      <p>هذه أبسط الحالات. لما يكون عمر (Life) كل البدائل <strong>متساوياً</strong>، مباشرة نحسب PW لكل بديل ونقارن. لا توجد تعقيدات إضافية.</p>
+
+      <!-- EXAMPLE 1 -->
+      <div class="example-box">
+        <div class="example-header">📘 Example 2 — Equal-Life, Two Alternatives (Alt X vs Alt Y)</div>
+        <div class="example-body">
+          <p style="font-size:14.5px; direction:ltr; text-align:left;"><strong>Problem:</strong> Alternative X has a first cost of $20,000, an operating cost of $9,000/year, and a $5,000 salvage value after 5 years. Alternative Y costs $35,000 with an operating cost of $4,000/year and a salvage value of $7,000 after 5 years. At MARR = 12%/year, which should be selected?</p>
+
+          <!-- Cash Flow Diagram Alt X -->
+          <div class="cf-wrap">
+            <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:560px; display:block; margin:0 auto;">
+              <!-- Timeline -->
+              <line x1="40" y1="90" x2="520" y2="90" stroke="#1a3a6b" stroke-width="2.5"/>
+              <polygon points="520,86 530,90 520,94" fill="#1a3a6b"/>
+              <!-- Ticks & Labels -->
+              <g fill="#1a3a6b" font-family="IBM Plex Sans" font-size="12" text-anchor="middle">
+                <line x1="70"  y1="87" x2="70"  y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <line x1="160" y1="87" x2="160" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <line x1="250" y1="87" x2="250" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <line x1="340" y1="87" x2="340" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <line x1="430" y1="87" x2="430" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <line x1="480" y1="87" x2="480" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <text x="70"  y="110">0</text>
+                <text x="160" y="110">1</text>
+                <text x="250" y="110">2</text>
+                <text x="340" y="110">3</text>
+                <text x="430" y="110">4</text>
+                <text x="480" y="110">5</text>
+              </g>
+              <!-- Cash Out — First Cost -->
+              <line x1="70" y1="90" x2="70" y2="145" stroke="#c0392b" stroke-width="2.5"/>
+              <polygon points="66,145 70,158 74,145" fill="#c0392b"/>
+              <text x="70" y="175" font-size="11" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">P=$20K</text>
+              <!-- Annual Cost arrows -->
+              <g stroke="#c0392b" stroke-width="2" fill="#c0392b">
+                <line x1="160" y1="90" x2="160" y2="128"/>
+                <polygon points="156,128 160,140 164,128"/>
+                <line x1="250" y1="90" x2="250" y2="128"/>
+                <polygon points="246,128 250,140 254,128"/>
+                <line x1="340" y1="90" x2="340" y2="128"/>
+                <polygon points="336,128 340,140 344,128"/>
+                <line x1="430" y1="90" x2="430" y2="128"/>
+                <polygon points="426,128 430,140 434,128"/>
+                <line x1="480" y1="90" x2="480" y2="128"/>
+                <polygon points="476,128 480,140 484,128"/>
+              </g>
+              <text x="265" y="158" font-size="11" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">A=$9K/yr</text>
+              <!-- Salvage — Cash In at year 5 -->
+              <line x1="480" y1="90" x2="480" y2="42" stroke="#1a7f5a" stroke-width="2.5"/>
+              <polygon points="476,42 480,30 484,42" fill="#1a7f5a"/>
+              <text x="480" y="25" font-size="11" fill="#1a7f5a" text-anchor="middle" font-family="IBM Plex Sans">S=$5K</text>
+              <!-- Title -->
+              <text x="290" y="15" font-size="13" fill="#1a3a6b" text-anchor="middle" font-family="IBM Plex Sans" font-weight="600">Alternative X — Cash Flow Diagram</text>
+              <!-- Legend -->
+              <rect x="390" y="60" width="120" height="28" rx="5" fill="#fff" stroke="#ddeeff"/>
+              <line x1="398" y1="70" x2="408" y2="70" stroke="#1a7f5a" stroke-width="2"/>
+              <text x="412" y="73" font-size="10" fill="#1a7f5a" font-family="IBM Plex Sans">Cash In (↑)</text>
+              <line x1="398" y1="82" x2="408" y2="82" stroke="#c0392b" stroke-width="2"/>
+              <text x="412" y="85" font-size="10" fill="#c0392b" font-family="IBM Plex Sans">Cash Out (↓)</text>
+            </svg>
+          </div>
+
+          <!-- Cash Flow Diagram Alt Y -->
+          <div class="cf-wrap">
+            <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:560px; display:block; margin:0 auto;">
+              <line x1="40" y1="90" x2="520" y2="90" stroke="#1a3a6b" stroke-width="2.5"/>
+              <polygon points="520,86 530,90 520,94" fill="#1a3a6b"/>
+              <g fill="#1a3a6b" font-family="IBM Plex Sans" font-size="12" text-anchor="middle">
+                <line x1="70"  y1="87" x2="70"  y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <line x1="160" y1="87" x2="160" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <line x1="250" y1="87" x2="250" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <line x1="340" y1="87" x2="340" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <line x1="430" y1="87" x2="430" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <line x1="480" y1="87" x2="480" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+                <text x="70"  y="110">0</text>
+                <text x="160" y="110">1</text>
+                <text x="250" y="110">2</text>
+                <text x="340" y="110">3</text>
+                <text x="430" y="110">4</text>
+                <text x="480" y="110">5</text>
+              </g>
+              <line x1="70" y1="90" x2="70" y2="148" stroke="#c0392b" stroke-width="2.5"/>
+              <polygon points="66,148 70,161 74,148" fill="#c0392b"/>
+              <text x="70" y="178" font-size="11" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">P=$35K</text>
+              <g stroke="#c0392b" stroke-width="2" fill="#c0392b">
+                <line x1="160" y1="90" x2="160" y2="122"/><polygon points="156,122 160,134 164,122"/>
+                <line x1="250" y1="90" x2="250" y2="122"/><polygon points="246,122 250,134 254,122"/>
+                <line x1="340" y1="90" x2="340" y2="122"/><polygon points="336,122 340,134 344,122"/>
+                <line x1="430" y1="90" x2="430" y2="122"/><polygon points="426,122 430,134 434,122"/>
+                <line x1="480" y1="90" x2="480" y2="122"/><polygon points="476,122 480,134 484,122"/>
+              </g>
+              <text x="265" y="150" font-size="11" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">A=$4K/yr</text>
+              <line x1="480" y1="90" x2="480" y2="42" stroke="#1a7f5a" stroke-width="2.5"/>
+              <polygon points="476,42 480,30 484,42" fill="#1a7f5a"/>
+              <text x="480" y="25" font-size="11" fill="#1a7f5a" text-anchor="middle" font-family="IBM Plex Sans">S=$7K</text>
+              <text x="290" y="15" font-size="13" fill="#1a3a6b" text-anchor="middle" font-family="IBM Plex Sans" font-weight="600">Alternative Y — Cash Flow Diagram</text>
+            </svg>
+          </div>
+
+          <div class="sol-step"><strong>Step 1 — PW of Alternative X (i=12%, n=5):</strong><br>
+            <span class="dir-ltr" style="display:block; font-size:14px; margin-top:6px;">
+              PW<sub>X</sub> = –20,000 – 9,000(P/A, 12%, 5) + 5,000(P/F, 12%, 5)<br>
+              = –20,000 – 9,000(3.6048) + 5,000(0.5674)<br>
+              = –20,000 – 32,443.2 + 2,837 = <strong class="text-red">–$49,606</strong>
+            </span>
+          </div>
+          <div class="sol-step"><strong>Step 2 — PW of Alternative Y (i=12%, n=5):</strong><br>
+            <span class="dir-ltr" style="display:block; font-size:14px; margin-top:6px;">
+              PW<sub>Y</sub> = –35,000 – 4,000(P/A, 12%, 5) + 7,000(P/F, 12%, 5)<br>
+              = –35,000 – 4,000(3.6048) + 7,000(0.5674)<br>
+              = –35,000 – 14,419.2 + 3,971.8 = <strong class="text-red">–$45,447</strong>
+            </span>
+          </div>
+          <div class="sol-step" style="border-right-color: var(--green);"><strong>Decision:</strong> PW<sub>Y</sub> (–$45,447) &gt; PW<sub>X</sub> (–$49,606) → <span class="text-green">Select Alternative Y</span></div>
+        </div>
+      </div>
+
+      <!-- QUESTION -->
+      <div class="question-block">
+        <div class="question-header">✏️ سؤال محلول — Problem 5.14</div>
+        <div class="question-body">
+          <div class="question-text">
+            <strong>Problem 5.14:</strong> The supervisor of a community swimming pool has developed two methods for chlorinating the pool.
+            <br>• <strong>Gaseous Chlorine:</strong> Chlorinator first cost = $8,000 (life 5 years), chlorine cost = $650/yr, labor = $800/yr.
+            <br>• <strong>Dry Chlorine:</strong> No equipment cost, chlorine = $1,000/yr, labor = $1,900/yr.
+            <br>Which method should be used at i = 10%/year? Use PW analysis.
+          </div>
+          <button class="toggle-btn" onclick="toggleSol(this)">🔍 إظهار الحل</button>
+          <div class="sol-panel">
+            <!-- CF Diagram -->
+            <div class="cf-wrap">
+              <svg viewBox="0 0 580 185" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:580px; display:block; margin:0 auto;">
+                <!-- Gaseous -->
+                <text x="145" y="18" font-size="12" fill="#1a3a6b" text-anchor="middle" font-weight="600" font-family="IBM Plex Sans">Gaseous Chlorine</text>
+                <line x1="40" y1="60" x2="255" y2="60" stroke="#1a3a6b" stroke-width="2"/>
+                <polygon points="255,56 263,60 255,64" fill="#1a3a6b"/>
+                <g font-family="IBM Plex Sans" font-size="11" text-anchor="middle" fill="#1a3a6b">
+                  <line x1="60"  y1="57" x2="60"  y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <line x1="105" y1="57" x2="105" y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <line x1="150" y1="57" x2="150" y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <line x1="195" y1="57" x2="195" y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <line x1="240" y1="57" x2="240" y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <text x="60"  y="78">0</text>
+                  <text x="105" y="78">1</text>
+                  <text x="150" y="78">2</text>
+                  <text x="195" y="78">3-4</text>
+                  <text x="240" y="78">5</text>
+                </g>
+                <!-- First cost -->
+                <line x1="60" y1="60" x2="60" y2="100" stroke="#c0392b" stroke-width="2"/>
+                <polygon points="56,100 60,112 64,100" fill="#c0392b"/>
+                <text x="60" y="124" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">$8K</text>
+                <!-- Annual -->
+                <g stroke="#c0392b" stroke-width="1.5" fill="#c0392b">
+                  <line x1="105" y1="60" x2="105" y2="88"/><polygon points="101,88 105,98 109,88"/>
+                  <line x1="150" y1="60" x2="150" y2="88"/><polygon points="146,88 150,98 154,88"/>
+                  <line x1="195" y1="60" x2="195" y2="88"/><polygon points="191,88 195,98 199,88"/>
+                  <line x1="240" y1="60" x2="240" y2="88"/><polygon points="236,88 240,98 244,88"/>
+                </g>
+                <text x="170" y="112" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">A=$1,450/yr</text>
+
+                <!-- Dry -->
+                <text x="435" y="18" font-size="12" fill="#1a3a6b" text-anchor="middle" font-weight="600" font-family="IBM Plex Sans">Dry Chlorine</text>
+                <line x1="320" y1="60" x2="535" y2="60" stroke="#1a3a6b" stroke-width="2"/>
+                <polygon points="535,56 543,60 535,64" fill="#1a3a6b"/>
+                <g font-family="IBM Plex Sans" font-size="11" text-anchor="middle" fill="#1a3a6b">
+                  <line x1="340" y1="57" x2="340" y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <line x1="385" y1="57" x2="385" y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <line x1="430" y1="57" x2="430" y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <line x1="475" y1="57" x2="475" y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <line x1="520" y1="57" x2="520" y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <text x="340" y="78">0</text>
+                  <text x="385" y="78">1</text>
+                  <text x="430" y="78">2</text>
+                  <text x="475" y="78">3-4</text>
+                  <text x="520" y="78">5</text>
+                </g>
+                <g stroke="#c0392b" stroke-width="1.5" fill="#c0392b">
+                  <line x1="385" y1="60" x2="385" y2="88"/><polygon points="381,88 385,98 389,88"/>
+                  <line x1="430" y1="60" x2="430" y2="88"/><polygon points="426,88 430,98 434,88"/>
+                  <line x1="475" y1="60" x2="475" y2="88"/><polygon points="471,88 475,98 479,88"/>
+                  <line x1="520" y1="60" x2="520" y2="88"/><polygon points="516,88 520,98 524,88"/>
+                </g>
+                <text x="450" y="112" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">A=$2,900/yr</text>
+              </svg>
+            </div>
+            <div class="sol-step"><strong>Annual Cost — Gaseous:</strong> A = $650 + $800 = $1,450/yr</div>
+            <div class="sol-step"><strong>Annual Cost — Dry:</strong> A = $1,000 + $1,900 = $2,900/yr</div>
+            <div class="sol-step"><strong>PW (Gaseous) at 10%, n=5:</strong><br>
+              <span class="dir-ltr" style="display:block; font-size:13.5px;">
+                PW = –8,000 – 1,450(P/A, 10%, 5) = –8,000 – 1,450(3.7908) = –8,000 – 5,496.7 = <strong>–$13,497</strong>
+              </span>
+            </div>
+            <div class="sol-step"><strong>PW (Dry) at 10%, n=5:</strong><br>
+              <span class="dir-ltr" style="display:block; font-size:13.5px;">
+                PW = –2,900(P/A, 10%, 5) = –2,900(3.7908) = <strong>–$10,993</strong>
+              </span>
+            </div>
+            <div class="sol-step" style="border-right-color:var(--green);"><strong>Decision:</strong> PW<sub>Dry</sub> (–$10,993) > PW<sub>Gas</sub> (–$13,497) → <span class="text-green">Select Dry Chlorine ✓</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 7 — DIFFERENT LIFE — LCM
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Different-Life Alternatives — طريقة LCM</h2>
+    </div>
+    <div class="section-body">
+
+      <p>لما يكون عمر البدائل مختلفاً، لا يمكننا مقارنتها مباشرة لأن المقارنة العادلة تتطلب نفس الفترة الزمنية. الطريقة الأولى هي:</p>
+
+      <div class="def-box">
+        <strong>Least Common Multiple (LCM) Method:</strong> نجد المضاعف المشترك الأصغر لأعمار المشاريع، ثم نكرر cash flow كل مشروع بالعدد اللازم حتى تتساوى الفترات. التكرار يعني كأننا نعيد نفس المشروع من جديد عند نهاية كل دورة.
+      </div>
+
+      <div class="note-box"><div class="icon">⚙️</div><div><strong>قاعدة:</strong> دائماً نستخدم طريقة الـ LCM ما لم يُذكر في السؤال طريقة Study Period. إذا قيل "use LCM" أو لم يُحدد شيء → نستخدم LCM.</div></div>
+
+      <!-- EXAMPLE 3 -->
+      <div class="example-box">
+        <div class="example-header">📘 Example 3 — Different Lives: Machine A (3 years) vs Machine B (6 years)</div>
+        <div class="example-body">
+          <p style="direction:ltr; text-align:left; font-size:14px;"><strong>Data:</strong></p>
+          <table style="direction:ltr; border-collapse:collapse; font-size:13.5px; margin-bottom:14px;">
+            <tr style="background:#f0f6ff;"><th style="padding:7px 14px; border:1px solid #ddeeff;"></th><th style="padding:7px 14px; border:1px solid #ddeeff;">Machine A</th><th style="padding:7px 14px; border:1px solid #ddeeff;">Machine B</th></tr>
+            <tr><td style="padding:7px 14px; border:1px solid #ddeeff;">First cost, $</td><td style="padding:7px 14px; border:1px solid #ddeeff;">20,000</td><td style="padding:7px 14px; border:1px solid #ddeeff;">30,000</td></tr>
+            <tr><td style="padding:7px 14px; border:1px solid #ddeeff;">Annual cost, $/yr</td><td style="padding:7px 14px; border:1px solid #ddeeff;">9,000</td><td style="padding:7px 14px; border:1px solid #ddeeff;">7,000</td></tr>
+            <tr><td style="padding:7px 14px; border:1px solid #ddeeff;">Salvage value, $</td><td style="padding:7px 14px; border:1px solid #ddeeff;">4,000</td><td style="padding:7px 14px; border:1px solid #ddeeff;">6,000</td></tr>
+            <tr><td style="padding:7px 14px; border:1px solid #ddeeff;">Life, years</td><td style="padding:7px 14px; border:1px solid #ddeeff;">3</td><td style="padding:7px 14px; border:1px solid #ddeeff;">6</td></tr>
+          </table>
+
+          <!-- CF Diagram LCM -->
+          <div class="cf-wrap">
+            <svg viewBox="0 0 600 230" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:600px; display:block; margin:0 auto;">
+              <!-- Machine A (repeated twice) -->
+              <text x="300" y="18" font-size="13" fill="#1a3a6b" text-anchor="middle" font-weight="600" font-family="IBM Plex Sans">Machine A — repeated twice (LCM=6)</text>
+              <line x1="30" y1="60" x2="570" y2="60" stroke="#1a3a6b" stroke-width="2.5"/>
+              <polygon points="570,56 580,60 570,64" fill="#1a3a6b"/>
+              <g font-family="IBM Plex Sans" font-size="11" text-anchor="middle" fill="#1a3a6b">
+                <line x1="55" y1="57" x2="55" y2="67" stroke="#1a3a6b" stroke-width="1.5"/>
+                <text x="55" y="80">0</text>
+                <line x1="140" y1="57" x2="140" y2="67" stroke="#1a3a6b" stroke-width="1.5"/>
+                <text x="140" y="80">1</text>
+                <line x1="225" y1="57" x2="225" y2="67" stroke="#1a3a6b" stroke-width="1.5"/>
+                <text x="225" y="80">2</text>
+                <line x1="310" y1="57" x2="310" y2="67" stroke="#1a3a6b" stroke-width="1.5"/>
+                <text x="310" y="80">3</text>
+                <line x1="395" y1="57" x2="395" y2="67" stroke="#1a3a6b" stroke-width="1.5"/>
+                <text x="395" y="80">4</text>
+                <line x1="480" y1="57" x2="480" y2="67" stroke="#1a3a6b" stroke-width="1.5"/>
+                <text x="480" y="80">5</text>
+                <line x1="555" y1="57" x2="555" y2="67" stroke="#1a3a6b" stroke-width="1.5"/>
+                <text x="555" y="80">6</text>
+              </g>
+              <!-- P at year 0 -->
+              <line x1="55" y1="60" x2="55" y2="110" stroke="#c0392b" stroke-width="2.5"/>
+              <polygon points="51,110 55,122 59,110" fill="#c0392b"/>
+              <text x="55" y="134" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">$20K</text>
+              <!-- Annual year 1-6 -->
+              <g stroke="#c0392b" stroke-width="1.5" fill="#c0392b">
+                <line x1="140" y1="60" x2="140" y2="88"/><polygon points="136,88 140,99 144,88"/>
+                <line x1="225" y1="60" x2="225" y2="88"/><polygon points="221,88 225,99 229,88"/>
+                <line x1="310" y1="60" x2="310" y2="88"/><polygon points="306,88 310,99 314,88"/>
+                <line x1="395" y1="60" x2="395" y2="88"/><polygon points="391,88 395,99 399,88"/>
+                <line x1="480" y1="60" x2="480" y2="88"/><polygon points="476,88 480,99 484,88"/>
+                <line x1="555" y1="60" x2="555" y2="88"/><polygon points="551,88 555,99 559,88"/>
+              </g>
+              <text x="350" y="112" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">A=$9K/yr</text>
+              <!-- Salvage at year 3 -->
+              <line x1="310" y1="60" x2="310" y2="28" stroke="#1a7f5a" stroke-width="2.5"/>
+              <polygon points="306,28 310,16 314,28" fill="#1a7f5a"/>
+              <text x="310" y="10" font-size="10" fill="#1a7f5a" text-anchor="middle" font-family="IBM Plex Sans">$4K</text>
+              <!-- P at year 3 (reinvestment) — net = 20K - 4K = 16K outflow -->
+              <text x="310" y="148" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">–$16K net</text>
+              <!-- Salvage at year 6 -->
+              <line x1="555" y1="60" x2="555" y2="28" stroke="#1a7f5a" stroke-width="2.5"/>
+              <polygon points="551,28 555,16 559,28" fill="#1a7f5a"/>
+              <text x="555" y="10" font-size="10" fill="#1a7f5a" text-anchor="middle" font-family="IBM Plex Sans">$4K</text>
+              <!-- Note at year 3 -->
+              <text x="310" y="164" font-size="9.5" fill="#7a5800" text-anchor="middle" font-family="IBM Plex Sans">(+4K–20K)</text>
+            </svg>
+          </div>
+
+          <div class="sol-step"><strong>LCM(3,6) = 6 سنوات</strong> — Machine A تُكرر مرتين، Machine B مرة واحدة</div>
+          <div class="sol-step"><strong>PW<sub>A</sub>(10%) عند n=6:</strong><br>
+            <span class="dir-ltr" style="display:block; font-size:13.5px;">
+              PW<sub>A</sub> = –20,000 – 9,000(P/A,10%,6) – 16,000(P/F,10%,3) + 4,000(P/F,10%,6)<br>
+              = –20,000 – 9,000(4.3553) – 16,000(0.7513) + 4,000(0.5645)<br>
+              = –20,000 – 39,198 – 12,021 + 2,258 = <strong class="text-red">–$68,961</strong>
+            </span>
+            <span style="font-size:13px; color:#555;">ملاحظة: –16,000 = –20,000 + 4,000 (صافي الإنفاق عند السنة 3: نشتري آلة جديدة بـ$20K ونبيع القديمة بـ$4K)</span>
+          </div>
+          <div class="sol-step"><strong>PW<sub>B</sub>(10%) عند n=6:</strong><br>
+            <span class="dir-ltr" style="display:block; font-size:13.5px;">
+              PW<sub>B</sub> = –30,000 – 7,000(P/A,10%,6) + 6,000(P/F,10%,6)<br>
+              = –30,000 – 7,000(4.3553) + 6,000(0.5645)<br>
+              = –30,000 – 30,487 + 3,387 = <strong class="text-red">–$57,100</strong>
+            </span>
+          </div>
+          <div class="sol-step" style="border-right-color:var(--green);"><strong>Decision:</strong> PW<sub>B</sub> (–$57,100) > PW<sub>A</sub> (–$68,961) → <span class="text-green">Select Machine B ✓</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 8 — STUDY PERIOD
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Different-Life Alternatives — طريقة Study Period</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="def-box">
+        <strong>Study Period Method:</strong> المستثمر يحدد مسبقاً فترة زمنية محددة (Study Period) يريد دراسة المشاريع خلالها. نقتصر على التدفقات النقدية ضمن هذه الفترة فقط، ونتجاهل أي تدفقات بعدها. وفي نهاية فترة الدراسة نضع <strong>Salvage/Market Value</strong> حتى لو لم تنته الآلة عمرها.
+      </div>
+
+      <div class="note-box"><div class="icon">📌</div><div>
+        <strong>متى نستخدم Study Period؟</strong><br>
+        • عندما يذكر السؤال صراحة "use a study period of X years".<br>
+        • شائع في مسائل <strong>Equipment Replacement</strong> (تبديل المعدات).<br>
+        • في هذه الطريقة يجب أن يُعطيك السؤال قيمة السوق (Market Value) للآلة عند نهاية فترة الدراسة حتى لو لم تنته دورتها.
+      </div></div>
+
+      <!-- EXAMPLE 4 -->
+      <div class="example-box">
+        <div class="example-header">📘 Example 4 — Study Period of 3 Years (Same data as Example 3)</div>
+        <div class="example-body">
+          <p style="direction:ltr; font-size:14px; text-align:left;">Same machines as Example 3 but compare using a <strong>3-year study period</strong>. Machine B's market value after 3 years = $10,000.</p>
+
+          <div class="cf-wrap">
+            <svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:560px; display:block; margin:0 auto;">
+              <!-- Alt A 3yr -->
+              <text x="135" y="15" font-size="12" fill="#1a3a6b" text-anchor="middle" font-weight="600" font-family="IBM Plex Sans">Machine A (3-yr Study)</text>
+              <line x1="30" y1="55" x2="245" y2="55" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="245,51 255,55 245,59" fill="#1a3a6b"/>
+              <g font-family="IBM Plex Sans" font-size="11" text-anchor="middle" fill="#1a3a6b">
+                <line x1="55" y1="52" x2="55" y2="60" stroke="#1a3a6b" stroke-width="1.5"/><text x="55" y="73">0</text>
+                <line x1="120" y1="52" x2="120" y2="60" stroke="#1a3a6b" stroke-width="1.5"/><text x="120" y="73">1</text>
+                <line x1="185" y1="52" x2="185" y2="60" stroke="#1a3a6b" stroke-width="1.5"/><text x="185" y="73">2</text>
+                <line x1="230" y1="52" x2="230" y2="60" stroke="#1a3a6b" stroke-width="1.5"/><text x="230" y="73">3</text>
+              </g>
+              <line x1="55" y1="55" x2="55" y2="98" stroke="#c0392b" stroke-width="2"/><polygon points="51,98 55,110 59,98" fill="#c0392b"/>
+              <text x="55" y="122" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">$20K</text>
+              <g stroke="#c0392b" stroke-width="1.5" fill="#c0392b">
+                <line x1="120" y1="55" x2="120" y2="82"/><polygon points="116,82 120,92 124,82"/>
+                <line x1="185" y1="55" x2="185" y2="82"/><polygon points="181,82 185,92 189,82"/>
+                <line x1="230" y1="55" x2="230" y2="82"/><polygon points="226,82 230,92 234,82"/>
+              </g>
+              <text x="175" y="106" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">A=$9K</text>
+              <line x1="230" y1="55" x2="230" y2="25" stroke="#1a7f5a" stroke-width="2"/><polygon points="226,25 230,13 234,25" fill="#1a7f5a"/>
+              <text x="230" y="8" font-size="10" fill="#1a7f5a" text-anchor="middle" font-family="IBM Plex Sans">S=$4K</text>
+
+              <!-- Alt B 3yr -->
+              <text x="420" y="15" font-size="12" fill="#1a3a6b" text-anchor="middle" font-weight="600" font-family="IBM Plex Sans">Machine B (3-yr Study)</text>
+              <line x1="305" y1="55" x2="520" y2="55" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="520,51 530,55 520,59" fill="#1a3a6b"/>
+              <g font-family="IBM Plex Sans" font-size="11" text-anchor="middle" fill="#1a3a6b">
+                <line x1="330" y1="52" x2="330" y2="60" stroke="#1a3a6b" stroke-width="1.5"/><text x="330" y="73">0</text>
+                <line x1="395" y1="52" x2="395" y2="60" stroke="#1a3a6b" stroke-width="1.5"/><text x="395" y="73">1</text>
+                <line x1="460" y1="52" x2="460" y2="60" stroke="#1a3a6b" stroke-width="1.5"/><text x="460" y="73">2</text>
+                <line x1="505" y1="52" x2="505" y2="60" stroke="#1a3a6b" stroke-width="1.5"/><text x="505" y="73">3</text>
+              </g>
+              <line x1="330" y1="55" x2="330" y2="98" stroke="#c0392b" stroke-width="2"/><polygon points="326,98 330,110 334,98" fill="#c0392b"/>
+              <text x="330" y="122" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">$30K</text>
+              <g stroke="#c0392b" stroke-width="1.5" fill="#c0392b">
+                <line x1="395" y1="55" x2="395" y2="82"/><polygon points="391,82 395,92 399,82"/>
+                <line x1="460" y1="55" x2="460" y2="82"/><polygon points="456,82 460,92 464,82"/>
+                <line x1="505" y1="55" x2="505" y2="82"/><polygon points="501,82 505,92 509,82"/>
+              </g>
+              <text x="450" y="106" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">A=$7K</text>
+              <line x1="505" y1="55" x2="505" y2="25" stroke="#1a7f5a" stroke-width="2"/><polygon points="501,25 505,13 509,25" fill="#1a7f5a"/>
+              <text x="505" y="8" font-size="10" fill="#1a7f5a" text-anchor="middle" font-family="IBM Plex Sans">MV=$10K</text>
+            </svg>
+          </div>
+
+          <div class="sol-step"><strong>PW<sub>A</sub>(10%, 3 years):</strong><br>
+            <span class="dir-ltr" style="display:block; font-size:13.5px;">
+              PW<sub>A</sub> = –20,000 – 9,000(P/A,10%,3) + 4,000(P/F,10%,3)<br>
+              = –20,000 – 9,000(2.4869) + 4,000(0.7513) = –20,000 – 22,382 + 3,005 = <strong class="text-red">–$39,377</strong>
+            </span>
+          </div>
+          <div class="sol-step"><strong>PW<sub>B</sub>(10%, 3 years) — Market Value = $10,000:</strong><br>
+            <span class="dir-ltr" style="display:block; font-size:13.5px;">
+              PW<sub>B</sub> = –30,000 – 7,000(P/A,10%,3) + 10,000(P/F,10%,3)<br>
+              = –30,000 – 7,000(2.4869) + 10,000(0.7513) = –30,000 – 17,408 + 7,513 = <strong class="text-red">–$39,895</strong>
+            </span>
+          </div>
+          <div class="sol-step" style="border-right-color:var(--green);"><strong>Decision:</strong> PW<sub>A</sub> (–$39,377) > PW<sub>B</sub> (–$39,895) → <span class="text-green">Select Machine A ✓</span></div>
+        </div>
+      </div>
+
+      <!-- QUESTION -->
+      <div class="question-block">
+        <div class="question-header">✏️ سؤال محلول — Problem 5.17 (Different Lives — LCM)</div>
+        <div class="question-body">
+          <div class="question-text">
+            <strong>Problem 5.17:</strong> An electric switch manufacturing company must choose one of three assembly methods.
+            <br>• Method A: First cost = $40,000, Annual O&M = $9,000, Life = 2 years, Salvage = $0
+            <br>• Method B: First cost = $80,000, Annual O&M = $6,000, Life = 4 years, Salvage = $0
+            <br>• Method C: First cost = $130,000, Annual O&M = $4,000, Life = 8 years, Salvage = $12,000
+            <br>Use present worth analysis at i = 10%/year.
+          </div>
+          <button class="toggle-btn" onclick="toggleSol(this)">🔍 إظهار الحل</button>
+          <div class="sol-panel">
+            <div class="sol-step"><strong>LCM(2,4,8) = 8 years</strong> — Method A تُكرر 4 مرات، Method B تُكرر مرتين، Method C مرة واحدة</div>
+            <div class="sol-step"><strong>PW<sub>A</sub>(10%, n=8):</strong><br>
+              <span class="dir-ltr" style="display:block; font-size:13px;">
+                Reinvestments at years 2, 4, 6 (all $40,000, no salvage):<br>
+                PW<sub>A</sub> = –40,000 – 9,000(P/A,10%,8) – 40,000(P/F,10%,2) – 40,000(P/F,10%,4) – 40,000(P/F,10%,6)<br>
+                = –40,000 – 9,000(5.3349) – 40,000(0.8264) – 40,000(0.6830) – 40,000(0.5645)<br>
+                = –40,000 – 48,014 – 33,056 – 27,320 – 22,580 = <strong class="text-red">–$170,970</strong>
+              </span>
+            </div>
+            <div class="sol-step"><strong>PW<sub>B</sub>(10%, n=8):</strong><br>
+              <span class="dir-ltr" style="display:block; font-size:13px;">
+                Reinvestment at year 4:<br>
+                PW<sub>B</sub> = –80,000 – 6,000(P/A,10%,8) – 80,000(P/F,10%,4)<br>
+                = –80,000 – 6,000(5.3349) – 80,000(0.6830)<br>
+                = –80,000 – 32,009 – 54,640 = <strong class="text-red">–$166,649</strong>
+              </span>
+            </div>
+            <div class="sol-step"><strong>PW<sub>C</sub>(10%, n=8):</strong><br>
+              <span class="dir-ltr" style="display:block; font-size:13px;">
+                PW<sub>C</sub> = –130,000 – 4,000(P/A,10%,8) + 12,000(P/F,10%,8)<br>
+                = –130,000 – 4,000(5.3349) + 12,000(0.4665)<br>
+                = –130,000 – 21,340 + 5,598 = <strong class="text-red">–$145,742</strong>
+              </span>
+            </div>
+            <div class="sol-step" style="border-right-color:var(--green);"><strong>Decision:</strong> PW<sub>C</sub> (–$145,742) > PW<sub>B</sub> (–$166,649) > PW<sub>A</sub> (–$170,970) → <span class="text-green">Select Method C ✓</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 9 — FUTURE WORTH
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>Future Worth Analysis — تحليل القيمة المستقبلية</h2>
+    </div>
+    <div class="section-body">
+
+      <p>الـ <strong>Future Worth (FW) Analysis</strong> هو نفس مبدأ الـ PW تماماً، لكن بدلاً من تحويل كل الـ Cash Flows إلى اللحظة الحاضرة (t=0)، نحولها إلى <strong>نهاية فترة الدراسة</strong>.</p>
+
+      <div class="formula-box">
+        <div class="formula-label">Future Worth Formula</div>
+        <div class="formula-main">FW(i%) = PW(i%) × (F/P, i%, n)</div>
+        <div class="formula-desc">أو: احسب FW مباشرة باستخدام عوامل (F/P), (F/A) وهكذا. النتيجة ستكون مكافئة لنتيجة PW دائماً.</div>
+      </div>
+
+      <div class="compare-grid">
+        <div class="green-card">
+          <h4>✅ المشروع مقبول إذا:</h4>
+          <p class="dir-ltr"><strong>FW ≥ 0</strong></p>
+        </div>
+        <div class="red-card">
+          <h4>❌ المشروع غير مقبول إذا:</h4>
+          <p class="dir-ltr"><strong>FW &lt; 0</strong></p>
+        </div>
+      </div>
+
+      <div class="note-box"><div class="icon">🔁</div><div>سواء استخدمت PW أو FW، ستصل دائماً لنفس القرار. الـ PW والـ FW هي أدوات مكافئة رياضياً. اختيار إحداهما يعتمد على ما يطلبه السؤال.</div></div>
+
+      <!-- EXAMPLE 5 -->
+      <div class="example-box">
+        <div class="example-header">📘 Example 5 — Future Worth: Same Machines (A & B) at i=10%</div>
+        <div class="example-body">
+          <div class="sol-step"><strong>LCM(3,6) = 6 سنوات. نحول لـ FW عند t=6.</strong></div>
+          <div class="sol-step"><strong>FW<sub>A</sub>(10%):</strong><br>
+            <span class="dir-ltr" style="display:block; font-size:13.5px;">
+              FW<sub>A</sub> = –20,000(F/P,10%,6) – 9,000(F/A,10%,6) – 16,000(F/P,10%,3) + 4,000<br>
+              = –20,000(1.7716) – 9,000(7.7156) – 16,000(1.3310) + 4,000<br>
+              = –35,432 – 69,440 – 21,296 + 4,000 = <strong class="text-red">–$122,168</strong>
+            </span>
+          </div>
+          <div class="sol-step"><strong>FW<sub>B</sub>(10%):</strong><br>
+            <span class="dir-ltr" style="display:block; font-size:13.5px;">
+              FW<sub>B</sub> = –30,000(F/P,10%,6) – 7,000(F/A,10%,6) + 6,000<br>
+              = –30,000(1.7716) – 7,000(7.7156) + 6,000<br>
+              = –53,148 – 54,009 + 6,000 = <strong class="text-red">–$101,157</strong>
+            </span>
+          </div>
+          <div class="sol-step" style="border-right-color:var(--green);"><strong>Decision:</strong> FW<sub>B</sub> > FW<sub>A</sub> → <span class="text-green">Select Machine B ✓</span> (نفس نتيجة PW)</div>
+        </div>
+      </div>
+
+      <!-- QUESTION -->
+      <div class="question-block">
+        <div class="question-header">✏️ سؤال محلول — Problem 5.27 (Future Worth)</div>
+        <div class="question-body">
+          <div class="question-text">
+            <strong>Problem 5.27:</strong> Two processes for producing a polymer that reduces friction in engines:
+            <br>• Process T: First cost = $750,000, Annual O&M = $60,000, Salvage = $80,000, Life = 2 years
+            <br>• Process W: First cost = $1,350,000, Annual O&M = $25,000, Salvage = $120,000, Life = 4 years, plus update cost at end of year 2 = $90,000
+            <br>Which should be selected using Future Worth analysis at i = 12%/year?
+          </div>
+          <button class="toggle-btn" onclick="toggleSol(this)">🔍 إظهار الحل</button>
+          <div class="sol-panel">
+            <div class="cf-wrap">
+              <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:580px; display:block; margin:0 auto;">
+                <!-- Process T (×2 for LCM=4) -->
+                <text x="145" y="15" font-size="12" fill="#1a3a6b" text-anchor="middle" font-weight="600" font-family="IBM Plex Sans">Process T (repeated, LCM=4)</text>
+                <line x1="30" y1="60" x2="270" y2="60" stroke="#1a3a6b" stroke-width="2"/>
+                <polygon points="270,56 280,60 270,64" fill="#1a3a6b"/>
+                <g font-family="IBM Plex Sans" font-size="11" text-anchor="middle" fill="#1a3a6b">
+                  <line x1="55" y1="57" x2="55" y2="65" stroke="#1a3a6b" stroke-width="1.5"/><text x="55" y="78">0</text>
+                  <line x1="120" y1="57" x2="120" y2="65" stroke="#1a3a6b" stroke-width="1.5"/><text x="120" y="78">1</text>
+                  <line x1="185" y1="57" x2="185" y2="65" stroke="#1a3a6b" stroke-width="1.5"/><text x="185" y="78">2</text>
+                  <line x1="250" y1="57" x2="250" y2="65" stroke="#1a3a6b" stroke-width="1.5"/><text x="250" y="78">3</text>
+                  <line x1="265" y1="57" x2="265" y2="65" stroke="#1a3a6b" stroke-width="1.5"/>
+                </g>
+                <line x1="55" y1="60" x2="55" y2="105" stroke="#c0392b" stroke-width="2"/>
+                <polygon points="51,105 55,118 59,105" fill="#c0392b"/>
+                <text x="55" y="130" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">$750K</text>
+                <g stroke="#c0392b" stroke-width="1.5" fill="#c0392b">
+                  <line x1="120" y1="60" x2="120" y2="88"/><polygon points="116,88 120,99 124,88"/>
+                  <line x1="185" y1="60" x2="185" y2="88"/><polygon points="181,88 185,99 189,88"/>
+                  <line x1="250" y1="60" x2="250" y2="88"/><polygon points="246,88 250,99 254,88"/>
+                </g>
+                <text x="170" y="113" font-size="9.5" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">A=$60K/yr</text>
+                <line x1="185" y1="60" x2="185" y2="28" stroke="#1a7f5a" stroke-width="2"/><polygon points="181,28 185,16 189,28" fill="#1a7f5a"/>
+                <text x="185" y="10" font-size="9.5" fill="#1a7f5a" text-anchor="middle" font-family="IBM Plex Sans">S=$80K</text>
+                <text x="185" y="148" font-size="9" fill="#7a5800" text-anchor="middle" font-family="IBM Plex Sans">net: –670K</text>
+
+                <!-- Process W -->
+                <text x="435" y="15" font-size="12" fill="#1a3a6b" text-anchor="middle" font-weight="600" font-family="IBM Plex Sans">Process W</text>
+                <line x1="310" y1="60" x2="555" y2="60" stroke="#1a3a6b" stroke-width="2"/>
+                <polygon points="555,56 565,60 555,64" fill="#1a3a6b"/>
+                <g font-family="IBM Plex Sans" font-size="11" text-anchor="middle" fill="#1a3a6b">
+                  <line x1="335" y1="57" x2="335" y2="65" stroke="#1a3a6b" stroke-width="1.5"/><text x="335" y="78">0</text>
+                  <line x1="395" y1="57" x2="395" y2="65" stroke="#1a3a6b" stroke-width="1.5"/><text x="395" y="78">1</text>
+                  <line x1="455" y1="57" x2="455" y2="65" stroke="#1a3a6b" stroke-width="1.5"/><text x="455" y="78">2</text>
+                  <line x1="515" y1="57" x2="515" y2="65" stroke="#1a3a6b" stroke-width="1.5"/><text x="515" y="78">3</text>
+                  <line x1="545" y1="57" x2="545" y2="65" stroke="#1a3a6b" stroke-width="1.5"/><text x="545" y="78">4</text>
+                </g>
+                <line x1="335" y1="60" x2="335" y2="105" stroke="#c0392b" stroke-width="2"/>
+                <polygon points="331,105 335,118 339,105" fill="#c0392b"/>
+                <text x="335" y="130" font-size="10" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">$1350K</text>
+                <g stroke="#c0392b" stroke-width="1.5" fill="#c0392b">
+                  <line x1="395" y1="60" x2="395" y2="88"/><polygon points="391,88 395,99 399,88"/>
+                  <line x1="455" y1="60" x2="455" y2="88"/><polygon points="451,88 455,99 459,88"/>
+                  <line x1="515" y1="60" x2="515" y2="88"/><polygon points="511,88 515,99 519,88"/>
+                  <line x1="545" y1="60" x2="545" y2="88"/><polygon points="541,88 545,99 549,88"/>
+                </g>
+                <text x="440" y="113" font-size="9.5" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">A=$25K/yr</text>
+                <!-- Update at year 2 -->
+                <line x1="455" y1="60" x2="455" y2="115" stroke="#c0392b" stroke-width="2" stroke-dasharray="4"/>
+                <text x="455" y="130" font-size="9.5" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">Update=$90K</text>
+                <!-- Salvage at year 4 -->
+                <line x1="545" y1="60" x2="545" y2="28" stroke="#1a7f5a" stroke-width="2"/><polygon points="541,28 545,16 549,28" fill="#1a7f5a"/>
+                <text x="545" y="10" font-size="9.5" fill="#1a7f5a" text-anchor="middle" font-family="IBM Plex Sans">S=$120K</text>
+              </svg>
+            </div>
+            <div class="sol-step"><strong>LCM(2,4) = 4 years → FW at t=4</strong></div>
+            <div class="sol-step"><strong>FW<sub>T</sub>(12%, n=4) — Process T (repeated at year 2):</strong><br>
+              <span class="dir-ltr" style="display:block; font-size:13px;">
+                FW<sub>T</sub> = –750,000(F/P,12%,4) – 60,000(F/A,12%,4) – 670,000(F/P,12%,2) + 80,000<br>
+                (note: at yr2: –750K + 80K = –670K net reinvestment)<br>
+                = –750,000(1.5735) – 60,000(4.7793) – 670,000(1.2544) + 80,000<br>
+                = –1,180,125 – 286,758 – 840,448 + 80,000 = <strong class="text-red">–$2,227,331</strong>
+              </span>
+            </div>
+            <div class="sol-step"><strong>FW<sub>W</sub>(12%, n=4):</strong><br>
+              <span class="dir-ltr" style="display:block; font-size:13px;">
+                FW<sub>W</sub> = –1,350,000(F/P,12%,4) – 25,000(F/A,12%,4) – 90,000(F/P,12%,2) + 120,000<br>
+                = –1,350,000(1.5735) – 25,000(4.7793) – 90,000(1.2544) + 120,000<br>
+                = –2,124,225 – 119,483 – 112,896 + 120,000 = <strong class="text-red">–$2,236,604</strong>
+              </span>
+            </div>
+            <div class="sol-step" style="border-right-color:var(--green);"><strong>Decision:</strong> FW<sub>T</sub> (–$2,227,331) > FW<sub>W</sub> (–$2,236,604) → <span class="text-green">Select Process T ✓</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 10 — CAPITALIZED COST
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Capitalized Cost (CC) Analysis — التكلفة الرأسمالية</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="def-box">
+        <strong>Capitalized Cost (CC):</strong> هي القيمة الحالية (Present Worth) لمشروع عمره لانهائي (Infinite Life). أي أننا نحسب كم نحتاج من المال الآن لتمويل مشروع إلى الأبد.
+      </div>
+
+      <p>الفكرة الرياضية: لو وضعت مبلغاً <strong>P</strong> في بنك بفائدة <strong>i</strong>، فكل سنة ستحصل على فائدة = <strong>P × i</strong>. لو أردنا أن ندفع مبلغاً ثابتاً كل سنة إلى الأبد = <strong>A</strong>، نحتاج رأس مال ابتدائي:</p>
+
+      <div class="formula-box">
+        <div class="formula-label">Capitalized Cost Formula</div>
+        <div class="formula-main">CC = P = A / i</div>
+        <div class="formula-desc">حيث A = التكلفة السنوية (Annual Worth) أو العائد السنوي | i = معدل الفائدة (كنسبة عشرية)</div>
+      </div>
+
+      <h3 class="mt" style="color:var(--primary); font-size:17px; margin-bottom:10px;">🔑 كيف نتعامل مع المشاريع ذات العمر المحدود في CC؟</h3>
+      <ul class="steps-list">
+        <li><div class="step-num">1</div><div>المشروع ذو العمر اللانهائي (∞): مباشرة نطبق CC = A/i</div></li>
+        <li><div class="step-num">2</div><div>المشروع ذو العمر المحدود (n سنة): نحول كل تدفقاته إلى Annual Worth (A) باستخدام عامل A/P، ثم نطبق CC = A/i → وكأن المشروع يتكرر إلى الأبد</div></li>
+        <li><div class="step-num">3</div><div>مصاريف متكررة كل k سنة: نحولها إلى A باستخدام عامل A/F، ثم CC = A/i</div></li>
+      </ul>
+
+      <!-- EXAMPLE 6 -->
+      <div class="example-box">
+        <div class="example-header">📘 Example 6 — CC: Machine 1 (life=3) vs Machine 2 (life=∞)</div>
+        <div class="example-body">
+          <table style="direction:ltr; border-collapse:collapse; font-size:13.5px; margin-bottom:14px;">
+            <tr style="background:#f0f6ff;"><th style="padding:7px 14px; border:1px solid #ddeeff;"></th><th style="padding:7px 14px; border:1px solid #ddeeff;">Machine 1</th><th style="padding:7px 14px; border:1px solid #ddeeff;">Machine 2</th></tr>
+            <tr><td style="padding:7px 14px; border:1px solid #ddeeff;">First cost, $</td><td style="padding:7px 14px; border:1px solid #ddeeff;">20,000</td><td style="padding:7px 14px; border:1px solid #ddeeff;">100,000</td></tr>
+            <tr><td style="padding:7px 14px; border:1px solid #ddeeff;">Annual cost, $/yr</td><td style="padding:7px 14px; border:1px solid #ddeeff;">9,000</td><td style="padding:7px 14px; border:1px solid #ddeeff;">7,000</td></tr>
+            <tr><td style="padding:7px 14px; border:1px solid #ddeeff;">Salvage value, $</td><td style="padding:7px 14px; border:1px solid #ddeeff;">4,000</td><td style="padding:7px 14px; border:1px solid #ddeeff;">—</td></tr>
+            <tr><td style="padding:7px 14px; border:1px solid #ddeeff;">Life, years</td><td style="padding:7px 14px; border:1px solid #ddeeff;">3</td><td style="padding:7px 14px; border:1px solid #ddeeff;">∞</td></tr>
+          </table>
+          <div class="sol-step"><strong>Machine 2 — CC مباشرة (عمر لانهائي):</strong><br>
+            <span class="dir-ltr" style="display:block; font-size:13.5px;">
+              CC<sub>2</sub> = –100,000 – 7,000/0.10 = –100,000 – 70,000 = <strong class="text-red">–$170,000</strong>
+            </span>
+          </div>
+          <div class="sol-step"><strong>Machine 1 — نحول لـ Annual Worth أولاً:</strong><br>
+            <span class="dir-ltr" style="display:block; font-size:13.5px;">
+              A<sub>1</sub> = 20,000(A/P,10%,3) – 4,000(A/F,10%,3) + 9,000<br>
+              = 20,000(0.4021) – 4,000(0.3021) + 9,000<br>
+              = 8,042 – 1,208 + 9,000 = $15,834/yr<br><br>
+              CC<sub>1</sub> = –A<sub>1</sub>/i = –15,834/0.10 = <strong class="text-red">–$158,340</strong>
+            </span>
+          </div>
+          <div class="sol-step" style="border-right-color:var(--green);"><strong>Decision:</strong> CC<sub>1</sub> (–$158,340) > CC<sub>2</sub> (–$170,000) → <span class="text-green">Select Machine 1 ✓</span></div>
+        </div>
+      </div>
+
+      <!-- QUESTION 5.31 -->
+      <div class="question-block">
+        <div class="question-header">✏️ سؤال محلول — Problem 5.31 (Capitalized Cost)</div>
+        <div class="question-body">
+          <div class="question-text">
+            <strong>Problem 5.31:</strong> A wealthy businessman wants to start a permanent fund for research on sustainability. He plans to give equal amounts for each of the next 5 years plus one now (6 equal donations total) so that $100,000/year can be withdrawn forever, beginning in year 6. The fund earns 8%/year. How much must be donated each time?
+          </div>
+          <button class="toggle-btn" onclick="toggleSol(this)">🔍 إظهار الحل</button>
+          <div class="sol-panel">
+            <div class="cf-wrap">
+              <svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:560px; display:block; margin:0 auto;">
+                <line x1="30" y1="75" x2="540" y2="75" stroke="#1a3a6b" stroke-width="2"/>
+                <polygon points="540,71 550,75 540,79" fill="#1a3a6b"/>
+                <g font-family="IBM Plex Sans" font-size="10.5" text-anchor="middle" fill="#1a3a6b">
+                  <line x1="55" y1="72" x2="55" y2="80" stroke="#1a3a6b" stroke-width="1.5"/><text x="55" y="93">0</text>
+                  <line x1="110" y1="72" x2="110" y2="80" stroke="#1a3a6b" stroke-width="1.5"/><text x="110" y="93">1</text>
+                  <line x1="165" y1="72" x2="165" y2="80" stroke="#1a3a6b" stroke-width="1.5"/><text x="165" y="93">2</text>
+                  <line x1="220" y1="72" x2="220" y2="80" stroke="#1a3a6b" stroke-width="1.5"/><text x="220" y="93">3</text>
+                  <line x1="275" y1="72" x2="275" y2="80" stroke="#1a3a6b" stroke-width="1.5"/><text x="275" y="93">4</text>
+                  <line x1="330" y1="72" x2="330" y2="80" stroke="#1a3a6b" stroke-width="1.5"/><text x="330" y="93">5</text>
+                  <line x1="385" y1="72" x2="385" y2="80" stroke="#1a3a6b" stroke-width="1.5"/><text x="385" y="93">6</text>
+                  <line x1="430" y1="72" x2="430" y2="80" stroke="#1a3a6b" stroke-width="1.5"/><text x="430" y="93">7</text>
+                  <text x="490" y="93">→ ∞</text>
+                </g>
+                <!-- Donations (down) yr 0–5 -->
+                <g stroke="#c0392b" stroke-width="2" fill="#c0392b">
+                  <line x1="55" y1="75" x2="55" y2="108"/><polygon points="51,108 55,120 59,108"/>
+                  <line x1="110" y1="75" x2="110" y2="108"/><polygon points="106,108 110,120 114,108"/>
+                  <line x1="165" y1="75" x2="165" y2="108"/><polygon points="161,108 165,120 169,108"/>
+                  <line x1="220" y1="75" x2="220" y2="108"/><polygon points="216,108 220,120 224,108"/>
+                  <line x1="275" y1="75" x2="275" y2="108"/><polygon points="271,108 275,120 279,108"/>
+                  <line x1="330" y1="75" x2="330" y2="108"/><polygon points="326,108 330,120 334,108"/>
+                </g>
+                <text x="190" y="135" font-size="10.5" fill="#c0392b" text-anchor="middle" font-family="IBM Plex Sans">X donations/yr (0 to 5)</text>
+                <!-- Withdrawals (up) yr 6 onwards -->
+                <g stroke="#1a7f5a" stroke-width="2" fill="#1a7f5a">
+                  <line x1="385" y1="75" x2="385" y2="38"/><polygon points="381,38 385,26 389,38"/>
+                  <line x1="430" y1="75" x2="430" y2="38"/><polygon points="426,38 430,26 434,38"/>
+                  <line x1="475" y1="75" x2="475" y2="38"/><polygon points="471,38 475,26 479,38"/>
+                </g>
+                <text x="450" y="18" font-size="10.5" fill="#1a7f5a" text-anchor="middle" font-family="IBM Plex Sans">$100K/yr forever</text>
+              </svg>
+            </div>
+            <div class="sol-step"><strong>Step 1 — ما المبلغ المطلوب في الصندوق عند t=5 ليدفع $100K/yr من t=6 إلى ∞؟</strong><br>
+              <span class="dir-ltr" style="display:block; font-size:13px;">
+                P<sub>5</sub> = A/i = 100,000/0.08 = $1,250,000
+              </span>
+            </div>
+            <div class="sol-step"><strong>Step 2 — ما المبلغ المطلوب عند t=0 مكافئ لـ $1,250,000 عند t=5؟</strong><br>
+              <span class="dir-ltr" style="display:block; font-size:13px;">
+                P<sub>0</sub> = 1,250,000(P/F, 8%, 5) = 1,250,000(0.6806) = $850,750
+              </span>
+            </div>
+            <div class="sol-step"><strong>Step 3 — حساب كل دفعة X من 6 دفعات (t=0 to t=5):</strong><br>
+              <span class="dir-ltr" style="display:block; font-size:13px;">
+                P<sub>0</sub> = X + X(P/A, 8%, 5) = X[1 + (P/A, 8%, 5)] = X[1 + 3.9927] = X(4.9927)<br>
+                850,750 = X(4.9927)<br>
+                <strong>X = $170,393 ≈ $170,390 ✓</strong>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUESTION 5.38 -->
+      <div class="question-block">
+        <div class="question-header">✏️ سؤال محلول — Problem 5.38 (Monument — CC with extra cost)</div>
+        <div class="question-body">
+          <div class="question-text">
+            <strong>Problem 5.38:</strong> A patriotic group is raising money to build a permanent (infinite life) monument in New York City. Data:
+            <br>• Initial cost = $150,000
+            <br>• Annual maintenance = $5,000/year
+            <br>• One-time additional cost of $20,000 in year 2 to add missed names
+            <br>At i = 6%/year, how much must they raise now?
+          </div>
+          <button class="toggle-btn" onclick="toggleSol(this)">🔍 إظهار الحل</button>
+          <div class="sol-panel">
+            <div class="sol-step"><strong>CC = Initial Cost + PW(annual maintenance) + PW(one-time cost at yr2)</strong></div>
+            <div class="sol-step"><span class="dir-ltr" style="display:block; font-size:13.5px;">
+              CC = –150,000 – 5,000/0.06 – 20,000(P/F, 6%, 2)<br>
+              = –150,000 – 83,333 – 20,000(0.8900)<br>
+              = –150,000 – 83,333 – 17,800 = <strong class="text-red">–$251,133</strong>
+            </span></div>
+            <div class="sol-step" style="border-right-color:var(--green);">يجب جمع <strong class="text-green">$251,133 ≈ $251,130 ✓</strong></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       SECTION 11 — FINAL QUESTIONS
+  ═══════════════════════════════════════════ -->
+  <div class="section-card" id="s11" style="overflow:visible; background:transparent; border:none; box-shadow:none;">
+    <div class="final-section">
+      <h2>📝 أسئلة شاملة — Chapter 5 Problems</h2>
+      <p class="fsub">حل كل الأسئلة خطوة بخطوة مع رسوم بيانية للتدفق النقدي حيثما أمكن</p>
+
+      <!-- Q1 -->
+      <div class="fq-item">
+        <div class="fq-text"><strong>Q1 (Quiz):</strong> For the mutually exclusive alternatives shown, which one(s) should be selected?
+          <br>A: PW=–$25,000 | B: PW=–$12,000 | C: PW=$10,000 | D: PW=$15,000</div>
+        <button class="fq-btn" onclick="toggleFQ(this)">🔍 إظهار الحل</button>
+        <div class="fq-sol">
+          For Mutually Exclusive alternatives → select the one with the <strong>largest PW</strong>.<br>
+          PW<sub>D</sub> = $15,000 is the largest value.<br>
+          <span class="ans">✓ Answer: Select Only D</span>
+        </div>
+      </div>
+
+      <!-- Q2 — 5.16 -->
+      <div class="fq-item">
+        <div class="fq-text"><strong>Q2 — Problem 5.16:</strong> A pipeline engineer wants to compare two routing alternatives at 15%/year, n=50 years:
+          <br>• Land: Install = $215M, Annual = $22M, Valve replacement at yr25 = $30M
+          <br>• Undersea: Install = $350M, Annual = $2M, Valve replacement at yr25 = $70M
+          <br>Which alternative is better (PW analysis)?</div>
+        <button class="fq-btn" onclick="toggleFQ(this)">🔍 إظهار الحل</button>
+        <div class="fq-sol">
+          Using i=15%, n=50: (P/A,15%,50) = 6.6605; (P/F,15%,25) = 0.0304; (P/F,15%,50) = 0.0009<br><br>
+          <strong>PW<sub>Land</sub></strong> = –215 – 22(6.6605) – 30(0.0304) = –215 – 146.53 – 0.912 = <strong>–$362.44M</strong><br>
+          <strong>PW<sub>Undersea</sub></strong> = –350 – 2(6.6605) – 70(0.0304) = –350 – 13.321 – 2.128 = <strong>–$365.45M</strong><br><br>
+          <span class="ans">✓ Answer: Select Land Route (PW = –$362.44M) ✓</span>
+        </div>
+      </div>
+
+      <!-- Q3 — 5.22 -->
+      <div class="fq-item">
+        <div class="fq-text"><strong>Q3 — Problem 5.22:</strong> An engineer is considering two liners for a 110-acre (= 110×43,560 = 4,791,600 sq ft) evaporation pond at 8%/year:
+          <br>• Plastic liner: $0.90/sq ft, replaced at yr15 + removal cost = $500,000, life = 15 years
+          <br>• Rubberized liner: $2.20/sq ft, life = 30 years, no replacement
+          <br>Which liner is more cost-effective?</div>
+        <button class="fq-btn" onclick="toggleFQ(this)">🔍 إظهار الحل</button>
+        <div class="fq-sol">
+          Pond area = 110 × 43,560 = 4,791,600 sq ft<br><br>
+          <strong>Plastic liner (LCM=30):</strong><br>
+          Initial cost = 0.90 × 4,791,600 = $4,312,440 (at yr 0 and yr 15)<br>
+          At yr 15: new liner cost + removal = 4,312,440 + 500,000 = $4,812,440<br>
+          PW<sub>Plastic</sub> = –4,312,440 – 4,812,440(P/F,8%,15)<br>
+          = –4,312,440 – 4,812,440(0.3152) = –4,312,440 – 1,516,881 = <strong>–$5,829,321</strong><br><br>
+          <strong>Rubberized liner:</strong><br>
+          Initial cost = 2.20 × 4,791,600 = $10,541,520<br>
+          PW<sub>Rubber</sub> = –$10,541,520<br><br>
+          <span class="ans">✓ Answer: Select Plastic Liner (PW = –$5,829,321) ✓</span>
+        </div>
+      </div>
+
+      <!-- Q4 — FW -->
+      <div class="fq-item">
+        <div class="fq-text"><strong>Q4 — Problem 5.29 (FW Analysis):</strong> St. Jude's Hospital comparing two MRI systems at i=12%/year:
+          <br>• System K: First cost = $1,600,000, Annual O&M = $70,000, Salvage = $400,000, Life = 4 years
+          <br>• System L: First cost = $2,100,000, Annual O&M = $50,000 with gradient G=$3,000/yr, no salvage, Life = 8 years
+          <br>Select using Future Worth analysis.</div>
+        <button class="fq-btn" onclick="toggleFQ(this)">🔍 إظهار الحل</button>
+        <div class="fq-sol">
+          LCM(4,8) = 8 years. FW at t=8. Factors at 12%, n=8: (F/P,12%,8)=2.4760; (F/A,12%,8)=12.2997; (F/P,12%,4)=1.5735; (F/A,12%,4)=4.7793<br><br>
+          <strong>System K (repeated at yr4):</strong><br>
+          Net reinvestment at yr4 = –1,600,000 + 400,000 = –1,200,000<br>
+          FW<sub>K</sub> = –1,600,000(F/P,12%,8) – 70,000(F/A,12%,8) – 1,200,000(F/P,12%,4) + 400,000<br>
+          = –1,600,000(2.4760) – 70,000(12.2997) – 1,200,000(1.5735) + 400,000<br>
+          = –3,961,600 – 860,979 – 1,888,200 + 400,000 = <strong>–$6,310,779</strong><br><br>
+          <strong>System L (n=8, Arithmetic Gradient):</strong><br>
+          A<sub>total</sub> at yr1: $50,000 increasing by $3,000/yr → use (P/G,12%,8)=14.4714<br>
+          FW<sub>L</sub> = –2,100,000(F/P,12%,8) – 50,000(F/A,12%,8) – 3,000(P/G,12%,8)(F/P,12%,8)<br>
+          = –2,100,000(2.4760) – 50,000(12.2997) – 3,000(14.4714)(2.4760)<br>
+          = –5,199,600 – 614,985 – 107,494 = <strong>–$5,922,079</strong><br><br>
+          <span class="ans">✓ Answer: Select System L (FW = –$5,922,079) ✓</span>
+        </div>
+      </div>
+
+      <!-- Q5 — CC -->
+      <div class="fq-item">
+        <div class="fq-text"><strong>Q5 — Problem 5.37 (Scholarship Endowment):</strong> You want to establish a permanent scholarship fund. Deposit money now so that scholarships of $40,000/year begin in year 12. The interest accumulated between now and year 12 is added to the principal. Fund earns 8%/year. How much must you donate now?</div>
+        <button class="fq-btn" onclick="toggleFQ(this)">🔍 إظهار الحل</button>
+        <div class="fq-sol">
+          <strong>Step 1:</strong> المبلغ المطلوب في الصندوق عند t=11 (ليدفع $40K/yr من t=12 إلى ∞):<br>
+          P<sub>11</sub> = A/i = 40,000/0.08 = $500,000<br><br>
+          <strong>Step 2:</strong> PW عند t=0 مكافئ لـ $500,000 عند t=11:<br>
+          P<sub>0</sub> = 500,000(P/F, 8%, 11) = 500,000(0.4289) = $214,450<br><br>
+          <span class="ans">✓ Answer: Donate $214,450 ≈ $214.45K now ✓</span>
+        </div>
+      </div>
+
+      <!-- Q6 — Quiz MCQ -->
+      <div class="fq-item">
+        <div class="fq-text"><strong>Q6 (Quiz Q3):</strong> The present worth of $50,000 now, $10,000 per year in years 1 through 15, and $20,000 per year in years 16 through infinity at 10%/year is closest to:
+          <br>(a) Less than –$169,000 &nbsp;&nbsp; (b) –$169,580 &nbsp;&nbsp; (c) –$173,940 &nbsp;&nbsp; (d) –$195,730</div>
+        <button class="fq-btn" onclick="toggleFQ(this)">🔍 إظهار الحل</button>
+        <div class="fq-sol">
+          <strong>Step 1 — $50,000 at t=0:</strong> PW = –$50,000<br><br>
+          <strong>Step 2 — $10,000/yr for years 1-15:</strong><br>
+          PW = –10,000(P/A,10%,15) = –10,000(7.6061) = –$76,061<br><br>
+          <strong>Step 3 — $20,000/yr from yr16 to ∞:</strong><br>
+          CC at t=15 = 20,000/0.10 = $200,000<br>
+          PW at t=0 = –200,000(P/F,10%,15) = –200,000(0.2394) = –$47,880<br><br>
+          <strong>Total PW</strong> = –50,000 – 76,061 – 47,880 = <strong>–$173,941</strong><br><br>
+          <span class="ans">✓ Answer: (c) –$173,940</span>
+        </div>
+      </div>
+
+      <!-- Q7 — Quiz Q4 -->
+      <div class="fq-item">
+        <div class="fq-text"><strong>Q7 (Quiz Q4B):</strong> At i=10%/year, in comparing Machine X (P=$80K, A=$20K, S=$10K, n=2) vs Machine Y (P=$95K, A=$15K, S=$30K, n=4) using LCM, the present worth of Machine Y is closest to:
+          <br>(a) –$122,320 &nbsp;&nbsp; (b) –$122,060 &nbsp;&nbsp; (c) –$163,040 &nbsp;&nbsp; (d) –$175,980</div>
+        <button class="fq-btn" onclick="toggleFQ(this)">🔍 إظهار الحل</button>
+        <div class="fq-sol">
+          LCM(2,4) = 4 years. Machine Y has n=4 so no repetition needed.<br><br>
+          PW<sub>Y</sub> = –95,000 – 15,000(P/A,10%,4) + 30,000(P/F,10%,4)<br>
+          = –95,000 – 15,000(3.1699) + 30,000(0.6830)<br>
+          = –95,000 – 47,549 + 20,490 = <strong>–$122,059</strong><br><br>
+          <span class="ans">✓ Answer: (b) –$122,060</span>
+        </div>
+      </div>
+
+      <!-- Q8 — CC Dam -->
+      <div class="fq-item">
+        <div class="fq-text"><strong>Q8 (CC — Dam Problem):</strong> A dam will have a first cost of $5,000,000, annual maintenance of $25,000, and minor reconstruction costs of $100,000 every 5 years. At i=8%/year, the capitalized cost of the dam is nearest to:
+          <br>(a) –$213,125 &nbsp;&nbsp; (b) –$525,625 &nbsp;&nbsp; (c) –$5,312,500 &nbsp;&nbsp; (d) –$5,525,625</div>
+        <button class="fq-btn" onclick="toggleFQ(this)">🔍 إظهار الحل</button>
+        <div class="fq-sol">
+          <strong>Step 1 — First cost:</strong> –$5,000,000<br><br>
+          <strong>Step 2 — Annual maintenance CC:</strong><br>
+          CC<sub>maint</sub> = –25,000/0.08 = –$312,500<br><br>
+          <strong>Step 3 — $100,000 every 5 years → convert to annual (A/F,8%,5)=0.1705:</strong><br>
+          A = 100,000(A/F,8%,5) = 100,000(0.1705) = $17,050/yr<br>
+          CC<sub>recon</sub> = –17,050/0.08 = –$213,125<br><br>
+          <strong>Total CC</strong> = –5,000,000 – 312,500 – 213,125 = <strong>–$5,525,625</strong><br><br>
+          <span class="ans">✓ Answer: (d) –$5,525,625</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<!-- ════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="site-footer">
+  Chapter 5 — Present Worth Analysis | Engineering Economy | جميع الحقوق محفوظة
+</footer>
+
+<script>
+  function toggleSol(btn) {
+    const panel = btn.nextElementSibling;
+    panel.classList.toggle('open');
+    btn.textContent = panel.classList.contains('open') ? '🔼 إخفاء الحل' : '🔍 إظهار الحل';
+  }
+  function toggleFQ(btn) {
+    const panel = btn.nextElementSibling;
+    panel.classList.toggle('open');
+    btn.textContent = panel.classList.contains('open') ? '🔼 إخفاء الحل' : '🔍 إظهار الحل';
+  }
+</script>
+</body>
+</html>

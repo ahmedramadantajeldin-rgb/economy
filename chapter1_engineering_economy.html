@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 1 – Foundations of Engineering Economy</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #1a3a6b;
+    --primary-mid:  #2155a3;
+    --accent:       #0e90d2;
+    --accent-light: #4fb8e8;
+    --surface:      #f0f6ff;
+    --surface-2:    #ddeeff;
+    --white:        #ffffff;
+    --text-dark:    #0e1e3a;
+    --text-mid:     #2c4066;
+    --text-light:   #4a6fa5;
+    --gold:         #e8b84b;
+    --green:        #1a7f5a;
+    --green-bg:     #edfaf4;
+    --red:          #c0392b;
+    --red-bg:       #fdf0ef;
+    --warn-bg:      #fffbea;
+    --warn-border:  #e8b84b;
+    --shadow-sm:    0 2px 8px rgba(26,58,107,0.10);
+    --shadow-md:    0 6px 24px rgba(26,58,107,0.15);
+    --shadow-lg:    0 12px 40px rgba(26,58,107,0.20);
+    --radius:       14px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', 'Amiri', sans-serif;
+    background: linear-gradient(160deg, #e8f2ff 0%, #f5f9ff 40%, #eef5ff 100%);
+    color: var(--text-dark);
+    line-height: 1.85;
+    font-size: 16px;
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─────────────────────────────── */
+  .site-header {
+    background: linear-gradient(135deg, var(--primary) 0%, #0f2554 60%, #152f6e 100%);
+    color: white;
+    padding: 56px 40px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--gold);
+  }
+  .site-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(79,184,232,0.15) 0%, transparent 65%),
+                radial-gradient(ellipse at 80% 20%, rgba(232,184,75,0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(232,184,75,0.2);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 16px;
+    border-radius: 50px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .site-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .site-header h1 span { color: var(--accent-light); }
+  .site-header .subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.72);
+    font-weight: 300;
+    margin-top: 8px;
+    letter-spacing: 0.3px;
+  }
+  .header-badges {
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    margin-top: 22px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.85);
+    font-size: 12px; padding: 5px 14px; border-radius: 50px;
+  }
+
+  /* ─── TOC ─────────────────────────────────── */
+  .toc-wrapper {
+    max-width: 960px; margin: 36px auto 0; padding: 0 24px;
+  }
+  .toc {
+    background: var(--white);
+    border: 1.5px solid var(--surface-2);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-sm);
+  }
+  .toc h2 {
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; margin-bottom: 16px;
+    border-bottom: 2px solid var(--surface-2);
+    padding-bottom: 10px;
+  }
+  .toc ol { padding-right: 22px; }
+  .toc li { padding: 4px 0; }
+  .toc a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  .toc a:hover { text-decoration: underline; color: var(--primary); }
+
+  /* ─── LAYOUT ──────────────────────────────── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* ─── SECTION ─────────────────────────────── */
+  .section {
+    margin-top: 52px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1.5px solid rgba(33,85,163,0.09);
+    overflow: hidden;
+    animation: fadeUp 0.5s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%);
+    color: white;
+    padding: 20px 32px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-num {
+    background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    line-height: 1.3;
+  }
+  .section-header h2 .ar { font-family: 'Amiri', serif; font-size: 17px; color: rgba(255,255,255,0.78); display: block; font-weight: 400; }
+  .section-body { padding: 28px 32px; }
+
+  /* ─── TYPOGRAPHY ──────────────────────────── */
+  .section-body p { margin-bottom: 14px; color: var(--text-mid); font-size: 15.5px; }
+  .section-body h3 {
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; margin: 26px 0 10px;
+    border-right: 4px solid var(--accent);
+    padding-right: 12px;
+  }
+  .section-body h4 {
+    color: var(--primary-mid);
+    font-size: 15px; font-weight: 600;
+    margin: 18px 0 8px;
+  }
+
+  /* ─── INFO CARDS ──────────────────────────── */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+  .info-card {
+    background: var(--surface);
+    border: 1.5px solid rgba(33,85,163,0.12);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .info-card .card-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--primary);
+    color: white; font-size: 11px; font-weight: 700;
+    width: 22px; height: 22px; border-radius: 50%;
+    margin-left: 8px; flex-shrink: 0; float: right;
+  }
+  .info-card p { margin: 0; font-size: 14.5px; color: var(--text-mid); }
+
+  /* ─── STEPS ───────────────────────────────── */
+  .steps { list-style: none; padding: 0; margin: 14px 0; }
+  .steps li {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--surface);
+    border-radius: 10px; padding: 14px 16px;
+    margin-bottom: 10px;
+    border-right: 3px solid var(--accent-light);
+  }
+  .step-n {
+    background: var(--accent);
+    color: white; font-size: 12px; font-weight: 700;
+    min-width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .steps li p { margin: 0; font-size: 14.5px; color: var(--text-mid); }
+
+  /* ─── DEFINITION BOX ──────────────────────── */
+  .def-box {
+    background: linear-gradient(135deg, #e8f2ff 0%, #ddeeff 100%);
+    border-right: 4px solid var(--primary);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 16px 0;
+  }
+  .def-box strong { color: var(--primary); font-size: 14px; display: block; margin-bottom: 4px; }
+  .def-box p { margin: 0; font-size: 14.5px; color: var(--text-mid); }
+
+  /* ─── NOTE BOX ────────────────────────────── */
+  .note-box {
+    background: var(--warn-bg);
+    border: 1.5px solid var(--warn-border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .note-box .icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .note-box p { margin: 0; font-size: 14.5px; color: #7a5800; }
+
+  /* ─── FORMULA BOX ─────────────────────────── */
+  .formula-box {
+    background: linear-gradient(135deg, var(--primary) 0%, #1a4080 100%);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+  .formula-box .label {
+    color: rgba(255,255,255,0.65); font-size: 12px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 10px; display: block;
+  }
+  .formula-box .math { color: white; font-size: 18px; }
+  .formula-box p { color: rgba(255,255,255,0.8); font-size: 13.5px; margin-top: 10px; margin-bottom: 0; }
+
+  /* ─── SYMBOLS TABLE ───────────────────────── */
+  .sym-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14.5px; }
+  .sym-table th {
+    background: var(--primary);
+    color: white; padding: 11px 16px;
+    text-align: right; font-weight: 600;
+  }
+  .sym-table td { padding: 10px 16px; border-bottom: 1px solid var(--surface-2); color: var(--text-mid); }
+  .sym-table tr:nth-child(even) td { background: var(--surface); }
+  .sym-table tr:hover td { background: #e0eeff; }
+  .sym-table .sym { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--primary); font-weight: 700; text-align: center; }
+
+  /* ─── EXAMPLE BOX ─────────────────────────── */
+  .example-box {
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 24px 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .example-header {
+    background: var(--accent);
+    color: white;
+    padding: 11px 20px;
+    font-weight: 600; font-size: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .example-body { padding: 20px 22px; background: #f5fbff; }
+  .example-body p { font-size: 14.5px; color: var(--text-mid); margin-bottom: 10px; }
+  .example-body .given {
+    background: white; border-radius: 8px;
+    border: 1px solid var(--surface-2);
+    padding: 12px 16px; margin: 12px 0;
+    font-size: 14px; color: var(--text-mid);
+  }
+  .sol-step {
+    background: white;
+    border-radius: 8px;
+    border-right: 3px solid var(--green);
+    padding: 12px 16px; margin: 10px 0;
+    font-size: 14.5px; color: var(--text-mid);
+  }
+  .sol-step strong { color: var(--green); display: block; margin-bottom: 4px; font-size: 13px; }
+  .answer-badge {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    font-weight: 700; font-size: 14px;
+    padding: 8px 20px; border-radius: 8px;
+    margin-top: 12px;
+  }
+
+  /* ─── COMPARISON TABLE ────────────────────── */
+  .comp-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  .comp-table th {
+    background: var(--primary);
+    color: white; padding: 12px 16px; text-align: center;
+  }
+  .comp-table td { padding: 10px 14px; border-bottom: 1px solid var(--surface-2); text-align: center; color: var(--text-mid); }
+  .comp-table tr:nth-child(even) td { background: var(--surface); }
+  .comp-table .yr { color: var(--primary); font-weight: 700; }
+  .comp-table .val { color: var(--green); font-weight: 600; }
+  .comp-table .int { color: var(--accent); }
+
+  /* ─── CASH FLOW DIAGRAM ───────────────────── */
+  .cf-diagram {
+    background: #f5fbff;
+    border: 1.5px solid var(--surface-2);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+  .cf-diagram-title {
+    color: var(--primary); font-size: 13px; font-weight: 600;
+    letter-spacing: 0.5px; text-align: center; margin-bottom: 16px;
+  }
+  .cf-svg { display: block; margin: 0 auto; }
+  .cf-label { color: var(--text-mid); font-size: 13px; margin-top: 8px; text-align: center; }
+
+  /* ─── QUESTION BOX ────────────────────────── */
+  .question-block {
+    background: linear-gradient(135deg, #fff9e6 0%, #fffdf5 100%);
+    border: 2px solid var(--gold);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 28px 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .question-header {
+    background: var(--gold);
+    color: var(--primary);
+    padding: 11px 20px;
+    font-weight: 700; font-size: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .question-body { padding: 20px 22px; }
+  .question-body .q-text {
+    font-size: 15px; color: var(--text-dark); font-weight: 600;
+    margin-bottom: 16px; line-height: 1.6;
+    background: white; padding: 14px 16px; border-radius: 8px;
+    border-right: 3px solid var(--gold);
+    direction: ltr; text-align: left;
+  }
+  .solution-toggle {
+    background: var(--primary);
+    color: white; border: none;
+    padding: 9px 20px; border-radius: 8px;
+    cursor: pointer; font-size: 13.5px; font-weight: 600;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .solution-toggle:hover { background: var(--accent); }
+  .solution-content { display: none; margin-top: 16px; }
+  .solution-content.open { display: block; animation: fadeDown 0.3s ease; }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── TWO-COL COMPARE ─────────────────────── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .col-card {
+    border-radius: 10px; padding: 18px;
+    border: 1.5px solid rgba(33,85,163,0.12);
+  }
+  .col-card.green-card { background: var(--green-bg); border-color: rgba(26,127,90,0.25); }
+  .col-card.red-card   { background: var(--red-bg);   border-color: rgba(192,57,43,0.2); }
+  .col-card.blue-card  { background: var(--surface);  border-color: rgba(33,85,163,0.15); }
+  .col-card h4 { margin-top: 0; margin-bottom: 10px; }
+  .col-card h4.green { color: var(--green); }
+  .col-card h4.red   { color: var(--red); }
+  .col-card h4.blue  { color: var(--primary); }
+  .col-card p { font-size: 14px; color: var(--text-mid); margin-bottom: 6px; }
+
+  /* ─── FINAL QUESTIONS SECTION ─────────────── */
+  .final-section {
+    background: linear-gradient(135deg, var(--primary) 0%, #0f2554 100%);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-top: 52px;
+    box-shadow: var(--shadow-lg);
+  }
+  .final-section h2 {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; margin-bottom: 8px;
+  }
+  .final-section .sub { color: rgba(255,255,255,0.65); font-size: 14px; margin-bottom: 28px; }
+  .final-q {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px; padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  .final-q .qt {
+    color: white; font-size: 15px; font-weight: 600;
+    margin-bottom: 12px; direction: ltr; text-align: left; line-height: 1.6;
+  }
+  .final-q .sol-btn {
+    background: rgba(255,255,255,0.15);
+    color: white; border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 18px; border-radius: 6px;
+    cursor: pointer; font-size: 13px;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .final-q .sol-btn:hover { background: rgba(255,255,255,0.25); }
+  .final-q .sol-content {
+    display: none; margin-top: 14px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px; padding: 16px;
+    border-right: 3px solid var(--accent-light);
+  }
+  .final-q .sol-content.open { display: block; animation: fadeDown 0.3s ease; }
+  .final-q .sol-content p { color: rgba(255,255,255,0.82); font-size: 14px; margin-bottom: 8px; direction: ltr; text-align: left; }
+  .final-q .sol-content .ans { color: var(--accent-light); font-weight: 700; font-size: 15px; }
+
+  /* ─── FOOTER ──────────────────────────────── */
+  .site-footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.55);
+    text-align: center; font-size: 13px;
+    padding: 20px;
+    margin-top: 52px;
+  }
+
+  /* ─── RESPONSIVE ──────────────────────────── */
+  @media(max-width: 680px) {
+    .info-grid, .two-col { grid-template-columns: 1fr; }
+    .section-body { padding: 20px 18px; }
+    .site-header { padding: 36px 20px 30px; }
+  }
+
+  /* ─── UTILITY ─────────────────────────────── */
+  .highlight { background: rgba(14,144,210,0.12); border-radius: 4px; padding: 1px 6px; color: var(--primary); font-weight: 600; }
+  .sep { border: none; border-top: 1.5px solid var(--surface-2); margin: 24px 0; }
+  .mt-sm { margin-top: 10px; }
+  .text-en { direction: ltr; text-align: left; font-family: 'IBM Plex Sans', sans-serif; }
+  .tag-english {
+    display: inline-block; background: var(--primary); color: white;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 2px 9px; border-radius: 4px; margin-right: 6px;
+    vertical-align: middle;
+  }
+  .tag-arabic {
+    display: inline-block; background: var(--accent); color: white;
+    font-size: 11px; font-weight: 700;
+    padding: 2px 9px; border-radius: 4px; margin-right: 6px;
+    vertical-align: middle;
+  }
+  .inflow  { color: var(--green); font-weight: 700; }
+  .outflow { color: var(--red); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header">
+  <div class="header-tag">Engineering Economy · IE/ME Dept.</div>
+  <h1><span>Chapter 1</span> — Foundations of Engineering Economy<br>
+    <span style="font-size:0.62em;color:rgba(255,255,255,0.8)">أساسيات الاقتصاد الهندسي</span>
+  </h1>
+  <p class="subtitle">محاضرة شاملة — د. مادة الاقتصاد الهندسي</p>
+  <div class="header-badges">
+    <span class="badge">📅 Engineering Economy</span>
+    <span class="badge">🎓 Level 3 / 4</span>
+    <span class="badge">⏱ Chapter 1</span>
+    <span class="badge">📚 Blanchard & Fabrycky Reference</span>
+  </div>
+</header>
+
+<!-- ═══════════ TOC ═══════════ -->
+<div class="toc-wrapper">
+  <div class="toc">
+    <h2>📑 محتويات المحاضرة — Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">Why Engineering Economy? — لماذا الاقتصاد الهندسي؟</a></li>
+      <li><a href="#s2">Time Value of Money (TVM) — القيمة الزمنية للمال</a></li>
+      <li><a href="#s3">Engineering Economy Activities — أنشطة الاقتصاد الهندسي</a></li>
+      <li><a href="#s4">Decision Making Process — خطوات اتخاذ القرار</a></li>
+      <li><a href="#s5">Ethics in Engineering — الأخلاقيات الهندسية</a></li>
+      <li><a href="#s6">Interest & Interest Rate — الفائدة ومعدل الفائدة</a></li>
+      <li><a href="#s7">Commonly Used Symbols — الرموز الشائعة</a></li>
+      <li><a href="#s8">Cash Flows — التدفق النقدي</a></li>
+      <li><a href="#s9">Cash Flow Diagrams — مخططات التدفق</a></li>
+      <li><a href="#s10">Economic Equivalence — التكافؤ الاقتصادي</a></li>
+      <li><a href="#s11">Simple vs Compound Interest — الفائدة البسيطة والمركبة</a></li>
+      <li><a href="#final">Final Questions — أسئلة ختامية</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 1 – WHY ENGINEERING ECONOMY
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s1">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>Why Engineering Economy?
+      <span class="ar">لماذا الاقتصاد الهندسي مهم للمهندسين؟</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <p>
+      كل مهندس في حياته العملية يواجه قرارات تتعلق بالتكاليف والعوائد المالية. الاقتصاد الهندسي هو الأداة التي تمكّن المهندس من اتخاذ قرارات سليمة ومدروسة بناءً على أسس علمية وكمية. دعونا نستعرض الأسباب الرئيسية لأهمية هذا العلم:
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="card-num">1</span>
+        <p><strong>Engineers design and create</strong><br>
+        المهندسون يصممون ويبتكرون، ولتطبيق أي تصميم لا بد من معرفة تكاليفه وعوائده المالية قبل الشروع فيه.</p>
+      </div>
+      <div class="info-card">
+        <span class="card-num">2</span>
+        <p><strong>Designing involves economic decisions</strong><br>
+        كل مشروع هندسي يتضمن قرارات اقتصادية — هل هو مربح؟ ما تكلفته؟ ما عوائده؟</p>
+      </div>
+      <div class="info-card">
+        <span class="card-num">3</span>
+        <p><strong>Economic analysis in creative efforts</strong><br>
+        يجب أن يمتلك المهندس القدرة على دمج التحليل الاقتصادي في عمله الإبداعي والتقني.</p>
+      </div>
+      <div class="info-card">
+        <span class="card-num">4</span>
+        <p><strong>Multiple alternatives exist</strong><br>
+        غالباً ما يوجد أكثر من حل لكل مشكلة هندسية، ويجب دراسة كل بديل اقتصادياً قبل الاختيار.</p>
+      </div>
+      <div class="info-card">
+        <span class="card-num">5</span>
+        <p><strong>TVM, Equivalence & Cost Estimation</strong><br>
+        فهم وتطبيق مفاهيم القيمة الزمنية للمال، والتكافؤ الاقتصادي، وتقدير التكاليف — أمور حيوية.</p>
+      </div>
+      <div class="info-card">
+        <span class="card-num">6</span>
+        <p><strong>Fundamental engineering task</strong><br>
+        إجراء التحليل الاقتصادي السليم لاختيار وتنفيذ المشاريع هو من الكفاءات الأساسية للمهندس.</p>
+      </div>
+    </div>
+
+    <!-- Section Q -->
+    <div class="question-block">
+      <div class="question-header">🔎 Check Your Understanding — Question 1</div>
+      <div class="question-body">
+        <div class="q-text">Why is Engineering Economy considered a fundamental skill for engineers, and not just for economists or accountants?</div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Answer</button>
+        <div class="solution-content">
+          <div class="sol-step">
+            <strong>Answer:</strong>
+            Engineers are responsible for designing systems, selecting materials, and choosing between alternative technical solutions. Each of these decisions has a direct financial impact — capital cost, operating cost, and return on investment. Engineering Economy provides engineers with the quantitative tools (TVM, interest calculations, equivalence, cost estimation) to evaluate these financial impacts rigorously. Unlike pure economics, Engineering Economy is specifically tailored to the technical context engineers work in, making it an essential engineering competency, not merely an accounting tool.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 2 – TVM
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s2">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>Time Value of Money (TVM)
+      <span class="ar">القيمة الزمنية للمال</span>
+    </h2>
+  </div>
+  <div class="section-body">
+
+    <div class="def-box">
+      <strong>Definition — التعريف</strong>
+      <p>
+        <span class="tag-english">TVM</span>
+        هو مفهوم يعبّر عن <strong>التغيّر في قيمة المال بمرور الزمن</strong>. ببساطة، مبلغ من المال اليوم لا يساوي نفس المبلغ في المستقبل — فهو إما يزداد أو ينقص.
+      </p>
+    </div>
+
+    <p>
+      تخيّل أن شخصاً اقترض <span class="highlight">$1,000</span> من بنك اليوم. بعد 3 سنوات لن يُطلب منه سداد <span class="highlight">$1,000</span> فحسب، بل ربما <span class="highlight">$1,600</span>! هذا الفرق (<span class="highlight">$600</span>) هو جوهر مفهوم TVM — قيمة المال تغيّرت لأن الزمن مرّ عليها.
+    </p>
+
+    <div class="note-box">
+      <span class="icon">💡</span>
+      <p>
+        <strong>أهم قاعدة:</strong> الـ <strong>TVM</strong> هو المفهوم الأساسي في الاقتصاد الهندسي بأكمله. كل القوانين والحسابات في هذه المادة مبنية على هذه الفكرة البسيطة:
+        <strong>Money = Time</strong> — المال مرتبط بالزمن.
+      </p>
+    </div>
+
+    <div class="two-col">
+      <div class="col-card green-card">
+        <h4 class="green">📈 عند المستثمر (Investor/Lender)</h4>
+        <p>يضع المستثمر مبلغاً الآن، ويحصل على مبلغ أكبر مستقبلاً.</p>
+        <p>الفائدة هنا = <strong>مكتسبة (Earned)</strong></p>
+        <p>النوع = <strong>Rate of Return</strong></p>
+      </div>
+      <div class="col-card red-card">
+        <h4 class="red">📉 عند المقترض (Borrower)</h4>
+        <p>يأخذ المقترض مبلغاً الآن ويعيد مبلغاً أكبر في المستقبل.</p>
+        <p>الفائدة هنا = <strong>مدفوعة (Paid)</strong></p>
+        <p>النوع = <strong>Interest Rate</strong></p>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-header">🔎 Check Your Understanding — Question 2</div>
+      <div class="question-body">
+        <div class="q-text">A person deposits $2,000 in a savings account today. After 2 years, the bank returns $2,240. What concept does this illustrate, and what is the total interest earned?</div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Answer</button>
+        <div class="solution-content">
+          <div class="sol-step">
+            <strong>Concept:</strong>
+            This illustrates the <strong>Time Value of Money (TVM)</strong>. The same $2,000 deposited today grew in value over 2 years, demonstrating that money earns a return over time.
+          </div>
+          <div class="sol-step">
+            <strong>Calculation:</strong>
+            Interest = Amount owed now − Principal<br>
+            Interest = $2,240 − $2,000 = <strong>$240</strong>
+          </div>
+          <div class="sol-step">
+            <strong>Perspective:</strong>
+            Since the person is lending money to the bank, this is a <strong>Rate of Return</strong> (interest earned), not an interest rate paid.
+          </div>
+          <div class="answer-badge">Interest Earned = $240</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 3 – EE Activities
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s3">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>Engineering Economy Activities
+      <span class="ar">أنشطة الاقتصاد الهندسي الثلاثة</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <p>الاقتصاد الهندسي كمجال يشتمل على ثلاثة أنشطة رئيسية متكاملة:</p>
+
+    <ol class="steps">
+      <li>
+        <div class="step-n">1</div>
+        <p><strong>Formulating — الصياغة:</strong> صياغة المفاهيم الاقتصادية في صورة معادلات رياضية بسيطة تُستخدم للتنبؤ بالمبالغ المستقبلية. مثال: إيجاد معادلة تحسب قيمة مبلغ بعد سنوات بمعدل فائدة معين.</p>
+      </li>
+      <li>
+        <div class="step-n">2</div>
+        <p><strong>Estimating — التقدير:</strong> تقدير المبالغ المستقبلية وتوقعها بناءً على البيانات المتاحة، سواء كتقدير نقطي (Point Estimate) أو تقدير نطاقي (Range Estimate).</p>
+      </li>
+      <li>
+        <div class="step-n">3</div>
+        <p><strong>Evaluating — التقييم:</strong> تقييم المشاريع المقترحة لتحديد إذا كانت مربحة أم خاسرة. هذه الخطوة تحتاج إلى جمع بيانات كافية لاتخاذ القرار السليم.</p>
+      </li>
+    </ol>
+
+    <div class="note-box">
+      <span class="icon">📌</span>
+      <p>التقديرات الاقتصادية قد تكون <strong>Deterministic</strong> (حتمية — محسوبة بشكل منطقي وسليم) أو <strong>Stochastic</strong> (عشوائية — تخمين دون أساس). في هذه المادة سنتعلم الطريقة الحتمية الصحيحة.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 4 – DECISION MAKING
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s4">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>Decision Making Process
+      <span class="ar">خطوات اتخاذ القرار الهندسي</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <p>
+      عند مواجهة أي مشكلة هندسية تتطلب قراراً، يتبع المهندسون هذه الخطوات المنهجية:
+    </p>
+
+    <ol class="steps">
+      <li><div class="step-n">1</div>
+        <p><strong>Understand the problem – define objectives:</strong> تحديد المشكلة بدقة وتعريف الأهداف المطلوب تحقيقها. بدون فهم المشكلة لا يمكن حلها.</p>
+      </li>
+      <li><div class="step-n">2</div>
+        <p><strong>Collect information:</strong> جمع كل المعلومات والبيانات ذات الصلة بالمشكلة — تكاليف، إيرادات، قيود فنية وزمنية.</p>
+      </li>
+      <li><div class="step-n">3</div>
+        <p><strong>Define the set of feasible alternatives:</strong> وضع قائمة بالبدائل الممكنة والعملية. لا يجب أن تُقيّم بديلاً واحداً فحسب — تحتاج إلى خيارات متعددة.</p>
+      </li>
+      <li><div class="step-n">4</div>
+        <p><strong>Identify criteria for decision making:</strong> تحديد المعايير التي سيُتخذ القرار بناءً عليها، مثل: <span class="highlight">Cost</span>، <span class="highlight">Quality</span>، <span class="highlight">Time</span>، <span class="highlight">Risk</span>.</p>
+      </li>
+      <li><div class="step-n">5</div>
+        <p><strong>Evaluate the alternatives & apply sensitivity analysis:</strong> تقييم كل بديل وفق المعايير المحددة وإجراء تحليل الحساسية لمعرفة أثر تغيّر الافتراضات.</p>
+      </li>
+      <li><div class="step-n">6</div>
+        <p><strong>Select the best alternative:</strong> بعد التقييم الشامل، اختيار أفضل بديل يحقق أعلى قيمة وفق المعايير المحددة.</p>
+      </li>
+      <li><div class="step-n">7</div>
+        <p><strong>Implement & monitor results:</strong> تنفيذ القرار ومتابعة النتائج واتخاذ إجراءات تصحيحية إذا انحرف الواقع عن التوقعات.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 5 – ETHICS
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s5">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>Ethics in Engineering
+      <span class="ar">الأخلاقيات في الهندسة</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <p>
+      لا يمكن فصل الاقتصاد الهندسي عن الإطار الأخلاقي الذي يعمل فيه المهندس. هناك ثلاثة مستويات من الأخلاقيات يجب أن يدركها كل مهندس:
+    </p>
+
+    <div class="two-col" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div class="col-card blue-card">
+        <h4 class="blue">🌍 Universal Ethics</h4>
+        <p><strong>الأخلاقيات العامة</strong></p>
+        <p>القيم الإنسانية المشتركة كالأمانة، الصدق، ونبذ السرقة والغش. مطلوبة من أي فرد في أي مكان.</p>
+      </div>
+      <div class="col-card blue-card">
+        <h4 class="blue">👤 Personal Ethics</h4>
+        <p><strong>الأخلاقيات الشخصية</strong></p>
+        <p>كيفية تطبيق كل شخص للأخلاق العامة في حياته اليومية — تعكس شخصيته وقيمه الذاتية.</p>
+      </div>
+      <div class="col-card green-card">
+        <h4 class="green">🏗 Professional / Engineering Ethics</h4>
+        <p><strong>الأخلاقيات المهنية</strong></p>
+        <p>أخلاقيات بيئة العمل الهندسي. تحكمها كودات رسمية مثل كود الـ <strong>NSPE</strong> (National Society of Professional Engineers).</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <span class="icon">⚖</span>
+      <p>الـ <strong>NSPE (National Society of Professional Engineers)</strong> أصدرت كوداً رسمياً للأخلاقيات الهندسية يُعدّ مرجعاً معتمداً في الممارسة المهنية للمهندسين في أمريكا الشمالية وكثير من دول العالم.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 6 – INTEREST
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s6">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>Interest & Interest Rate
+      <span class="ar">الفائدة ومعدل الفائدة</span>
+    </h2>
+  </div>
+  <div class="section-body">
+
+    <h3>What is Interest? — ما هي الفائدة؟</h3>
+    <p>للفائدة ثلاثة تعريفات متكاملة:</p>
+
+    <div class="def-box">
+      <strong>تعريف 1 — التعريف المفاهيمي</strong>
+      <p>الفائدة هي <strong>تجسيد عملي لمفهوم TVM</strong> — فهي تُعبّر عن حقيقة أن قيمة المال تتغير بمرور الزمن.</p>
+    </div>
+    <div class="def-box">
+      <strong>تعريف 2 — التعريف التعاملي</strong>
+      <p>الفائدة هي <strong>الرسوم التي يدفعها شخص مقابل استخدامه لأموال شخص آخر</strong>. مثل الفائدة التي تدفعها للبنك حين تقترض.</p>
+    </div>
+    <div class="def-box">
+      <strong>تعريف 3 — التعريف الرياضي</strong>
+      <p>الفائدة هي <strong>الفرق بين القيمة النهائية (Ending Amount) والقيمة الابتدائية (Principal)</strong>.</p>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">Interest Formula</span>
+      <div class="math">$$I = \text{Amount owed now} - \text{Principal}$$</div>
+      <p>حيث: <strong>I</strong> = الفائدة بالدولار | <strong>Principal (P)</strong> = المبلغ الأصلي عند t = 0</p>
+    </div>
+
+    <hr class="sep">
+    <h3>Interest Rate vs. Rate of Return</h3>
+
+    <div class="two-col">
+      <div class="col-card red-card">
+        <h4 class="red">Interest Rate — معدل الفائدة</h4>
+        <p>نسبة <strong>الفائدة المدفوعة (Paid)</strong> خلال فترة زمنية إلى المبلغ الأصلي.</p>
+        <p>يخص الـ <strong>Borrower</strong> (المقترض).</p>
+        <p>وحدته: <strong>% / time period</strong> (مثل %/yr أو %/month)</p>
+      </div>
+      <div class="col-card green-card">
+        <h4 class="green">Rate of Return — معدل العائد</h4>
+        <p>نسبة <strong>الفائدة المكتسبة (Earned)</strong> خلال فترة زمنية إلى المبلغ الأصلي.</p>
+        <p>يخص الـ <strong>Investor/Lender</strong> (المستثمر أو المقرض).</p>
+        <p>وحدته: <strong>% / time period</strong> أيضاً</p>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">Interest Rate & Rate of Return Formula (Same Formula)</span>
+      <div class="math">$$i = \frac{\text{Interest over time period}}{\text{Principal}} \times 100\%$$</div>
+      <p>الفرق الوحيد: هل الفائدة مدفوعة (interest rate) أم مكتسبة (rate of return)؟</p>
+    </div>
+
+    <!-- Example 1 -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 1 — Interest Calculation</div>
+      <div class="example-body">
+        <p class="text-en">A person borrowed $5,000 from a bank. After 1 year, the person repaid $5,350. Calculate (a) the interest paid, and (b) the interest rate.</p>
+        <div class="given">
+          <strong>Given:</strong> P = $5,000 &nbsp;|&nbsp; Amount repaid = $5,350 &nbsp;|&nbsp; n = 1 year
+        </div>
+        <div class="sol-step">
+          <strong>Part (a): Interest</strong>
+          I = Amount owed now − Principal = $5,350 − $5,000 = <strong>$350</strong>
+        </div>
+        <div class="sol-step">
+          <strong>Part (b): Interest Rate</strong>
+          i = (I / P) × 100% = (350 / 5000) × 100% = <strong>7% per year</strong>
+        </div>
+        <div class="answer-badge">I = $350 &nbsp;|&nbsp; i = 7% / yr</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-header">🔎 Check Your Understanding — Question 3</div>
+      <div class="question-body">
+        <div class="q-text">An investor lends $8,000 to a corporation. After 6 months, the corporation repays $8,320. Calculate (a) the interest earned, and (b) the rate of return per year (annualized).</div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Answer</button>
+        <div class="solution-content">
+          <div class="sol-step">
+            <strong>Part (a): Interest Earned</strong>
+            I = Ending Amount − Principal = $8,320 − $8,000 = <strong>$320</strong>
+          </div>
+          <div class="sol-step">
+            <strong>Part (b): Rate of Return (6-month period)</strong>
+            RoR = (320 / 8000) × 100% = 4% per 6 months<br>
+            Annualized: 4% × 2 = <strong>8% per year</strong>
+          </div>
+          <div class="answer-badge">I = $320 &nbsp;|&nbsp; RoR = 8% / yr</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 7 – SYMBOLS
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s7">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <h2>Commonly Used Symbols
+      <span class="ar">الرموز الأساسية المستخدمة في الاقتصاد الهندسي</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <p>قبل أن نبدأ في حل المسائل، يجب فهم الرموز الأساسية التي ستُستخدم على مدار المادة بأكملها:</p>
+
+    <table class="sym-table">
+      <thead>
+        <tr>
+          <th>الرمز Symbol</th>
+          <th>الاسم Name</th>
+          <th>المعنى والتعريف</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sym">t</td>
+          <td><strong>Time Point</strong></td>
+          <td>نقطة زمنية محددة (مثل: الشهر الثالث، السنة الخامسة). مثل مؤشر الساعة الآن.</td>
+        </tr>
+        <tr>
+          <td class="sym">n</td>
+          <td><strong>Number of Interest Periods</strong></td>
+          <td>عدد فترات الفائدة (سنوات، أشهر، أسابيع). مثل المدة الزمنية بين نقطتين.</td>
+        </tr>
+        <tr>
+          <td class="sym">P</td>
+          <td><strong>Present Worth (Principal)</strong></td>
+          <td>المبلغ الحالي أو الأصلي عند الزمن t = 0. وحدته: $</td>
+        </tr>
+        <tr>
+          <td class="sym">F</td>
+          <td><strong>Future Worth</strong></td>
+          <td>المبلغ المستقبلي بعد n فترات (عند t = n). وحدته: $</td>
+        </tr>
+        <tr>
+          <td class="sym">A</td>
+          <td><strong>Annual Worth (Annuity)</strong></td>
+          <td>سلسلة من الدفعات المتتالية والمتساوية تُدفع في نهاية كل فترة. مثل: $100 شهرياً. وحدته: $ / period</td>
+        </tr>
+        <tr>
+          <td class="sym">i</td>
+          <td><strong>Interest Rate / Rate of Return</strong></td>
+          <td>معدل الفائدة أو معدل العائد كنسبة مئوية لكل فترة. مثل: i = 5% / yr. وحدته: % / period</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <span class="icon">🔑</span>
+      <p>
+        <strong>الفرق المهم بين t و n:</strong><br>
+        <strong>t</strong> = نقطة زمنية محددة (مثل: الساعة 2:15 الآن).<br>
+        <strong>n</strong> = مدة زمنية أو عدد فترات (مثل: الوقت من 2:15 حتى 2:45 = 30 دقيقة).<br>
+        في القوانين والمعادلات نستخدم دائماً <strong>n</strong>.
+      </p>
+    </div>
+
+    <div class="question-block">
+      <div class="question-header">🔎 Check Your Understanding — Question 4</div>
+      <div class="question-body">
+        <div class="q-text">A project requires an initial investment (P) of $20,000 today. It is expected to generate annual revenues (A) of $4,000 per year for 7 years, and have a salvage value (F) of $3,000 at the end of year 7. The interest rate is 8% per year. Identify the symbols: P, F, A, n, and i in this problem.</div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Answer</button>
+        <div class="solution-content">
+          <div class="sol-step">
+            <strong>Identifying Symbols:</strong><br>
+            P = $20,000 (initial investment at t = 0)<br>
+            A = $4,000/year (uniform annual revenues, end of each period)<br>
+            F = $3,000 (salvage value at end of year 7, i.e., at t = n)<br>
+            n = 7 years (number of interest periods)<br>
+            i = 8% per year (interest rate per period)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 8 – CASH FLOWS
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s8">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <h2>Cash Flows
+      <span class="ar">التدفق النقدي</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <p>
+      التدفق النقدي (Cash Flow) هو وصف لحركة الأموال داخل وخارج المشروع عبر الزمن. إدارة وفهم التدفق النقدي هو جوهر التقييم الاقتصادي لأي مشروع.
+    </p>
+
+    <div class="two-col">
+      <div class="col-card green-card">
+        <h4 class="green">📥 Cash Inflows — المدخلات</h4>
+        <p>كل الأموال التي <strong>تدخل</strong> إلى المشروع:</p>
+        <p>• Revenues (R) — الإيرادات</p>
+        <p>• Incomes — الدخل</p>
+        <p>• Salvage Value — قيمة الإنقاذ</p>
+        <p><strong>إشارتها: موجبة (+)</strong></p>
+        <p>مثال: دخل مقداره $1,000 → <span class="inflow">+$1,000</span></p>
+      </div>
+      <div class="col-card red-card">
+        <h4 class="red">📤 Cash Outflows — المخرجات</h4>
+        <p>كل الأموال التي <strong>تخرج</strong> من المشروع:</p>
+        <p>• Costs, Expenses — التكاليف والمصروفات</p>
+        <p>• Disbursements (D) — المدفوعات</p>
+        <p>• Taxes — الضرائب</p>
+        <p><strong>إشارتها: سالبة (−)</strong></p>
+        <p>مثال: تكلفة $500 → <span class="outflow">−$500</span></p>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">Net Cash Flow (NCF)</span>
+      <div class="math">$$NCF = R - D = \text{Cash-in} - \text{Cash-out}$$</div>
+      <p>إذا كان NCF موجباً ← الإيرادات أكبر من المصروفات (مربح) ✅<br>
+         إذا كان NCF سالباً ← المصروفات أكبر من الإيرادات (خسارة) ❌</p>
+    </div>
+
+    <div class="note-box">
+      <span class="icon">⏰</span>
+      <p><strong>End of Period Assumption:</strong> في الاقتصاد الهندسي، نفترض أن جميع الأموال تُدفع أو تُستلم في <strong>نهاية كل فترة</strong> (نهاية الشهر أو نهاية السنة). هذا الافتراض يُبسّط الحسابات.</p>
+    </div>
+
+    <hr class="sep">
+    <h3>Cash Flow Estimation Methods — طرق تقدير التدفق النقدي</h3>
+
+    <div class="two-col">
+      <div class="col-card blue-card">
+        <h4 class="blue">📍 Point Estimate</h4>
+        <p><strong>التقدير النقطي:</strong> القيمة المتوقعة رقم واحد محدد (Single Value).</p>
+        <p>مثال: "دخل المشروع العام القادم = $100,000"</p>
+        <p>✅ الأكثر شيوعاً وهو ما سنستخدمه في هذه المادة.</p>
+      </div>
+      <div class="col-card blue-card">
+        <h4 class="blue">📊 Range Estimate</h4>
+        <p><strong>التقدير النطاقي:</strong> التوقع ضمن مدى معين بين قيمة دنيا (Min) وقيمة قصوى (Max).</p>
+        <p>مثال: "التكلفة المتوقعة بين $200 و $300"</p>
+        <p>✅ يعطي تصوراً أوضح واحتمالية أكبر للدقة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 9 – CASH FLOW DIAGRAMS
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s9">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <h2>Cash Flow Diagrams
+      <span class="ar">مخططات التدفق النقدي</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <p>
+      مخطط التدفق النقدي هو الأداة البصرية الأساسية في الاقتصاد الهندسي. يُرسم على شكل خط أفقي يمثل الزمن، ويُمثَّل كل تدفق نقدي بسهم:
+    </p>
+
+    <ul style="margin: 12px 0 16px 0; padding-right: 22px; color: var(--text-mid); font-size: 15px;">
+      <li>السهم لأعلى (↑) فوق المحور = <span class="inflow">Cash-in (دخل / إيراد)</span></li>
+      <li>السهم لأسفل (↓) تحت المحور = <span class="outflow">Cash-out (مصروف / تكلفة)</span></li>
+      <li>طول السهم يتناسب مع قيمة المبلغ.</li>
+    </ul>
+
+    <!-- Basic CF Diagram -->
+    <div class="cf-diagram">
+      <div class="cf-diagram-title">مثال على مخطط التدفق النقدي الأساسي</div>
+      <svg class="cf-svg" width="620" height="160" viewBox="0 0 620 160" xmlns="http://www.w3.org/2000/svg">
+        <!-- Timeline -->
+        <line x1="30" y1="90" x2="600" y2="90" stroke="#1a3a6b" stroke-width="2.5"/>
+        <polygon points="600,86 612,90 600,94" fill="#1a3a6b"/>
+        <!-- Tick marks and labels -->
+        <g font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#2c4066" text-anchor="middle">
+          <line x1="70"  y1="84" x2="70"  y2="96" stroke="#1a3a6b" stroke-width="2"/>
+          <line x1="170" y1="84" x2="170" y2="96" stroke="#1a3a6b" stroke-width="2"/>
+          <line x1="270" y1="84" x2="270" y2="96" stroke="#1a3a6b" stroke-width="2"/>
+          <line x1="430" y1="84" x2="430" y2="96" stroke="#1a3a6b" stroke-width="2"/>
+          <line x1="530" y1="84" x2="530" y2="96" stroke="#1a3a6b" stroke-width="2"/>
+          <text x="70"  y="110">0</text>
+          <text x="170" y="110">1</text>
+          <text x="270" y="110">2</text>
+          <text x="430" y="110">n-1</text>
+          <text x="530" y="110">n</text>
+        </g>
+        <!-- Cash-out at 0: $50 down -->
+        <line x1="70" y1="90" x2="70" y2="140" stroke="#c0392b" stroke-width="2.5"/>
+        <polygon points="66,140 74,140 70,152" fill="#c0392b"/>
+        <text x="70" y="158" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">$50</text>
+        <!-- Cash-in at 2: $100 up -->
+        <line x1="270" y1="90" x2="270" y2="35" stroke="#1a7f5a" stroke-width="2.5"/>
+        <polygon points="266,35 274,35 270,23" fill="#1a7f5a"/>
+        <text x="270" y="18" text-anchor="middle" font-size="12" fill="#1a7f5a" font-weight="700">$100</text>
+        <!-- Cash-out at n: $150 down -->
+        <line x1="530" y1="90" x2="530" y2="140" stroke="#c0392b" stroke-width="2.5"/>
+        <polygon points="526,140 534,140 530,152" fill="#c0392b"/>
+        <text x="530" y="158" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">$150</text>
+        <!-- Labels -->
+        <text x="170" y="25" font-size="11" fill="#1a7f5a" text-anchor="middle" font-weight="600">Cash-in ↑</text>
+        <text x="400" y="155" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="600">Cash-out ↓</text>
+        <!-- Time label -->
+        <text x="615" y="94" font-size="12" fill="#1a3a6b" font-weight="600">Time</text>
+      </svg>
+    </div>
+
+    <!-- Example: Cash Flow Table -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 2 — Cash Flow Diagram from Table</div>
+      <div class="example-body">
+        <p class="text-en">Plot the observed cash flows over the last 8 years and estimated sale next year for $150. Show P arrow at t = 0.</p>
+
+        <table class="comp-table" style="font-size:13px;">
+          <thead>
+            <tr><th>End of Year (t)</th><th>Income ($)</th><th>Cost ($)</th><th>Net Cash Flow (NCF)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="yr">-7</td><td>0</td><td>2500</td><td class="outflow">−2500</td></tr>
+            <tr><td class="yr">-6</td><td>750</td><td>100</td><td class="inflow">+650</td></tr>
+            <tr><td class="yr">-5</td><td>750</td><td>125</td><td class="inflow">+625</td></tr>
+            <tr><td class="yr">-4</td><td>750</td><td>150</td><td class="inflow">+600</td></tr>
+            <tr><td class="yr">-3</td><td>750</td><td>175</td><td class="inflow">+575</td></tr>
+            <tr><td class="yr">-2</td><td>750</td><td>200</td><td class="inflow">+550</td></tr>
+            <tr><td class="yr">-1</td><td>750</td><td>225</td><td class="inflow">+525</td></tr>
+            <tr><td class="yr">0</td><td>750</td><td>250</td><td class="inflow">+500</td></tr>
+            <tr><td class="yr">+1</td><td>750+150=900</td><td>275</td><td class="inflow">+625</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Full Cash Flow Diagram -->
+        <div class="cf-diagram" style="margin-top:16px;">
+          <div class="cf-diagram-title">Cash Flow Diagram — Example 2</div>
+          <svg class="cf-svg" width="640" height="200" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Timeline -->
+            <line x1="20" y1="110" x2="630" y2="110" stroke="#1a3a6b" stroke-width="2.5"/>
+            <polygon points="628,106 640,110 628,114" fill="#1a3a6b"/>
+            <!-- Define scale: years -7 to +1, 9 points, spacing ~66px -->
+            <!-- x positions: -7=40, -6=106, -5=172, -4=238, -3=304, -2=370, -1=436, 0=502, +1=568 -->
+            <g font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#2c4066" text-anchor="middle">
+              <!-- Ticks -->
+              <line x1="40"  y1="104" x2="40"  y2="116" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="106" y1="104" x2="106" y2="116" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="172" y1="104" x2="172" y2="116" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="238" y1="104" x2="238" y2="116" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="304" y1="104" x2="304" y2="116" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="370" y1="104" x2="370" y2="116" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="436" y1="104" x2="436" y2="116" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="502" y1="104" x2="502" y2="116" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="568" y1="104" x2="568" y2="116" stroke="#1a3a6b" stroke-width="1.5"/>
+              <!-- Labels -->
+              <text x="40"  y="130">-7</text>
+              <text x="106" y="130">-6</text>
+              <text x="172" y="130">-5</text>
+              <text x="238" y="130">-4</text>
+              <text x="304" y="130">-3</text>
+              <text x="370" y="130">-2</text>
+              <text x="436" y="130">-1</text>
+              <text x="502" y="130" font-weight="700" fill="#1a3a6b">0</text>
+              <text x="568" y="130">+1</text>
+              <text x="310" y="148" font-size="10" fill="#888">Year</text>
+            </g>
+            <!-- -7: NCF=-2500 → down (tall) -->
+            <line x1="40" y1="110" x2="40" y2="170" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="37,170 43,170 40,178" fill="#c0392b"/>
+            <text x="40" y="192" text-anchor="middle" font-size="9" fill="#c0392b">−2500</text>
+            <!-- -6: +650 up -->
+            <line x1="106" y1="110" x2="106" y2="72" stroke="#1a7f5a" stroke-width="2"/>
+            <polygon points="103,72 109,72 106,64" fill="#1a7f5a"/>
+            <text x="106" y="60" text-anchor="middle" font-size="9" fill="#1a7f5a">+650</text>
+            <!-- -5: +625 up -->
+            <line x1="172" y1="110" x2="172" y2="74" stroke="#1a7f5a" stroke-width="2"/>
+            <polygon points="169,74 175,74 172,66" fill="#1a7f5a"/>
+            <text x="172" y="62" text-anchor="middle" font-size="9" fill="#1a7f5a">+625</text>
+            <!-- -4: +600 up -->
+            <line x1="238" y1="110" x2="238" y2="76" stroke="#1a7f5a" stroke-width="2"/>
+            <polygon points="235,76 241,76 238,68" fill="#1a7f5a"/>
+            <text x="238" y="64" text-anchor="middle" font-size="9" fill="#1a7f5a">+600</text>
+            <!-- -3: +575 up -->
+            <line x1="304" y1="110" x2="304" y2="78" stroke="#1a7f5a" stroke-width="2"/>
+            <polygon points="301,78 307,78 304,70" fill="#1a7f5a"/>
+            <text x="304" y="66" text-anchor="middle" font-size="9" fill="#1a7f5a">+575</text>
+            <!-- -2: +550 up -->
+            <line x1="370" y1="110" x2="370" y2="80" stroke="#1a7f5a" stroke-width="2"/>
+            <polygon points="367,80 373,80 370,72" fill="#1a7f5a"/>
+            <text x="370" y="68" text-anchor="middle" font-size="9" fill="#1a7f5a">+550</text>
+            <!-- -1: +525 up -->
+            <line x1="436" y1="110" x2="436" y2="82" stroke="#1a7f5a" stroke-width="2"/>
+            <polygon points="433,82 439,82 436,74" fill="#1a7f5a"/>
+            <text x="436" y="70" text-anchor="middle" font-size="9" fill="#1a7f5a">+525</text>
+            <!-- 0: P down (large) + NCF up -->
+            <line x1="502" y1="110" x2="502" y2="160" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="4"/>
+            <polygon points="499,160 505,160 502,168" fill="#c0392b"/>
+            <text x="502" y="182" text-anchor="middle" font-size="9" fill="#1a3a6b" font-weight="700">P↓</text>
+            <line x1="502" y1="110" x2="502" y2="78" stroke="#1a7f5a" stroke-width="2"/>
+            <polygon points="499,78 505,78 502,70" fill="#1a7f5a"/>
+            <text x="502" y="66" text-anchor="middle" font-size="9" fill="#1a7f5a">+500</text>
+            <!-- +1: +625 up -->
+            <line x1="568" y1="110" x2="568" y2="72" stroke="#0e90d2" stroke-width="2.5"/>
+            <polygon points="565,72 571,72 568,64" fill="#0e90d2"/>
+            <text x="568" y="58" text-anchor="middle" font-size="9" fill="#0e90d2" font-weight="700">+625</text>
+            <!-- Legend -->
+            <rect x="470" y="4" width="10" height="10" fill="#1a7f5a" rx="2"/>
+            <text x="484" y="14" font-size="10" fill="#1a7f5a">Cash-in (+NCF)</text>
+            <rect x="560" y="4" width="10" height="10" fill="#c0392b" rx="2"/>
+            <text x="574" y="14" font-size="10" fill="#c0392b">Cash-out</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-header">🔎 Check Your Understanding — Question 5</div>
+      <div class="question-body">
+        <div class="q-text">A project has the following cash flows: Year 0: invest $10,000 (outflow); Years 1–4: receive $3,000/year (inflow); Year 4 also: receive salvage $1,000 (inflow). Draw the cash flow diagram and compute the total NCF over 4 years.</div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Answer</button>
+        <div class="solution-content">
+          <!-- CFD -->
+          <div class="cf-diagram">
+            <svg class="cf-svg" width="440" height="160" viewBox="0 0 440 160" xmlns="http://www.w3.org/2000/svg">
+              <line x1="30" y1="90" x2="420" y2="90" stroke="#1a3a6b" stroke-width="2.5"/>
+              <polygon points="418,86 430,90 418,94" fill="#1a3a6b"/>
+              <g font-family="IBM Plex Sans, sans-serif" font-size="12" fill="#2c4066" text-anchor="middle">
+                <line x1="60"  y1="84" x2="60"  y2="96" stroke="#1a3a6b" stroke-width="2"/>
+                <line x1="150" y1="84" x2="150" y2="96" stroke="#1a3a6b" stroke-width="2"/>
+                <line x1="230" y1="84" x2="230" y2="96" stroke="#1a3a6b" stroke-width="2"/>
+                <line x1="310" y1="84" x2="310" y2="96" stroke="#1a3a6b" stroke-width="2"/>
+                <line x1="390" y1="84" x2="390" y2="96" stroke="#1a3a6b" stroke-width="2"/>
+                <text x="60"  y="110">0</text>
+                <text x="150" y="110">1</text>
+                <text x="230" y="110">2</text>
+                <text x="310" y="110">3</text>
+                <text x="390" y="110">4</text>
+              </g>
+              <!-- P at 0 down -->
+              <line x1="60" y1="90" x2="60" y2="148" stroke="#c0392b" stroke-width="2.5"/>
+              <polygon points="57,148 63,148 60,156" fill="#c0392b"/>
+              <text x="60" y="160" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="700">$10,000</text>
+              <!-- A years 1-3 up -->
+              <line x1="150" y1="90" x2="150" y2="44" stroke="#1a7f5a" stroke-width="2"/>
+              <polygon points="147,44 153,44 150,36" fill="#1a7f5a"/>
+              <text x="150" y="30" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="700">$3,000</text>
+              <line x1="230" y1="90" x2="230" y2="44" stroke="#1a7f5a" stroke-width="2"/>
+              <polygon points="227,44 233,44 230,36" fill="#1a7f5a"/>
+              <text x="230" y="30" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="700">$3,000</text>
+              <line x1="310" y1="90" x2="310" y2="44" stroke="#1a7f5a" stroke-width="2"/>
+              <polygon points="307,44 313,44 310,36" fill="#1a7f5a"/>
+              <text x="310" y="30" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="700">$3,000</text>
+              <!-- Year 4: A + F -->
+              <line x1="390" y1="90" x2="390" y2="34" stroke="#0e90d2" stroke-width="2.5"/>
+              <polygon points="387,34 393,34 390,26" fill="#0e90d2"/>
+              <text x="390" y="18" text-anchor="middle" font-size="11" fill="#0e90d2" font-weight="700">$4,000</text>
+              <text x="390" y="8" text-anchor="middle" font-size="9" fill="#0e90d2">(3000+1000)</text>
+            </svg>
+          </div>
+          <div class="sol-step">
+            <strong>Calculation of Total NCF:</strong><br>
+            Total Inflows = 3×$3,000 + $4,000 = $9,000 + $4,000 = $13,000<br>
+            Total Outflows = $10,000<br>
+            Total NCF = $13,000 − $10,000 = <strong>+$3,000</strong>
+          </div>
+          <div class="answer-badge">Total NCF = +$3,000 (Profitable)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 10 – ECONOMIC EQUIVALENCE
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s10">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <h2>Economic Equivalence
+      <span class="ar">التكافؤ الاقتصادي</span>
+    </h2>
+  </div>
+  <div class="section-body">
+
+    <div class="def-box">
+      <strong>Definition — التعريف</strong>
+      <p>
+        التكافؤ الاقتصادي هو <strong>الجمع بين معدل الفائدة (i) والقيمة الزمنية للمال (TVM)</strong> لتحديد المبالغ المختلفة في نقاط زمنية مختلفة التي تكون <em>متكافئة اقتصادياً</em> — أي تمثل نفس القيمة في سياق مالي واحد.
+      </p>
+    </div>
+
+    <p>
+      ببساطة: إذا كان عندي <span class="highlight">$100</span> الآن بمعدل عائد <span class="highlight">10% / yr</span>، فإن <span class="highlight">$110</span> بعد سنة واحدة تكافئها اقتصادياً — رغم أن الرقمين مختلفان!
+    </p>
+
+    <div class="note-box">
+      <span class="icon">⚠</span>
+      <p><strong>قاعدة مهمة جداً:</strong> التكافؤ لا يعني التساوي!<br>
+      <strong>Equivalent ≠ Equal</strong><br>
+      مبلغان متكافئان اقتصادياً يمكن أن يكونا مختلفَي الأرقام تماماً، لكنهما يمثلان نفس القيمة عند نفس الأساس الزمني.</p>
+    </div>
+
+    <!-- Equivalence Diagram -->
+    <div class="cf-diagram">
+      <div class="cf-diagram-title">مثال التكافؤ: $100 الآن تكافئ $110 بعد سنة عند i = 10%/yr</div>
+      <svg class="cf-svg" width="400" height="160" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="90" x2="360" y2="90" stroke="#1a3a6b" stroke-width="2.5"/>
+        <polygon points="358,86 370,90 358,94" fill="#1a3a6b"/>
+        <g font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#2c4066" text-anchor="middle">
+          <line x1="100" y1="84" x2="100" y2="96" stroke="#1a3a6b" stroke-width="2"/>
+          <line x1="310" y1="84" x2="310" y2="96" stroke="#1a3a6b" stroke-width="2"/>
+          <text x="100" y="112">t=0 (Now)</text>
+          <text x="310" y="112">t=1 (1 yr)</text>
+        </g>
+        <!-- P down at 0 -->
+        <line x1="100" y1="90" x2="100" y2="148" stroke="#c0392b" stroke-width="2.5"/>
+        <polygon points="97,148 103,148 100,156" fill="#c0392b"/>
+        <text x="100" y="160" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="700">P = $100</text>
+        <!-- F up at 1 -->
+        <line x1="310" y1="90" x2="310" y2="40" stroke="#1a7f5a" stroke-width="2.5"/>
+        <polygon points="307,40 313,40 310,32" fill="#1a7f5a"/>
+        <text x="310" y="25" text-anchor="middle" font-size="13" fill="#1a7f5a" font-weight="700">F = $110</text>
+        <!-- Arrow and label -->
+        <text x="205" y="78" text-anchor="middle" font-size="11" fill="#0e90d2" font-weight="600">i = 10% / yr</text>
+        <path d="M 120 70 Q 205 50 290 70" fill="none" stroke="#0e90d2" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <!-- Equivalence label -->
+        <text x="205" y="140" text-anchor="middle" font-size="12" fill="#1a3a6b" font-weight="700">$100 now ≡ $110 after 1 year</text>
+      </svg>
+    </div>
+
+    <!-- Example Equivalence -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 3 — Economic Equivalence</div>
+      <div class="example-body">
+        <p class="text-en">If you borrow $500 now with interest rate i = 5% per year, what is the equivalent amount of money after 1 year?</p>
+        <div class="given">
+          <strong>Given:</strong> P = $500 &nbsp;|&nbsp; i = 5% / yr &nbsp;|&nbsp; n = 1 year
+        </div>
+        <div class="sol-step">
+          <strong>Step 1 — Calculate Interest:</strong>
+          I = P × i × n = 500 × 0.05 × 1 = <strong>$25</strong>
+        </div>
+        <div class="sol-step">
+          <strong>Step 2 — Equivalent Future Amount:</strong>
+          F = P + I = $500 + $25 = <strong>$525</strong>
+        </div>
+        <div class="answer-badge">F = $525 ≡ $500 today at i = 5%/yr</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-header">🔎 Check Your Understanding — Question 6</div>
+      <div class="question-body">
+        <div class="q-text">An investor has $1,200 today. At a rate of return of 8% per year, what equivalent amount will he have after 2 years? (Assume simple interest for now.)</div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Answer</button>
+        <div class="solution-content">
+          <div class="sol-step">
+            <strong>Given:</strong> P = $1,200 &nbsp;|&nbsp; i = 8% / yr &nbsp;|&nbsp; n = 2 years (simple interest)
+          </div>
+          <div class="sol-step">
+            <strong>Interest:</strong> I = P × n × i = 1200 × 2 × 0.08 = <strong>$192</strong>
+          </div>
+          <div class="sol-step">
+            <strong>Equivalent Future Amount:</strong> F = P + I = 1200 + 192 = <strong>$1,392</strong>
+          </div>
+          <div class="answer-badge">F = $1,392 &nbsp;(Equivalent to $1,200 today)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 11 – SIMPLE vs COMPOUND
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s11">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <h2>Simple & Compound Interest
+      <span class="ar">الفائدة البسيطة والفائدة المركبة (التراكمية)</span>
+    </h2>
+  </div>
+  <div class="section-body">
+
+    <h3>Simple Interest — الفائدة البسيطة</h3>
+    <p>
+      الفائدة البسيطة هي فائدة <strong>ثابتة القيمة</strong> لكل فترة — تُحسب دائماً على المبلغ الأصلي (Principal) فقط، بغض النظر عن الفوائد المتراكمة من الفترات السابقة.
+    </p>
+
+    <div class="formula-box">
+      <span class="label">Simple Interest Formula</span>
+      <div class="math">$$I = P \cdot n \cdot i$$</div>
+      <p>
+        <strong>I</strong> = الفائدة الكلية &nbsp;|&nbsp;
+        <strong>P</strong> = المبلغ الأصلي &nbsp;|&nbsp;
+        <strong>n</strong> = عدد الفترات &nbsp;|&nbsp;
+        <strong>i</strong> = معدل الفائدة لكل فترة
+      </p>
+    </div>
+    <div class="formula-box" style="background: linear-gradient(135deg, #1a5e3a 0%, #0f3d25 100%); margin-top: -8px;">
+      <span class="label">Total Amount to be Repaid</span>
+      <div class="math">$$F = P + I = P(1 + n \cdot i)$$</div>
+    </div>
+
+    <!-- Simple Interest Example -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 4 — Simple Interest</div>
+      <div class="example-body">
+        <p class="text-en">$100,000 is lent for 3 years at simple interest i = 10% per year. What is the total repayment after 3 years?</p>
+        <div class="given">
+          <strong>Given:</strong> P = $100,000 &nbsp;|&nbsp; i = 10% / yr &nbsp;|&nbsp; n = 3 years
+        </div>
+
+        <table class="comp-table" style="font-size:13.5px; margin:14px 0;">
+          <thead>
+            <tr><th>Year (n)</th><th>Interest this year ($)</th><th>Total Interest ($)</th><th>Total Owed ($)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="yr">1</td><td class="int">100,000 × 0.10 = 10,000</td><td>10,000</td><td class="val">110,000</td></tr>
+            <tr><td class="yr">2</td><td class="int">100,000 × 0.10 = 10,000</td><td>20,000</td><td class="val">120,000</td></tr>
+            <tr><td class="yr">3</td><td class="int">100,000 × 0.10 = 10,000</td><td>30,000</td><td class="val">130,000</td></tr>
+          </tbody>
+        </table>
+
+        <div class="sol-step">
+          <strong>Formula Verification:</strong>
+          F = P(1 + n·i) = 100,000 × (1 + 3 × 0.10) = 100,000 × 1.30 = <strong>$130,000</strong>
+        </div>
+        <div class="answer-badge">F = $130,000</div>
+      </div>
+    </div>
+
+    <hr class="sep">
+    <h3>Compound Interest — الفائدة المركبة (التراكمية)</h3>
+    <p>
+      الفائدة المركبة هي فائدة <strong>تتراكم مع الزمن</strong> — حيث تُضاف فائدة كل فترة إلى المبلغ الأصلي، وتصبح هي نفسها أساساً لحساب فائدة الفترة التالية. هذا هو النوع <strong>الأكثر استخداماً</strong> في الواقع العملي.
+    </p>
+
+    <div class="formula-box">
+      <span class="label">Compound Interest Formula (per period)</span>
+      <div class="math">$$I_n = \left(P + \sum_{j=1}^{n-1} I_j\right) \times i$$</div>
+      <p>الفائدة في كل فترة = (المبلغ الأصلي + مجموع كل الفوائد السابقة) × معدل الفائدة</p>
+    </div>
+
+    <!-- Compound Interest Example -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 5 — Compound Interest</div>
+      <div class="example-body">
+        <p class="text-en">$100,000 is lent for 3 years at compound interest i = 10% per year. What is the total repayment after 3 years?</p>
+        <div class="given">
+          <strong>Given:</strong> P = $100,000 &nbsp;|&nbsp; i = 10% / yr &nbsp;|&nbsp; n = 3 years
+        </div>
+
+        <table class="comp-table" style="font-size:13.5px; margin:14px 0;">
+          <thead>
+            <tr><th>Year</th><th>Beginning Balance ($)</th><th>Interest ($)</th><th>Ending Balance ($)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="yr">1</td>
+              <td>100,000</td>
+              <td class="int">100,000 × 0.10 = 10,000</td>
+              <td class="val">110,000</td>
+            </tr>
+            <tr>
+              <td class="yr">2</td>
+              <td>110,000</td>
+              <td class="int">110,000 × 0.10 = 11,000</td>
+              <td class="val">121,000</td>
+            </tr>
+            <tr>
+              <td class="yr">3</td>
+              <td>121,000</td>
+              <td class="int">121,000 × 0.10 = 12,100</td>
+              <td class="val" style="font-weight:800;color:#1a3a6b;">133,100</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box" style="margin-top:10px;">
+          <span class="icon">📊</span>
+          <p><strong>المقارنة:</strong> Simple Interest → F = <strong>$130,000</strong> &nbsp;|&nbsp; Compound Interest → F = <strong>$133,100</strong><br>
+          الفرق = $3,100 بسبب تراكم الفائدة. مع الزمن الطويل يكبر هذا الفرق كثيراً!</p>
+        </div>
+        <div class="answer-badge">F (Compound) = $133,100</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-card blue-card">
+        <h4 class="blue">📌 Simple Interest خلاصة</h4>
+        <p>• الفائدة ثابتة كل فترة.</p>
+        <p>• تُحسب على P الأصلي فقط.</p>
+        <p>• F = P(1 + n·i)</p>
+        <p>• أقل شيوعاً في التطبيق.</p>
+      </div>
+      <div class="col-card green-card">
+        <h4 class="green">📌 Compound Interest خلاصة</h4>
+        <p>• الفائدة تتراكم وتزداد كل فترة.</p>
+        <p>• تُحسب على (P + فوائد سابقة).</p>
+        <p>• F = P(1 + i)ⁿ (في الفصول القادمة).</p>
+        <p>• الأكثر استخداماً في الواقع ✅</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <span class="icon">💡</span>
+      <p><strong>ملاحظة مهمة:</strong> الفائدة البسيطة والمركبة <strong>متساويتان في الفترة الأولى فقط</strong> (n=1). بعد ذلك تكون الفائدة المركبة دائماً أكبر. وكلما زاد n، كلما زاد الفرق بينهما.</p>
+    </div>
+
+    <!-- Full Worked Example -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 6 — Simple vs Compound Comparison</div>
+      <div class="example-body">
+        <p class="text-en">If $15,000 is borrowed at i = 10% per year, determine the total amount owed at end of 2 years for (a) simple interest and (b) compound interest.</p>
+        <div class="given">
+          <strong>Given:</strong> P = $15,000 &nbsp;|&nbsp; i = 10% / yr &nbsp;|&nbsp; n = 2 years
+        </div>
+
+        <div class="sol-step">
+          <strong>Part (a): Simple Interest</strong><br>
+          I = P × n × i = 15,000 × 2 × 0.10 = $3,000<br>
+          F = P + I = $15,000 + $3,000 = <strong>$18,000</strong>
+        </div>
+
+        <div class="sol-step">
+          <strong>Part (b): Compound Interest</strong><br>
+          Year 1: I₁ = 15,000 × 0.10 = $1,500 → Balance = $16,500<br>
+          Year 2: I₂ = 16,500 × 0.10 = $1,650 → Balance = $18,150<br>
+          F = <strong>$18,150</strong>
+        </div>
+
+        <div class="sol-step">
+          <strong>Difference:</strong> $18,150 − $18,000 = <strong>$150</strong> more with compound interest.
+        </div>
+        <div class="answer-badge">(a) F = $18,000 &nbsp;|&nbsp; (b) F = $18,150</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="question-header">🔎 Check Your Understanding — Question 7</div>
+      <div class="question-body">
+        <div class="q-text">A company borrows $50,000 at an interest rate of 6% per year for 4 years. Calculate the total repayment using (a) simple interest and (b) compound interest. What is the difference?</div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Answer</button>
+        <div class="solution-content">
+          <div class="sol-step">
+            <strong>Part (a): Simple Interest</strong><br>
+            I = 50,000 × 4 × 0.06 = $12,000<br>
+            F = $50,000 + $12,000 = <strong>$63,000</strong>
+          </div>
+          <div class="sol-step">
+            <strong>Part (b): Compound Interest (year by year)</strong><br>
+            Year 1: Balance = 50,000 × 1.06 = $53,000<br>
+            Year 2: Balance = 53,000 × 1.06 = $56,180<br>
+            Year 3: Balance = 56,180 × 1.06 = $59,550.80<br>
+            Year 4: Balance = 59,550.80 × 1.06 = <strong>$63,123.85</strong>
+          </div>
+          <div class="sol-step">
+            <strong>Difference:</strong> $63,123.85 − $63,000 = <strong>$123.85</strong>
+          </div>
+          <div class="answer-badge">(a) $63,000 &nbsp;|&nbsp; (b) $63,123.85 &nbsp;|&nbsp; Diff = $123.85</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FINAL QUESTIONS
+═══════════════════════════════════════════════════ -->
+<div class="final-section" id="final">
+  <h2>📝 Final Practice Questions</h2>
+  <p class="sub">أسئلة ختامية — Chapter 1 Review | All questions in English with full solutions</p>
+
+  <!-- Q1 -->
+  <div class="final-q">
+    <div class="qt">Q1. A loan of $25,000 is taken at an interest rate of 7% per year for 5 years.
+    (a) Calculate the total interest using Simple Interest.
+    (b) Calculate the total amount owed after 5 years using Compound Interest.
+    (c) What is the difference between the two methods?</div>
+    <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
+    <div class="sol-content">
+      <p><strong>Given:</strong> P = $25,000 &nbsp;|&nbsp; i = 7% / yr &nbsp;|&nbsp; n = 5 years</p>
+      <p><strong>(a) Simple Interest:</strong><br>
+         I = P·n·i = 25,000 × 5 × 0.07 = $8,750<br>
+         F = 25,000 + 8,750 = <strong>$33,750</strong></p>
+      <p><strong>(b) Compound Interest:</strong><br>
+         F = P(1+i)ⁿ = 25,000 × (1.07)⁵ = 25,000 × 1.4026 = <strong>$35,064.90</strong></p>
+      <p><strong>(c) Difference:</strong> $35,064.90 − $33,750 = <strong>$1,314.90</strong></p>
+      <p class="ans">Answers: (a) F = $33,750 &nbsp;|&nbsp; (b) F = $35,064.90 &nbsp;|&nbsp; Δ = $1,314.90</p>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="final-q">
+    <div class="qt">Q2. An investor earned $480 in interest after lending money for 2 years at an interest rate of 6% per year (simple interest). What was the original principal (P)?</div>
+    <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
+    <div class="sol-content">
+      <p><strong>Given:</strong> I = $480 &nbsp;|&nbsp; i = 6% / yr &nbsp;|&nbsp; n = 2 years</p>
+      <p><strong>Formula:</strong> I = P·n·i → P = I / (n·i)</p>
+      <p>P = 480 / (2 × 0.06) = 480 / 0.12 = <strong>$4,000</strong></p>
+      <p class="ans">Answer: P = $4,000</p>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="final-q">
+    <div class="qt">Q3. A project has the following NCF values: Year 0: −$30,000; Years 1–5: +$8,000/year; Year 5 (additionally): +$4,000 salvage.
+    (a) Draw the cash flow diagram.
+    (b) Calculate total NCF over 5 years.
+    (c) Identify P, A, F, n for this project.</div>
+    <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
+    <div class="sol-content">
+      <p><strong>(a) Cash Flow Diagram:</strong></p>
+      <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:12px;text-align:center;">
+        <svg width="460" height="150" viewBox="0 0 460 150" xmlns="http://www.w3.org/2000/svg">
+          <line x1="30" y1="85" x2="440" y2="85" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+          <polygon points="438,81 450,85 438,89" fill="rgba(255,255,255,0.6)"/>
+          <g font-family="IBM Plex Sans, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)" text-anchor="middle">
+            <line x1="55"  y1="79" x2="55"  y2="91" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+            <line x1="130" y1="79" x2="130" y2="91" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+            <line x1="200" y1="79" x2="200" y2="91" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+            <line x1="270" y1="79" x2="270" y2="91" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+            <line x1="340" y1="79" x2="340" y2="91" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+            <line x1="410" y1="79" x2="410" y2="91" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+            <text x="55"  y="104">0</text>
+            <text x="130" y="104">1</text>
+            <text x="200" y="104">2</text>
+            <text x="270" y="104">3</text>
+            <text x="340" y="104">4</text>
+            <text x="410" y="104">5</text>
+          </g>
+          <!-- P down -->
+          <line x1="55" y1="85" x2="55" y2="135" stroke="#ff7070" stroke-width="2.5"/>
+          <polygon points="52,135 58,135 55,143" fill="#ff7070"/>
+          <text x="55" y="148" text-anchor="middle" font-size="10" fill="#ff7070" font-weight="700">$30,000</text>
+          <!-- A up yr 1-4 -->
+          <line x1="130" y1="85" x2="130" y2="45" stroke="#5de0a5" stroke-width="2"/>
+          <polygon points="127,45 133,45 130,37" fill="#5de0a5"/>
+          <text x="130" y="32" text-anchor="middle" font-size="10" fill="#5de0a5">$8,000</text>
+          <line x1="200" y1="85" x2="200" y2="45" stroke="#5de0a5" stroke-width="2"/>
+          <polygon points="197,45 203,45 200,37" fill="#5de0a5"/>
+          <text x="200" y="32" text-anchor="middle" font-size="10" fill="#5de0a5">$8,000</text>
+          <line x1="270" y1="85" x2="270" y2="45" stroke="#5de0a5" stroke-width="2"/>
+          <polygon points="267,45 273,45 270,37" fill="#5de0a5"/>
+          <text x="270" y="32" text-anchor="middle" font-size="10" fill="#5de0a5">$8,000</text>
+          <line x1="340" y1="85" x2="340" y2="45" stroke="#5de0a5" stroke-width="2"/>
+          <polygon points="337,45 343,45 340,37" fill="#5de0a5"/>
+          <text x="340" y="32" text-anchor="middle" font-size="10" fill="#5de0a5">$8,000</text>
+          <!-- yr 5: A+F -->
+          <line x1="410" y1="85" x2="410" y2="34" stroke="#4fb8e8" stroke-width="2.5"/>
+          <polygon points="407,34 413,34 410,26" fill="#4fb8e8"/>
+          <text x="410" y="20" text-anchor="middle" font-size="10" fill="#4fb8e8" font-weight="700">$12,000</text>
+          <text x="410" y="10" text-anchor="middle" font-size="9" fill="#4fb8e8">(8K+4K)</text>
+        </svg>
+      </div>
+      <p><strong>(b) Total NCF:</strong><br>
+         Inflows = 4×$8,000 + $12,000 = $32,000 + $12,000 = $44,000<br>
+         Outflows = $30,000<br>
+         Total NCF = $44,000 − $30,000 = <strong>+$14,000</strong></p>
+      <p><strong>(c) Symbols:</strong><br>
+         P = $30,000 &nbsp;|&nbsp; A = $8,000/yr &nbsp;|&nbsp; F = $4,000 (salvage at n=5) &nbsp;|&nbsp; n = 5 years</p>
+      <p class="ans">Total NCF = +$14,000 (Project is profitable on a cash basis)</p>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="final-q">
+    <div class="qt">Q4. Define "Rate of Return" and explain how it differs from "Interest Rate." Give a practical example of each involving a borrower and an investor.</div>
+    <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
+    <div class="sol-content">
+      <p><strong>Interest Rate:</strong> The percentage of principal paid as interest over a time period, from the perspective of the <em>borrower</em>. Example: A student takes a $10,000 bank loan at 5%/yr — the bank charges 5% interest rate.</p>
+      <p><strong>Rate of Return:</strong> The percentage of principal earned as interest over a time period, from the perspective of the <em>investor/lender</em>. Example: The same bank earns a 5% rate of return on the $10,000 loan it issued.</p>
+      <p><strong>Key difference:</strong> Both use the same formula (Interest/Principal × 100%), but the perspective differs — Interest Rate = paid by borrower; Rate of Return = earned by investor.</p>
+      <p class="ans">Same formula, different perspective: borrower pays interest rate; investor earns rate of return.</p>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="final-q">
+    <div class="qt">Q5. Using the concept of Economic Equivalence, if $5,000 is equivalent to $5,400 one year from now, what is the implied interest rate (rate of return) per year?</div>
+    <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
+    <div class="sol-content">
+      <p><strong>Given:</strong> P = $5,000 now &nbsp;|&nbsp; F = $5,400 after 1 year &nbsp;|&nbsp; n = 1 year</p>
+      <p><strong>Interest earned:</strong> I = F − P = $5,400 − $5,000 = $400</p>
+      <p><strong>Rate of Return:</strong> i = (I / P) × 100% = (400 / 5000) × 100% = <strong>8% per year</strong></p>
+      <p class="ans">Implied Rate of Return = 8% / year</p>
+    </div>
+  </div>
+
+</div>
+
+</div><!-- end .container -->
+
+<footer class="site-footer">
+  <p>Engineering Economy · Chapter 1 — Foundations &nbsp;|&nbsp; Prepared for university students &nbsp;|&nbsp; Content based on course lecture notes</p>
+</footer>
+
+<script>
+function toggleSol(btn) {
+  const content = btn.nextElementSibling;
+  const isOpen = content.classList.contains('open');
+  content.classList.toggle('open', !isOpen);
+  btn.textContent = isOpen ? 'Show Answer' : 'Hide Answer';
+}
+function toggleFinal(btn) {
+  const content = btn.nextElementSibling;
+  const isOpen = content.classList.contains('open');
+  content.classList.toggle('open', !isOpen);
+  btn.textContent = isOpen ? '▶ Show Solution' : '▼ Hide Solution';
+}
+</script>
+</body>
+</html>
