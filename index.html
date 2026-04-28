@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>ٱلِٱقْتِصَادُ ٱلْهَنْدَسِيّ — Engineering Economy</title>
 
   <!-- Google Fonts: El Messiri (Arabic calligraphic) + Cormorant Garamond (English serif) -->
@@ -480,5 +483,11 @@
   </footer>
 
 </div>
+<script>
+  setInterval(() => {
+    fetch(window.location.href, { cache: "no-store" })
+      .then(() => location.reload());
+  }, 30000);
+</script>
 </body>
 </html>
