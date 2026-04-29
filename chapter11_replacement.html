@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 11 – Replacement & Retention Decisions</title>
+<title>Chapter 11 – Asset Depreciation & Replacement Decisions</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -174,64 +174,36 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
 .esl-highlight{background:rgba(26,127,90,.15);border:2px solid var(--green);border-radius:8px;padding:10px 14px;color:var(--green);font-weight:700;text-align:center;margin:14px 0;font-size:15px;}
 .decision-box{background:linear-gradient(135deg,#e8f2ff,#ddeeff);border:2px solid var(--primary);border-radius:10px;padding:16px 20px;text-align:center;margin:16px 0;}
 .decision-box strong{color:var(--primary);font-size:16px;}
-/* ── MOBILE OPTIMIZATION ── */
-@media (max-width: 768px) {
-  /* Layout & Spacing Adjustments */
-  .container { padding: 0 16px 60px; }
-  .site-header { padding: 32px 16px 24px; }
-  .toc-wrapper { padding: 0 16px; margin-top: 24px; }
-  .toc { padding: 20px; }
-  .section-header { padding: 16px 20px; gap: 12px; }
-  .section-body { padding: 20px 16px; }
-  
-  /* Typography Adjustments & Text Wrapping */
-  body { 
-    font-size: 15px; 
-    line-height: 1.7; 
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-  }
-  
-  /* Grid to Single Column */
-  .info-grid, .two-col, .three-col { grid-template-columns: 1fr !important; gap: 16px; }
-  
-  /* Table Responsiveness (Horizontal Scroll) */
-  .sym-table, .data-table { 
-    display: block; 
-    width: 100%; 
-    overflow-x: auto; 
-    -webkit-overflow-scrolling: touch; 
-    white-space: nowrap; 
-  }
-  
-  /* SVG & Images Scaling */
-  svg, .cf-svg, img { 
-    max-width: 100%; 
-    height: auto; 
-  }
-  
-  /* Fix specific long strings & math equations overflow */
-  .formula-box { padding: 16px; overflow-x: auto; }
-  
-  /* Other Box Adjustments */
-  .def-box, .note-box, .example-body, .question-body, .decision-box { padding: 16px; }
-  .example-header, .question-header { flex-direction: column; align-items: flex-start; }
-}
+p, .q-text, .sol-step, .given, li { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+.math, .formula-box .math { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: block; padding-bottom: 5px; -webkit-overflow-scrolling: touch; }
+table.sym-table, table.data-table { display: block; overflow-x: auto; width: 100%; -webkit-overflow-scrolling: touch; }
+.sym-table th, .sym-table td, .data-table th, .data-table td { min-width: 120px; }
 
+@media(max-width:680px) {
+  .info-grid, .two-col, .three-col { grid-template-columns: 1fr; }
+  .section-body { padding: 20px 16px; }
+  .site-header { padding: 36px 16px 30px; }
+  .container { padding: 0 16px 60px; }
+  .section-header { padding: 18px 20px; flex-wrap: wrap; }
+  .toc { padding: 24px 20px; }
+  .cf-diagram { padding: 16px 12px; }
+  .cf-svg { max-width: 100%; height: auto; }
+}
 </style>
 </head>
 <body>
 
 <!-- ══════════ HEADER ══════════ -->
 <header class="site-header">
-  <div class="header-tag">Engineering Economy · Chapter 11</div>
-  <h1><span>Replacement &amp; Retention</span> Decisions<br>
-    <span style="font-size:.62em;color:rgba(255,255,255,.8)">قرارات الاستبدال والاحتفاظ</span>
+  <div class="header-tag">Engineering Economy · Chapter 11 — Full Chapter</div>
+  <h1><span>Asset Depreciation</span> &amp; Replacement Decisions<br>
+    <span style="font-size:.62em;color:rgba(255,255,255,.8)">استهلاك الأصول · قرارات الاستبدال والاحتفاظ</span>
   </h1>
-  <p class="subtitle">محاضرة شاملة — الاقتصاد الهندسي · قسم الهندسة</p>
+  <p class="subtitle">محاضرة شاملة — الاقتصاد الهندسي · قسم الهندسة | Islam Atta Abdullah, PhD</p>
   <div class="header-badges">
-    <span class="badge">📅 Engineering Economy</span>
+    <span class="badge">📅 Engineering Economy · GE 205</span>
     <span class="badge">🎓 Chapter 11</span>
+    <span class="badge">📉 Depreciation: SL &amp; DB</span>
     <span class="badge">📐 ESL &amp; Replacement Study</span>
     <span class="badge">📚 Blank &amp; Tarquin</span>
   </div>
@@ -241,7 +213,17 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
 <div class="toc-wrapper">
   <div class="toc">
     <h2>📑 محتويات المحاضرة — Table of Contents</h2>
+    <p style="color:var(--primary);font-weight:700;font-size:13px;margin-bottom:6px;border-bottom:1px solid var(--surface-2);padding-bottom:4px;">📉 Part 1 — Asset Depreciation · استهلاك الأصول</p>
     <ol>
+      <li><a href="#d1">What is Depreciation? — ما هو الاستهلاك؟</a></li>
+      <li><a href="#d2">Why Do Assets Depreciate? — أسباب الاستهلاك</a></li>
+      <li><a href="#d3">The Asset Lifecycle — دورة حياة الأصل (P, n, S)</a></li>
+      <li><a href="#d4">Who Uses Depreciation? — من يستخدم الاستهلاك؟</a></li>
+      <li><a href="#d5">Straight-Line (SL) Method — طريقة الخط المستقيم</a></li>
+      <li><a href="#d6">Declining Balance (DB) Method — طريقة الرصيد المتناقص</a></li>
+    </ol>
+    <p style="color:var(--primary);font-weight:700;font-size:13px;margin:16px 0 6px;border-bottom:1px solid var(--surface-2);padding-bottom:4px;">🔄 Part 2 — Replacement &amp; Retention Decisions · قرارات الاستبدال</p>
+    <ol start="7">
       <li><a href="#s1">Reasons for Replacement — أسباب الاستبدال</a></li>
       <li><a href="#s2">Basic Terminology — المصطلحات الأساسية</a></li>
       <li><a href="#s3">Outsider vs Insider Viewpoint — وجهتا النظر</a></li>
@@ -260,8 +242,575 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
 <div class="container">
 
 <!-- ══════════════════════════════════════════
-     S1 – REASONS FOR REPLACEMENT
+     PART DIVIDER 1 – DEPRECIATION
 ══════════════════════════════════════════ -->
+<div style="margin-top:48px;background:linear-gradient(135deg,var(--primary) 0%,#0f2554 100%);border-radius:var(--radius);padding:20px 32px;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow-md);">
+  <span style="font-size:28px;">📉</span>
+  <div>
+    <div style="color:var(--gold);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Part 1</div>
+    <div style="color:white;font-family:'Playfair Display',serif;font-size:22px;font-weight:900;">Asset Depreciation · استهلاك الأصول</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     D1 – WHAT IS DEPRECIATION
+══════════════════════════════════════════ -->
+<section class="section" id="d1">
+  <div class="section-header">
+    <div class="section-num">D1</div>
+    <h2>What is Depreciation?
+      <span class="ar">ما هو الاستهلاك؟ — التعريف والمفهوم</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="def-box">
+      <strong>تعريف الاستهلاك — Depreciation Definition</strong>
+      <p>الاستهلاك هو الانخفاض التدريجي والحتمي في قيمة أصل ملموس (مادي) عبر الزمن. بمعنى آخر، هو الفرق بين ما دفعته لشراء الأصل جديدًا، والمبلغ الأقل بكثير الذي ستحصل عليه عند بيعه بعد سنوات.</p>
+    </div>
+
+    <p>تخيّل أنك اشتريت سيارة جديدة بـ $40,000 اليوم. بعد 5 سنوات، قد تستطيع بيعها بـ $11,000 فقط. هذا الفرق البالغ $29,000 هو الاستهلاك — القيمة التي فقدتها السيارة بمرور الوقت.</p>
+
+    <div class="two-col">
+      <div class="col-card blue-card">
+        <h4 class="blue">🏭 الأصول التي تستهلك (Depreciable Assets)</h4>
+        <p>• الآلات والمعدات الصناعية</p>
+        <p>• المركبات والأسطول اللوجستي</p>
+        <p>• المباني والمنشآت (دون الأرض)</p>
+        <p>• الحواسيب والأجهزة التقنية</p>
+        <p>• الأثاث والتجهيزات</p>
+      </div>
+      <div class="col-card green-card">
+        <h4 class="green">🚫 الأصول التي لا تستهلك</h4>
+        <p><strong>الأرض (Land):</strong> لا تستهلك لأن عمرها الاقتصادي غير محدود. يجب فصل قيمة المبنى عن الأرض قبل حساب الاستهلاك.</p>
+        <p><strong>الأصول غير الملموسة:</strong> تُطبّق عليها طريقة الإطفاء (Amortization) وليس الاستهلاك، رغم أن الحسابات متطابقة رياضيًا.</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <span class="icon">💡</span>
+      <p><strong>ملاحظة حول الأصول غير الملموسة (Intangible Assets):</strong> عند تطبيق طريقة الخط المستقيم على أصول كالبراءات والحقوق والبرمجيات، تكون الحسابات مطابقة لاستهلاك الأصول المادية، لكن العملية تُسمّى رسميًا <em>Amortization</em> وليس Depreciation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     D2 – WHY DO ASSETS DEPRECIATE
+══════════════════════════════════════════ -->
+<section class="section" id="d2">
+  <div class="section-header">
+    <div class="section-num">D2</div>
+    <h2>Why Do Assets Depreciate?
+      <span class="ar">لماذا تستهلك الأصول؟ — أسباب الاستهلاك</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <p>تفقد الأصول قيمتها عبر الزمن لسببين رئيسيين يمكن أن يتداخلا معًا:</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="card-num">1</span>
+        <p><strong style="color:var(--primary);">Physical Wear &amp; Tear — التآكل والاهتراء الجسدي</strong><br><br>
+        يحدث نتيجة الاستخدام الفعلي، الاحتكاك، عوامل الطقس، أو الشيخوخة الطبيعية (كالصدأ والتحلل). كلما زاد استخدام الأصل، زادت درجة التآكل وانخفضت قيمته.<br><br>
+        <em>مثال: شاحنة توصيل تآكلت محركاتها وإطاراتها بعد قطع 100,000 كيلومتر — أداؤها وقيمتها السوقية انخفضا بشكل ملحوظ.</em></p>
+      </div>
+      <div class="info-card">
+        <span class="card-num">2</span>
+        <p><strong style="color:var(--primary);">Functional Obsolescence — التقادم الوظيفي</strong><br><br>
+        الأصل لا يزال يعمل بشكل جيد ميكانيكيًا، لكنه أصبح متقادمًا بسبب ظهور تقنيات حديثة أو تغيّر القوانين والمعايير. لم تتغير حالته المادية، لكن قيمته السوقية انخفضت لأن بديلًا أفضل أصبح متاحًا.<br><br>
+        <em>مثال: هاتف ذكي عمره 5 سنوات يفقد قيمته عند إطلاق طراز أحدث وأسرع — رغم أنه لا يزال يعمل بكفاءة.</em></p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <span class="icon">⚠</span>
+      <p>في الغالب يجتمع السببان معًا: فالأصل القديم يعاني في آنٍ واحد من تآكل جسدي متراكم <em>ومن</em> تقادم تكنولوجي. مهمة المهندس الاقتصادي هي قياس هذا الانخفاض في القيمة بشكل منهجي ودقيق عبر النماذج الرياضية المعتمدة.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     D3 – ASSET LIFECYCLE TERMINOLOGY
+══════════════════════════════════════════ -->
+<section class="section" id="d3">
+  <div class="section-header">
+    <div class="section-num">D3</div>
+    <h2>The Asset Lifecycle — Key Terms
+      <span class="ar">دورة حياة الأصل — المصطلحات الأساسية (P, n, S, BV)</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <p>عند شراء أصل واستخدامه ثم بيعه، نمر بثلاث محطات زمنية محددة بمصطلحات دقيقة في الاقتصاد الهندسي. فهم هذه المصطلحات ضروري قبل تطبيق أي نموذج حسابي.</p>
+
+    <table class="sym-table">
+      <thead>
+        <tr>
+          <th>الرمز Symbol</th>
+          <th>الاسم Name</th>
+          <th>التعريف والشرح الكامل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sym">P</td>
+          <td><strong>First Cost (Basis)</strong><br>التكلفة الأولية</td>
+          <td>إجمالي ما دُفع لاقتناء الأصل وتجهيزه للعمل: سعر الشراء + تكاليف التوصيل + تكاليف التركيب والتشغيل الأولي. يحدث في السنة صفر (t = 0).</td>
+        </tr>
+        <tr>
+          <td class="sym">n</td>
+          <td><strong>Recovery Period</strong><br>فترة الاسترداد / العمر المقدر</td>
+          <td>العمر الافتراضي للأصل بالسنوات — المدة التي نستخدم فيها الأصل وتنخفض خلالها قيمته الدفترية (Book Value) تدريجيًا حتى تصل إلى قيمة الخردة.</td>
+        </tr>
+        <tr>
+          <td class="sym">S</td>
+          <td><strong>Salvage Value</strong><br>قيمة الخردة / القيمة المتبقية</td>
+          <td>القيمة السوقية التقديرية للأصل في نهاية عمره الافتراضي — المبلغ الذي يُتوقع الحصول عليه عند بيع الأصل أو تصفيته بعد انتهاء خدمته. يمكن أن تكون صفرًا أو قيمة سالبة (تكلفة تخلص).</td>
+        </tr>
+        <tr>
+          <td class="sym">BV(t)</td>
+          <td><strong>Book Value</strong><br>القيمة الدفترية</td>
+          <td>الاستثمار الرأسمالي المتبقي غير المستهلَك في سجلات الشركة بعد t سنوات من الخدمة. تبدأ بـ P وتنخفض كل سنة حتى تصل إلى S في نهاية العمر.</td>
+        </tr>
+        <tr>
+          <td class="sym">D(t)</td>
+          <td><strong>Depreciation Charge</strong><br>قيمة الاستهلاك السنوي</td>
+          <td>مقدار الانخفاض في القيمة الدفترية خلال السنة t. هو المبلغ الذي يُخصم سنويًا من القيمة الدفترية ويُسجَّل كمصروف في الحسابات.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cf-diagram">
+      <div class="cf-diagram-title">Timeline of an Asset — دورة حياة الأصل</div>
+      <svg class="cf-svg" width="560" height="110" viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg">
+        <!-- Timeline line -->
+        <line x1="60" y1="55" x2="500" y2="55" stroke="#1a3a6b" stroke-width="2.5"/>
+        <polygon points="497,51 510,55 497,59" fill="#1a3a6b"/>
+        <!-- t=0 -->
+        <circle cx="80" cy="55" r="10" fill="#1a3a6b"/>
+        <text x="76" y="59" font-family="IBM Plex Sans" font-size="11" fill="white" font-weight="700">0</text>
+        <text x="60" y="82" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b" font-weight="700">First Cost (P)</text>
+        <text x="55" y="96" font-family="IBM Plex Sans" font-size="10" fill="#c0392b">↓ Cash Out</text>
+        <!-- t=1 to n -->
+        <circle cx="260" cy="55" r="10" fill="#0e90d2"/>
+        <text x="250" y="59" font-family="IBM Plex Sans" font-size="10" fill="white" font-weight="700">1–n</text>
+        <text x="215" y="35" font-family="IBM Plex Sans" font-size="11" fill="#0e90d2" font-weight="700">Recovery Period (n)</text>
+        <text x="200" y="48" font-family="IBM Plex Sans" font-size="10" fill="#0e90d2">BV decreases each year</text>
+        <!-- t=n -->
+        <circle cx="480" cy="55" r="10" fill="#4a6fa5"/>
+        <text x="477" y="59" font-family="IBM Plex Sans" font-size="11" fill="white" font-weight="700">n</text>
+        <text x="440" y="82" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b" font-weight="700">Salvage Value (S)</text>
+        <text x="445" y="96" font-family="IBM Plex Sans" font-size="10" fill="#1a7f5a">↑ Cash In</text>
+        <!-- Example tag -->
+        <rect x="58" y="8" width="185" height="20" rx="4" fill="rgba(14,144,210,.1)" stroke="rgba(14,144,210,.3)" stroke-width="1"/>
+        <text x="64" y="22" font-family="IBM Plex Sans" font-size="10" fill="#0e90d2">Example: Van P=$21,000 | n=5 yrs | S=$3,000</text>
+      </svg>
+    </div>
+
+    <div class="note-box">
+      <span class="icon">📌</span>
+      <p><strong>قاعدة مهمة:</strong> في نهاية العمر الافتراضي يجب أن تكون BV(n) = S دائمًا. إذا كانت BV(n) ≠ S فهذا يعني وجود خطأ في الحساب.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     D4 – WHO USES DEPRECIATION
+══════════════════════════════════════════ -->
+<section class="section" id="d4">
+  <div class="section-header">
+    <div class="section-num">D4</div>
+    <h2>Who Uses Depreciation?
+      <span class="ar">من يستخدم الاستهلاك؟ — التطبيقات والأهداف</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <p>يُستخدم الاستهلاك في سياقين مختلفين لهما أهداف وأساليب متباينة:</p>
+
+    <div class="two-col">
+      <div class="col-card blue-card">
+        <h4 class="blue">🏢 Corporations — الشركات والمؤسسات</h4>
+        <p>يُستخدم للمحاسبة المالية الداخلية (Book Depreciation). تحتاج الشركات إلى تتبع القيمة الحقيقية لأصولها لاتخاذ قرارات سليمة حول توقيت الاستبدال وتخطيط الموازنة الرأسمالية.</p>
+        <p>• <strong>يتتبع القيمة الدفترية الحقيقية للأصل</strong></p>
+        <p>• <strong>يُغذّي دراسات الاستبدال الاقتصادي</strong></p>
+        <p>• <strong>يُوزع تكلفة الأصل على سنوات الإنتاج</strong></p>
+      </div>
+      <div class="col-card green-card">
+        <h4 class="green">🏛 Governments — الحكومات والضرائب</h4>
+        <p>يُستخدم لتحديد الالتزامات الضريبية (Tax Depreciation). تتيح الحكومات للشركات خصم قيمة استهلاك الأصول كمصروف، مما يُخفّض وعاء الضريبة قانونيًا.</p>
+        <p>• <strong>خاضع لتشريعات ولوائح صارمة</strong></p>
+        <p>• <strong>يستخدم أساليب تسريع الاستهلاك (Accelerated Methods)</strong></p>
+        <p>• <strong>يختلف عن الاستهلاك الدفتري في معدلاته وقواعده</strong></p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <span class="icon">💡</span>
+      <p>في هذه المحاضرة نركز على <strong>الاستهلاك الدفتري (Book Depreciation)</strong> المُستخدم في التحليل الاقتصادي الهندسي، وليس الاستهلاك الضريبي الذي يخضع لقوانين كل دولة. كلا النوعين يستخدمان نفس الطرق الحسابية لكنهما يختلفان في المعدلات وفترات الاسترداد المسموح بها.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     D5 – STRAIGHT-LINE DEPRECIATION
+══════════════════════════════════════════ -->
+<section class="section" id="d5">
+  <div class="section-header">
+    <div class="section-num">D5</div>
+    <h2>Straight-Line (SL) Depreciation
+      <span class="ar">طريقة الخط المستقيم — الاستهلاك الثابت السنوي</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="def-box">
+      <strong>مبدأ طريقة الخط المستقيم</strong>
+      <p>تُعدّ أبسط وأشيع طرق الاستهلاك. تفترض أن الأصل يفقد <strong>قدرًا ثابتًا ومتساويًا</strong> من قيمته كل سنة طوال عمره الافتراضي. رسم القيمة الدفترية مقابل الزمن يعطي خطًا مستقيمًا منحدرًا — ومنه جاء اسمها.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="formula-box" style="margin:0;">
+        <span class="label">Annual Depreciation Charge — قيمة الاستهلاك السنوي</span>
+        <div class="math">$$D_{SL}(t) = \frac{P - S}{N}$$</div>
+        <p><strong>P</strong> = التكلفة الأولية &nbsp;|&nbsp; <strong>S</strong> = قيمة الخردة &nbsp;|&nbsp; <strong>N</strong> = عدد سنوات العمر</p>
+        <p style="margin-top:6px;">القيمة ثابتة لجميع السنوات: D(1) = D(2) = … = D(N)</p>
+      </div>
+      <div class="formula-box" style="margin:0;">
+        <span class="label">Book Value at Year t — القيمة الدفترية في السنة t</span>
+        <div class="math">$$BV_{SL}(t) = P - t \cdot D_{SL}$$</div>
+        <p><strong>P</strong> = التكلفة الأولية &nbsp;|&nbsp; <strong>t</strong> = السنة المطلوبة &nbsp;|&nbsp; <strong>D<sub>SL</sub></strong> = الاستهلاك السنوي الثابت</p>
+        <p style="margin-top:6px;">عند t = N يجب أن تكون BV(N) = S</p>
+      </div>
+    </div>
+
+    <!-- SL SVG Chart -->
+    <div class="cf-diagram" style="margin-top:20px;">
+      <div class="cf-diagram-title">Straight-Line Depreciation — انخفاض متساوٍ كل عام</div>
+      <svg class="cf-svg" width="420" height="200" viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="20" x2="50" y2="170" stroke="#1a3a6b" stroke-width="2"/>
+        <line x1="50" y1="170" x2="400" y2="170" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="396,166 408,170 396,174" fill="#1a3a6b"/>
+        <polygon points="46,24 50,12 54,24" fill="#1a3a6b"/>
+        <!-- P=1000, S=400, n=3 -->
+        <line x1="50" y1="40" x2="170" y2="93" stroke="#0e90d2" stroke-width="3"/>
+        <line x1="170" y1="93" x2="290" y2="147" stroke="#0e90d2" stroke-width="3"/>
+        <line x1="290" y1="147" x2="380" y2="170" stroke="#0e90d2" stroke-width="3" stroke-dasharray="4 2"/>
+        <!-- Points -->
+        <circle cx="50" cy="40" r="5" fill="#1a3a6b"/>
+        <circle cx="170" cy="93" r="5" fill="#0e90d2"/>
+        <circle cx="290" cy="147" r="5" fill="#0e90d2"/>
+        <circle cx="380" cy="163" r="5" fill="#1a7f5a"/>
+        <!-- Labels -->
+        <text x="10" y="44" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b" font-weight="700">P</text>
+        <text x="10" y="166" font-family="IBM Plex Sans" font-size="11" fill="#1a7f5a" font-weight="700">S</text>
+        <text x="44" y="185" font-family="IBM Plex Sans" font-size="11" fill="#888">0</text>
+        <text x="164" y="185" font-family="IBM Plex Sans" font-size="11" fill="#888">1</text>
+        <text x="284" y="185" font-family="IBM Plex Sans" font-size="11" fill="#888">2</text>
+        <text x="374" y="185" font-family="IBM Plex Sans" font-size="11" fill="#888">N</text>
+        <text x="360" y="195" font-family="IBM Plex Sans" font-size="10" fill="#888">years</text>
+        <!-- Equal step annotation -->
+        <text x="95" y="62" font-family="IBM Plex Sans" font-size="10" fill="#c0392b">D = const.</text>
+        <line x1="50" y1="93" x2="170" y2="93" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+        <line x1="170" y1="40" x2="170" y2="93" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+        <!-- Y axis labels -->
+        <text x="395" y="175" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b">t</text>
+        <text x="20" y="18" font-family="IBM Plex Sans" font-size="10" fill="#888">BV</text>
+      </svg>
+    </div>
+
+    <hr class="sep">
+    <h3>Worked Examples — أمثلة محلولة</h3>
+
+    <!-- Example 1 -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 1 — Automated Packaging Machine</div>
+      <div class="example-body">
+        <p class="text-en">An automated packaging machine has a first cost of <strong>$50,000</strong>, a recovery period of <strong>5 years</strong>, and an estimated salvage value of <strong>$10,000</strong>.<br>
+        (a) Calculate the annual straight-line depreciation charge.<br>
+        (b) Determine the book value at the end of each year.</p>
+
+        <div class="given">
+          <strong>Given:</strong> P = $50,000 &nbsp;|&nbsp; S = $10,000 &nbsp;|&nbsp; N = 5 years
+        </div>
+
+        <div class="sol-step">
+          <strong>(a) Annual Depreciation Charge:</strong>
+          \( D_{SL} = \dfrac{P - S}{N} = \dfrac{50{,}000 - 10{,}000}{5} = \$8{,}000 \text{ per year} \)
+        </div>
+
+        <div class="sol-step">
+          <strong>(b) Book Value Schedule:</strong>
+          <table class="data-table" style="margin-top:10px;">
+            <thead><tr><th>End of Year (t)</th><th>Depreciation D<sub>SL</sub> ($)</th><th>Book Value BV<sub>SL</sub>(t) ($)</th></tr></thead>
+            <tbody>
+              <tr><td>0</td><td>—</td><td class="hl">50,000</td></tr>
+              <tr><td>1</td><td>8,000</td><td>42,000</td></tr>
+              <tr><td>2</td><td>8,000</td><td>34,000</td></tr>
+              <tr><td>3</td><td>8,000</td><td>26,000</td></tr>
+              <tr><td>4</td><td>8,000</td><td>18,000</td></tr>
+              <tr class="esl"><td>5</td><td>8,000</td><td class="hl">10,000 = S ✓</td></tr>
+            </tbody>
+          </table>
+          <p class="text-en" style="font-size:13px;margin-top:8px;">Formula check: BV(t) = 50,000 − t × 8,000 &nbsp;→&nbsp; BV(5) = 50,000 − 40,000 = $10,000 = S ✓</p>
+        </div>
+        <div class="answer-badge">D<sub>SL</sub> = $8,000/yr &nbsp;|&nbsp; BV(5) = $10,000</div>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 2 — Reverse Problem (Find P and S)</div>
+      <div class="example-body">
+        <p class="text-en">An asset is book-depreciated over a <strong>5-year period</strong> by the straight-line method. The book value at end of year 3 is <strong>BV<sub>3</sub> = $62,000</strong>, and the annual depreciation charge is <strong>$26,000/yr</strong>.<br>
+        (a) Find the first cost P. &nbsp; (b) Find the assumed salvage value S.</p>
+
+        <div class="given">
+          <strong>Given:</strong> N = 5 yrs &nbsp;|&nbsp; BV(3) = $62,000 &nbsp;|&nbsp; D<sub>SL</sub> = $26,000/yr
+        </div>
+
+        <div class="sol-step">
+          <strong>(a) First Cost P:</strong>
+          Using \( BV_{SL}(t) = P - t \cdot D_{SL} \):<br>
+          \( 62{,}000 = P - 3 \times 26{,}000 \)<br>
+          \( P = 62{,}000 + 78{,}000 = \$140{,}000 \)
+        </div>
+        <div class="sol-step">
+          <strong>(b) Salvage Value S:</strong><br>
+          Method 1 — Formula: \( D_{SL} = \dfrac{P-S}{N} \) → \( 26{,}000 = \dfrac{140{,}000 - S}{5} \) → \( S = 140{,}000 - 130{,}000 = \$10{,}000 \)<br>
+          Method 2 — Book Value at end: \( BV(5) = 140{,}000 - 5 \times 26{,}000 = \$10{,}000 = S \) ✓
+        </div>
+        <div class="answer-badge">P = $140,000 &nbsp;|&nbsp; S = $10,000</div>
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 3 — Commercial Refrigeration Unit</div>
+      <div class="example-body">
+        <p class="text-en">A commercial refrigeration unit is book-depreciated over a <strong>6-year period</strong> by the straight-line method. The book value at end of year 4 is <strong>BV<sub>4</sub> = $34,000</strong>, and the annual depreciation charge is <strong>$15,000/yr</strong>.<br>
+        (a) Find the first cost P. &nbsp; (b) Find the assumed salvage value S.</p>
+
+        <div class="given">
+          <strong>Given:</strong> N = 6 yrs &nbsp;|&nbsp; BV(4) = $34,000 &nbsp;|&nbsp; D<sub>SL</sub> = $15,000/yr
+        </div>
+
+        <div class="sol-step">
+          <strong>(a) First Cost P:</strong>
+          \( BV(4) = P - 4 \times 15{,}000 \)<br>
+          \( 34{,}000 = P - 60{,}000 \)<br>
+          \( P = \$94{,}000 \)
+        </div>
+        <div class="sol-step">
+          <strong>(b) Salvage Value S:</strong><br>
+          \( 15{,}000 = \dfrac{94{,}000 - S}{6} \) → \( S = 94{,}000 - 90{,}000 = \$4{,}000 \)<br>
+          Verification: \( BV(6) = 94{,}000 - 6 \times 15{,}000 = \$4{,}000 = S \) ✓
+        </div>
+        <div class="answer-badge">P = $94,000 &nbsp;|&nbsp; S = $4,000</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     D6 – DECLINING BALANCE DEPRECIATION
+══════════════════════════════════════════ -->
+<section class="section" id="d6">
+  <div class="section-header">
+    <div class="section-num">D6</div>
+    <h2>Declining Balance (DB) Depreciation
+      <span class="ar">طريقة الرصيد المتناقص — الاستهلاك المتسارع</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="def-box">
+      <strong>مبدأ طريقة الرصيد المتناقص</strong>
+      <p>تُعدّ من أساليب <strong>الاستهلاك المتسارع (Accelerated Depreciation)</strong>. تعطي خصومات أكبر في السنوات الأولى من عمر الأصل وأصغر في السنوات الأخيرة. هذا يعكس واقع أن كثيرًا من الأصول التقنية والمركبات تفقد قسطًا أكبر من قيمتها في سنواتها الأولى.</p>
+    </div>
+
+    <p>على خلاف الخط المستقيم الذي يخصم مبلغًا ثابتًا بالدولار، تطبّق طريقة DB <strong>نسبة مئوية ثابتة (d)</strong> على القيمة الدفترية المتناقصة — وهذا يُنتج مبالغ استهلاك متناقصة سنة بعد سنة.</p>
+
+    <div class="formula-box">
+      <span class="label">Book Value at Year t — القيمة الدفترية في السنة t</span>
+      <div class="math">$$BV_{DB}(t) = P \cdot (1 - d)^{t}$$</div>
+      <p><strong>P</strong> = التكلفة الأولية &nbsp;|&nbsp; <strong>d</strong> = معدل الاستهلاك السنوي (كنسبة عشرية) &nbsp;|&nbsp; <strong>t</strong> = السنة المطلوبة</p>
+    </div>
+
+    <div class="formula-box" style="background:linear-gradient(135deg,#1a4020 0%,#0f2a14 100%);">
+      <span class="label">Double Declining Balance (DDB) — نسبة أقصى مسموح بها</span>
+      <div class="math">$$d_{DDB} = \frac{2}{N}$$</div>
+      <p>الحد الأقصى المسموح به عادةً هو ضعف معدل الخط المستقيم. DDB يُعطي أسرع استهلاك ممكن ضمن هذه الطريقة.</p>
+    </div>
+
+    <div class="note-box">
+      <span class="icon">⚠</span>
+      <p><strong>قيد مهم في طريقة DB:</strong> لا يجوز أن تنخفض القيمة الدفترية إلى ما دون قيمة الخردة S. إذا أعطت المعادلة BV(t) &lt; S في أي سنة، فإننا نوقف الاستهلاك عند BV = S ونضع D = 0 للسنوات التالية. إذا كانت BV(N) بالمعادلة أكبر من S المُقدَّرة → لا يلزم تعديل.</p>
+    </div>
+
+    <!-- DB vs SL comparison diagram -->
+    <div class="cf-diagram">
+      <div class="cf-diagram-title">مقارنة SL مقابل DB — Straight-Line vs Declining Balance</div>
+      <svg class="cf-svg" width="460" height="200" viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="20" x2="50" y2="170" stroke="#1a3a6b" stroke-width="2"/>
+        <line x1="50" y1="170" x2="430" y2="170" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="427,166 440,170 427,174" fill="#1a3a6b"/>
+        <!-- SL line -->
+        <line x1="60" y1="36" x2="410" y2="155" stroke="#0e90d2" stroke-width="2.5" stroke-dasharray="7 3"/>
+        <!-- DB curve -->
+        <path d="M 60 36 Q 130 60 200 95 T 330 140 T 410 155" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+        <!-- Labels -->
+        <text x="415" y="150" font-family="IBM Plex Sans" font-size="11" fill="#c0392b" font-weight="700">DB</text>
+        <text x="415" y="164" font-family="IBM Plex Sans" font-size="11" fill="#0e90d2" font-weight="700">SL</text>
+        <text x="10" y="40" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b" font-weight="700">P</text>
+        <text x="10" y="158" font-family="IBM Plex Sans" font-size="11" fill="#1a7f5a" font-weight="700">S</text>
+        <line x1="50" y1="155" x2="415" y2="155" stroke="#1a7f5a" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <text x="430" y="183" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b">t</text>
+        <text x="22" y="18" font-family="IBM Plex Sans" font-size="10" fill="#888">BV($)</text>
+        <!-- Annotation -->
+        <rect x="120" y="8" width="180" height="18" rx="4" fill="rgba(192,57,43,.1)" stroke="rgba(192,57,43,.3)" stroke-width="1"/>
+        <text x="126" y="21" font-family="IBM Plex Sans" font-size="10" fill="#c0392b">DB → faster loss in early years</text>
+      </svg>
+    </div>
+
+    <hr class="sep">
+    <h3>Worked Examples — أمثلة محلولة</h3>
+
+    <!-- Example 4 -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 4 — Commercial Delivery Drone</div>
+      <div class="example-body">
+        <p class="text-en">A logistics company purchases a commercial delivery drone for <strong>P = $25,000</strong>. Its estimated market value after <strong>8 years</strong> is <strong>$4,000</strong>.<br>
+        (a) Calculate the implied declining balance depreciation rate (d).<br>
+        (b) Find the book value of a 3-year-old drone using this rate.</p>
+
+        <div class="given">
+          <strong>Given:</strong> P = $25,000 &nbsp;|&nbsp; BV(8) = $4,000 &nbsp;|&nbsp; n = 8 years
+        </div>
+
+        <div class="sol-step">
+          <strong>(a) Find d:</strong>
+          \( BV_{DB}(t) = P(1-d)^t \)<br>
+          \( 4{,}000 = 25{,}000(1-d)^8 \)<br>
+          \( (1-d)^8 = 0.16 \)<br>
+          \( 1-d = (0.16)^{1/8} \)<br>
+          \( d = 1 - 0.795 = \mathbf{0.205 = 20.5\%} \)
+        </div>
+        <div class="sol-step">
+          <strong>(b) BV at Year 3:</strong>
+          \( BV_{DB}(3) = 25{,}000 \times (1 - 0.205)^3 = 25{,}000 \times (0.795)^3 \)<br>
+          \( = 25{,}000 \times 0.5027 = \mathbf{\$12{,}574} \)
+        </div>
+        <div class="answer-badge">d = 20.5% &nbsp;|&nbsp; BV(3) = $12,574</div>
+      </div>
+    </div>
+
+    <!-- Example 5 -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 5 — Matching DB to SL Book Value</div>
+      <div class="example-body">
+        <p class="text-en">A pharmaceutical manufacturing centrifuge has a planned life of <strong>25 years</strong>, an initial cost of <strong>$500,000</strong>, and a salvage value of <strong>$50,000</strong> (using standard SL depreciation). What fixed DB rate (d) would give the <strong>same book value as SL at the end of Year 15</strong>?</p>
+
+        <div class="given">
+          <strong>Given:</strong> P = $500,000 &nbsp;|&nbsp; S = $50,000 &nbsp;|&nbsp; N = 25 yrs &nbsp;|&nbsp; Target: match BV at t = 15
+        </div>
+
+        <div class="sol-step">
+          <strong>Step 1 — SL annual charge and BV(15):</strong>
+          \( D_{SL} = \dfrac{500{,}000 - 50{,}000}{25} = \$18{,}000/\text{yr} \)<br>
+          \( BV_{SL}(15) = 500{,}000 - 15 \times 18{,}000 = \$230{,}000 \)
+        </div>
+        <div class="sol-step">
+          <strong>Step 2 — Find d such that BV<sub>DB</sub>(15) = $230,000:</strong>
+          \( 230{,}000 = 500{,}000 \times (1-d)^{15} \)<br>
+          \( (1-d)^{15} = 0.46 \)<br>
+          \( d = 1 - (0.46)^{1/15} = 1 - 0.9496 = \mathbf{5.04\%} \)
+        </div>
+        <div class="answer-badge">d = 5.04% gives same BV at Year 15 as SL method</div>
+      </div>
+    </div>
+
+    <!-- Example 6 -->
+    <div class="example-box">
+      <div class="example-header">📘 Example 6 — Double Declining Balance (DDB)</div>
+      <div class="example-body">
+        <p class="text-en">A precision laser cutting system is depreciated using the <strong>Double Declining Balance (DDB)</strong> method over an expected life of <strong>10 years</strong>. First cost = <strong>$60,000</strong>, salvage = <strong>$5,000</strong>.<br>
+        (a) Calculate the DDB depreciation rate. &nbsp; (b) Find BV at end of 10-year service life.</p>
+
+        <div class="given">
+          <strong>Given:</strong> P = $60,000 &nbsp;|&nbsp; S = $5,000 &nbsp;|&nbsp; N = 10 years &nbsp;|&nbsp; Method: DDB
+        </div>
+
+        <div class="sol-step">
+          <strong>(a) DDB Rate:</strong>
+          \( d_{DDB} = \dfrac{2}{N} = \dfrac{2}{10} = \mathbf{0.20 = 20\%} \)
+        </div>
+        <div class="sol-step">
+          <strong>(b) Book Value at Year 10:</strong>
+          \( BV_{DB}(10) = 60{,}000 \times (1 - 0.20)^{10} = 60{,}000 \times (0.80)^{10} \)<br>
+          \( = 60{,}000 \times 0.1074 = \$6{,}442 \)<br><br>
+          <strong>Adjustment Check:</strong> Since BV(10) = $6,442 &gt; S = $5,000 → <span style="color:var(--green);font-weight:700;">No adjustment needed ✓</span><br>
+          (Had BV &lt; S, we would have stopped depreciation when BV reached S)
+        </div>
+        <div class="answer-badge">d<sub>DDB</sub> = 20% &nbsp;|&nbsp; BV(10) = $6,442 &gt; S → No adjustment needed</div>
+      </div>
+    </div>
+
+    <!-- SL vs DB comparison table -->
+    <h3>مقارنة شاملة بين الطريقتين — SL vs DB Summary</h3>
+    <table class="sym-table">
+      <thead>
+        <tr>
+          <th>المعيار</th>
+          <th>Straight-Line (SL)</th>
+          <th>Declining Balance (DB)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>نمط الاستهلاك</strong></td>
+          <td>مبلغ ثابت كل سنة</td>
+          <td>نسبة ثابتة من الرصيد المتناقص</td>
+        </tr>
+        <tr>
+          <td><strong>الخصومات المبكرة</strong></td>
+          <td>منخفضة نسبيًا</td>
+          <td>مرتفعة جدًا في السنوات الأولى</td>
+        </tr>
+        <tr>
+          <td><strong>معادلة D(t)</strong></td>
+          <td>D = (P−S)/N &nbsp;(ثابتة)</td>
+          <td>D(t) = d × BV(t−1) &nbsp;(متناقصة)</td>
+        </tr>
+        <tr>
+          <td><strong>معادلة BV(t)</strong></td>
+          <td>BV = P − t·D</td>
+          <td>BV = P·(1−d)<sup>t</sup></td>
+        </tr>
+        <tr>
+          <td><strong>التطبيق المثالي</strong></td>
+          <td>أصول ذات تدهور منتظم (مباني، معدات)</td>
+          <td>أصول تتراجع قيمتها بسرعة (تقنيات، مركبات)</td>
+        </tr>
+        <tr>
+          <td><strong>قيمة الخردة S</strong></td>
+          <td>تدخل في المعادلة مباشرة</td>
+          <td>لا تدخل في المعادلة — لكنها حدٌّ أدنى لـ BV</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PART DIVIDER 2 – REPLACEMENT
+══════════════════════════════════════════ -->
+<div style="margin-top:48px;background:linear-gradient(135deg,#1a4020 0%,#0d2a13 100%);border-radius:var(--radius);padding:20px 32px;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow-md);">
+  <span style="font-size:28px;">🔄</span>
+  <div>
+    <div style="color:var(--gold);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Part 2</div>
+    <div style="color:white;font-family:'Playfair Display',serif;font-size:22px;font-weight:900;">Replacement &amp; Retention Decisions · قرارات الاستبدال والاحتفاظ</div>
+  </div>
+</div>
+
+
 <section class="section" id="s1">
   <div class="section-header">
     <div class="section-num">1</div>
