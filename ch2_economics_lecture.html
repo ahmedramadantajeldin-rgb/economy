@@ -297,6 +297,8 @@ body {
 }
 .example-body { padding: 24px 26px; }
 .example-q {
+  direction: ltr;
+  text-align: left;
   background: var(--pearl);
   border-radius: 8px; padding: 16px 20px;
   margin-bottom: 20px; font-size: 15.5px;
@@ -331,7 +333,9 @@ body {
 }
 .step-content { flex: 1; }
 .step-label { font-weight: 700; color: var(--navy); font-size: 14px; margin-bottom: 4px; }
-.step-detail { font-size: 15px; color: var(--graphite); }
+.step-detail {
+  direction: ltr;
+  text-align: right; font-size: 15px; color: var(--graphite); }
 
 .answer-badge {
   display: inline-flex; align-items: center; gap: 8px;
@@ -612,12 +616,16 @@ mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
   .example-header .ex-label { font-size: 14px; }
   .example-header .ex-topic { font-size: 11px; }
   .example-body { padding: 16px 14px; }
-  .example-q { padding: 14px 16px; font-size: 14.5px; }
+  .example-q {
+  direction: ltr;
+  text-align: left; padding: 14px 16px; font-size: 14.5px; }
 
   .sol-step { gap: 10px; margin-bottom: 10px; }
   .step-num { width: 26px; height: 26px; font-size: 12px; }
   .step-label  { font-size: 13px; }
-  .step-detail { font-size: 14px; }
+  .step-detail {
+  direction: ltr;
+  text-align: right; font-size: 14px; }
   .answer-badge { font-size: 13px; padding: 7px 16px; }
 
   /* Factor table: allow scroll on mobile, show hint */
@@ -1117,7 +1125,6 @@ mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
         An engineer purchased a small consulting business for <strong>$200,000</strong> with financing at <strong>10% per year</strong>. If the loan had to be repaid in <strong>10 years</strong>, the amount of the annual payment was closest to:
         <div class="mcq-options">
           <span class="mcq-opt">(A) $29,000</span>
-          <span class="mcq-opt">(B) $32,550 ✓</span>
           <span class="mcq-opt correct">(B) $32,550 ✓</span>
           <span class="mcq-opt">(C) $34,120</span>
           <span class="mcq-opt">(D) $38,330</span>
@@ -1125,7 +1132,7 @@ mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
       </div>
       <div class="sol-step"><div class="step-num">1</div><div class="step-content"><div class="step-label">المعطيات</div><div class="step-detail">P = $200,000 &nbsp;|&nbsp; i = 10% &nbsp;|&nbsp; n = 10 &nbsp;|&nbsp; A = ?</div></div></div>
       <div class="sol-step"><div class="step-num">2</div><div class="step-content"><div class="step-label">تطبيق (A/P) — Capital Recovery Factor</div><div class="step-detail">
-        \[ A = P \times (A/P,\ 10\%,\ 10) = 200{,}000 \times \frac{0.10 \times (1.10)^{10}}{(1.10)^{10}-1} = 200{,}000 \times 0.16275 = \$32{,}550 \]
+        \[ A = P \times (A/P,\ 10\%,\ 10) = 200{,}000 \times 0.16275 = \$32{,}550 \]
       </div></div></div>
       <div class="answer-badge">✅ الإجابة: (B) $32,550</div>
     </div>
@@ -1236,17 +1243,17 @@ mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
       <div class="example-q">
         A manufacturer is planning for equipment replacement <strong>six years from now</strong>. If the company wants to have <strong>$300,000</strong> available at that time, how much must be deposited each year into a sinking fund that earns interest at <strong>12% per year</strong>?
         <div class="mcq-options">
-          <span class="mcq-opt correct">(A) $30,246 ✓</span>
-          <span class="mcq-opt">(B) $36,969</span>
+          <span class="mcq-opt">(A) $30,246</span>
+          <span class="mcq-opt correct">(B) $36,969 ✓</span>
           <span class="mcq-opt">(C) $42,163</span>
           <span class="mcq-opt">(D) $46,391</span>
         </div>
       </div>
       <div class="sol-step"><div class="step-num">1</div><div class="step-content"><div class="step-label">المعطيات</div><div class="step-detail">F = $300,000 &nbsp;|&nbsp; i = 12% &nbsp;|&nbsp; n = 6 &nbsp;|&nbsp; A = ?</div></div></div>
       <div class="sol-step"><div class="step-num">2</div><div class="step-content"><div class="step-label">تطبيق (A/F) — Sinking Fund Factor</div><div class="step-detail">
-        \[ A = 300{,}000 \times (A/F,\ 12\%,\ 6) = 300{,}000 \times \frac{0.12}{(1.12)^6-1} = 300{,}000 \times 0.10082 = \$30{,}246 \]
+        \[ A = 300{,}000 \times (A/F,\ 12\%,\ 6) = 300{,}000 \times \frac{0.12}{(1.12)^6-1} = 300{,}000 \times 0.12323 = \$36{,}969 \]
       </div></div></div>
-      <div class="answer-badge">✅ الإجابة: (A) $30,246</div>
+      <div class="answer-badge">✅ الإجابة: (B) $36,969</div>
     </div>
   </div>
 
@@ -1308,7 +1315,6 @@ mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
           <div class="q-choices">
             <div class="q-choice">(a) $3.6 million</div>
             <div class="q-choice">(b) $4.2 million</div>
-            <div class="q-choice">(c) $4.9 million ✓</div>
             <div class="q-choice correct">(c) $4.9 million ✓</div>
           </div>
           <button class="q-sol-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'إخفاء الحل ▲':'عرض الحل الكامل ▼'">عرض الحل الكامل ▼</button>
@@ -1653,8 +1659,8 @@ mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
           <div class="q-choices">
             <div class="q-choice">(a) $242,568</div>
             <div class="q-choice">(b) $355,407</div>
-            <div class="q-choice">(c) $597,975 ✓</div>
             <div class="q-choice correct">(c) $597,975 ✓</div>
+            <div class="q-choice">(d) $659,125</div>
           </div>
           <button class="q-sol-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'إخفاء الحل ▲':'عرض الحل الكامل ▼'">عرض الحل الكامل ▼</button>
           <div class="q-solution">
@@ -1798,19 +1804,18 @@ mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
       <div class="example-q">
         A mechanical contractor has four employees whose combined salaries at end of year 1 are <strong>$150,000</strong>. He expects to give each employee a raise of <strong>5% each year</strong>. The present worth of his employees' salaries for <strong>5 years</strong> at an interest rate of <strong>12% per year</strong> is nearest to:
         <div class="mcq-options">
-          <span class="mcq-opt">(A) $591,000</span>
+          <span class="mcq-opt correct">(A) $591,000 ✓</span>
           <span class="mcq-opt">(B) $816,100</span>
-          <span class="mcq-opt correct">(C) $702,900 ✓</span>
+          <span class="mcq-opt">(C) $702,900</span>
           <span class="mcq-opt">(D) $429,300</span>
         </div>
       </div>
       <div class="sol-step"><div class="step-num">1</div><div class="step-content"><div class="step-label">المعطيات</div><div class="step-detail">A₁ = $150,000 &nbsp;|&nbsp; g = 5% &nbsp;|&nbsp; i = 12% &nbsp;|&nbsp; n = 5</div></div></div>
       <div class="sol-step"><div class="step-num">2</div><div class="step-content"><div class="step-label">تطبيق الصيغة (i ≠ g)</div><div class="step-detail">
         \[ P = 150{,}000 \times \frac{1 - \left(\frac{1.05}{1.12}\right)^5}{0.12 - 0.05} = 150{,}000 \times \frac{1 - (0.9375)^5}{0.07} \]
-        \[ = 150{,}000 \times \frac{1 - 0.7219}{0.07} = 150{,}000 \times \frac{0.2781}{0.07} = 150{,}000 \times 3.9729 = \$595{,}936 \]
-        <small style="color:var(--slate);">From tables: P = 150,000 × 4.686 = $702,900 (table value at i=12%, g=5%, n=5)</small>
+        \[ = 150{,}000 \times \frac{1 - 0.7242}{0.07} = 150{,}000 \times \frac{0.2758}{0.07} = 150{,}000 \times 3.9404 = \$591{,}060 \]
       </div></div></div>
-      <div class="answer-badge">✅ الإجابة: (C) $702,900</div>
+      <div class="answer-badge">✅ الإجابة: (A) $591,000</div>
     </div>
   </div>
 
