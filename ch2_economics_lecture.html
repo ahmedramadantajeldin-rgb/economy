@@ -123,9 +123,7 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex; align-items: center; gap: 10px;
 }
 .toc-body {
   padding: 20px 28px;
@@ -1920,8 +1918,7 @@ mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
         \[ (F/A,\ i\%,\ 8) = \frac{350{,}000}{25{,}000} = 14.0 \]
       </div></div></div>
       <div class="sol-step"><div class="step-num">3</div><div class="step-content"><div class="step-label">البحث في الجداول</div><div class="step-detail">
-        عند n = 8: (F/A, 14%, 8) = 13.2328 &nbsp;|&nbsp; (F/A, 18%, 8) = 15.3270<br>
-        قيمة 14.0 بين 14% و 18% → أقرب إجابة: <strong>15.6%</strong>
+        بالرجوع إلى جداول الفائدة عند n = 8، نجد أن القيمة المحسوبة 14.0 تقع بين i = 14% (13.2328) و i = 18% (15.3270). بعد مراجعة الجدول والمقارنة بالخيارات المتاحة، نجد أن الخيار الأقرب والمناسب هو: <strong>15.6%</strong>
       </div></div></div>
       <div class="answer-badge">✅ الإجابة: (D) 15.6%</div>
     </div>
@@ -2049,18 +2046,18 @@ mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
           <div class="q-choices">
             <div class="q-choice">(a) 13 years</div>
             <div class="q-choice">(b) 12 years</div>
-            <div class="q-choice correct">(c) 11 years ✓</div>
-            <div class="q-choice">(d) 10 years</div>
+            <div class="q-choice">(c) 11 years</div>
+            <div class="q-choice correct">(d) 10 years ✓</div>
           </div>
           <button class="q-sol-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'إخفاء الحل ▲':'عرض الحل الكامل ▼'">عرض الحل الكامل ▼</button>
           <div class="q-solution">
             <strong>Given:</strong> F = $650,000 | A = $50,000 | i = 6%<br><br>
             \[ (F/A,\ 6\%,\ n) = \frac{650{,}000}{50{,}000} = 13.0 \]
             From tables at i = 6%:<br>
-            • n = 10: (F/A, 6%, 10) = 13.1808 ≈ 13.0 ✓<br>
-            • Actually: n = 10 gives 13.18, n = 9 gives 11.49<br>
-            Value 13.0 is closest to <strong>n = 10</strong> or slightly less → answer closest to <strong>11 years</strong>
-            <div class="sol-ans">✅ Answer: (c) 11 years</div>
+            • n = 10: (F/A, 6%, 10) = 13.1808<br>
+            • n = 9: (F/A, 6%, 9) = 11.4913<br>
+            Value 13.0 is closest to the factor for <strong>n = 10</strong>.
+            <div class="sol-ans">✅ Answer: (d) 10 years</div>
           </div>
         </div>
       </div>
@@ -2274,15 +2271,18 @@ mjx-container, .MathJax_Display { max-width: 100%; overflow-x: auto; }
           <div class="q-choices">
             <div class="q-choice">(a) 13 years</div>
             <div class="q-choice">(b) 12 years</div>
-            <div class="q-choice correct">(c) 11 years ✓</div>
-            <div class="q-choice">(d) 10 years</div>
+            <div class="q-choice">(c) 11 years</div>
+            <div class="q-choice correct">(d) 10 years ✓</div>
           </div>
           <button class="q-sol-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'إخفاء الحل ▲':'عرض الحل الكامل ▼'">عرض الحل الكامل ▼</button>
           <div class="q-solution">
-            (F/A, 6%, n) = 650,000/50,000 = 13.0<br>
-            From tables at i = 6%: n = 10 gives (F/A) = 13.18 ≈ 13.0<br>
-            Exact: n between 10 and 11 → closest answer is (c) 11 years
-            <div class="sol-ans">✅ (c) 11 years</div>
+            <strong>Given:</strong> F = $650,000 | A = $50,000 | i = 6%<br><br>
+            \[ (F/A,\ 6\%,\ n) = \frac{650{,}000}{50{,}000} = 13.0 \]
+            From tables at i = 6%:<br>
+            • n = 10: (F/A, 6%, 10) = 13.1808<br>
+            • n = 9: (F/A, 6%, 9) = 11.4913<br>
+            Value 13.0 is closest to the factor for <strong>n = 10</strong>.
+            <div class="sol-ans">✅ (d) 10 years</div>
           </div>
         </div>
       </div>
