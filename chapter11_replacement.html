@@ -174,6 +174,17 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
 .esl-highlight{background:rgba(26,127,90,.15);border:2px solid var(--green);border-radius:8px;padding:10px 14px;color:var(--green);font-weight:700;text-align:center;margin:14px 0;font-size:15px;}
 .decision-box{background:linear-gradient(135deg,#e8f2ff,#ddeeff);border:2px solid var(--primary);border-radius:10px;padding:16px 20px;text-align:center;margin:16px 0;}
 .decision-box strong{color:var(--primary);font-size:16px;}
+
+/* ── LECTURE BADGE ── */
+.lec-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(232,184,75,.25);border:1px solid var(--gold);color:var(--gold);font-size:11px;font-weight:700;padding:2px 9px;border-radius:12px;margin-left:10px;vertical-align:middle;letter-spacing:.4px;}
+/* ── BANK SECTION ── */
+.bank-section{background:white;border:2.5px solid var(--primary-mid);border-radius:var(--radius);overflow:hidden;margin-top:52px;box-shadow:var(--shadow-md);}
+.bank-header{background:linear-gradient(135deg,#1a3a6b 0%,#2155a3 100%);color:white;padding:22px 32px;display:flex;align-items:center;gap:14px;}
+.bank-header h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;}
+.bank-header h2 .ar{font-family:'Amiri',serif;font-size:17px;color:rgba(255,255,255,.78);display:block;font-weight:400;}
+.bank-body{padding:28px 32px;}
+.bank-group{margin-bottom:36px;}
+.bank-group-title{color:var(--primary);font-family:'Playfair Display',serif;font-size:17px;border-right:4px solid var(--accent);padding-right:12px;margin-bottom:16px;}
 @media(max-width:680px){.info-grid,.two-col,.three-col{grid-template-columns:1fr;}.section-body{padding:20px 18px;}.site-header{padding:36px 20px 30px;}}
 </style>
 </head>
@@ -189,7 +200,7 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
   <div class="header-badges">
     <span class="badge">📅 Engineering Economy · GE 205</span>
     <span class="badge">🎓 Chapter 11</span>
-    <span class="badge">📉 Depreciation: SL, DB &amp; SYD</span>
+    <span class="badge">📉 Depreciation: SL &amp; DB</span>
     <span class="badge">📐 ESL &amp; Replacement Study</span>
     <span class="badge">📚 Blank &amp; Tarquin</span>
   </div>
@@ -207,10 +218,10 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
       <li><a href="#d4">Who Uses Depreciation? — من يستخدم الاستهلاك؟</a></li>
       <li><a href="#d5">Straight-Line (SL) Method — طريقة الخط المستقيم</a></li>
       <li><a href="#d6">Declining Balance (DB) Method — طريقة الرصيد المتناقص</a></li>
-      <li><a href="#d7">Sum-of-Years-Digits (SYD) Method — طريقة مجموع أرقام السنوات</a></li>
     </ol>
     <p style="color:var(--primary);font-weight:700;font-size:13px;margin:16px 0 6px;border-bottom:1px solid var(--surface-2);padding-bottom:4px;">🔄 Part 2 — Replacement &amp; Retention Decisions · قرارات الاستبدال</p>
     <ol start="8">
+      <li><a href="#s0">What is Replacement Analysis? — ما هي دراسة الاستبدال؟</a></li>
       <li><a href="#s1">Reasons for Replacement — أسباب الاستبدال</a></li>
       <li><a href="#s2">Basic Terminology — المصطلحات الأساسية</a></li>
       <li><a href="#s3">Outsider vs Insider Viewpoint — وجهتا النظر</a></li>
@@ -222,6 +233,7 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
       <li><a href="#s9">Specified Study Period Example 11.35</a></li>
       <li><a href="#s10">Solved Problems — المسائل المحلولة (11.08, 11.12, 11.15, 11.24, 11.36 + Practice)</a></li>
       <li><a href="#final">Final Questions — أسئلة ختامية</a></li>
+      <li><a href="#bank">بنك الأسئلة — Question Bank</a></li>
     </ol>
   </div>
 </div>
@@ -507,7 +519,7 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
 
     <!-- Example 1 -->
     <div class="example-box">
-      <div class="example-header">📘 Example 1 — Automated Packaging Machine</div>
+      <div class="example-header">📘<span class="lec-badge">★ من المحاضرة</span><span class="lec-badge">★ من المحاضرة</span> Example 1 — Automated Packaging Machine</div>
       <div class="example-body">
         <p class="text-en">An automated packaging machine has a first cost of <strong>$50,000</strong>, a recovery period of <strong>5 years</strong>, and an estimated salvage value of <strong>$10,000</strong>.<br>
         (a) Calculate the annual straight-line depreciation charge.<br>
@@ -567,128 +579,7 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
       </div>
     </div>
 
-    <!-- Example 3 -->
-    <div class="example-box">
-      <div class="example-header">📘 Example 3 — Commercial Refrigeration Unit</div>
-      <div class="example-body">
-        <p class="text-en">A commercial refrigeration unit is book-depreciated over a <strong>6-year period</strong> by the straight-line method. The book value at end of year 4 is <strong>BV<sub>4</sub> = $34,000</strong>, and the annual depreciation charge is <strong>$15,000/yr</strong>.<br>
-        (a) Find the first cost P. &nbsp; (b) Find the assumed salvage value S.</p>
 
-        <div class="given">
-          <strong>Given:</strong> N = 6 yrs &nbsp;|&nbsp; BV(4) = $34,000 &nbsp;|&nbsp; D<sub>SL</sub> = $15,000/yr
-        </div>
-
-        <div class="sol-step">
-          <strong>(a) First Cost P:</strong>
-          \( BV(4) = P - 4 \times 15{,}000 \)<br>
-          \( 34{,}000 = P - 60{,}000 \)<br>
-          \( P = \$94{,}000 \)
-        </div>
-        <div class="sol-step">
-          <strong>(b) Salvage Value S:</strong><br>
-          \( 15{,}000 = \dfrac{94{,}000 - S}{6} \) → \( S = 94{,}000 - 90{,}000 = \$4{,}000 \)<br>
-          Verification: \( BV(6) = 94{,}000 - 6 \times 15{,}000 = \$4{,}000 = S \) ✓
-        </div>
-        <div class="answer-badge">P = $94,000 &nbsp;|&nbsp; S = $4,000</div>
-      </div>
-    </div>
-
-    <!-- Example 4 — Argon Gas Processor (from textbook Ch.16) -->
-    <div class="example-box">
-      <div class="example-header">📘 Example 4 — Argon Gas Processor (Textbook)</div>
-      <div class="example-body">
-        <p class="text-en">An argon gas processor has a first cost of <strong>$20,000</strong> with a salvage value of <strong>$5,000</strong> after <strong>5 years</strong>.<br>
-        (a) Find D<sub>3</sub> (depreciation charge in year 3).<br>
-        (b) Find BV<sub>3</sub> (book value at end of year 3).<br>
-        (c) Plot book value versus time for the full recovery period.</p>
-
-        <div class="given">
-          <strong>Given:</strong> P = $20,000 &nbsp;|&nbsp; S = $5,000 &nbsp;|&nbsp; N = 5 years &nbsp;|&nbsp; Method: SL
-        </div>
-
-        <div class="sol-step">
-          <strong>(a) Annual SL Depreciation (constant every year):</strong>
-          \( D_{SL} = \dfrac{P - S}{N} = \dfrac{20{,}000 - 5{,}000}{5} = \dfrac{15{,}000}{5} = \mathbf{\$3{,}000/\text{year}} \)
-        </div>
-
-        <div class="sol-step">
-          <strong>(b) Book Value at End of Year 3:</strong>
-          \( BV_3 = P - 3 \times D_{SL} = 20{,}000 - 3 \times 3{,}000 = 20{,}000 - 9{,}000 = \mathbf{\$11{,}000} \)
-        </div>
-
-        <div class="sol-step">
-          <strong>(c) Book Value Schedule (all years):</strong>
-          <table class="data-table" style="margin-top:10px;">
-            <thead><tr><th>End of Year (t)</th><th>D<sub>SL</sub> ($)</th><th>BV(t) ($)</th></tr></thead>
-            <tbody>
-              <tr><td>0</td><td>—</td><td class="hl">20,000</td></tr>
-              <tr><td>1</td><td>3,000</td><td>17,000</td></tr>
-              <tr><td>2</td><td>3,000</td><td>14,000</td></tr>
-              <tr class="esl"><td><strong>3</strong></td><td><strong>3,000</strong></td><td class="hl"><strong>11,000 ← D₃, BV₃</strong></td></tr>
-              <tr><td>4</td><td>3,000</td><td>8,000</td></tr>
-              <tr><td>5</td><td>3,000</td><td class="hl">5,000 = S ✓</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- BV vs Time SVG Plot -->
-        <div class="cf-diagram" style="margin-top:16px;">
-          <div class="cf-diagram-title">Book Value vs. Time — Argon Gas Processor (SL Method) | Equal annual steps of $3,000</div>
-          <svg class="cf-svg" width="480" height="220" viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
-            <!-- Axes -->
-            <line x1="60" y1="20" x2="60" y2="185" stroke="#1a3a6b" stroke-width="2"/>
-            <line x1="60" y1="185" x2="460" y2="185" stroke="#1a3a6b" stroke-width="2"/>
-            <polygon points="456,181 468,185 456,189" fill="#1a3a6b"/>
-            <polygon points="56,24 60,12 64,24" fill="#1a3a6b"/>
-            <!-- Y-axis: range P=20K(y=27) to S=5K(y=175) = 148px for 15K → 29.6px per $3K step -->
-            <text x="8" y="31"  font-family="IBM Plex Sans" font-size="10" fill="#1a3a6b" font-weight="600">$20K</text>
-            <text x="8" y="60"  font-family="IBM Plex Sans" font-size="10" fill="#888">$17K</text>
-            <text x="8" y="90"  font-family="IBM Plex Sans" font-size="10" fill="#888">$14K</text>
-            <text x="8" y="119" font-family="IBM Plex Sans" font-size="10" fill="#c0392b" font-weight="700">$11K</text>
-            <text x="8" y="149" font-family="IBM Plex Sans" font-size="10" fill="#888">$8K</text>
-            <text x="8" y="178" font-family="IBM Plex Sans" font-size="10" fill="#1a7f5a" font-weight="700">$5K=S</text>
-            <!-- X-axis labels -->
-            <text x="60"  y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">0</text>
-            <text x="138" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">1</text>
-            <text x="216" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">2</text>
-            <text x="294" y="200" font-family="IBM Plex Sans" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="700">3</text>
-            <text x="372" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">4</text>
-            <text x="450" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">5</text>
-            <text x="265" y="215" font-family="IBM Plex Sans" font-size="12" fill="#1a3a6b" text-anchor="middle" font-weight="600">Year (t)</text>
-            <text x="14" y="12" font-family="IBM Plex Sans" font-size="10" fill="#1a3a6b" font-weight="600">BV ($)</text>
-            <!-- Salvage value dashed horizontal line -->
-            <line x1="60" y1="175" x2="455" y2="175" stroke="#1a7f5a" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <!-- SL straight-line: equal steps of 29.6px
-                 t=0→y=27, t=1→y=57, t=2→y=86, t=3→y=116, t=4→y=146, t=5→y=175 -->
-            <line x1="60"  y1="27"  x2="138" y2="57"  stroke="#0e90d2" stroke-width="2.5"/>
-            <line x1="138" y1="57"  x2="216" y2="86"  stroke="#0e90d2" stroke-width="2.5"/>
-            <line x1="216" y1="86"  x2="294" y2="116" stroke="#0e90d2" stroke-width="2.5"/>
-            <line x1="294" y1="116" x2="372" y2="146" stroke="#0e90d2" stroke-width="2.5"/>
-            <line x1="372" y1="146" x2="450" y2="175" stroke="#0e90d2" stroke-width="2.5"/>
-            <!-- Equal step annotation (one bracket to show D=constant) -->
-            <line x1="60"  y1="57"  x2="138" y2="57"  stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
-            <line x1="138" y1="27"  x2="138" y2="57"  stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
-            <text x="82" y="44" font-family="IBM Plex Sans" font-size="10" fill="#c0392b">D=$3K/yr (constant)</text>
-            <!-- Data point circles -->
-            <circle cx="60"  cy="27"  r="5" fill="#1a3a6b"/>
-            <circle cx="138" cy="57"  r="5" fill="#0e90d2"/>
-            <circle cx="216" cy="86"  r="5" fill="#0e90d2"/>
-            <circle cx="294" cy="116" r="6" fill="#c0392b"/>
-            <circle cx="372" cy="146" r="5" fill="#0e90d2"/>
-            <circle cx="450" cy="175" r="5" fill="#1a7f5a"/>
-            <!-- BV₃ vertical drop annotation -->
-            <line x1="294" y1="116" x2="294" y2="185" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 2"/>
-            <text x="296" y="115" font-family="IBM Plex Sans" font-size="10" fill="#c0392b" font-weight="700">BV₃=$11K</text>
-          </svg>
-        </div>
-
-        <div class="note-box">
-          <span class="icon">📌</span>
-          <p>الملاحظة المهمة: منحنى BV في طريقة الخط المستقيم دائمًا خط مستقيم يبدأ من P ويصل إلى S بشكل منتظم ومتساوٍ. وهذا هو أصل تسمية هذه الطريقة بـ "الخط المستقيم".</p>
-        </div>
-        <div class="answer-badge">D₃ = $3,000/yr &nbsp;|&nbsp; BV₃ = $11,000</div>
-      </div>
-    </div>
 
   </div>
 </section>
@@ -768,7 +659,7 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
 
     <!-- Example 5 — Commercial Delivery Drone (DB: find rate from BV) -->
     <div class="example-box">
-      <div class="example-header">📘 Example 5 — Commercial Delivery Drone (Find DB Rate)</div>
+      <div class="example-header">📘<span class="lec-badge">★ من المحاضرة</span> Example 5 — Commercial Delivery Drone (Find DB Rate)</div>
       <div class="example-body">
         <p class="text-en">A logistics company purchases a commercial delivery drone for <strong>P = $25,000</strong>. Its estimated market value after <strong>8 years</strong> is <strong>$4,000</strong>.<br>
         (a) Calculate the implied declining balance depreciation rate (d).<br>
@@ -795,34 +686,11 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
       </div>
     </div>
 
-    <!-- Example 6 — Matching DB to SL Book Value -->
-    <div class="example-box">
-      <div class="example-header">📘 Example 6 — Matching DB to SL Book Value</div>
-      <div class="example-body">
-        <p class="text-en">A pharmaceutical manufacturing centrifuge has a planned life of <strong>25 years</strong>, an initial cost of <strong>$500,000</strong>, and a salvage value of <strong>$50,000</strong> (using standard SL depreciation). What fixed DB rate (d) would give the <strong>same book value as SL at the end of Year 15</strong>?</p>
 
-        <div class="given">
-          <strong>Given:</strong> P = $500,000 &nbsp;|&nbsp; S = $50,000 &nbsp;|&nbsp; N = 25 yrs &nbsp;|&nbsp; Target: match BV at t = 15
-        </div>
-
-        <div class="sol-step">
-          <strong>Step 1 — SL annual charge and BV(15):</strong>
-          \( D_{SL} = \dfrac{500{,}000 - 50{,}000}{25} = \$18{,}000/\text{yr} \)<br>
-          \( BV_{SL}(15) = 500{,}000 - 15 \times 18{,}000 = \$230{,}000 \)
-        </div>
-        <div class="sol-step">
-          <strong>Step 2 — Find d such that BV<sub>DB</sub>(15) = $230,000:</strong>
-          \( 230{,}000 = 500{,}000 \times (1-d)^{15} \)<br>
-          \( (1-d)^{15} = 0.46 \)<br>
-          \( d = 1 - (0.46)^{1/15} = 1 - 0.9496 = \mathbf{5.04\%} \)
-        </div>
-        <div class="answer-badge">d = 5.04% gives same BV at Year 15 as SL method</div>
-      </div>
-    </div>
 
     <!-- Example 7 — Double Declining Balance (DDB) -->
     <div class="example-box">
-      <div class="example-header">📘 Example 7 — Double Declining Balance (DDB)</div>
+      <div class="example-header">📘<span class="lec-badge">★ من المحاضرة</span> Example 7 — Double Declining Balance (DDB)</div>
       <div class="example-body">
         <p class="text-en">A precision laser cutting system is depreciated using the <strong>Double Declining Balance (DDB)</strong> method over an expected life of <strong>10 years</strong>. First cost = <strong>$60,000</strong>, salvage = <strong>$5,000</strong>.<br>
         (a) Calculate the DDB depreciation rate. &nbsp; (b) Find BV at end of 10-year service life.</p>
@@ -846,85 +714,9 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
       </div>
     </div>
 
-    <!-- Example 8 — Construction Truck DDB (from Ch.16 textbook) -->
-    <div class="example-box">
-      <div class="example-header">📘 Example 8 — Construction Truck (DDB Full Schedule)</div>
-      <div class="example-body">
-        <p class="text-en">A depreciable construction truck has a first cost of <strong>$50,000</strong> with a salvage value of <strong>$5,000</strong> after <strong>6 years</strong>.<br>
-        Find (a) the depreciation and (b) the book value after years 1, 2, 3, 4, and 5 using the <strong>DDB method</strong>.</p>
 
-        <div class="given">
-          <strong>Given:</strong> P = $50,000 &nbsp;|&nbsp; S = $5,000 &nbsp;|&nbsp; N = 6 years &nbsp;|&nbsp; Method: DDB
-        </div>
 
-        <div class="sol-step">
-          <strong>Step 1 — DDB rate:</strong>
-          \( d_{DDB} = \dfrac{2}{N} = \dfrac{2}{6} = 0.3333 = 33.33\% \)
-        </div>
-        <div class="sol-step">
-          <strong>Step 2 — Annual D and BV schedule:</strong>
-          <p class="text-en" style="font-size:13.5px;margin-top:6px;">Using \( D_t = d \cdot BV_{t-1} \) and \( BV_t = BV_{t-1} - D_t = P(1-d)^t \)</p>
-          <table class="data-table" style="margin-top:8px;">
-            <thead>
-              <tr><th>Year (t)</th><th>BV(t−1) ($)</th><th>D<sub>t</sub> = d × BV(t−1) ($)</th><th>BV(t) ($)</th><th>Note</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>0</td><td>—</td><td>—</td><td class="hl">50,000</td><td>—</td></tr>
-              <tr><td>1</td><td>50,000</td><td>50,000 × 0.3333 = 16,667</td><td>33,333</td><td></td></tr>
-              <tr><td>2</td><td>33,333</td><td>33,333 × 0.3333 = 11,111</td><td>22,222</td><td></td></tr>
-              <tr><td>3</td><td>22,222</td><td>22,222 × 0.3333 = 7,407</td><td>14,815</td><td></td></tr>
-              <tr><td>4</td><td>14,815</td><td>14,815 × 0.3333 = 4,938</td><td>9,877</td><td></td></tr>
-              <tr class="esl"><td>5</td><td>9,877</td><td>9,877 × 0.3333 = 3,292</td><td class="hl">6,585</td><td>BV &gt; S ✓</td></tr>
-            </tbody>
-          </table>
-          <p class="text-en" style="font-size:13px;margin-top:8px;">
-            <strong>Salvage Constraint Check:</strong> BV(5) = $6,585 &gt; S = $5,000 → Depreciation continues normally. BV(6) = 6,585 × (1 − 0.3333) = $4,390 &lt; S = $5,000 — at Year 6 we would cap BV at S = $5,000.
-          </p>
-        </div>
-        <div class="note-box">
-          <span class="icon">⚠</span>
-          <p>عند طريقة DDB: إذا كانت قيمة BV المحسوبة ستنزل أقل من S، نوقف الاستهلاك ونضع BV = S. لذلك D₆ = 6,585 − 5,000 = $1,585 فقط (وليس 6,585 × 0.3333 = $2,195). هذا هو "قيد الـ Salvage" في طريقة DB.</p>
-        </div>
-        <div class="answer-badge">d<sub>DDB</sub> = 33.33% &nbsp;|&nbsp; BV₅ = $6,585 &nbsp;|&nbsp; BV₆ → capped at S = $5,000</div>
-      </div>
-    </div>
 
-    <!-- Example 9 — Equipment DDB (from Ch.16 textbook) -->
-    <div class="example-box">
-      <div class="example-header">📘 Example 9 — Depreciable Equipment (DDB, n = 4 years)</div>
-      <div class="example-body">
-        <p class="text-en">Depreciable equipment has an initial cost of <strong>$100,000</strong> and a salvage value of <strong>$20,000</strong> after <strong>4 years</strong>.<br>
-        Find (a) the depreciation and (b) the book value after years 1, 2, 3, and 4 using the <strong>DDB method</strong>.</p>
-
-        <div class="given">
-          <strong>Given:</strong> P = $100,000 &nbsp;|&nbsp; S = $20,000 &nbsp;|&nbsp; N = 4 years &nbsp;|&nbsp; Method: DDB
-        </div>
-
-        <div class="sol-step">
-          <strong>DDB Rate:</strong>
-          \( d_{DDB} = \dfrac{2}{N} = \dfrac{2}{4} = 0.50 = 50\% \)
-        </div>
-        <div class="sol-step">
-          <strong>Year-by-Year Schedule:</strong>
-          <table class="data-table" style="margin-top:8px;">
-            <thead>
-              <tr><th>Year (t)</th><th>BV(t−1) ($)</th><th>D<sub>t</sub> = 0.50 × BV(t−1) ($)</th><th>BV(t) ($)</th><th>Check vs S</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>0</td><td>—</td><td>—</td><td class="hl">100,000</td><td>—</td></tr>
-              <tr><td>1</td><td>100,000</td><td>50,000</td><td>50,000</td><td>50K &gt; 20K ✓</td></tr>
-              <tr><td>2</td><td>50,000</td><td>25,000</td><td>25,000</td><td>25K &gt; 20K ✓</td></tr>
-              <tr class="esl"><td>3</td><td>25,000</td><td>5,000 <em>(limited)</em></td><td class="hl">20,000</td><td>BV → S, stop here</td></tr>
-              <tr><td>4</td><td>20,000</td><td>0 (BV = S)</td><td class="hl">20,000 = S</td><td>No more depreciation</td></tr>
-            </tbody>
-          </table>
-          <p class="text-en" style="font-size:13px;margin-top:8px;">
-            <strong>Explanation for Year 3:</strong> Normal DDB would give D₃ = 0.50 × 25,000 = $12,500 → BV₃ = $12,500 &lt; S = $20,000. This violates the salvage constraint. Therefore D₃ is limited: D₃ = BV₂ − S = 25,000 − 20,000 = <strong>$5,000</strong>, and BV₃ = S = $20,000.
-          </p>
-        </div>
-        <div class="answer-badge">d<sub>DDB</sub> = 50% &nbsp;|&nbsp; BV₃ = BV₄ = $20,000 = S (salvage constraint applied at Year 3)</div>
-      </div>
-    </div>
 
     <!-- SL vs DB comparison table -->
     <h3>مقارنة شاملة بين الطريقتين — SL vs DB Summary</h3>
@@ -973,266 +765,6 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     D7 – SUM-OF-YEARS-DIGITS (SYD) DEPRECIATION
-══════════════════════════════════════════ -->
-<section class="section" id="d7">
-  <div class="section-header">
-    <div class="section-num">D7</div>
-    <h2>Sum-of-Years-Digits (SYD) Depreciation
-      <span class="ar">طريقة مجموع أرقام السنوات — استهلاك متسارع متناقص</span>
-    </h2>
-  </div>
-  <div class="section-body">
-
-    <div class="def-box">
-      <strong>مبدأ طريقة SYD</strong>
-      <p>هي طريقة استهلاك متسارع تنص على أن قيمة الاستهلاك تكون في السنة الأولى <strong>أعلى ما يمكن</strong>، ثم تتناقص تدريجيًا في كل سنة حتى نهاية عمر الأصل. تختلف عن DB في أنها تصل بالضبط إلى قيمة الخردة S في نهاية العمر الاقتصادي، مثلًا مثل طريقة الخط المستقيم.</p>
-    </div>
-
-    <p>الفكرة الجوهرية: نوزّع الاستهلاك الإجمالي (P − S) على سنوات العمر بنسب متناقصة. كل سنة تأخذ "نصيبًا" من الإجمالي، وهذا النصيب يتناقص خطيًا مع الزمن.</p>
-
-    <h3>الخطوات الحسابية — How to Calculate SYD</h3>
-
-    <ol class="steps">
-      <li><div class="step-n">1</div>
-        <p><strong>حساب مجموع أرقام السنوات (SOYD):</strong><br>
-        \( SOYD = \sum_{i=1}^{N} i = 1 + 2 + 3 + \cdots + N = \dfrac{N(N+1)}{2} \)<br>
-        مثال: لو N = 5 → SOYD = 1+2+3+4+5 = 15</p>
-      </li>
-      <li><div class="step-n">2</div>
-        <p><strong>حساب معامل k لكل سنة (عامل التوزيع):</strong><br>
-        \( k_{t-1} = \dfrac{N - (t-1)}{SOYD} \)<br>
-        أي أن k₀ (لـ D₁) = N/SOYD، وk₁ (لـ D₂) = (N−1)/SOYD، وهكذا تتناقص.</p>
-      </li>
-      <li><div class="step-n">3</div>
-        <p><strong>حساب مبلغ الاستهلاك في السنة t:</strong><br>
-        \( D_t = k_{t-1} \times (P - S) \)<br>
-        لاحظ: الأساس هو (P − S) وليس P وحده — هذا يضمن وصول BV إلى S بالضبط.</p>
-      </li>
-      <li><div class="step-n">4</div>
-        <p><strong>حساب القيمة الدفترية:</strong><br>
-        \( BV_t = BV_{t-1} - D_t \) &nbsp; (أو تراكميًا: \( BV_t = P - \sum_{j=1}^{t} D_j \) )</p>
-      </li>
-    </ol>
-
-    <div class="formula-box">
-      <span class="label">SYD Core Formulae</span>
-      <div class="math">
-        $$D_t = k_{t-1} \times (P - S) \qquad \text{where} \qquad k_{t-1} = \frac{N-(t-1)}{SOYD}$$
-      </div>
-      <div class="math" style="margin-top:12px;">
-        $$SOYD = \frac{N(N+1)}{2} \qquad\qquad BV_t = BV_{t-1} - D_t$$
-      </div>
-      <p><strong>P</strong> = التكلفة الأولية &nbsp;|&nbsp; <strong>S</strong> = Salvage Value &nbsp;|&nbsp; <strong>N</strong> = عمر الأصل &nbsp;|&nbsp; <strong>t</strong> = رقم السنة المطلوبة</p>
-    </div>
-
-    <div class="note-box">
-      <span class="icon">💡</span>
-      <p><strong>خاصية مميزة في SYD:</strong> على خلاف طريقة DB، فإن BV(N) = S دائمًا — لأن الأساس هو (P−S) وليس P. وهذا يجعلها تتفق مع طريقة الخط المستقيم من حيث الوصول إلى قيمة الخردة، لكنها أسرع في التناقص في السنوات الأولى.</p>
-    </div>
-
-    <!-- Illustrative breakdown for N=5 -->
-    <h3>مثال توضيحي لحساب k عند N = 5</h3>
-    <p>لو عندنا أصل عمره 5 سنوات (N = 5):</p>
-    <div class="cf-diagram">
-      <div class="cf-diagram-title">توزيع معاملات k لأصل عمره 5 سنوات — SOYD = 1+2+3+4+5 = 15</div>
-      <svg class="cf-svg" width="520" height="170" viewBox="0 0 520 170" xmlns="http://www.w3.org/2000/svg">
-        <!-- Axes -->
-        <line x1="60" y1="20" x2="60" y2="140" stroke="#1a3a6b" stroke-width="2"/>
-        <line x1="60" y1="140" x2="510" y2="140" stroke="#1a3a6b" stroke-width="2"/>
-        <polygon points="506,136 518,140 506,144" fill="#1a3a6b"/>
-        <polygon points="56,24 60,12 64,24" fill="#1a3a6b"/>
-        <!-- Bars: k values 5/15, 4/15, 3/15, 2/15, 1/15 -->
-        <!-- k₀=5/15=0.333, k₁=4/15=0.267, k₂=3/15=0.2, k₃=2/15=0.133, k₄=1/15=0.067 -->
-        <!-- Max height = 100px for k=5/15 -->
-        <rect x="75"  y="40"  width="60" height="100" fill="#0e90d2" rx="4" opacity="0.85"/>
-        <rect x="175" y="60"  width="60" height="80"  fill="#0e90d2" rx="4" opacity="0.85"/>
-        <rect x="275" y="80"  width="60" height="60"  fill="#0e90d2" rx="4" opacity="0.85"/>
-        <rect x="375" y="100" width="60" height="40"  fill="#0e90d2" rx="4" opacity="0.85"/>
-        <rect x="445" y="120" width="60" height="20"  fill="#0e90d2" rx="4" opacity="0.85"/>
-        <!-- k value labels above bars -->
-        <text x="105" y="36"  text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b" font-weight="700">5/15</text>
-        <text x="205" y="56"  text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b" font-weight="700">4/15</text>
-        <text x="305" y="76"  text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b" font-weight="700">3/15</text>
-        <text x="405" y="96"  text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b" font-weight="700">2/15</text>
-        <text x="475" y="116" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#1a3a6b" font-weight="700">1/15</text>
-        <!-- Year labels -->
-        <text x="105" y="156" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#888">D₁</text>
-        <text x="205" y="156" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#888">D₂</text>
-        <text x="305" y="156" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#888">D₃</text>
-        <text x="405" y="156" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#888">D₄</text>
-        <text x="475" y="156" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#888">D₅</text>
-        <!-- Sum note -->
-        <text x="300" y="18" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#c0392b" font-weight="600">5+4+3+2+1 = 15 = SOYD ✓   (sum of k fractions = 15/15 = 1.0 ✓)</text>
-      </svg>
-    </div>
-
-    <hr class="sep">
-    <h3>Worked Examples — أمثلة محلولة</h3>
-
-    <!-- SYD Example 10 — Equipment P=100K, S=20K, N=4 years (from Ch.16) -->
-    <div class="example-box">
-      <div class="example-header">📘 Example 10 — Depreciable Equipment (SYD, n = 4 years)</div>
-      <div class="example-body">
-        <p class="text-en">Depreciable equipment has an initial cost of <strong>$100,000</strong> and a salvage value of <strong>$20,000</strong> after <strong>4 years</strong>.<br>
-        Find (a) the depreciation and (b) the book value after years 1, 2, 3, and 4 using the <strong>SYD method</strong>.</p>
-
-        <div class="given">
-          <strong>Given:</strong> P = $100,000 &nbsp;|&nbsp; S = $20,000 &nbsp;|&nbsp; N = 4 years &nbsp;|&nbsp; (P − S) = $80,000
-        </div>
-
-        <div class="sol-step">
-          <strong>Step 1 — SOYD:</strong>
-          \( SOYD = \dfrac{N(N+1)}{2} = \dfrac{4 \times 5}{2} = 10 \)
-          <br>Or directly: 1 + 2 + 3 + 4 = 10
-        </div>
-
-        <div class="sol-step">
-          <strong>Step 2 — k factors for each year:</strong>
-          <table class="data-table" style="max-width:320px;margin-top:8px;">
-            <thead><tr><th>Year t</th><th>k<sub>t−1</sub> = (N−(t−1)) / SOYD</th><th>Value</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>(4 − 0) / 10 = k₀</td><td>4/10 = 0.4</td></tr>
-              <tr><td>2</td><td>(4 − 1) / 10 = k₁</td><td>3/10 = 0.3</td></tr>
-              <tr><td>3</td><td>(4 − 2) / 10 = k₂</td><td>2/10 = 0.2</td></tr>
-              <tr><td>4</td><td>(4 − 3) / 10 = k₃</td><td>1/10 = 0.1</td></tr>
-            </tbody>
-          </table>
-          <p class="text-en" style="font-size:13px;margin-top:6px;">Check: 0.4 + 0.3 + 0.2 + 0.1 = 1.0 ✓ (all of (P−S) is fully depreciated)</p>
-        </div>
-
-        <div class="sol-step">
-          <strong>Step 3 — Depreciation and Book Value each year:</strong>
-          <p class="text-en" style="font-size:13.5px;margin-top:6px;">D₁ = 0.4 × 80,000 = $32,000 &nbsp;→&nbsp; BV₁ = 100,000 − 32,000 = $68,000<br>
-          D₂ = 0.3 × 80,000 = $24,000 &nbsp;→&nbsp; BV₂ = 68,000 − 24,000 = $44,000<br>
-          D₃ = 0.2 × 80,000 = $16,000 &nbsp;→&nbsp; BV₃ = 44,000 − 16,000 = $28,000<br>
-          D₄ = 0.1 × 80,000 = $8,000 &nbsp;&nbsp;→&nbsp; BV₄ = 28,000 − 8,000 = $20,000 = S ✓</p>
-
-          <table class="data-table" style="margin-top:10px;">
-            <thead>
-              <tr><th>Year (t)</th><th>k factor</th><th>D<sub>t</sub> ($)</th><th>BV(t) ($)</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>0</td><td>—</td><td>—</td><td class="hl">100,000</td></tr>
-              <tr><td>1</td><td>4/10 = 0.4</td><td class="hl">32,000</td><td>68,000</td></tr>
-              <tr><td>2</td><td>3/10 = 0.3</td><td class="hl">24,000</td><td>44,000</td></tr>
-              <tr><td>3</td><td>2/10 = 0.2</td><td class="hl">16,000</td><td>28,000</td></tr>
-              <tr class="esl"><td>4</td><td>1/10 = 0.1</td><td class="hl">8,000</td><td class="hl">20,000 = S ✓</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- BV Comparison SVG: SL vs SYD for this example -->
-        <div class="cf-diagram" style="margin-top:16px;">
-          <div class="cf-diagram-title">BV vs. Time — SL vs. SYD Comparison (P=$100K, S=$20K, N=4)</div>
-          <svg class="cf-svg" width="440" height="220" viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
-            <!-- Axes -->
-            <line x1="70" y1="20" x2="70" y2="185" stroke="#1a3a6b" stroke-width="2"/>
-            <line x1="70" y1="185" x2="420" y2="185" stroke="#1a3a6b" stroke-width="2"/>
-            <polygon points="416,181 428,185 416,189" fill="#1a3a6b"/>
-            <polygon points="66,24 70,12 74,24" fill="#1a3a6b"/>
-            <!-- Y-axis labels (P=100K → S=20K: range=80K mapped to 129px → 1K=1.6125px) -->
-            <text x="5"  y="29"  font-family="IBM Plex Sans" font-size="10" fill="#1a3a6b" font-weight="600">$100K</text>
-            <text x="12" y="61"  font-family="IBM Plex Sans" font-size="10" fill="#888">$80K</text>
-            <text x="12" y="93"  font-family="IBM Plex Sans" font-size="10" fill="#c0392b" font-weight="700">$68K</text>
-            <text x="12" y="125" font-family="IBM Plex Sans" font-size="10" fill="#888">$40K</text>
-            <text x="12" y="157" font-family="IBM Plex Sans" font-size="10" fill="#1a7f5a" font-weight="700">$20K=S</text>
-            <!-- X-axis labels -->
-            <text x="70"  y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">0</text>
-            <text x="150" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">1</text>
-            <text x="230" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">2</text>
-            <text x="310" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">3</text>
-            <text x="390" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">4</text>
-            <text x="250" y="215" font-family="IBM Plex Sans" font-size="12" fill="#1a3a6b" text-anchor="middle" font-weight="600">Year (t)</text>
-            <text x="14" y="12" font-family="IBM Plex Sans" font-size="10" fill="#1a3a6b" font-weight="600">BV ($)</text>
-            <!-- Salvage line -->
-            <line x1="70" y1="157" x2="420" y2="157" stroke="#1a7f5a" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <!-- SL line (100K→80K→60K→40K→20K scaled: 100K=28, 80K=68, 60K=108, 40K=128, 20K=157) -->
-            <!-- Y = 28 + (100K-BV)/100K * (157-28) ... actually: 100K→y=28, 20K→y=157 => range=129px for 80K => 1K=129/80=1.6125px -->
-            <!-- y = 28 + (100K-BV)*1.6125 -->
-            <line x1="70"  y1="28"  x2="150" y2="61"  stroke="#0e90d2" stroke-width="2" stroke-dasharray="7 3"/>
-            <line x1="150" y1="61"  x2="230" y2="93"  stroke="#0e90d2" stroke-width="2" stroke-dasharray="7 3"/>
-            <line x1="230" y1="93"  x2="310" y2="125" stroke="#0e90d2" stroke-width="2" stroke-dasharray="7 3"/>
-            <line x1="310" y1="125" x2="390" y2="157" stroke="#0e90d2" stroke-width="2" stroke-dasharray="7 3"/>
-            <!-- SYD curve (100K→68K→44K→28K→20K scaled):
-                 100K→y=28; 68K→y=80; 44K→y=64? Let me recalculate:
-                 y = 28 + (100000-BV)*129/80000
-                 BV=100K: y=28
-                 BV=68K:  y=28+(32000*129/80000)=28+51.6=80
-                 BV=44K:  y=28+(56000*129/80000)=28+90.3=118
-                 BV=28K:  y=28+(72000*129/80000)=28+116.1=144
-                 BV=20K:  y=28+(80000*129/80000)=28+129=157
-            -->
-            <line x1="70"  y1="28"  x2="150" y2="80"  stroke="#c0392b" stroke-width="2.5"/>
-            <line x1="150" y1="80"  x2="230" y2="118" stroke="#c0392b" stroke-width="2.5"/>
-            <line x1="230" y1="118" x2="310" y2="144" stroke="#c0392b" stroke-width="2.5"/>
-            <line x1="310" y1="144" x2="390" y2="157" stroke="#c0392b" stroke-width="2.5"/>
-            <!-- Data points SL -->
-            <circle cx="70"  cy="28"  r="4" fill="#1a3a6b"/>
-            <circle cx="150" cy="61"  r="4" fill="#0e90d2"/>
-            <circle cx="230" cy="93"  r="4" fill="#0e90d2"/>
-            <circle cx="310" cy="125" r="4" fill="#0e90d2"/>
-            <circle cx="390" cy="157" r="4" fill="#1a7f5a"/>
-            <!-- Data points SYD -->
-            <circle cx="150" cy="80"  r="4" fill="#c0392b"/>
-            <circle cx="230" cy="118" r="4" fill="#c0392b"/>
-            <circle cx="310" cy="144" r="4" fill="#c0392b"/>
-            <!-- Legend -->
-            <line x1="200" y1="10" x2="230" y2="10" stroke="#0e90d2" stroke-width="2" stroke-dasharray="6 3"/>
-            <text x="234" y="14" font-family="IBM Plex Sans" font-size="11" fill="#0e90d2">SL method</text>
-            <line x1="310" y1="10" x2="340" y2="10" stroke="#c0392b" stroke-width="2.5"/>
-            <text x="344" y="14" font-family="IBM Plex Sans" font-size="11" fill="#c0392b">SYD method</text>
-          </svg>
-        </div>
-
-        <div class="note-box">
-          <span class="icon">📌</span>
-          <p>الملاحظة من المنحنى: SYD تنخفض أسرع من SL في السنوات الأولى (منحنى أكثر انحدارًا)، ثم كلاهما يصلان إلى S = $20,000 في نهاية السنة الرابعة. هذا هو جوهر "الاستهلاك المتسارع".</p>
-        </div>
-        <div class="answer-badge">SYD: D₁=$32K, D₂=$24K, D₃=$16K, D₄=$8K &nbsp;|&nbsp; BV₄ = $20,000 = S ✓</div>
-      </div>
-    </div>
-
-    <!-- Three-Method Comparison Table -->
-    <h3>مقارنة الطرق الثلاث في مثال واحد — SL vs. DDB vs. SYD</h3>
-    <p>لتوضيح الفرق بين الطرق الثلاث، نطبّقها جميعًا على <strong>نفس الأصل</strong>: P = $100,000 · S = $20,000 · N = 4 years · (P−S = $80,000):</p>
-    <table class="sym-table">
-      <thead>
-        <tr>
-          <th>Year (t)</th>
-          <th>SL — D(t) / BV(t)</th>
-          <th>DDB — D(t) / BV(t)</th>
-          <th>SYD — D(t) / BV(t)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>0</td><td>— / $100,000</td><td>— / $100,000</td><td>— / $100,000</td>
-        </tr>
-        <tr>
-          <td>1</td><td>$20,000 / $80,000</td><td>$50,000 / $50,000</td><td>$32,000 / $68,000</td>
-        </tr>
-        <tr>
-          <td>2</td><td>$20,000 / $60,000</td><td>$25,000 / $25,000</td><td>$24,000 / $44,000</td>
-        </tr>
-        <tr>
-          <td>3</td><td>$20,000 / $40,000</td><td>$5,000* / $20,000</td><td>$16,000 / $28,000</td>
-        </tr>
-        <tr style="background:rgba(26,127,90,.08);">
-          <td>4</td><td>$20,000 / <strong>$20,000 = S</strong></td><td>$0 / <strong>$20,000 = S</strong></td><td>$8,000 / <strong>$20,000 = S</strong></td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:13px;color:var(--text-mid);margin-top:8px;">* DDB Year 3 limited by salvage constraint: D₃ = 25,000 − 20,000 = $5,000 (not 50% × 25,000 = $12,500)</p>
-
-    <div class="note-box">
-      <span class="icon">📊</span>
-      <p><strong>الخلاصة المقارنة:</strong> DDB تعطي أكبر استهلاك في السنة الأولى ($50K)، تليها SYD ($32K)، ثم SL ($20K). في المقابل، كلٌّ من SL وSYD تصل إلى S بالضبط عند نهاية العمر — بينما DDB قد تحتاج تعديلًا إذا كانت ستتخطى S.</p>
-    </div>
-
-  </div>
-</section>
 
 <!-- ══════════════════════════════════════════
      PART DIVIDER 2 – REPLACEMENT
@@ -1244,6 +776,87 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
     <div style="color:white;font-family:'Playfair Display',serif;font-size:22px;font-weight:900;">Replacement &amp; Retention Decisions · قرارات الاستبدال والاحتفاظ</div>
   </div>
 </div>
+
+
+
+<!-- ══════════════════════════════════════════
+     S0 – WHAT IS REPLACEMENT ANALYSIS?
+══════════════════════════════════════════ -->
+<section class="section" id="s0">
+  <div class="section-header">
+    <div class="section-num">0</div>
+    <h2>What is Replacement Analysis?
+      <span class="ar">ما هي دراسة الاستبدال؟ — المفهوم الجوهري</span>
+    </h2>
+  </div>
+  <div class="section-body">
+
+    <div class="def-box">
+      <strong>تعريف دراسة الاستبدال — Replacement Analysis</strong>
+      <p>هي التقييم الاقتصادي المنهجي لتحديد ما إذا كان من الأفضل الاستمرار في تشغيل الأصل الحالي أم استبداله ببديل أحدث وأكثر كفاءة.</p>
+    </div>
+
+    <!-- Core Principle Quote -->
+    <div style="background:linear-gradient(135deg,var(--primary) 0%,#0f2554 100%);border-radius:var(--radius);padding:26px 32px;margin:20px 0;text-align:center;box-shadow:var(--shadow-md);border-right:5px solid var(--gold);">
+      <div style="color:var(--gold);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">— THE CORE PRINCIPLE OF REPLACEMENT —</div>
+      <div style="color:white;font-family:'Playfair Display',serif;font-size:19px;line-height:1.7;font-style:italic;">"It is not about whether the old machine still works.<br>It is about whether <span style="color:var(--accent-light);font-style:normal;font-weight:700;">keeping it is still the most economical way to do the job.</span>"</div>
+    </div>
+
+    <!-- Real-World Intro Example -->
+    <h3>مثال من الواقع — Real-World Scenario</h3>
+    <div class="example-box">
+      <div class="example-header">📘 Real-World Example <span class="lec-badge">★ من المحاضرة</span></div>
+      <div class="example-body">
+        <p class="text-en">A textile factory in Giza has an old loom (the <strong>Defender</strong>) that requires <strong>EGP 50,000/month</strong> in maintenance and wastes <strong>10% of the cotton</strong>. A new automated loom (the <strong>Challenger</strong>) costs <strong>EGP 1,000,000 upfront</strong>, but drops maintenance to <strong>EGP 5,000/month</strong> and wastes <strong>0%</strong> material.</p>
+        <div class="note-box" style="margin-top:12px;">
+          <span class="icon">💡</span>
+          <p>The massive savings in AOC (operating costs) eventually outweigh the steep initial purchase price. <strong>The question is not "does the old loom work?" — the question is "at what year does keeping the old loom become more expensive than buying the new one?"</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Duel -->
+    <h3>المعركة الاقتصادية — The Defender vs. Challenger Duel</h3>
+    <p>دراسة الاستبدال هي <strong>مبارزة اقتصادية</strong> بين بطلين:</p>
+    <div class="two-col">
+      <div class="col-card blue-card">
+        <h4 class="blue">🛡 The Defender — المدافع</h4>
+        <p>الأصل الحالي في مصنعك. إنه البطل الحالي، لكنه يتقدم في العمر.</p>
+        <p style="margin-top:8px;font-style:italic;font-size:13.5px;">Think: Your current, paid-off car.</p>
+        <p style="margin-top:8px;font-size:13.5px;">تكلفته ترتفع باستمرار بسبب الصيانة وتراجع الأداء.</p>
+      </div>
+      <div class="col-card green-card">
+        <h4 class="green">⚔ The Challenger — المنافس</h4>
+        <p>أفضل بديل متاح في السوق. جديد وذو كفاءة عالية ويريد أن يحلّ محلّ المدافع.</p>
+        <p style="margin-top:8px;font-style:italic;font-size:13.5px;">Think: The shiny new electric vehicle.</p>
+        <p style="margin-top:8px;font-size:13.5px;">يتميز بـ: كفاءة طاقة أعلى · ضمان أقل تكاليف صيانة · أداء متوقع وموثوق.</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <span class="icon">⚠</span>
+      <p><strong>نحن لا نستبدل لمجرد أن المنافس "جديد ولامع" — نستبدل فقط إذا كان يوفّر مالاً أكثر مما يكلّفه على مدى الزمن.</strong> حتى لو كان المدافع لا يتطلب أي تكلفة أولية للاستمرار به، فإن المنافس يحمل دائمًا مزايا تنافسية تُخفّض تكاليف التشغيل السنوية (AOC).</p>
+    </div>
+
+    <!-- Key Rules -->
+    <h3>القواعد الأساسية في دراسة الاستبدال</h3>
+    <ol class="steps">
+      <li><div class="step-n">1</div>
+        <p><strong>كن مستشارًا محايدًا:</strong> تصرّف كمستشار مستقل لا يمتلك لا المدافع ولا المنافس. حكمك يجب أن يكون اقتصاديًا بحتًا.</p>
+      </li>
+      <li><div class="step-n">2</div>
+        <p><strong>القيمة السوقية هي المفتاح:</strong> للاستمرار بالمدافع، يجب أن "تشتريه نظريًا" من السوق. قيمته السوقية الحالية (MV) هي تكلفته الأولية في التحليل.</p>
+      </li>
+      <li><div class="step-n">3</div>
+        <p><strong>تجاهل Sunk Costs:</strong> أسعار الشراء الماضية، تكاليف الترقية السابقة، والقيم الدفترية المحاسبية كلها غير ذات صلة بالقرار الاقتصادي الحالي.</p>
+      </li>
+      <li><div class="step-n">4</div>
+        <p><strong>الخدمة المتكافئة (Equal Service):</strong> نستخدم طريقة AW للمقارنة العادلة بين البدائل ذات الأعمار المختلفة.</p>
+      </li>
+    </ol>
+
+  </div>
+</section>
 
 
 <section class="section" id="s1">
@@ -1261,18 +874,21 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
     <div class="info-grid" style="grid-template-columns:1fr 1fr 1fr;">
       <div class="info-card">
         <span class="card-num">1</span>
-        <p><strong>Reduced Performance — تراجع الأداء</strong><br>
-        مع مرور الوقت، تتراكم الأعطال، تزيد تكاليف الصيانة، وينخفض معدل الإنتاج. المعدة التي كانت تنتج 100 وحدة/ساعة قد تنتج 70 وحدة بعد سنوات. هذا التراجع يرفع التكاليف التشغيلية ويقلل الإيرادات.</p>
+        <p><strong>Physical Impairment — التلف الجسدي والاهتراء</strong><br>
+        التآكل والاهتراء التدريجي الناتج عن الاستخدام. الأصل يتعطل باستمرار مما يرفع تكاليف الصيانة ويخفض الإنتاجية.<br><br>
+        <em>مثال: شركة لوجستيات تمتلك شاحنة قطعت 400,000 كيلومتر. المحرك يحتاج زيتًا باستمرار، ناقل الحركة يتعطل، وتقضي 3 أيام شهريًا في الورشة. رغم أنها لا تزال تسير، فإن تكاليف الصيانة السنوية (AOC) أصبحت أغلى من شراء شاحنة جديدة.</em></p>
       </div>
       <div class="info-card">
         <span class="card-num">2</span>
-        <p><strong>Altered Requirements — تغيّر المتطلبات</strong><br>
-        قد تتغير متطلبات المشروع أو تكبر طاقته الإنتاجية. معدة صُممت لإنتاج 500 وحدة/يوم قد لا تكفي إذا أصبح الطلب 1500 وحدة/يوم. أحيانًا يكون الاستبدال ضرورة تشغيلية لا اختيارًا.</p>
+        <p><strong>Inadequacy — عدم الكفاءة / القصور الوظيفي</strong><br>
+        الأصل لا يزال يعمل، لكنه عاجز عن تلبية متطلبات الطاقة الإنتاجية الجديدة للمشروع.<br><br>
+        <em>مثال: منشأة كيميائية تمتلك مضخة ماء بطاقة 10,000 لتر/ساعة، عمرها سنتان وحالتها ممتازة. لكن الشركة فازت بعقد دولي يتطلب معالجة 30,000 لتر/ساعة. المضخة الحالية قاصرة تمامًا ويجب استبدالها بنموذج صناعي أكبر.</em></p>
       </div>
       <div class="info-card">
         <span class="card-num">3</span>
         <p><strong>Obsolescence — التقادم التكنولوجي</strong><br>
-        التطور التكنولوجي السريع يجعل المعدات القديمة غير منافسة حتى لو كانت تعمل بشكل جيد. معدة جديدة قد تنجز نفس العمل بتكلفة أقل بكثير، مما يجعل الاستمرار بالقديمة قرارًا خاسرًا اقتصاديًا.</p>
+        الطفرات التكنولوجية تجعل الأصل القديم غير منافس اقتصاديًا حتى لو كان لا يزال يعمل بكفاءة تامة.<br><br>
+        <em>مثال: مركز بيانات يضم خوادم عمرها 7 سنوات. لا تتعطل أبدًا وتعمل بدقة. لكن رقاقة معالجة جديدة تُعالج البيانات 10 أضعاف أسرع بـ 70% أقل من الكهرباء. الخوادم القديمة أصبحت متقادمة تكنولوجيًا — الاستمرار بها يعني دفع فواتير كهرباء أعلى بكثير من أي منافس يستخدم التقنية الجديدة.</em></p>
       </div>
     </div>
 
@@ -1284,11 +900,11 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
     <div class="question-block">
       <div class="question-header">🔎 Section Check — Question 1</div>
       <div class="question-body">
-        <div class="q-text">A manufacturing plant bought a CNC machine 6 years ago. Today, its operating costs have increased by 40%, its production rate dropped by 25%, and newer CNC machines offer 30% higher precision. Classify each observation into one of the three reasons for replacement and briefly justify your classification.</div>
+        <div class="q-text">A manufacturing plant bought a CNC machine 6 years ago. Today, its operating costs have increased by 40%, its production rate dropped by 25%, and newer CNC machines offer 30% higher precision. Classify each observation into one of the three reasons for replacement (Physical Impairment, Obsolescence, Inadequacy) and briefly justify your classification.</div>
         <button class="solution-toggle" onclick="toggleSol(this)">Show Answer</button>
         <div class="solution-content">
-          <div class="sol-step"><strong>Operating costs +40% → Reduced Performance:</strong> Higher maintenance and repair costs are a direct indicator of performance degradation over time.</div>
-          <div class="sol-step"><strong>Production rate −25% → Reduced Performance:</strong> A decline in output rate means the asset is no longer delivering its designed capacity — classic performance reduction.</div>
+          <div class="sol-step"><strong>Operating costs +40% → Physical Impairment:</strong> Higher maintenance and repair costs are a direct indicator of physical wear and degradation over time.</div>
+          <div class="sol-step"><strong>Production rate −25% → Physical Impairment:</strong> A decline in output rate means the asset is no longer delivering its designed capacity — classic physical performance deterioration.</div>
           <div class="sol-step"><strong>Newer machines offer +30% precision → Obsolescence:</strong> The current machine is still functional, but newer technology offers a clear competitive advantage, making the old asset technologically obsolete.</div>
         </div>
       </div>
@@ -1762,6 +1378,13 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
     </ol>
 
     <div class="formula-box">
+      <span class="label">AW Formula — طريقة AW في دراسة الاستبدال</span>
+      <div class="math">$$AW = CR + AW_{AOC}$$</div>
+      <div class="math" style="margin-top:10px;font-size:14px;">$$CR = -P(A/P,i\%,n) + S(A/F,i\%,n)$$</div>
+      <p style="margin-top:8px;"><strong>ملاحظة هامة:</strong> للمدافع — التكلفة الأولية = القيمة السوقية الحالية (MV) + أي تحديثات فورية ضرورية.</p>
+      <p style="margin-top:6px;">First Cost (Defender) = Market Value + Any necessary immediate upgrades</p>
+    </div>
+    <div class="formula-box" style="background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);margin-top:14px;">
       <span class="label">Decision Rule — Replacement Study</span>
       <div class="math">
         $$\text{If } |AW_D| \leq |AW_C| \Rightarrow \textbf{Keep Defender} \quad;\quad \text{If } |AW_C| < |AW_D| \Rightarrow \textbf{Replace with Challenger}$$
@@ -1805,7 +1428,7 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
   <div class="section-body">
 
     <div class="example-box">
-      <div class="example-header">📘 Problem 11.22 — Replacement Study (Solved in Lecture)</div>
+      <div class="example-header">📘 Problem 11.22 — Replacement Study (Solved in Lecture)<span class="lec-badge">★ من المحاضرة</span></div>
       <div class="example-body">
         <p class="text-en">Three years ago, Witt Gas Controls purchased equipment for <strong>$80,000</strong> that was expected to have a useful life of 5 years with a $9,000 salvage value. Increased demand necessitated an upgrade costing <strong>$30,000</strong> one year ago. Technology changes now require that the equipment be upgraded again for another <strong>$25,000</strong> so that it can be used for <strong>3 more years</strong>. Its annual operating cost will be <strong>$47,000</strong>, and it will have a <strong>$22,000 salvage</strong> after 3 years. Alternatively, it can be replaced with new equipment costing <strong>$68,000</strong>, operating cost <strong>$35,000/year</strong>, salvage <strong>$21,000</strong> after 3 years. If replaced now, the existing equipment can be sold for <strong>$9,000</strong>. Perform the replacement study at i = 10%/year.</p>
 
@@ -2060,7 +1683,7 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
 <section class="section" id="s9">
   <div class="section-header">
     <div class="section-num">9</div>
-    <h2>Specified Study Period — Example 11.35
+    <h2>Specified Study Period — Example 11.35 <span class="lec-badge">★ من المحاضرة</span>
       <span class="ar">مثال تفصيلي — فترة دراسة 3 سنوات</span>
     </h2>
   </div>
@@ -2249,7 +1872,7 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
   <div class="section-body">
 
     <!-- ─── Problem 11.08 ─── -->
-    <h3>Problem 11.08 — Economic Service Life</h3>
+    <h3>Problem 11.08 — Economic Service Life <span class="lec-badge">★ من المحاضرة</span></h3>
     <div class="example-box">
       <div class="example-header">📘 Problem 11.08 | i = 10% | Answer: ESL = 3 years, AW = −$3,819/yr</div>
       <div class="example-body">
@@ -2365,7 +1988,7 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
     </div>
 
     <!-- ─── Problem 11.12 ─── -->
-    <h3>Problem 11.12 — ESL with Formula-Based Costs</h3>
+    <h3>Problem 11.12 — ESL with Formula-Based Costs <span class="lec-badge">★ من المحاضرة</span></h3>
     <div class="example-box">
       <div class="example-header">📘 Problem 11.12 | i = 10% | Answer: ESL = 2 years, AW = −$77,929/yr</div>
       <div class="example-body">
@@ -2402,323 +2025,7 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
       </div>
     </div>
 
-    <!-- ─── Problem 11.15 ─── -->
-    <h3>Problem 11.15 — ESL at i = 15%</h3>
-    <div class="example-box">
-      <div class="example-header">📘 Problem 11.15 | i = 15% | Answer: ESL = 3 years, AW = −$127,489/yr</div>
-      <div class="example-body">
-        <p class="text-en">Equipment: P = <strong>$150,000</strong>, max life = 7 years.<br>
-        Salvage: S = 120,000 − 20,000k (cannot go below $0)<br>
-        AOC: AOC = 60,000 + 10,000k &nbsp;|&nbsp; i = 15%/yr</p>
-
-        <table class="data-table" style="max-width:420px;">
-          <thead><tr><th>Year (k)</th><th>AOC ($)</th><th>Salvage (S=$120K−20K·k)</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>70,000</td><td>100,000</td></tr>
-            <tr><td>2</td><td>80,000</td><td>80,000</td></tr>
-            <tr><td>3</td><td>90,000</td><td>60,000</td></tr>
-            <tr><td>4</td><td>100,000</td><td>40,000</td></tr>
-            <tr><td>5</td><td>110,000</td><td>20,000</td></tr>
-            <tr><td>6</td><td>120,000</td><td>0</td></tr>
-            <tr><td>7</td><td>130,000</td><td>0 (S≥0)</td></tr>
-          </tbody>
-        </table>
-
-        <div class="given">
-          <strong>i = 15% factors:</strong><br>
-          (P/F,15%,1)=0.8696 | (P/F,15%,2)=0.7561 | (P/F,15%,3)=0.6575<br>
-          (A/P,15%,1)=1.1500 | (A/P,15%,2)=0.6151 | (A/P,15%,3)=0.4380<br>
-          (A/F,15%,1)=1.0000 | (A/F,15%,2)=0.4651 | (A/F,15%,3)=0.2880
-        </div>
-
-        <div class="sol-step">
-          <strong>AW₁:</strong>
-          <span class="text-en" style="display:block;">(150K + 70K×0.8696)(1.15) − 100K(1.0) = (150K+60.872K)(1.15) − 100K = 210.872K×1.15 − 100K = 242.503K − 100K = <strong>$142,503/yr</strong></span>
-        </div>
-        <div class="sol-step">
-          <strong>AW₂:</strong>
-          <span class="text-en" style="display:block;">(150K + 60.872K + 80K×0.7561)(0.6151) − 80K(0.4651)<br>
-          = (210.872K + 60.488K)(0.6151) − 37.208K<br>
-          = 271.360K × 0.6151 − 37.208K = 166.944K − 37.208K = <strong>$129,736/yr</strong></span>
-        </div>
-        <div class="sol-step" style="border-right:4px solid var(--green);">
-          <strong>AW₃ ← MINIMUM:</strong>
-          <span class="text-en" style="display:block;">(271.360K + 90K×0.6575)(0.4380) − 60K(0.2880)<br>
-          = (271.360K + 59.175K)(0.4380) − 17.280K<br>
-          = 330.535K × 0.4380 − 17.280K = 144.774K − 17.280K = <strong>$127,494 ≈ $127,489/yr</strong></span>
-        </div>
-        <div class="sol-step">
-          <strong>AW₄ (confirming ESL = 3):</strong>
-          <span class="text-en" style="display:block;">(330.535K + 100K×0.5718)(0.3503) − 40K(0.2003) = 387.715K×0.3503 − 8.012K = 135.820K − 8.012K = <strong>$127,808/yr</strong> (higher → ESL = 3 confirmed)</span>
-        </div>
-        <div class="answer-badge">ESL = 3 years &nbsp;|&nbsp; AW = $127,489/year</div>
-      </div>
-    </div>
-
-    <!-- ─── Problem 11.24 ─── -->
-    <h3>Problem 11.24 — Replacement Study at i = 15%</h3>
-    <div class="example-box">
-      <div class="example-header">📘 Problem 11.24 | i = 15% | Answer: Retain Defender (AWD = −$187,458, AWC = −$207,014)</div>
-      <div class="example-body">
-        <p class="text-en">A pulp and paper company evaluates whether to retain the current <em>chlorine dioxide</em> process (Defender) or replace with the <em>Oxypure</em> process (Challenger). Use i = 15%/yr.</p>
-
-        <table class="data-table" style="max-width:540px;">
-          <thead><tr><th>Parameter</th><th>Defender (Current Process)</th><th>Challenger (Oxypure)</th></tr></thead>
-          <tbody>
-            <tr><td>Original cost (6 yrs ago)</td><td>$450,000</td><td>—</td></tr>
-            <tr><td>Investment cost now</td><td>—</td><td>$700,000</td></tr>
-            <tr><td>Current Market Value (MV)</td><td>$25,000</td><td>—</td></tr>
-            <tr><td>Annual Operating Cost</td><td>$180,000/yr</td><td>$70,000/yr</td></tr>
-            <tr><td>Salvage Value</td><td>$0</td><td>$50,000</td></tr>
-            <tr><td>Remaining/Total Life</td><td>5 years</td><td>10 years</td></tr>
-          </tbody>
-        </table>
-
-        <div class="note-box">
-          <span class="icon">⚠</span>
-          <p>الـ $450,000 التكلفة الأصلية قبل 6 سنوات هي <strong>Sunk Cost</strong> — لا تدخل في الحسابات. نستخدم القيمة السوقية الحالية MV = $25,000 فقط.</p>
-        </div>
-
-        <div class="cf-diagram">
-          <div class="cf-diagram-title">Cash Flow Diagrams — Defender (5 yrs) and Challenger (10 yrs)</div>
-          <svg class="cf-svg" width="580" height="145" viewBox="0 0 580 145" xmlns="http://www.w3.org/2000/svg">
-            <text x="130" y="12" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11" fill="#1a3a6b" font-weight="700">DEFENDER (5 yrs, MV=$25K)</text>
-            <line x1="20" y1="55" x2="270" y2="55" stroke="#1a3a6b" stroke-width="2"/>
-            <polygon points="268,51 280,55 268,59" fill="#1a3a6b"/>
-            <g font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#2c4066" text-anchor="middle">
-              <line x1="35"  y1="49" x2="35"  y2="61" stroke="#1a3a6b" stroke-width="2"/>
-              <line x1="260" y1="49" x2="260" y2="61" stroke="#1a3a6b" stroke-width="1.5"/>
-              <text x="35"  y="72">0</text><text x="260" y="72">5</text>
-              <text x="147" y="72">1–4</text>
-            </g>
-            <line x1="35" y1="55" x2="35" y2="100" stroke="#c0392b" stroke-width="2.5"/>
-            <polygon points="32,100 38,100 35,108" fill="#c0392b"/>
-            <text x="35" y="120" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="700">MV=25K</text>
-            <line x1="147" y1="55" x2="147" y2="88" stroke="#c0392b" stroke-width="2"/>
-            <polygon points="144,88 150,88 147,96" fill="#c0392b"/>
-            <text x="147" y="106" text-anchor="middle" font-size="10" fill="#c0392b">AOC=180K/yr</text>
-            <line x1="260" y1="55" x2="260" y2="88" stroke="#c0392b" stroke-width="2"/>
-            <polygon points="257,88 263,88 260,96" fill="#c0392b"/>
-            <text x="260" y="106" text-anchor="middle" font-size="10" fill="#c0392b">180K, SV=0</text>
-
-            <text x="430" y="12" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11" fill="#1a3a6b" font-weight="700">CHALLENGER (10 yrs)</text>
-            <line x1="310" y1="55" x2="570" y2="55" stroke="#1a3a6b" stroke-width="2"/>
-            <polygon points="568,51 580,55 568,59" fill="#1a3a6b"/>
-            <g font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#2c4066" text-anchor="middle">
-              <line x1="325" y1="49" x2="325" y2="61" stroke="#1a3a6b" stroke-width="2"/>
-              <line x1="555" y1="49" x2="555" y2="61" stroke="#1a3a6b" stroke-width="1.5"/>
-              <text x="325" y="72">0</text><text x="555" y="72">10</text>
-              <text x="440" y="72">1–9</text>
-            </g>
-            <line x1="325" y1="55" x2="325" y2="110" stroke="#c0392b" stroke-width="2.5"/>
-            <polygon points="322,110 328,110 325,118" fill="#c0392b"/>
-            <text x="325" y="130" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="700">P=700K</text>
-            <line x1="440" y1="55" x2="440" y2="90" stroke="#c0392b" stroke-width="2"/>
-            <polygon points="437,90 443,90 440,98" fill="#c0392b"/>
-            <text x="440" y="108" text-anchor="middle" font-size="10" fill="#c0392b">AOC=70K/yr</text>
-            <line x1="555" y1="55" x2="555" y2="90" stroke="#c0392b" stroke-width="2"/>
-            <polygon points="552,90 558,90 555,98" fill="#c0392b"/>
-            <text x="555" y="108" text-anchor="middle" font-size="10" fill="#c0392b">70K</text>
-            <line x1="555" y1="55" x2="555" y2="25" stroke="#1a7f5a" stroke-width="2"/>
-            <polygon points="552,25 558,25 555,17" fill="#1a7f5a"/>
-            <text x="555" y="12" text-anchor="middle" font-size="10" fill="#1a7f5a">SV=50K</text>
-          </svg>
-        </div>
-
-        <div class="sol-step">
-          <strong>AWD — Defender (Outsider: P = MV = $25K, n = 5, SV = $0):</strong>
-          <span class="text-en" style="display:block;margin-top:4px;">
-            AWD = 25K × (A/P,15%,5) + 180K − 0<br>
-            (A/P,15%,5) = 0.2983<br>
-            AWD = 25K × 0.2983 + 180K = 7,458 + 180,000 = <strong>$187,458/year</strong>
-          </span>
-        </div>
-
-        <div class="sol-step">
-          <strong>AWC — Challenger (P = $700K, n = 10, SV = $50K):</strong>
-          <span class="text-en" style="display:block;margin-top:4px;">
-            AWC = 700K × (A/P,15%,10) + 70K − 50K × (A/F,15%,10)<br>
-            (A/P,15%,10) = 0.1993 &nbsp;|&nbsp; (A/F,15%,10) = 0.0493<br>
-            AWC = 700K × 0.1993 + 70K − 50K × 0.0493<br>
-            = 139,510 + 70,000 − 2,465 = <strong>$207,045 ≈ $207,014/year</strong>
-          </span>
-        </div>
-
-        <div class="decision-box">
-          <strong>AWD ($187,458) &lt; AWC ($207,014) → ✅ RETAIN THE CURRENT PROCESS (Defender wins)</strong>
-        </div>
-        <div class="answer-badge">Keep Defender | AWD = $187,458/yr &nbsp;|&nbsp; AWC = $207,014/yr</div>
-      </div>
-    </div>
-
-    <!-- ─── Problem 11.36 ─── -->
-    <h3>Problem 11.36 — Replacement over a 5-Year Study Period</h3>
-    <div class="example-box">
-      <div class="example-header">📘 Problem 11.36 | i = 10% | Study Period = 5 years | Answer: Keep D 1 yr, then replace</div>
-      <div class="example-body">
-        <p class="text-en">The table shows <strong>PW of costs</strong> for keeping the Defender or Challenger for different numbers of years. Determine when to replace over a <strong>5-year study period</strong> at i = 10%/yr.</p>
-
-        <table class="data-table" style="max-width:440px;">
-          <thead><tr><th>Years Kept</th><th>PW if Defender ($)</th><th>PW if Challenger ($)</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>-36,000</td><td>-89,000</td></tr>
-            <tr><td>2</td><td>-75,000</td><td>-96,000</td></tr>
-            <tr><td>3</td><td>-125,000</td><td>-102,000</td></tr>
-            <tr><td>4</td><td>-166,000</td><td>-113,000</td></tr>
-            <tr><td>5</td><td>-217,000</td><td>-149,000</td></tr>
-          </tbody>
-        </table>
-
-        <div class="given">
-          <strong>Interest Factors at 10%:</strong> (P/F,10%,1)=0.9091 | (P/F,10%,2)=0.8264 | (P/F,10%,3)=0.7513 | (P/F,10%,4)=0.6830
-        </div>
-
-        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:14px;">All 6 possible combinations for a 5-year period:</p>
-
-        <div class="sol-step">
-          <strong>DDDDD — Defender all 5 years:</strong>
-          <span class="text-en">PW = −$217,000</span>
-        </div>
-        <div class="sol-step">
-          <strong>DDDDC — Defender 4 yrs, Challenger 1 yr (deferred 4 yrs):</strong>
-          <span class="text-en">PW = −166K + (−89K)(P/F,10%,4) = −166K − 89K×0.6830 = −166K − 60,787 = <strong>−$226,787</strong></span>
-        </div>
-        <div class="sol-step">
-          <strong>DDDCC — Defender 3 yrs, Challenger 2 yrs (deferred 3 yrs):</strong>
-          <span class="text-en">PW = −125K + (−96K)(P/F,10%,3) = −125K − 96K×0.7513 = −125K − 72,125 = <strong>−$197,125</strong></span>
-        </div>
-        <div class="sol-step">
-          <strong>DDCCC — Defender 2 yrs, Challenger 3 yrs (deferred 2 yrs):</strong>
-          <span class="text-en">PW = −75K + (−102K)(P/F,10%,2) = −75K − 102K×0.8264 = −75K − 84,293 = <strong>−$159,293</strong></span>
-        </div>
-        <div class="sol-step" style="border-right:4px solid var(--green);">
-          <strong>DCCCC — Defender 1 yr, Challenger 4 yrs (deferred 1 yr) ← MINIMUM:</strong>
-          <span class="text-en">PW = −36K + (−113K)(P/F,10%,1) = −36K − 113K×0.9091 = −36K − 102,728 = <strong>−$138,728 ← MINIMUM</strong></span>
-        </div>
-        <div class="sol-step">
-          <strong>CCCCC — Challenger all 5 years:</strong>
-          <span class="text-en">PW = −$149,000</span>
-        </div>
-
-        <table class="data-table" style="margin-top:12px;">
-          <thead><tr><th>Combination</th><th>PW of Total Cost ($)</th><th>Rank</th></tr></thead>
-          <tbody>
-            <tr><td>DDDDD</td><td>-217,000</td><td>6th</td></tr>
-            <tr><td>DDDDC</td><td>-226,787</td><td>Worst</td></tr>
-            <tr><td>DDDCC</td><td>-197,125</td><td>5th</td></tr>
-            <tr><td>DDCCC</td><td>-159,293</td><td>4th</td></tr>
-            <tr class="esl"><td><strong>DCCCC</strong></td><td><strong>-138,728 ← MIN</strong></td><td>🏆 BEST</td></tr>
-            <tr><td>CCCCC</td><td>-149,000</td><td>2nd</td></tr>
-          </tbody>
-        </table>
-        <div class="esl-highlight">✅ Keep Defender for 1 year, then replace with Challenger for the remaining 4 years.<br>Total PW = −$138,728 (minimum cost over 5-year study period)</div>
-      </div>
-    </div>
-
-    <!-- ─── Practice Problem — Server System (from Lecture) ─── -->
-    <h3>Practice Problem — Central Server System (ESL Calculation)</h3>
-    <div class="example-box">
-      <div class="example-header">📘 Practice | i = 10% | P = $40,000 | n = 5 years</div>
-      <div class="example-body">
-        <p class="text-en">A factory installs a new central server system with a <strong>first cost of $40,000</strong>. The company expects the hardware to last a maximum of <strong>5 years</strong> at an interest rate of <strong>10% per year</strong>. The estimated operating costs and salvage values are shown below.<br><br>
-        <strong>Task:</strong> The analysis for Years 1–3 is already completed. Complete the missing values for Years 4 and 5, then find the ESL.</p>
-
-        <div class="two-col">
-          <table class="data-table">
-            <caption style="font-weight:700;color:var(--primary);text-align:left;padding-bottom:6px;">Given: AOC and Salvage Values</caption>
-            <thead><tr><th>Year (k)</th><th>AOC ($/yr)</th><th>Salvage Value S ($)</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>−5,000</td><td>25,000</td></tr>
-              <tr><td>2</td><td>−6,500</td><td>15,000</td></tr>
-              <tr><td>3</td><td>−8,000</td><td>10,000</td></tr>
-              <tr style="background:rgba(232,184,75,.12);"><td>4</td><td>−15,000</td><td>5,000</td></tr>
-              <tr style="background:rgba(232,184,75,.12);"><td>5</td><td>−20,000</td><td>0</td></tr>
-            </tbody>
-          </table>
-          <table class="data-table">
-            <caption style="font-weight:700;color:var(--primary);text-align:left;padding-bottom:6px;">ESL Analysis Table (Years 1–3 Given)</caption>
-            <thead><tr><th>Year</th><th>CR ($)</th><th>AW<sub>O/M</sub> ($)</th><th>AW<sub>total</sub> ($)</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>−19,000</td><td>−5,000</td><td>−24,000</td></tr>
-              <tr><td>2</td><td>−15,905</td><td>−5,714</td><td>−21,619</td></tr>
-              <tr><td>3</td><td>−13,063</td><td>−6,405</td><td>−19,468</td></tr>
-              <tr style="background:rgba(232,184,75,.12);"><td>4</td><td><em>???</em></td><td><em>???</em></td><td><em>???</em></td></tr>
-              <tr style="background:rgba(232,184,75,.12);"><td>5</td><td><em>???</em></td><td><em>???</em></td><td><em>???</em></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="text-en" style="margin-top:14px;font-weight:600;color:var(--primary);">Interest factors at i = 10%:</p>
-        <table class="data-table" style="font-size:13px;max-width:480px;">
-          <thead><tr><th>n</th><th>(P/F,10%,n)</th><th>(A/P,10%,n)</th><th>(A/F,10%,n)</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>0.9091</td><td>1.1000</td><td>1.0000</td></tr>
-            <tr><td>2</td><td>0.8264</td><td>0.5762</td><td>0.4762</td></tr>
-            <tr><td>3</td><td>0.7513</td><td>0.4021</td><td>0.3021</td></tr>
-            <tr><td>4</td><td>0.6830</td><td>0.3155</td><td>0.2155</td></tr>
-            <tr><td>5</td><td>0.6209</td><td>0.2638</td><td>0.1638</td></tr>
-          </tbody>
-        </table>
-
-        <p class="text-en" style="margin-top:14px;font-weight:600;color:var(--primary);">Solution — Year 4:</p>
-        <div class="sol-step">
-          <strong>CR₄:</strong>
-          <span class="text-en" style="display:block;margin-top:4px;">
-            CR₄ = −40,000(A/P,10%,4) + 5,000(A/F,10%,4)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= −40,000(0.3155) + 5,000(0.2155)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= −12,620 + 1,078 = <strong>−$11,542/yr</strong>
-          </span>
-        </div>
-        <div class="sol-step">
-          <strong>AW<sub>O/M₄</sub>:</strong>
-          <span class="text-en" style="display:block;margin-top:4px;">
-            ΣPWAOC = [−5,000(P/F,1) − 6,500(P/F,2) − 8,000(P/F,3) − 15,000(P/F,4)](A/P,10%,4)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= [−5K(0.9091) − 6.5K(0.8264) − 8K(0.7513) − 15K(0.6830)](0.3155)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= [−4.545 − 5.372 − 6.010 − 10.245]K × 0.3155<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= −26.172K × 0.3155 = <strong>−$8,257/yr</strong>
-          </span>
-        </div>
-        <div class="sol-step">
-          <strong>AW<sub>total₄</sub> = CR₄ + AW<sub>O/M₄</sub> = −11,542 − 8,257 = <span style="color:var(--primary);">−$19,799/yr</span></strong>
-        </div>
-
-        <p class="text-en" style="margin-top:14px;font-weight:600;color:var(--primary);">Solution — Year 5:</p>
-        <div class="sol-step">
-          <strong>CR₅:</strong>
-          <span class="text-en" style="display:block;margin-top:4px;">
-            CR₅ = −40,000(A/P,10%,5) + 0·(A/F,10%,5) &nbsp; [S=0 at year 5]<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= −40,000(0.2638) + 0 = <strong>−$10,552/yr</strong>
-          </span>
-        </div>
-        <div class="sol-step">
-          <strong>AW<sub>O/M₅</sub>:</strong>
-          <span class="text-en" style="display:block;margin-top:4px;">
-            = [−26.172K − 20K(0.6209)](A/P,10%,5)<br>
-            = [−26.172K − 12.418K](0.2638)<br>
-            = −38.590K × 0.2638 = <strong>−$10,182/yr</strong>
-          </span>
-        </div>
-        <div class="sol-step">
-          <strong>AW<sub>total₅</sub> = −10,552 − 10,182 = <span style="color:var(--primary);">−$20,734/yr</span></strong>
-        </div>
-
-        <p class="text-en" style="margin-top:14px;font-weight:600;color:var(--primary);">Complete ESL Table:</p>
-        <table class="data-table">
-          <thead><tr><th>Year</th><th>CR ($)</th><th>AW<sub>O/M</sub> ($)</th><th>AW<sub>total</sub> ($)</th><th></th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>−19,000</td><td>−5,000</td><td>−24,000</td><td>↓</td></tr>
-            <tr><td>2</td><td>−15,905</td><td>−5,714</td><td>−21,619</td><td>↓</td></tr>
-            <tr class="esl"><td><strong>3</strong></td><td><strong>−13,063</strong></td><td><strong>−6,405</strong></td><td><strong>−19,468 ← MIN</strong></td><td>⬅ ESL</td></tr>
-            <tr><td>4</td><td>−11,542</td><td>−8,257</td><td>−19,799</td><td>↑</td></tr>
-            <tr><td>5</td><td>−10,552</td><td>−10,182</td><td>−20,734</td><td>↑</td></tr>
-          </tbody>
-        </table>
-        <div class="answer-badge">ESL = 3 years &nbsp;|&nbsp; Minimum AW<sub>total</sub> = −$19,468/year</div>
-      </div>
-    </div>
-
-  </div>
-</section>
+    <!-- ─── Problem 11.15 ─── 
 
 <!-- ══════════════════════════════════════════
      FINAL QUESTIONS
@@ -2769,60 +2076,677 @@ body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(1
   </div>
 
   <!-- Q3 -->
-  <div class="final-q">
-    <div class="qt">Q3. What is the fundamental difference between Sunk Cost and Market Value in a replacement study? Why should Sunk Cost be ignored? Provide a numerical example to justify your answer.</div>
-    <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
-    <div class="sol-content">
-      <p><strong>Sunk Cost:</strong> Money already spent in the past that cannot be recovered, regardless of future decisions. Example: Paying $100,000 for a machine 3 years ago is a sunk cost.</p>
-      <p><strong>Market Value (MV):</strong> The actual amount the asset can be sold for in today's market. This is a real, current economic value that represents an opportunity cost.</p>
-      <p><strong>Why ignore Sunk Cost?</strong> Economic decisions should be based only on future costs and revenues. Sunk costs are irrelevant to future alternatives — they will be "paid" regardless of whether you keep or replace the asset.</p>
-      <p><strong>Numerical Example:</strong><br>
-      Machine bought 3 years ago for $100,000. Current MV = $15,000. AOC = $30,000/yr. Better challenger costs $50,000, AOC = $12,000/yr.<br>
-      Wrong approach: "I paid $100,000 so I should keep it." → Makes decision based on sunk cost.<br>
-      Correct approach: Use only MV = $15,000 as Defender's first cost, compute AWD and compare with AWC.<br>
-      AWD = 15K(A/P,i,n) + 30K → if AWD > AWC, replace regardless of the original $100,000.</p>
-      <p class="ans">Sunk costs represent past decisions and cannot be altered. Only future cash flows — using MV as the defender's P — should drive replacement decisions.</p>
-    </div>
-  </div>
+  
 
   <!-- Q4 -->
-  <div class="final-q">
-    <div class="qt">Q4. A company has a 4-year study period. AW data for Defender and Challenger are: D: 1yr=$30K, 2yr=$26K, 3yr=$28K, 4yr=$31K. C: 1yr=$40K, 2yr=$33K, 3yr=$29K, 4yr=$27K. At i=10%, determine all possible combinations and find the optimal replacement year. (P/A,10%,1)=0.9091, (P/A,10%,2)=1.7355, (P/A,10%,3)=2.4869, (P/A,10%,4)=3.1699, (P/F,10%,1)=0.9091, (P/F,10%,2)=0.8264, (P/F,10%,3)=0.7513</div>
-    <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
-    <div class="sol-content">
-      <p><strong>5 Combinations for 4-year study period:</strong></p>
-      <p>P1 (DDDD): PW = 31K×(P/A,10%,4) = 31K×3.1699 = <strong>$98,267</strong></p>
-      <p>P2 (DDDC): PW = 28K×(P/A,10%,3) + 40K×(P/F,10%,3) = 28K×2.4869 + 40K×0.7513 = 69,633 + 30,052 = <strong>$99,685</strong></p>
-      <p>P3 (DDCC): PW = 26K×(P/A,10%,2) + 33K×(P/A,10%,2)×(P/F,10%,2)<br>
-      = 26K×1.7355 + {33K×(P/A,10%,2)}×(P/F,10%,2)<br>
-      = 45,123 + 33K×1.7355×0.8264 = 45,123 + 47,357 = <strong>$92,480</strong></p>
-      <p>P4 (DCCC): PW = 30K×(P/F,10%,1) + 29K×(P/A,10%,3)×(P/F,10%,1)<br>
-      = 30K×0.9091 + 29K×2.4869×0.9091 = 27,273 + 65,645 = <strong>$92,918</strong></p>
-      <p>P5 (CCCC): PW = 27K×(P/A,10%,4) = 27K×3.1699 = <strong>$85,587</strong></p>
-      <p class="ans">CCCC gives minimum PW = $85,587 → Replace with Challenger immediately (Year 0).<br>
-      This means the Challenger is economically superior even at year 1 — replace now!</p>
-    </div>
-  </div>
+  
 
   <!-- Q5 -->
-  <div class="final-q">
-    <div class="qt">Q5. In Problem 11.22 (Witt Gas Controls), using the Outsider's Viewpoint, the defender's first cost was computed as $25,000 + $9,000 = $34,000. Explain conceptually why we add the market value of $9,000 to the upgrade cost of $25,000 when computing AWD. Isn't the $9,000 money we RECEIVE (not spend)?</div>
-    <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
-    <div class="sol-content">
-      <p><strong>This is a classic Opportunity Cost question.</strong></p>
-      <p>If we KEEP the defender, we forgo selling it for $9,000. That $9,000 is an <strong>opportunity cost</strong> — money we could have had but chose not to take. In engineering economy, opportunity costs are treated as real costs.</p>
-      <p>So from the Outsider's perspective: Imagine a stranger who wants to use the defender for 3 years. They must:<br>
-      (1) Buy the defender at current market price = $9,000<br>
-      (2) Pay the required upgrade = $25,000<br>
-      Total investment = $34,000 — this is the true economic cost of choosing the defender.</p>
-      <p>The $9,000 represents what we give up by not selling. It is an economic cost even though no cash leaves our hands.</p>
-      <p class="ans">The $9,000 MV is added because it represents the opportunity cost of keeping the defender instead of selling it. Foregone revenue = real economic cost.</p>
-    </div>
-  </div>
+  
 
 </div>
 
 </div><!-- .container -->
+
+
+
+<!-- ══════════════════════════════════════════
+     QUESTION BANK — بنك الأسئلة
+══════════════════════════════════════════ -->
+<div class="bank-section" id="bank">
+  <div class="bank-header">
+    <span style="font-size:28px;">📚</span>
+    <h2>بنك الأسئلة — Question Bank
+      <span class="ar">تمارين إضافية لكل أجزاء الفصل</span>
+    </h2>
+  </div>
+  <div class="bank-body">
+
+    <!-- ─── D5: SL Depreciation ─── -->
+    <div class="bank-group">
+      <div class="bank-group-title">📉 Straight-Line (SL) Depreciation — تمارين إضافية</div>
+
+    <!-- Example 3 -->
+        <div class="example-box">
+          <div class="example-header">📘 Example 3 — Commercial Refrigeration Unit</div>
+          <div class="example-body">
+            <p class="text-en">A commercial refrigeration unit is book-depreciated over a <strong>6-year period</strong> by the straight-line method. The book value at end of year 4 is <strong>BV<sub>4</sub> = $34,000</strong>, and the annual depreciation charge is <strong>$15,000/yr</strong>.<br>
+            (a) Find the first cost P. &nbsp; (b) Find the assumed salvage value S.</p>
+    
+            <div class="given">
+              <strong>Given:</strong> N = 6 yrs &nbsp;|&nbsp; BV(4) = $34,000 &nbsp;|&nbsp; D<sub>SL</sub> = $15,000/yr
+            </div>
+    
+            <div class="sol-step">
+              <strong>(a) First Cost P:</strong>
+              \( BV(4) = P - 4 \times 15{,}000 \)<br>
+              \( 34{,}000 = P - 60{,}000 \)<br>
+              \( P = \$94{,}000 \)
+            </div>
+            <div class="sol-step">
+              <strong>(b) Salvage Value S:</strong><br>
+              \( 15{,}000 = \dfrac{94{,}000 - S}{6} \) → \( S = 94{,}000 - 90{,}000 = \$4{,}000 \)<br>
+              Verification: \( BV(6) = 94{,}000 - 6 \times 15{,}000 = \$4{,}000 = S \) ✓
+            </div>
+            <div class="answer-badge">P = $94,000 &nbsp;|&nbsp; S = $4,000</div>
+          </div>
+        </div>
+
+    <hr class="sep">
+
+    <!-- Example 4 — Argon Gas Processor (from textbook Ch.16) -->
+        <div class="example-box">
+          <div class="example-header">📘 Example 4 — Argon Gas Processor (Textbook)</div>
+          <div class="example-body">
+            <p class="text-en">An argon gas processor has a first cost of <strong>$20,000</strong> with a salvage value of <strong>$5,000</strong> after <strong>5 years</strong>.<br>
+            (a) Find D<sub>3</sub> (depreciation charge in year 3).<br>
+            (b) Find BV<sub>3</sub> (book value at end of year 3).<br>
+            (c) Plot book value versus time for the full recovery period.</p>
+    
+            <div class="given">
+              <strong>Given:</strong> P = $20,000 &nbsp;|&nbsp; S = $5,000 &nbsp;|&nbsp; N = 5 years &nbsp;|&nbsp; Method: SL
+            </div>
+    
+            <div class="sol-step">
+              <strong>(a) Annual SL Depreciation (constant every year):</strong>
+              \( D_{SL} = \dfrac{P - S}{N} = \dfrac{20{,}000 - 5{,}000}{5} = \dfrac{15{,}000}{5} = \mathbf{\$3{,}000/\text{year}} \)
+            </div>
+    
+            <div class="sol-step">
+              <strong>(b) Book Value at End of Year 3:</strong>
+              \( BV_3 = P - 3 \times D_{SL} = 20{,}000 - 3 \times 3{,}000 = 20{,}000 - 9{,}000 = \mathbf{\$11{,}000} \)
+            </div>
+    
+            <div class="sol-step">
+              <strong>(c) Book Value Schedule (all years):</strong>
+              <table class="data-table" style="margin-top:10px;">
+                <thead><tr><th>End of Year (t)</th><th>D<sub>SL</sub> ($)</th><th>BV(t) ($)</th></tr></thead>
+                <tbody>
+                  <tr><td>0</td><td>—</td><td class="hl">20,000</td></tr>
+                  <tr><td>1</td><td>3,000</td><td>17,000</td></tr>
+                  <tr><td>2</td><td>3,000</td><td>14,000</td></tr>
+                  <tr class="esl"><td><strong>3</strong></td><td><strong>3,000</strong></td><td class="hl"><strong>11,000 ← D₃, BV₃</strong></td></tr>
+                  <tr><td>4</td><td>3,000</td><td>8,000</td></tr>
+                  <tr><td>5</td><td>3,000</td><td class="hl">5,000 = S ✓</td></tr>
+                </tbody>
+              </table>
+            </div>
+    
+            <!-- BV vs Time SVG Plot -->
+            <div class="cf-diagram" style="margin-top:16px;">
+              <div class="cf-diagram-title">Book Value vs. Time — Argon Gas Processor (SL Method) | Equal annual steps of $3,000</div>
+              <svg class="cf-svg" width="480" height="220" viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
+                <!-- Axes -->
+                <line x1="60" y1="20" x2="60" y2="185" stroke="#1a3a6b" stroke-width="2"/>
+                <line x1="60" y1="185" x2="460" y2="185" stroke="#1a3a6b" stroke-width="2"/>
+                <polygon points="456,181 468,185 456,189" fill="#1a3a6b"/>
+                <polygon points="56,24 60,12 64,24" fill="#1a3a6b"/>
+                <!-- Y-axis: range P=20K(y=27) to S=5K(y=175) = 148px for 15K → 29.6px per $3K step -->
+                <text x="8" y="31"  font-family="IBM Plex Sans" font-size="10" fill="#1a3a6b" font-weight="600">$20K</text>
+                <text x="8" y="60"  font-family="IBM Plex Sans" font-size="10" fill="#888">$17K</text>
+                <text x="8" y="90"  font-family="IBM Plex Sans" font-size="10" fill="#888">$14K</text>
+                <text x="8" y="119" font-family="IBM Plex Sans" font-size="10" fill="#c0392b" font-weight="700">$11K</text>
+                <text x="8" y="149" font-family="IBM Plex Sans" font-size="10" fill="#888">$8K</text>
+                <text x="8" y="178" font-family="IBM Plex Sans" font-size="10" fill="#1a7f5a" font-weight="700">$5K=S</text>
+                <!-- X-axis labels -->
+                <text x="60"  y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">0</text>
+                <text x="138" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">1</text>
+                <text x="216" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">2</text>
+                <text x="294" y="200" font-family="IBM Plex Sans" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="700">3</text>
+                <text x="372" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">4</text>
+                <text x="450" y="200" font-family="IBM Plex Sans" font-size="11" fill="#888" text-anchor="middle">5</text>
+                <text x="265" y="215" font-family="IBM Plex Sans" font-size="12" fill="#1a3a6b" text-anchor="middle" font-weight="600">Year (t)</text>
+                <text x="14" y="12" font-family="IBM Plex Sans" font-size="10" fill="#1a3a6b" font-weight="600">BV ($)</text>
+                <!-- Salvage value dashed horizontal line -->
+                <line x1="60" y1="175" x2="455" y2="175" stroke="#1a7f5a" stroke-width="1.5" stroke-dasharray="5 3"/>
+                <!-- SL straight-line: equal steps of 29.6px
+                     t=0→y=27, t=1→y=57, t=2→y=86, t=3→y=116, t=4→y=146, t=5→y=175 -->
+                <line x1="60"  y1="27"  x2="138" y2="57"  stroke="#0e90d2" stroke-width="2.5"/>
+                <line x1="138" y1="57"  x2="216" y2="86"  stroke="#0e90d2" stroke-width="2.5"/>
+                <line x1="216" y1="86"  x2="294" y2="116" stroke="#0e90d2" stroke-width="2.5"/>
+                <line x1="294" y1="116" x2="372" y2="146" stroke="#0e90d2" stroke-width="2.5"/>
+                <line x1="372" y1="146" x2="450" y2="175" stroke="#0e90d2" stroke-width="2.5"/>
+                <!-- Equal step annotation (one bracket to show D=constant) -->
+                <line x1="60"  y1="57"  x2="138" y2="57"  stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="138" y1="27"  x2="138" y2="57"  stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+                <text x="82" y="44" font-family="IBM Plex Sans" font-size="10" fill="#c0392b">D=$3K/yr (constant)</text>
+                <!-- Data point circles -->
+                <circle cx="60"  cy="27"  r="5" fill="#1a3a6b"/>
+                <circle cx="138" cy="57"  r="5" fill="#0e90d2"/>
+                <circle cx="216" cy="86"  r="5" fill="#0e90d2"/>
+                <circle cx="294" cy="116" r="6" fill="#c0392b"/>
+                <circle cx="372" cy="146" r="5" fill="#0e90d2"/>
+                <circle cx="450" cy="175" r="5" fill="#1a7f5a"/>
+                <!-- BV₃ vertical drop annotation -->
+                <line x1="294" y1="116" x2="294" y2="185" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <text x="296" y="115" font-family="IBM Plex Sans" font-size="10" fill="#c0392b" font-weight="700">BV₃=$11K</text>
+              </svg>
+            </div>
+    
+            <div class="note-box">
+              <span class="icon">📌</span>
+              <p>الملاحظة المهمة: منحنى BV في طريقة الخط المستقيم دائمًا خط مستقيم يبدأ من P ويصل إلى S بشكل منتظم ومتساوٍ. وهذا هو أصل تسمية هذه الطريقة بـ "الخط المستقيم".</p>
+            </div>
+            <div class="answer-badge">D₃ = $3,000/yr &nbsp;|&nbsp; BV₃ = $11,000</div>
+          </div>
+        </div>
+
+    </div>
+
+    <!-- ─── D6: DB Depreciation ─── -->
+    <div class="bank-group">
+      <div class="bank-group-title">📉 Declining Balance (DB) Depreciation — تمارين إضافية</div>
+
+    <!-- Example 6 — Matching DB to SL Book Value -->
+        <div class="example-box">
+          <div class="example-header">📘 Example 6 — Matching DB to SL Book Value</div>
+          <div class="example-body">
+            <p class="text-en">A pharmaceutical manufacturing centrifuge has a planned life of <strong>25 years</strong>, an initial cost of <strong>$500,000</strong>, and a salvage value of <strong>$50,000</strong> (using standard SL depreciation). What fixed DB rate (d) would give the <strong>same book value as SL at the end of Year 15</strong>?</p>
+    
+            <div class="given">
+              <strong>Given:</strong> P = $500,000 &nbsp;|&nbsp; S = $50,000 &nbsp;|&nbsp; N = 25 yrs &nbsp;|&nbsp; Target: match BV at t = 15
+            </div>
+    
+            <div class="sol-step">
+              <strong>Step 1 — SL annual charge and BV(15):</strong>
+              \( D_{SL} = \dfrac{500{,}000 - 50{,}000}{25} = \$18{,}000/\text{yr} \)<br>
+              \( BV_{SL}(15) = 500{,}000 - 15 \times 18{,}000 = \$230{,}000 \)
+            </div>
+            <div class="sol-step">
+              <strong>Step 2 — Find d such that BV<sub>DB</sub>(15) = $230,000:</strong>
+              \( 230{,}000 = 500{,}000 \times (1-d)^{15} \)<br>
+              \( (1-d)^{15} = 0.46 \)<br>
+              \( d = 1 - (0.46)^{1/15} = 1 - 0.9496 = \mathbf{5.04\%} \)
+            </div>
+            <div class="answer-badge">d = 5.04% gives same BV at Year 15 as SL method</div>
+          </div>
+        </div>
+
+    <hr class="sep">
+
+    <!-- Example 8 — Construction Truck DDB (from Ch.16 textbook) -->
+        <div class="example-box">
+          <div class="example-header">📘 Example 8 — Construction Truck (DDB Full Schedule)</div>
+          <div class="example-body">
+            <p class="text-en">A depreciable construction truck has a first cost of <strong>$50,000</strong> with a salvage value of <strong>$5,000</strong> after <strong>6 years</strong>.<br>
+            Find (a) the depreciation and (b) the book value after years 1, 2, 3, 4, and 5 using the <strong>DDB method</strong>.</p>
+    
+            <div class="given">
+              <strong>Given:</strong> P = $50,000 &nbsp;|&nbsp; S = $5,000 &nbsp;|&nbsp; N = 6 years &nbsp;|&nbsp; Method: DDB
+            </div>
+    
+            <div class="sol-step">
+              <strong>Step 1 — DDB rate:</strong>
+              \( d_{DDB} = \dfrac{2}{N} = \dfrac{2}{6} = 0.3333 = 33.33\% \)
+            </div>
+            <div class="sol-step">
+              <strong>Step 2 — Annual D and BV schedule:</strong>
+              <p class="text-en" style="font-size:13.5px;margin-top:6px;">Using \( D_t = d \cdot BV_{t-1} \) and \( BV_t = BV_{t-1} - D_t = P(1-d)^t \)</p>
+              <table class="data-table" style="margin-top:8px;">
+                <thead>
+                  <tr><th>Year (t)</th><th>BV(t−1) ($)</th><th>D<sub>t</sub> = d × BV(t−1) ($)</th><th>BV(t) ($)</th><th>Note</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>0</td><td>—</td><td>—</td><td class="hl">50,000</td><td>—</td></tr>
+                  <tr><td>1</td><td>50,000</td><td>50,000 × 0.3333 = 16,667</td><td>33,333</td><td></td></tr>
+                  <tr><td>2</td><td>33,333</td><td>33,333 × 0.3333 = 11,111</td><td>22,222</td><td></td></tr>
+                  <tr><td>3</td><td>22,222</td><td>22,222 × 0.3333 = 7,407</td><td>14,815</td><td></td></tr>
+                  <tr><td>4</td><td>14,815</td><td>14,815 × 0.3333 = 4,938</td><td>9,877</td><td></td></tr>
+                  <tr class="esl"><td>5</td><td>9,877</td><td>9,877 × 0.3333 = 3,292</td><td class="hl">6,585</td><td>BV &gt; S ✓</td></tr>
+                </tbody>
+              </table>
+              <p class="text-en" style="font-size:13px;margin-top:8px;">
+                <strong>Salvage Constraint Check:</strong> BV(5) = $6,585 &gt; S = $5,000 → Depreciation continues normally. BV(6) = 6,585 × (1 − 0.3333) = $4,390 &lt; S = $5,000 — at Year 6 we would cap BV at S = $5,000.
+              </p>
+            </div>
+            <div class="note-box">
+              <span class="icon">⚠</span>
+              <p>عند طريقة DDB: إذا كانت قيمة BV المحسوبة ستنزل أقل من S، نوقف الاستهلاك ونضع BV = S. لذلك D₆ = 6,585 − 5,000 = $1,585 فقط (وليس 6,585 × 0.3333 = $2,195). هذا هو "قيد الـ Salvage" في طريقة DB.</p>
+            </div>
+            <div class="answer-badge">d<sub>DDB</sub> = 33.33% &nbsp;|&nbsp; BV₅ = $6,585 &nbsp;|&nbsp; BV₆ → capped at S = $5,000</div>
+          </div>
+        </div>
+
+    <hr class="sep">
+
+    <!-- Example 9 — Equipment DDB (from Ch.16 textbook) -->
+        <div class="example-box">
+          <div class="example-header">📘 Example 9 — Depreciable Equipment (DDB, n = 4 years)</div>
+          <div class="example-body">
+            <p class="text-en">Depreciable equipment has an initial cost of <strong>$100,000</strong> and a salvage value of <strong>$20,000</strong> after <strong>4 years</strong>.<br>
+            Find (a) the depreciation and (b) the book value after years 1, 2, 3, and 4 using the <strong>DDB method</strong>.</p>
+    
+            <div class="given">
+              <strong>Given:</strong> P = $100,000 &nbsp;|&nbsp; S = $20,000 &nbsp;|&nbsp; N = 4 years &nbsp;|&nbsp; Method: DDB
+            </div>
+    
+            <div class="sol-step">
+              <strong>DDB Rate:</strong>
+              \( d_{DDB} = \dfrac{2}{N} = \dfrac{2}{4} = 0.50 = 50\% \)
+            </div>
+            <div class="sol-step">
+              <strong>Year-by-Year Schedule:</strong>
+              <table class="data-table" style="margin-top:8px;">
+                <thead>
+                  <tr><th>Year (t)</th><th>BV(t−1) ($)</th><th>D<sub>t</sub> = 0.50 × BV(t−1) ($)</th><th>BV(t) ($)</th><th>Check vs S</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>0</td><td>—</td><td>—</td><td class="hl">100,000</td><td>—</td></tr>
+                  <tr><td>1</td><td>100,000</td><td>50,000</td><td>50,000</td><td>50K &gt; 20K ✓</td></tr>
+                  <tr><td>2</td><td>50,000</td><td>25,000</td><td>25,000</td><td>25K &gt; 20K ✓</td></tr>
+                  <tr class="esl"><td>3</td><td>25,000</td><td>5,000 <em>(limited)</em></td><td class="hl">20,000</td><td>BV → S, stop here</td></tr>
+                  <tr><td>4</td><td>20,000</td><td>0 (BV = S)</td><td class="hl">20,000 = S</td><td>No more depreciation</td></tr>
+                </tbody>
+              </table>
+              <p class="text-en" style="font-size:13px;margin-top:8px;">
+                <strong>Explanation for Year 3:</strong> Normal DDB would give D₃ = 0.50 × 25,000 = $12,500 → BV₃ = $12,500 &lt; S = $20,000. This violates the salvage constraint. Therefore D₃ is limited: D₃ = BV₂ − S = 25,000 − 20,000 = <strong>$5,000</strong>, and BV₃ = S = $20,000.
+              </p>
+            </div>
+            <div class="answer-badge">d<sub>DDB</sub> = 50% &nbsp;|&nbsp; BV₃ = BV₄ = $20,000 = S (salvage constraint applied at Year 3)</div>
+          </div>
+        </div>
+
+    </div>
+
+    <!-- ─── ESL & Replacement ─── -->
+    <div class="bank-group">
+      <div class="bank-group-title">🔄 ESL &amp; Replacement — مسائل إضافية محلولة</div>
+
+    -->
+        <h3>Problem 11.15 — ESL at i = 15%</h3>
+        <div class="example-box">
+          <div class="example-header">📘 Problem 11.15 | i = 15% | Answer: ESL = 3 years, AW = −$127,489/yr</div>
+          <div class="example-body">
+            <p class="text-en">Equipment: P = <strong>$150,000</strong>, max life = 7 years.<br>
+            Salvage: S = 120,000 − 20,000k (cannot go below $0)<br>
+            AOC: AOC = 60,000 + 10,000k &nbsp;|&nbsp; i = 15%/yr</p>
+    
+            <table class="data-table" style="max-width:420px;">
+              <thead><tr><th>Year (k)</th><th>AOC ($)</th><th>Salvage (S=$120K−20K·k)</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>70,000</td><td>100,000</td></tr>
+                <tr><td>2</td><td>80,000</td><td>80,000</td></tr>
+                <tr><td>3</td><td>90,000</td><td>60,000</td></tr>
+                <tr><td>4</td><td>100,000</td><td>40,000</td></tr>
+                <tr><td>5</td><td>110,000</td><td>20,000</td></tr>
+                <tr><td>6</td><td>120,000</td><td>0</td></tr>
+                <tr><td>7</td><td>130,000</td><td>0 (S≥0)</td></tr>
+              </tbody>
+            </table>
+    
+            <div class="given">
+              <strong>i = 15% factors:</strong><br>
+              (P/F,15%,1)=0.8696 | (P/F,15%,2)=0.7561 | (P/F,15%,3)=0.6575<br>
+              (A/P,15%,1)=1.1500 | (A/P,15%,2)=0.6151 | (A/P,15%,3)=0.4380<br>
+              (A/F,15%,1)=1.0000 | (A/F,15%,2)=0.4651 | (A/F,15%,3)=0.2880
+            </div>
+    
+            <div class="sol-step">
+              <strong>AW₁:</strong>
+              <span class="text-en" style="display:block;">(150K + 70K×0.8696)(1.15) − 100K(1.0) = (150K+60.872K)(1.15) − 100K = 210.872K×1.15 − 100K = 242.503K − 100K = <strong>$142,503/yr</strong></span>
+            </div>
+            <div class="sol-step">
+              <strong>AW₂:</strong>
+              <span class="text-en" style="display:block;">(150K + 60.872K + 80K×0.7561)(0.6151) − 80K(0.4651)<br>
+              = (210.872K + 60.488K)(0.6151) − 37.208K<br>
+              = 271.360K × 0.6151 − 37.208K = 166.944K − 37.208K = <strong>$129,736/yr</strong></span>
+            </div>
+            <div class="sol-step" style="border-right:4px solid var(--green);">
+              <strong>AW₃ ← MINIMUM:</strong>
+              <span class="text-en" style="display:block;">(271.360K + 90K×0.6575)(0.4380) − 60K(0.2880)<br>
+              = (271.360K + 59.175K)(0.4380) − 17.280K<br>
+              = 330.535K × 0.4380 − 17.280K = 144.774K − 17.280K = <strong>$127,494 ≈ $127,489/yr</strong></span>
+            </div>
+            <div class="sol-step">
+              <strong>AW₄ (confirming ESL = 3):</strong>
+              <span class="text-en" style="display:block;">(330.535K + 100K×0.5718)(0.3503) − 40K(0.2003) = 387.715K×0.3503 − 8.012K = 135.820K − 8.012K = <strong>$127,808/yr</strong> (higher → ESL = 3 confirmed)</span>
+            </div>
+            <div class="answer-badge">ESL = 3 years &nbsp;|&nbsp; AW = $127,489/year</div>
+          </div>
+        </div>
+    
+        <!-- ─── Problem 11.24 ───
+
+    <hr class="sep">
+
+    -->
+        <h3>Problem 11.24 — Replacement Study at i = 15% <span class="lec-badge">★ من المحاضرة</span></h3>
+        <div class="example-box">
+          <div class="example-header">📘 Problem 11.24 | i = 15% | Answer: Retain Defender (AWD = −$187,458, AWC = −$207,014)</div>
+          <div class="example-body">
+            <p class="text-en">A pulp and paper company evaluates whether to retain the current <em>chlorine dioxide</em> process (Defender) or replace with the <em>Oxypure</em> process (Challenger). Use i = 15%/yr.</p>
+    
+            <table class="data-table" style="max-width:540px;">
+              <thead><tr><th>Parameter</th><th>Defender (Current Process)</th><th>Challenger (Oxypure)</th></tr></thead>
+              <tbody>
+                <tr><td>Original cost (6 yrs ago)</td><td>$450,000</td><td>—</td></tr>
+                <tr><td>Investment cost now</td><td>—</td><td>$700,000</td></tr>
+                <tr><td>Current Market Value (MV)</td><td>$25,000</td><td>—</td></tr>
+                <tr><td>Annual Operating Cost</td><td>$180,000/yr</td><td>$70,000/yr</td></tr>
+                <tr><td>Salvage Value</td><td>$0</td><td>$50,000</td></tr>
+                <tr><td>Remaining/Total Life</td><td>5 years</td><td>10 years</td></tr>
+              </tbody>
+            </table>
+    
+            <div class="note-box">
+              <span class="icon">⚠</span>
+              <p>الـ $450,000 التكلفة الأصلية قبل 6 سنوات هي <strong>Sunk Cost</strong> — لا تدخل في الحسابات. نستخدم القيمة السوقية الحالية MV = $25,000 فقط.</p>
+            </div>
+    
+            <div class="cf-diagram">
+              <div class="cf-diagram-title">Cash Flow Diagrams — Defender (5 yrs) and Challenger (10 yrs)</div>
+              <svg class="cf-svg" width="580" height="145" viewBox="0 0 580 145" xmlns="http://www.w3.org/2000/svg">
+                <text x="130" y="12" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11" fill="#1a3a6b" font-weight="700">DEFENDER (5 yrs, MV=$25K)</text>
+                <line x1="20" y1="55" x2="270" y2="55" stroke="#1a3a6b" stroke-width="2"/>
+                <polygon points="268,51 280,55 268,59" fill="#1a3a6b"/>
+                <g font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#2c4066" text-anchor="middle">
+                  <line x1="35"  y1="49" x2="35"  y2="61" stroke="#1a3a6b" stroke-width="2"/>
+                  <line x1="260" y1="49" x2="260" y2="61" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <text x="35"  y="72">0</text><text x="260" y="72">5</text>
+                  <text x="147" y="72">1–4</text>
+                </g>
+                <line x1="35" y1="55" x2="35" y2="100" stroke="#c0392b" stroke-width="2.5"/>
+                <polygon points="32,100 38,100 35,108" fill="#c0392b"/>
+                <text x="35" y="120" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="700">MV=25K</text>
+                <line x1="147" y1="55" x2="147" y2="88" stroke="#c0392b" stroke-width="2"/>
+                <polygon points="144,88 150,88 147,96" fill="#c0392b"/>
+                <text x="147" y="106" text-anchor="middle" font-size="10" fill="#c0392b">AOC=180K/yr</text>
+                <line x1="260" y1="55" x2="260" y2="88" stroke="#c0392b" stroke-width="2"/>
+                <polygon points="257,88 263,88 260,96" fill="#c0392b"/>
+                <text x="260" y="106" text-anchor="middle" font-size="10" fill="#c0392b">180K, SV=0</text>
+    
+                <text x="430" y="12" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11" fill="#1a3a6b" font-weight="700">CHALLENGER (10 yrs)</text>
+                <line x1="310" y1="55" x2="570" y2="55" stroke="#1a3a6b" stroke-width="2"/>
+                <polygon points="568,51 580,55 568,59" fill="#1a3a6b"/>
+                <g font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#2c4066" text-anchor="middle">
+                  <line x1="325" y1="49" x2="325" y2="61" stroke="#1a3a6b" stroke-width="2"/>
+                  <line x1="555" y1="49" x2="555" y2="61" stroke="#1a3a6b" stroke-width="1.5"/>
+                  <text x="325" y="72">0</text><text x="555" y="72">10</text>
+                  <text x="440" y="72">1–9</text>
+                </g>
+                <line x1="325" y1="55" x2="325" y2="110" stroke="#c0392b" stroke-width="2.5"/>
+                <polygon points="322,110 328,110 325,118" fill="#c0392b"/>
+                <text x="325" y="130" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="700">P=700K</text>
+                <line x1="440" y1="55" x2="440" y2="90" stroke="#c0392b" stroke-width="2"/>
+                <polygon points="437,90 443,90 440,98" fill="#c0392b"/>
+                <text x="440" y="108" text-anchor="middle" font-size="10" fill="#c0392b">AOC=70K/yr</text>
+                <line x1="555" y1="55" x2="555" y2="90" stroke="#c0392b" stroke-width="2"/>
+                <polygon points="552,90 558,90 555,98" fill="#c0392b"/>
+                <text x="555" y="108" text-anchor="middle" font-size="10" fill="#c0392b">70K</text>
+                <line x1="555" y1="55" x2="555" y2="25" stroke="#1a7f5a" stroke-width="2"/>
+                <polygon points="552,25 558,25 555,17" fill="#1a7f5a"/>
+                <text x="555" y="12" text-anchor="middle" font-size="10" fill="#1a7f5a">SV=50K</text>
+              </svg>
+            </div>
+    
+            <div class="sol-step">
+              <strong>AWD — Defender (Outsider: P = MV = $25K, n = 5, SV = $0):</strong>
+              <span class="text-en" style="display:block;margin-top:4px;">
+                AWD = 25K × (A/P,15%,5) + 180K − 0<br>
+                (A/P,15%,5) = 0.2983<br>
+                AWD = 25K × 0.2983 + 180K = 7,458 + 180,000 = <strong>$187,458/year</strong>
+              </span>
+            </div>
+    
+            <div class="sol-step">
+              <strong>AWC — Challenger (P = $700K, n = 10, SV = $50K):</strong>
+              <span class="text-en" style="display:block;margin-top:4px;">
+                AWC = 700K × (A/P,15%,10) + 70K − 50K × (A/F,15%,10)<br>
+                (A/P,15%,10) = 0.1993 &nbsp;|&nbsp; (A/F,15%,10) = 0.0493<br>
+                AWC = 700K × 0.1993 + 70K − 50K × 0.0493<br>
+                = 139,510 + 70,000 − 2,465 = <strong>$207,045 ≈ $207,014/year</strong>
+              </span>
+            </div>
+    
+            <div class="decision-box">
+              <strong>AWD ($187,458) &lt; AWC ($207,014) → ✅ RETAIN THE CURRENT PROCESS (Defender wins)</strong>
+            </div>
+            <div class="answer-badge">Keep Defender | AWD = $187,458/yr &nbsp;|&nbsp; AWC = $207,014/yr</div>
+          </div>
+        </div>
+    
+        <!-- ─── Problem 11.36 ───
+
+    <hr class="sep">
+
+    -->
+        <h3>Problem 11.36 — Replacement over a 5-Year Study Period <span class="lec-badge">★ قريب من المحاضرة</span></h3>
+        <div class="example-box">
+          <div class="example-header">📘 Problem 11.36 | i = 10% | Study Period = 5 years | Answer: Keep D 1 yr, then replace</div>
+          <div class="example-body">
+            <p class="text-en">The table shows <strong>PW of costs</strong> for keeping the Defender or Challenger for different numbers of years. Determine when to replace over a <strong>5-year study period</strong> at i = 10%/yr.</p>
+    
+            <table class="data-table" style="max-width:440px;">
+              <thead><tr><th>Years Kept</th><th>PW if Defender ($)</th><th>PW if Challenger ($)</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>-36,000</td><td>-89,000</td></tr>
+                <tr><td>2</td><td>-75,000</td><td>-96,000</td></tr>
+                <tr><td>3</td><td>-125,000</td><td>-102,000</td></tr>
+                <tr><td>4</td><td>-166,000</td><td>-113,000</td></tr>
+                <tr><td>5</td><td>-217,000</td><td>-149,000</td></tr>
+              </tbody>
+            </table>
+    
+            <div class="given">
+              <strong>Interest Factors at 10%:</strong> (P/F,10%,1)=0.9091 | (P/F,10%,2)=0.8264 | (P/F,10%,3)=0.7513 | (P/F,10%,4)=0.6830
+            </div>
+    
+            <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:14px;">All 6 possible combinations for a 5-year period:</p>
+    
+            <div class="sol-step">
+              <strong>DDDDD — Defender all 5 years:</strong>
+              <span class="text-en">PW = −$217,000</span>
+            </div>
+            <div class="sol-step">
+              <strong>DDDDC — Defender 4 yrs, Challenger 1 yr (deferred 4 yrs):</strong>
+              <span class="text-en">PW = −166K + (−89K)(P/F,10%,4) = −166K − 89K×0.6830 = −166K − 60,787 = <strong>−$226,787</strong></span>
+            </div>
+            <div class="sol-step">
+              <strong>DDDCC — Defender 3 yrs, Challenger 2 yrs (deferred 3 yrs):</strong>
+              <span class="text-en">PW = −125K + (−96K)(P/F,10%,3) = −125K − 96K×0.7513 = −125K − 72,125 = <strong>−$197,125</strong></span>
+            </div>
+            <div class="sol-step">
+              <strong>DDCCC — Defender 2 yrs, Challenger 3 yrs (deferred 2 yrs):</strong>
+              <span class="text-en">PW = −75K + (−102K)(P/F,10%,2) = −75K − 102K×0.8264 = −75K − 84,293 = <strong>−$159,293</strong></span>
+            </div>
+            <div class="sol-step" style="border-right:4px solid var(--green);">
+              <strong>DCCCC — Defender 1 yr, Challenger 4 yrs (deferred 1 yr) ← MINIMUM:</strong>
+              <span class="text-en">PW = −36K + (−113K)(P/F,10%,1) = −36K − 113K×0.9091 = −36K − 102,728 = <strong>−$138,728 ← MINIMUM</strong></span>
+            </div>
+            <div class="sol-step">
+              <strong>CCCCC — Challenger all 5 years:</strong>
+              <span class="text-en">PW = −$149,000</span>
+            </div>
+    
+            <table class="data-table" style="margin-top:12px;">
+              <thead><tr><th>Combination</th><th>PW of Total Cost ($)</th><th>Rank</th></tr></thead>
+              <tbody>
+                <tr><td>DDDDD</td><td>-217,000</td><td>6th</td></tr>
+                <tr><td>DDDDC</td><td>-226,787</td><td>Worst</td></tr>
+                <tr><td>DDDCC</td><td>-197,125</td><td>5th</td></tr>
+                <tr><td>DDCCC</td><td>-159,293</td><td>4th</td></tr>
+                <tr class="esl"><td><strong>DCCCC</strong></td><td><strong>-138,728 ← MIN</strong></td><td>🏆 BEST</td></tr>
+                <tr><td>CCCCC</td><td>-149,000</td><td>2nd</td></tr>
+              </tbody>
+            </table>
+            <div class="esl-highlight">✅ Keep Defender for 1 year, then replace with Challenger for the remaining 4 years.<br>Total PW = −$138,728 (minimum cost over 5-year study period)</div>
+          </div>
+        </div>
+    
+        <!-- ─── Practice Problem — Server System (from Lecture) ───
+
+    <hr class="sep">
+
+    -->
+        <h3>Practice Problem — Central Server System (ESL Calculation)</h3>
+        <div class="example-box">
+          <div class="example-header">📘 Practice | i = 10% | P = $40,000 | n = 5 years</div>
+          <div class="example-body">
+            <p class="text-en">A factory installs a new central server system with a <strong>first cost of $40,000</strong>. The company expects the hardware to last a maximum of <strong>5 years</strong> at an interest rate of <strong>10% per year</strong>. The estimated operating costs and salvage values are shown below.<br><br>
+            <strong>Task:</strong> The analysis for Years 1–3 is already completed. Complete the missing values for Years 4 and 5, then find the ESL.</p>
+    
+            <div class="two-col">
+              <table class="data-table">
+                <caption style="font-weight:700;color:var(--primary);text-align:left;padding-bottom:6px;">Given: AOC and Salvage Values</caption>
+                <thead><tr><th>Year (k)</th><th>AOC ($/yr)</th><th>Salvage Value S ($)</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>−5,000</td><td>25,000</td></tr>
+                  <tr><td>2</td><td>−6,500</td><td>15,000</td></tr>
+                  <tr><td>3</td><td>−8,000</td><td>10,000</td></tr>
+                  <tr style="background:rgba(232,184,75,.12);"><td>4</td><td>−15,000</td><td>5,000</td></tr>
+                  <tr style="background:rgba(232,184,75,.12);"><td>5</td><td>−20,000</td><td>0</td></tr>
+                </tbody>
+              </table>
+              <table class="data-table">
+                <caption style="font-weight:700;color:var(--primary);text-align:left;padding-bottom:6px;">ESL Analysis Table (Years 1–3 Given)</caption>
+                <thead><tr><th>Year</th><th>CR ($)</th><th>AW<sub>O/M</sub> ($)</th><th>AW<sub>total</sub> ($)</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>−19,000</td><td>−5,000</td><td>−24,000</td></tr>
+                  <tr><td>2</td><td>−15,905</td><td>−5,714</td><td>−21,619</td></tr>
+                  <tr><td>3</td><td>−13,063</td><td>−6,405</td><td>−19,468</td></tr>
+                  <tr style="background:rgba(232,184,75,.12);"><td>4</td><td><em>???</em></td><td><em>???</em></td><td><em>???</em></td></tr>
+                  <tr style="background:rgba(232,184,75,.12);"><td>5</td><td><em>???</em></td><td><em>???</em></td><td><em>???</em></td></tr>
+                </tbody>
+              </table>
+            </div>
+    
+            <p class="text-en" style="margin-top:14px;font-weight:600;color:var(--primary);">Interest factors at i = 10%:</p>
+            <table class="data-table" style="font-size:13px;max-width:480px;">
+              <thead><tr><th>n</th><th>(P/F,10%,n)</th><th>(A/P,10%,n)</th><th>(A/F,10%,n)</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>0.9091</td><td>1.1000</td><td>1.0000</td></tr>
+                <tr><td>2</td><td>0.8264</td><td>0.5762</td><td>0.4762</td></tr>
+                <tr><td>3</td><td>0.7513</td><td>0.4021</td><td>0.3021</td></tr>
+                <tr><td>4</td><td>0.6830</td><td>0.3155</td><td>0.2155</td></tr>
+                <tr><td>5</td><td>0.6209</td><td>0.2638</td><td>0.1638</td></tr>
+              </tbody>
+            </table>
+    
+            <p class="text-en" style="margin-top:14px;font-weight:600;color:var(--primary);">Solution — Year 4:</p>
+            <div class="sol-step">
+              <strong>CR₄:</strong>
+              <span class="text-en" style="display:block;margin-top:4px;">
+                CR₄ = −40,000(A/P,10%,4) + 5,000(A/F,10%,4)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= −40,000(0.3155) + 5,000(0.2155)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= −12,620 + 1,078 = <strong>−$11,542/yr</strong>
+              </span>
+            </div>
+            <div class="sol-step">
+              <strong>AW<sub>O/M₄</sub>:</strong>
+              <span class="text-en" style="display:block;margin-top:4px;">
+                ΣPWAOC = [−5,000(P/F,1) − 6,500(P/F,2) − 8,000(P/F,3) − 15,000(P/F,4)](A/P,10%,4)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= [−5K(0.9091) − 6.5K(0.8264) − 8K(0.7513) − 15K(0.6830)](0.3155)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= [−4.545 − 5.372 − 6.010 − 10.245]K × 0.3155<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= −26.172K × 0.3155 = <strong>−$8,257/yr</strong>
+              </span>
+            </div>
+            <div class="sol-step">
+              <strong>AW<sub>total₄</sub> = CR₄ + AW<sub>O/M₄</sub> = −11,542 − 8,257 = <span style="color:var(--primary);">−$19,799/yr</span></strong>
+            </div>
+    
+            <p class="text-en" style="margin-top:14px;font-weight:600;color:var(--primary);">Solution — Year 5:</p>
+            <div class="sol-step">
+              <strong>CR₅:</strong>
+              <span class="text-en" style="display:block;margin-top:4px;">
+                CR₅ = −40,000(A/P,10%,5) + 0·(A/F,10%,5) &nbsp; [S=0 at year 5]<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= −40,000(0.2638) + 0 = <strong>−$10,552/yr</strong>
+              </span>
+            </div>
+            <div class="sol-step">
+              <strong>AW<sub>O/M₅</sub>:</strong>
+              <span class="text-en" style="display:block;margin-top:4px;">
+                = [−26.172K − 20K(0.6209)](A/P,10%,5)<br>
+                = [−26.172K − 12.418K](0.2638)<br>
+                = −38.590K × 0.2638 = <strong>−$10,182/yr</strong>
+              </span>
+            </div>
+            <div class="sol-step">
+              <strong>AW<sub>total₅</sub> = −10,552 − 10,182 = <span style="color:var(--primary);">−$20,734/yr</span></strong>
+            </div>
+    
+            <p class="text-en" style="margin-top:14px;font-weight:600;color:var(--primary);">Complete ESL Table:</p>
+            <table class="data-table">
+              <thead><tr><th>Year</th><th>CR ($)</th><th>AW<sub>O/M</sub> ($)</th><th>AW<sub>total</sub> ($)</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>−19,000</td><td>−5,000</td><td>−24,000</td><td>↓</td></tr>
+                <tr><td>2</td><td>−15,905</td><td>−5,714</td><td>−21,619</td><td>↓</td></tr>
+                <tr class="esl"><td><strong>3</strong></td><td><strong>−13,063</strong></td><td><strong>−6,405</strong></td><td><strong>−19,468 ← MIN</strong></td><td>⬅ ESL</td></tr>
+                <tr><td>4</td><td>−11,542</td><td>−8,257</td><td>−19,799</td><td>↑</td></tr>
+                <tr><td>5</td><td>−10,552</td><td>−10,182</td><td>−20,734</td><td>↑</td></tr>
+              </tbody>
+            </table>
+            <div class="answer-badge">ESL = 3 years &nbsp;|&nbsp; Minimum AW<sub>total</sub> = −$19,468/year</div>
+          </div>
+        </div>
+    
+      </div>
+    </section>
+
+    </div>
+
+    <!-- ─── Final Practice Questions ─── -->
+    <div class="bank-group">
+      <div class="bank-group-title">📝 أسئلة ختامية إضافية — Additional Exam Questions</div>
+      <div style="background:linear-gradient(135deg,#0f2554 0%,#1a3a6b 100%);border-radius:12px;padding:24px 28px;">
+
+    <div class="final-q">
+        <div class="qt">Q3. What is the fundamental difference between Sunk Cost and Market Value in a replacement study? Why should Sunk Cost be ignored? Provide a numerical example to justify your answer.</div>
+        <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
+        <div class="sol-content">
+          <p><strong>Sunk Cost:</strong> Money already spent in the past that cannot be recovered, regardless of future decisions. Example: Paying $100,000 for a machine 3 years ago is a sunk cost.</p>
+          <p><strong>Market Value (MV):</strong> The actual amount the asset can be sold for in today's market. This is a real, current economic value that represents an opportunity cost.</p>
+          <p><strong>Why ignore Sunk Cost?</strong> Economic decisions should be based only on future costs and revenues. Sunk costs are irrelevant to future alternatives — they will be "paid" regardless of whether you keep or replace the asset.</p>
+          <p><strong>Numerical Example:</strong><br>
+          Machine bought 3 years ago for $100,000. Current MV = $15,000. AOC = $30,000/yr. Better challenger costs $50,000, AOC = $12,000/yr.<br>
+          Wrong approach: "I paid $100,000 so I should keep it." → Makes decision based on sunk cost.<br>
+          Correct approach: Use only MV = $15,000 as Defender's first cost, compute AWD and compare with AWC.<br>
+          AWD = 15K(A/P,i,n) + 30K → if AWD > AWC, replace regardless of the original $100,000.</p>
+          <p class="ans">Sunk costs represent past decisions and cannot be altered. Only future cash flows — using MV as the defender's P — should drive replacement decisions.</p>
+        </div>
+      </div>
+
+    <div style="margin-top:12px;"></div>
+
+    <div class="final-q">
+        <div class="qt">Q4. A company has a 4-year study period. AW data for Defender and Challenger are: D: 1yr=$30K, 2yr=$26K, 3yr=$28K, 4yr=$31K. C: 1yr=$40K, 2yr=$33K, 3yr=$29K, 4yr=$27K. At i=10%, determine all possible combinations and find the optimal replacement year. (P/A,10%,1)=0.9091, (P/A,10%,2)=1.7355, (P/A,10%,3)=2.4869, (P/A,10%,4)=3.1699, (P/F,10%,1)=0.9091, (P/F,10%,2)=0.8264, (P/F,10%,3)=0.7513</div>
+        <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
+        <div class="sol-content">
+          <p><strong>5 Combinations for 4-year study period:</strong></p>
+          <p>P1 (DDDD): PW = 31K×(P/A,10%,4) = 31K×3.1699 = <strong>$98,267</strong></p>
+          <p>P2 (DDDC): PW = 28K×(P/A,10%,3) + 40K×(P/F,10%,3) = 28K×2.4869 + 40K×0.7513 = 69,633 + 30,052 = <strong>$99,685</strong></p>
+          <p>P3 (DDCC): PW = 26K×(P/A,10%,2) + 33K×(P/A,10%,2)×(P/F,10%,2)<br>
+          = 26K×1.7355 + {33K×(P/A,10%,2)}×(P/F,10%,2)<br>
+          = 45,123 + 33K×1.7355×0.8264 = 45,123 + 47,357 = <strong>$92,480</strong></p>
+          <p>P4 (DCCC): PW = 30K×(P/F,10%,1) + 29K×(P/A,10%,3)×(P/F,10%,1)<br>
+          = 30K×0.9091 + 29K×2.4869×0.9091 = 27,273 + 65,645 = <strong>$92,918</strong></p>
+          <p>P5 (CCCC): PW = 27K×(P/A,10%,4) = 27K×3.1699 = <strong>$85,587</strong></p>
+          <p class="ans">CCCC gives minimum PW = $85,587 → Replace with Challenger immediately (Year 0).<br>
+          This means the Challenger is economically superior even at year 1 — replace now!</p>
+        </div>
+      </div>
+
+    <div style="margin-top:12px;"></div>
+
+    <div class="final-q">
+        <div class="qt">Q5. In Problem 11.22 (Witt Gas Controls), using the Outsider's Viewpoint, the defender's first cost was computed as $25,000 + $9,000 = $34,000. Explain conceptually why we add the market value of $9,000 to the upgrade cost of $25,000 when computing AWD. Isn't the $9,000 money we RECEIVE (not spend)?</div>
+        <button class="sol-btn" onclick="toggleFinal(this)">▶ Show Solution</button>
+        <div class="sol-content">
+          <p><strong>This is a classic Opportunity Cost question.</strong></p>
+          <p>If we KEEP the defender, we forgo selling it for $9,000. That $9,000 is an <strong>opportunity cost</strong> — money we could have had but chose not to take. In engineering economy, opportunity costs are treated as real costs.</p>
+          <p>So from the Outsider's perspective: Imagine a stranger who wants to use the defender for 3 years. They must:<br>
+          (1) Buy the defender at current market price = $9,000<br>
+          (2) Pay the required upgrade = $25,000<br>
+          Total investment = $34,000 — this is the true economic cost of choosing the defender.</p>
+          <p>The $9,000 represents what we give up by not selling. It is an economic cost even though no cash leaves our hands.</p>
+          <p class="ans">The $9,000 MV is added because it represents the opportunity cost of keeping the defender instead of selling it. Foregone revenue = real economic cost.</p>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <footer class="site-footer">
   <p>Engineering Economy · Chapter 11 — Asset Depreciation &amp; Replacement Decisions &nbsp;|&nbsp; GE 205 · Islam Atta Abdullah, PhD &nbsp;|&nbsp; Based on Blank &amp; Tarquin</p>
