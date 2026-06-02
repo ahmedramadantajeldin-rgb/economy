@@ -1,0 +1,2561 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 4 – Interest | GE 205 Engineering Economics</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #1a3a6b;
+    --primary-mid:  #2155a3;
+    --accent:       #0e90d2;
+    --accent-light: #4fb8e8;
+    --surface:      #f0f6ff;
+    --surface-2:    #ddeeff;
+    --white:        #ffffff;
+    --text-dark:    #0e1e3a;
+    --text-mid:     #2c4066;
+    --text-light:   #4a6fa5;
+    --gold:         #e8b84b;
+    --green:        #1a7f5a;
+    --green-bg:     #edfaf4;
+    --red:          #c0392b;
+    --red-bg:       #fdf0ef;
+    --amber:        #B45309;
+    --amber-pale:   #FFFBEB;
+    --amber-100:    #FEF3C7;
+    --teal:         #0F766E;
+    --teal-pale:    #F0FDFA;
+    --sage:         #166534;
+    --sage-pale:    #F0FDF4;
+    --navy:         #0D2545;
+    --warn-bg:      #fffbea;
+    --warn-border:  #e8b84b;
+    --shadow-sm:    0 2px 8px rgba(26,58,107,0.10);
+    --shadow-md:    0 6px 24px rgba(26,58,107,0.15);
+    --shadow-lg:    0 12px 40px rgba(26,58,107,0.20);
+    --radius:       14px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; }
+
+  body {
+    font-family: 'IBM Plex Sans', 'Amiri', sans-serif;
+    background: linear-gradient(160deg, #e8f2ff 0%, #f5f9ff 40%, #eef5ff 100%);
+    color: var(--text-dark);
+    line-height: 1.85;
+    font-size: 16px;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HEADER ─────────────────────────────── */
+  .site-header {
+    background: linear-gradient(135deg, var(--primary) 0%, #0f2554 60%, #152f6e 100%);
+    color: white;
+    padding: 56px 40px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--gold);
+  }
+  .site-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(79,184,232,0.15) 0%, transparent 65%),
+                radial-gradient(ellipse at 80% 20%, rgba(232,184,75,0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(232,184,75,0.2);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 2px; padding: 4px 16px;
+    border-radius: 50px; margin-bottom: 18px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .site-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 900; letter-spacing: -0.5px;
+    line-height: 1.2; margin-bottom: 10px;
+  }
+  .site-header h1 span { color: var(--accent-light); }
+  .site-header .subtitle {
+    font-size: 15px; color: rgba(255,255,255,0.72);
+    font-weight: 300; margin-top: 8px; letter-spacing: 0.3px;
+  }
+  .header-badges {
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    margin-top: 22px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.85);
+    font-size: 12px; padding: 5px 14px; border-radius: 50px;
+  }
+
+  /* ─── TOC ─────────────────────────────────── */
+  .toc-wrapper { max-width: 960px; margin: 36px auto 0; padding: 0 24px; }
+  .toc {
+    background: var(--white);
+    border: 1.5px solid var(--surface-2);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-sm);
+  }
+  .toc h2 {
+    color: var(--primary); font-family: 'Playfair Display', serif;
+    font-size: 18px; margin-bottom: 16px;
+    border-bottom: 2px solid var(--surface-2); padding-bottom: 10px;
+  }
+  .toc ol { padding-left: 22px; }
+  .toc li { padding: 4px 0; }
+  .toc a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  .toc a:hover { text-decoration: underline; color: var(--primary); }
+
+  /* ─── LAYOUT ──────────────────────────────── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* ─── SECTION ─────────────────────────────── */
+  .section {
+    margin-top: 52px;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1.5px solid rgba(33,85,163,0.09);
+    overflow: hidden;
+    animation: fadeUp 0.5s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%);
+    color: white; padding: 20px 32px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-header.sage-header { background: linear-gradient(135deg, var(--sage) 0%, #1e8a62 100%); }
+  .section-header.amber-header { background: linear-gradient(135deg, var(--amber) 0%, #c96a00 100%); }
+  .section-header.add-header { background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%); }
+  .section-num {
+    background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    min-width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700; flex-shrink: 0;
+  }
+  .section-header h2 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1.3; }
+  .section-header h2 .ar {
+    font-family: 'Amiri', serif; font-size: 16px;
+    color: rgba(255,255,255,0.78); display: block; font-weight: 400; direction: rtl;
+  }
+  .section-body { padding: 28px 32px; }
+
+  /* ─── TYPOGRAPHY ──────────────────────────── */
+  .section-body p { margin-bottom: 14px; color: var(--text-mid); font-size: 15.5px; }
+  .section-body h3 {
+    color: var(--primary); font-family: 'Playfair Display', serif;
+    font-size: 17px; margin: 26px 0 10px;
+    border-left: 4px solid var(--accent); padding-left: 12px;
+  }
+  .section-body h3:first-child { margin-top: 0; }
+  .section-body h4 { color: var(--primary-mid); font-size: 15px; font-weight: 600; margin: 18px 0 8px; }
+  .section-body ul, .section-body ol { padding-left: 22px; color: var(--text-mid); }
+  .section-body li { margin-bottom: 5px; line-height: 1.8; }
+  .section-body strong { color: var(--text-dark); }
+  code {
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    background: var(--surface); border: 1px solid var(--surface-2);
+    padding: 1px 6px; border-radius: 4px; color: var(--navy);
+  }
+
+  /* ─── DEFINITION BOX ──────────────────────── */
+  .def-box {
+    background: linear-gradient(135deg, #e8f2ff 0%, #ddeeff 100%);
+    border-left: 4px solid var(--primary);
+    border-radius: 10px; padding: 18px 20px; margin: 16px 0;
+  }
+  .def-box strong { color: var(--primary); font-size: 14px; display: block; margin-bottom: 4px; }
+  .def-box p { margin: 0; font-size: 14.5px; color: var(--text-mid); }
+  .def-box .ar-text {
+    direction: rtl; font-family: 'Amiri', serif; font-size: 15px;
+    color: var(--text-mid); line-height: 1.9; margin-top: 8px;
+    border-right: 3px solid rgba(33,85,163,0.25); padding-right: 10px;
+  }
+
+  /* ─── NOTE BOX ────────────────────────────── */
+  .note-box {
+    background: var(--warn-bg); border: 1.5px solid var(--warn-border);
+    border-radius: 10px; padding: 14px 18px; margin: 16px 0;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .note-box .icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .note-box p { margin: 0; font-size: 14.5px; color: #7a5800; }
+
+  /* ─── CALLOUT BOXES ───────────────────────── */
+  .callout { border-radius: 8px; padding: 14px 18px; margin: 16px 0; border-left: 4px solid; }
+  .callout .nh {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+    margin-bottom: 6px; display: block;
+  }
+  .callout.info { background: #EFF6FF; border-color: #3B82F6; }
+  .callout.info .nh { color: #1D4ED8; }
+  .callout.warn { background: var(--amber-pale); border-color: var(--amber); }
+  .callout.warn .nh { color: var(--amber); }
+  .callout.good { background: var(--sage-pale); border-color: var(--sage); }
+  .callout.good .nh { color: var(--sage); }
+  .callout.danger { background: #FFF1F2; border-color: #BE123C; }
+  .callout.danger .nh { color: #BE123C; }
+  .callout.teal { background: var(--teal-pale); border-color: var(--teal); }
+  .callout.teal .nh { color: var(--teal); }
+  .arabic-note {
+    direction: rtl; font-family: 'Amiri', serif; font-size: 14px;
+    color: var(--text-mid); line-height: 1.9; margin: 10px 0 0;
+    padding: 8px 12px; border-right: 3px solid rgba(0,0,0,0.1);
+  }
+
+  /* ─── FORMULA BOX ─────────────────────────── */
+  .formula-box {
+    background: linear-gradient(135deg, var(--primary) 0%, #1a4080 100%);
+    border-radius: var(--radius); padding: 24px 28px; margin: 20px 0;
+    text-align: center; box-shadow: var(--shadow-md); overflow-x: auto;
+  }
+  .formula-box .label {
+    color: rgba(255,255,255,0.65); font-size: 12px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 10px; display: block;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .formula-box .math { color: white; font-size: 20px; font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+  .formula-box p { color: rgba(255,255,255,0.8); font-size: 13.5px; margin-top: 10px; margin-bottom: 0; }
+  .formula-box .mjx-container { color: white !important; }
+
+  /* ─── EQUATION (eq) ───────────────────────── */
+  .eq {
+    background: var(--surface); border: 1px solid var(--surface-2);
+    border-radius: 8px; padding: 18px 24px; margin: 14px 0;
+    direction: ltr; text-align: center; overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem; color: var(--navy); font-weight: 500;
+  }
+  .eq .el {
+    display: block; font-size: 9.5px; letter-spacing: 2.5px;
+    text-align: right; color: #9CA3AF; text-transform: uppercase; margin-top: 8px;
+  }
+
+  /* ─── TERM BOX (tb) ───────────────────────── */
+  .tb {
+    background: #EFF6FF; border-left: 4px solid #3B82F6;
+    border-radius: 0 8px 8px 0; padding: 12px 18px; margin: 10px 0;
+    font-size: 14.5px; color: var(--text-mid);
+  }
+  .tb .k { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--navy); }
+  .tb .d { color: #9CA3AF; margin: 0 6px; }
+  .tb .ar { direction: rtl; display: block; font-family: 'Amiri', serif; font-size: 14px; color: var(--text-mid); margin-top: 4px; line-height: 1.8; }
+
+  /* ─── STEP BOX ────────────────────────────── */
+  .step-box {
+    background: var(--green-bg); border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0; padding: 12px 18px; margin: 10px 0;
+    font-family: 'JetBrains Mono', monospace; font-size: 13.5px;
+    direction: ltr; line-height: 1.8; color: var(--text-dark); overflow-x: auto;
+  }
+  .step-box .ans { color: var(--green); font-weight: 700; }
+  .step-box .key { color: var(--navy); font-weight: 700; }
+
+  /* ─── RESULT BOX ──────────────────────────── */
+  .res-box {
+    background: var(--amber-pale); border-left: 3px solid var(--amber);
+    border-radius: 0 8px 8px 0; padding: 12px 18px; margin: 10px 0;
+    font-family: 'JetBrains Mono', monospace; font-size: 13.5px;
+    direction: ltr; line-height: 1.8; overflow-x: auto;
+  }
+  .res-box .val { color: var(--amber); font-weight: 700; }
+
+  /* ─── EXAMPLE BOX ─────────────────────────── */
+  .example-box {
+    border: 2px solid var(--accent); border-radius: var(--radius);
+    overflow: hidden; margin: 24px 0; box-shadow: var(--shadow-sm);
+  }
+  .example-header {
+    background: var(--accent); color: white; padding: 11px 20px;
+    font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px;
+  }
+  .example-badge {
+    background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.4);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .example-body { padding: 18px 22px; background: #f5fbff; overflow-x: auto; }
+  .example-body p { font-size: 14.5px; color: var(--text-mid); margin-bottom: 10px; }
+  .sl {
+    font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--accent);
+    display: block; margin: 12px 0 4px; font-weight: 600;
+  }
+  .sl:first-child { margin-top: 0; }
+  .answer-badge {
+    display: inline-block; background: var(--green); color: white;
+    font-weight: 700; font-size: 14px; padding: 8px 20px; border-radius: 8px; margin-top: 12px;
+  }
+
+  /* ─── SOL-STEP (ch2 style) ────────────────── */
+  .sol-step { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; }
+  .step-num {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: var(--primary); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-label { font-weight: 700; color: var(--navy); font-size: 14px; margin-bottom: 4px; }
+  .step-detail { direction: ltr; font-size: 14.5px; color: var(--text-mid); }
+
+  /* ─── CF WRAPPER (Cash Flow Diagrams) ──────── */
+  .cf-wrapper {
+    background: var(--white); border: 1px solid rgba(14,144,210,0.15);
+    border-radius: var(--radius); padding: 20px; margin: 20px 0;
+    text-align: center; overflow-x: auto;
+  }
+  .cf-title {
+    font-size: 13px; color: var(--text-light);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px;
+  }
+
+  /* ─── COMPARE GRID ────────────────────────── */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .compare-card { border: 1.5px solid var(--surface-2); border-radius: 10px; overflow: hidden; }
+  .compare-card-header { padding: 10px 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .compare-card-header.simple-h { background: #EFF6FF; color: #1D4ED8; }
+  .compare-card-header.compound-h { background: var(--sage-pale); color: var(--sage); }
+  .compare-card-body { padding: 14px 16px; font-size: 14px; color: var(--text-mid); }
+
+  /* ─── SYMBOLS / GENERAL TABLE ─────────────── */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--surface-2); border-radius: 8px; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; }
+  thead { background: var(--primary); }
+  thead th { color: #fff; font-size: 11.5px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.03em; font-weight: 600; padding: 11px 16px; text-align: left; text-transform: uppercase; }
+  tbody td { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; padding: 10px 16px; border-bottom: 1px solid var(--surface-2); color: var(--text-mid); }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) td { background: var(--surface); }
+  tbody tr:hover td { background: #e0eeff; }
+
+  /* ─── SUMMARY GRID ────────────────────────── */
+  .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 16px 0; }
+  .summary-item {
+    background: #EFF6FF; border: 1px solid #BFDBFE;
+    border-radius: 8px; padding: 12px 14px; font-size: 13.5px; line-height: 1.7; color: var(--text-mid);
+  }
+  .summary-item strong { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #1D4ED8; margin-bottom: 4px; }
+
+  /* ─── BREAK SEPARATOR ─────────────────────── */
+  .break-sep { display: flex; align-items: center; gap: 14px; margin: 44px 0 36px; opacity: 0.75; }
+  .break-sep::before, .break-sep::after { content: ''; flex: 1; height: 1px; }
+  .break-sep::before { background: linear-gradient(to right, transparent, var(--surface-2)); }
+  .break-sep::after  { background: linear-gradient(to left, transparent, var(--surface-2)); }
+  .break-pill {
+    background: var(--white); border: 1px solid var(--surface-2);
+    border-radius: 24px; padding: 6px 18px;
+    display: flex; align-items: center; gap: 8px; white-space: nowrap; flex-shrink: 0;
+  }
+  .break-icon { font-size: 13px; }
+  .break-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-light); }
+  .break-note { font-size: 11px; color: #9CA3AF; }
+
+  /* ─── Q&A (PRACTICE) SECTION ──────────────── */
+  .qa-outer {
+    border: 1px solid #FDE68A; border-radius: 14px; overflow: hidden;
+    margin-bottom: 16px; box-shadow: var(--shadow-sm); transition: box-shadow 0.2s;
+  }
+  .qa-outer:hover { box-shadow: var(--shadow-md); }
+  .qa-header {
+    background: linear-gradient(to right, var(--amber-100), #FFFBEB);
+    padding: 12px 20px; display: flex; align-items: flex-start; gap: 10px;
+    border-bottom: 1px solid #FDE68A;
+  }
+  .qa-num {
+    background: var(--amber); color: #fff;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700;
+    padding: 3px 9px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;
+  }
+  .qa-question { font-size: 14.5px; font-weight: 600; line-height: 1.65; color: var(--text-dark); }
+  .qa-body { padding: 14px 20px; }
+  .qa-answer-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--sage); display: block; margin-bottom: 8px; font-weight: 600;
+  }
+  .qa-choices {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px;
+  }
+  .qa-choice {
+    background: var(--surface); border: 1px solid var(--surface-2);
+    border-radius: 6px; padding: 6px 12px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--text-mid);
+  }
+  .qa-choice.correct { background: var(--green-bg); border-color: var(--green); color: var(--green); font-weight: 700; }
+
+  /* ─── SOLUTION TOGGLE ─────────────────────── */
+  .solution-toggle {
+    background: var(--primary); color: white; border: none;
+    padding: 9px 20px; border-radius: 8px; cursor: pointer;
+    font-size: 13.5px; font-weight: 600; font-family: inherit; transition: background 0.2s;
+  }
+  .solution-toggle:hover { background: var(--accent); }
+  .solution-content { display: none; margin-top: 16px; }
+  .solution-content.open { display: block; animation: fadeDown 0.3s ease; }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── FOOTER ──────────────────────────────── */
+  .site-footer {
+    background: var(--primary); color: rgba(255,255,255,0.55);
+    text-align: center; font-size: 13px; padding: 20px; margin-top: 52px;
+  }
+
+  /* ─── RESPONSIVE ──────────────────────────── */
+  @media(max-width: 680px) {
+    .compare-grid, .summary-grid, .qa-choices { grid-template-columns: 1fr; }
+    .section-body { padding: 20px 18px; }
+    .site-header { padding: 36px 20px 30px; }
+  }
+  @media (max-width: 768px) {
+    .container { padding: 0 18px 60px; }
+    .toc-wrapper { padding: 0 18px; }
+    .toc { padding: 22px 22px; }
+    .section-body { padding: 22px 20px; }
+    .section-header { padding: 18px 22px; gap: 12px; }
+  }
+
+  .sep { border: none; border-top: 1.5px solid var(--surface-2); margin: 24px 0; }
+  .text-en { direction: ltr; font-family: 'IBM Plex Sans', sans-serif; }
+  .highlight { background: rgba(14,144,210,0.12); border-radius: 4px; padding: 1px 6px; color: var(--primary); font-weight: 600; }
+  .mjx-container { overflow-x: auto; max-width: 100%; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="site-header">
+  <div class="header-tag">GE 205 · Engineering Economics</div>
+  <h1><span>Chapter 4</span> — Interest<br>
+    <span style="font-size:0.62em;color:rgba(255,255,255,0.8)">الفائدة</span>
+  </h1>
+  <p class="subtitle">Instructor: Islam Atta Abdullah — PhD in Structural Engineering, Cairo University</p>
+  <div class="header-badges">
+    <span class="badge">📐 Simple Interest</span>
+    <span class="badge">📊 Compound Interest</span>
+    <span class="badge">📈 Nominal Rate</span>
+    <span class="badge">✅ Effective Rate</span>
+    <span class="badge">🔄 PP &amp; CP</span>
+    <span class="badge">∞ Continuous Compounding</span>
+  </div>
+</header>
+
+<!-- ═══════════ قسم الأدعية ═══════════ -->
+<div class="duaa-section-wrapper" style="max-width:960px;margin:28px auto 0;padding:0 24px;">
+  <div class="duaa-card" style="background:#fff;border:1.5px solid #e8b84b;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(168,120,42,0.10);">
+    <button class="duaa-toggle" onclick="toggleDuaa(this)" aria-expanded="true" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#7a5800,#b8860b);color:#fff;border:none;padding:16px 24px;cursor:pointer;font-family:inherit;font-size:17px;font-weight:700;letter-spacing:0.3px;text-align:right;direction:rtl;">
+      <span>📖 دعاء</span>
+      <span class="duaa-arrow" style="font-size:14px;transition:transform 0.3s ease;transform:rotate(180deg);">▼</span>
+    </button>
+    <div class="duaa-content" style="display:block;padding:24px 28px;background:linear-gradient(135deg,#fffbea,#fff9f0);direction:rtl;text-align:right;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <p style="font-family:'Amiri',serif;font-size:17px;line-height:2.1;color:#5a3e00;border-right:3px solid #e8b84b;padding-right:14px;margin:0;">"اللَّهُمَّ لا سَهْلَ إِلاَّ ما جَعَلْتَهُ سَهْلاً، وأنْتَ تَجْعَلُ الحَزْنَ إِذَا شِئْتَ سَهْلاً."</p>
+        <p style="font-family:'Amiri',serif;font-size:17px;line-height:2.1;color:#5a3e00;border-right:3px solid #e8b84b;padding-right:14px;margin:0;">"رَبِّ اشْرَحْ لِي صَدْرِي * وَيَسِّرْ لِي أَمْرِي * وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي * يَفْقَهُوا قَوْلِي."</p>
+        <p style="font-family:'Amiri',serif;font-size:17px;line-height:2.1;color:#5a3e00;border-right:3px solid #e8b84b;padding-right:14px;margin:0;">"اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي، وَعَلِّمْنِي مَا يَنْفَعُنِي، وَزِدْنِي عِلْمًا."</p>
+        <p style="font-family:'Amiri',serif;font-size:17px;line-height:2.1;color:#5a3e00;border-right:3px solid #e8b84b;padding-right:14px;margin:0;">"اللهم إني أسألك فهم النبيين، وحفظ المرسلين والملائكة المقربين، اللهم اجعل ألسنتنا عامرة بذكرك، وقلوبنا بخشيتك، وأسرارنا بطاعتك، إنك على كل شيء قدير."</p>
+        <p style="font-family:'Amiri',serif;font-size:17px;line-height:2.1;color:#5a3e00;border-right:3px solid #e8b84b;padding-right:14px;margin:0;">"اللهم إني استودعتك ما قرأت وما حفظت وما تعلمت، فرده عند حاجتي إليه، إنك على كل شيء قدير، وحسبنا الله ونعم الوكيل."</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function toggleDuaa(btn) {
+  var content = btn.nextElementSibling;
+  var arrow = btn.querySelector('.duaa-arrow');
+  var isOpen = content.style.display !== 'none';
+  content.style.display = isOpen ? 'none' : 'block';
+  arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+  btn.setAttribute('aria-expanded', String(!isOpen));
+}
+function toggleSol(btn) {
+  var content = btn.nextElementSibling;
+  var isOpen = content.classList.contains('open');
+  content.classList.toggle('open', !isOpen);
+  btn.textContent = isOpen ? 'Show Full Solution ▼' : 'Hide Solution ▲';
+}
+</script>
+
+<!-- ═══════════ TOC ═══════════ -->
+<div class="toc-wrapper">
+  <div class="toc">
+    <h2>📑 Table of Contents — محتويات المحاضرة</h2>
+    <ol>
+      <li><a href="#s1">What is Interest &amp; Interest Rate?</a></li>
+      <li><a href="#s2">Simple Interest</a></li>
+      <li><a href="#s3">Compound Interest</a></li>
+      <li><a href="#s4">Simple vs. Compound Interest — Comparison</a></li>
+      <li><a href="#s5">Interest Rate Terminology — t, CP, m</a></li>
+      <li><a href="#s6">Nominal Interest Rate</a></li>
+      <li><a href="#s7">Effective Interest Rate</a></li>
+      <li><a href="#s8">Payment Period (PP) vs. Compounding Period (CP)</a></li>
+      <li><a href="#s9">Single Payments (F &amp; P) with PP ≥ CP</a></li>
+      <li><a href="#s10">Series (Uniform A) with PP ≥ CP and PP &lt; CP</a></li>
+      <li><a href="#s11">Continuous Compounding</a></li>
+      <li><a href="#s12">Varying Interest Rates</a></li>
+      <li><a href="#s13">Summary — Important Rules &amp; Notes</a></li>
+      <li><a href="#qa">Quiz &amp; Practice Problems</a></li>
+      <li><a href="#addq">Additional Questions</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 1 – INTEREST & INTEREST RATE
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s1">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>What is Interest &amp; Interest Rate?
+      <span class="ar">ما هي الفائدة ومعدل الفائدة؟</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="tb">
+      <span class="k">Interest</span><span class="d">—</span>
+      The fee paid to use someone else's money, or the return earned on an original investment. It is the picture of the <strong>Time Value of Money</strong>.
+      <span class="ar">الفائدة (Interest) هي التجسيد العملي لمفهوم القيمة الزمنية للنقود (Time Value of Money). ببساطة، هي التكلفة التي يدفعها المقترض مقابل استخدام أموال شخص آخر، أو العائد الذي يكسبه المستثمر على أمواله الأصلية.</span>
+    </div>
+    <div class="tb">
+      <span class="k">Interest Rate</span><span class="d">—</span>
+      The percentage of the principal charged or paid over a specific time period (usually per year).
+      <span class="ar">معدل الفائدة (Interest Rate) هو النسبة المئوية من المبلغ الأصلي (Principal) التي يتم احتسابها أو دفعها خلال فترة زمنية محددة (عادةً السنة).</span>
+    </div>
+    <div class="callout info" style="margin-top:18px;">
+      <span class="nh">Why It Matters in Engineering Economics</span>
+      In Engineering Economics, accurately evaluating interest rates is essential to determine project viability and select the most profitable alternatives.
+      <div class="arabic-note">في الاقتصاد الهندسي، يُعدّ التقييم الدقيق لمعدلات الفائدة ضرورةً أساسية لتحديد جدوى المشاريع واختيار أفضل البدائل من حيث الربحية.</div>
+    </div>
+    <h3>Agenda — Topics Covered in This Chapter</h3>
+    <ul>
+      <li><strong>Interest &amp; Interest Rate</strong> — Definition and importance</li>
+      <li><strong>Simple Interest</strong> vs. <strong>Compound Interest</strong></li>
+      <li><strong>Nominal Interest Rate</strong> vs. <strong>Effective Interest Rate</strong></li>
+      <li><strong>Payment Period (PP)</strong> vs. <strong>Compounding Period (CP)</strong></li>
+      <li>Single payments and Series (A) with PP ≥ CP and PP &lt; CP</li>
+      <li><strong>Continuous Compounding</strong></li>
+      <li><strong>Varying Interest Rates</strong></li>
+    </ul>
+  </div>
+</section>
+
+<div class="break-sep"><div class="break-pill"><span class="break-icon">📐</span><span class="break-label">Types of Interest</span><span class="break-note">Simple &amp; Compound</span></div></div>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 2 – SIMPLE INTEREST
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s2">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>Simple Interest
+      <span class="ar">الفائدة البسيطة</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="callout info">
+      <span class="nh">Definition</span>
+      Interest is calculated <strong>only on the initial principal amount</strong>. Accumulated interest from previous periods does <em>not</em> earn interest.
+      <div class="arabic-note">في الفائدة البسيطة (Simple Interest)، تُحتسب الفائدة على المبلغ الأصلي (Principal) فقط في كل فترة. الفائدة المتراكمة من الفترات السابقة لا تُضاف إلى الأصل ولا تُولّد فائدة إضافية. لذلك تنمو القيمة بشكل <strong>خطي (Linear)</strong> مع مرور الوقت.</div>
+    </div>
+
+    <h3>Formula — Future Value with Simple Interest</h3>
+    <div class="formula-box">
+      <span class="label">Simple Interest — Future Value Formula</span>
+      <div class="math">\( F = P \,(1 + N \cdot i) \)</div>
+      <p>P = Principal | i = Interest rate per period | N = Number of periods | F = Future value</p>
+    </div>
+
+    <div class="tb">
+      <span class="k">P</span><span class="d">—</span> Principal (initial amount invested or borrowed)
+      <br><span class="k">i</span><span class="d">—</span> Interest rate per period (as a decimal)
+      <br><span class="k">N</span><span class="d">—</span> Number of interest periods
+      <br><span class="k">F</span><span class="d">—</span> Future value (accumulated amount) at end of period N
+    </div>
+
+    <!-- Cash Flow Diagram -->
+    <div class="cf-wrapper">
+      <div class="cf-title">Simple Interest — Linear Growth Diagram (P = 1,000 EGP, i = 20%)</div>
+      <svg viewBox="0 0 580 220" width="100%" style="max-width:580px;">
+        <!-- baseline -->
+        <line x1="50" y1="130" x2="530" y2="130" stroke="#1a3a6b" stroke-width="2.5"/>
+        <polygon points="530,126 540,130 530,134" fill="#1a3a6b"/>
+        <!-- tick marks -->
+        <line x1="90" y1="125" x2="90" y2="135" stroke="#1a3a6b" stroke-width="2"/>
+        <line x1="210" y1="125" x2="210" y2="135" stroke="#1a3a6b" stroke-width="2"/>
+        <line x1="330" y1="125" x2="330" y2="135" stroke="#1a3a6b" stroke-width="2"/>
+        <line x1="450" y1="125" x2="450" y2="135" stroke="#1a3a6b" stroke-width="2"/>
+        <!-- time labels -->
+        <text x="90" y="150" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">0</text>
+        <text x="210" y="150" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">1</text>
+        <text x="330" y="150" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">2</text>
+        <text x="450" y="150" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">3</text>
+        <text x="548" y="134" text-anchor="start" fill="#4a6fa5" font-size="12" font-family="monospace">Year</text>
+        <!-- P arrow up -->
+        <line x1="90" y1="130" x2="90" y2="90" stroke="#1a7f5a" stroke-width="2.5"/>
+        <polygon points="86,90 90,78 94,90" fill="#1a7f5a"/>
+        <text x="90" y="72" text-anchor="middle" fill="#1a7f5a" font-size="12" font-family="monospace">P=1000</text>
+        <!-- F1 -->
+        <line x1="210" y1="130" x2="210" y2="78" stroke="#0e90d2" stroke-width="2.5"/>
+        <polygon points="206,78 210,66 214,78" fill="#0e90d2"/>
+        <text x="210" y="60" text-anchor="middle" fill="#0e90d2" font-size="12" font-family="monospace">1200</text>
+        <!-- F2 -->
+        <line x1="330" y1="130" x2="330" y2="66" stroke="#0e90d2" stroke-width="2.5"/>
+        <polygon points="326,66 330,54 334,66" fill="#0e90d2"/>
+        <text x="330" y="48" text-anchor="middle" fill="#0e90d2" font-size="12" font-family="monospace">1400</text>
+        <!-- F3 -->
+        <line x1="450" y1="130" x2="450" y2="54" stroke="#e8b84b" stroke-width="3"/>
+        <polygon points="446,54 450,42 454,54" fill="#e8b84b"/>
+        <text x="450" y="36" text-anchor="middle" fill="#B45309" font-size="12" font-family="monospace" font-weight="700">F₃=1600</text>
+        <!-- interest annotation -->
+        <rect x="155" y="165" width="200" height="28" rx="6" fill="#edfaf4" stroke="#1a7f5a" stroke-width="1"/>
+        <text x="255" y="183" text-anchor="middle" fill="#166534" font-size="11" font-family="monospace">Interest each year = +200 (constant)</text>
+      </svg>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header">
+        <span class="example-badge">Example</span>
+        P = 1,000 EGP at 20% Simple Interest — Trace 3 Years
+      </div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">P = 1,000 EGP &nbsp;|&nbsp; i = 20% = 0.2 &nbsp;|&nbsp; N = 1, 2, 3 years</div>
+        <span class="sl">Required</span>
+        <div class="step-box">Find F₁, F₂, F₃ using F = P(1 + N·i)</div>
+        <span class="sl">Solution — Step by Step</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Year 1</div>
+            <div class="step-detail">\( F_1 = 1000(1 + 1 \times 0.2) = 1000 \times 1.2 = \mathbf{1{,}200} \text{ EGP} \)</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Year 2</div>
+            <div class="step-detail">\( F_2 = 1000(1 + 2 \times 0.2) = 1000 \times 1.4 = \mathbf{1{,}400} \text{ EGP} \)</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">Year 3</div>
+            <div class="step-detail">\( F_3 = 1000(1 + 3 \times 0.2) = 1000 \times 1.6 = \mathbf{1{,}600} \text{ EGP} \)</div>
+          </div>
+        </div>
+        <div class="callout teal" style="margin-top:12px;">
+          <span class="nh">Key Observation</span>
+          The interest earned each year is <strong>always 200 EGP</strong> — constant because it is always calculated on the same principal. This produces <strong>linear growth</strong>.
+          <div class="arabic-note">في الفائدة البسيطة، مقدار الفائدة المكتسب في كل سنة ثابت دائماً (200 جنيه)، لأنه يُحتسب على المبلغ الأصلي الثابت. هذا يجعل النمو خطياً مستقيماً.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 3 – COMPOUND INTEREST
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s3">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>Compound Interest
+      <span class="ar">الفائدة المركبة</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="callout info">
+      <span class="nh">Definition</span>
+      Interest is calculated on the <strong>initial principal AND all accumulated interest</strong> from previous periods — "interest on interest."
+      <div class="arabic-note">في الفائدة المركبة (Compound Interest)، تُحتسب الفائدة على المبلغ الأصلي بالإضافة إلى جميع الفوائد المتراكمة من الفترات السابقة. هذا ما يُسمى "الفائدة على الفائدة"، وهو ما يجعل النمو أُسّياً (Exponential) بدلاً من خطي.</div>
+    </div>
+
+    <h3>Formula — Future Value with Compound Interest</h3>
+    <div class="formula-box">
+      <span class="label">Compound Interest — Future Value Formula</span>
+      <div class="math">\( F = P\,(1 + i)^{N} \)</div>
+      <p>P = Principal | i = Rate per period | N = Number of periods | F = Future value</p>
+    </div>
+
+    <!-- Cash Flow Diagram Compound -->
+    <div class="cf-wrapper">
+      <div class="cf-title">Compound Interest — Exponential Growth Diagram (P = 1,000 EGP, i = 20%)</div>
+      <svg viewBox="0 0 580 220" width="100%" style="max-width:580px;">
+        <line x1="50" y1="150" x2="530" y2="150" stroke="#1a3a6b" stroke-width="2.5"/>
+        <polygon points="530,146 540,150 530,154" fill="#1a3a6b"/>
+        <line x1="90" y1="145" x2="90" y2="155" stroke="#1a3a6b" stroke-width="2"/>
+        <line x1="210" y1="145" x2="210" y2="155" stroke="#1a3a6b" stroke-width="2"/>
+        <line x1="330" y1="145" x2="330" y2="155" stroke="#1a3a6b" stroke-width="2"/>
+        <line x1="450" y1="145" x2="450" y2="155" stroke="#1a3a6b" stroke-width="2"/>
+        <text x="90"  y="170" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">0</text>
+        <text x="210" y="170" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">1</text>
+        <text x="330" y="170" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">2</text>
+        <text x="450" y="170" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">3</text>
+        <text x="548" y="154" text-anchor="start" fill="#4a6fa5" font-size="12" font-family="monospace">Year</text>
+        <!-- P -->
+        <line x1="90" y1="150" x2="90" y2="110" stroke="#1a7f5a" stroke-width="2.5"/>
+        <polygon points="86,110 90,98 94,110" fill="#1a7f5a"/>
+        <text x="90" y="92" text-anchor="middle" fill="#1a7f5a" font-size="12" font-family="monospace">P=1000</text>
+        <!-- F1=1200 -->
+        <line x1="210" y1="150" x2="210" y2="98" stroke="#0e90d2" stroke-width="2.5"/>
+        <polygon points="206,98 210,86 214,98" fill="#0e90d2"/>
+        <text x="210" y="80" text-anchor="middle" fill="#0e90d2" font-size="12" font-family="monospace">1200</text>
+        <!-- F2=1440 -->
+        <line x1="330" y1="150" x2="330" y2="80" stroke="#0e90d2" stroke-width="2.5"/>
+        <polygon points="326,80 330,68 334,80" fill="#0e90d2"/>
+        <text x="330" y="62" text-anchor="middle" fill="#0e90d2" font-size="12" font-family="monospace">1440</text>
+        <!-- F3=1728 -->
+        <line x1="450" y1="150" x2="450" y2="58" stroke="#e8b84b" stroke-width="3"/>
+        <polygon points="446,58 450,46 454,58" fill="#e8b84b"/>
+        <text x="450" y="40" text-anchor="middle" fill="#B45309" font-size="12" font-family="monospace" font-weight="700">F₃=1728</text>
+        <!-- growing interest label -->
+        <rect x="130" y="185" width="280" height="28" rx="6" fill="#FEF3C7" stroke="#B45309" stroke-width="1"/>
+        <text x="270" y="203" text-anchor="middle" fill="#92400e" font-size="11" font-family="monospace">Interest grows: 200 → 240 → 288 (Exponential!)</text>
+      </svg>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header">
+        <span class="example-badge">Example</span>
+        P = 1,000 EGP at 20% Compound Interest — Trace 3 Years
+      </div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">P = 1,000 EGP &nbsp;|&nbsp; i = 20% = 0.2 &nbsp;|&nbsp; N = 1, 2, 3 years</div>
+        <span class="sl">Solution — Step by Step</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Year 1</div>
+            <div class="step-detail">\( F_1 = 1000(1.2)^1 = \mathbf{1{,}200} \text{ EGP} \) &nbsp;→ Interest = 200</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Year 2 — interest calculated on 1,200 (not 1,000)</div>
+            <div class="step-detail">\( F_2 = 1000(1.2)^2 = \mathbf{1{,}440} \text{ EGP} \) &nbsp;→ Interest = 240</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">Year 3 — interest calculated on 1,440</div>
+            <div class="step-detail">\( F_3 = 1000(1.2)^3 = \mathbf{1{,}728} \text{ EGP} \) &nbsp;→ Interest = 288</div>
+          </div>
+        </div>
+        <div class="callout warn" style="margin-top:12px;">
+          <span class="nh">Important Observation</span>
+          Interest earned: Year 1 → 200, Year 2 → 240, Year 3 → 288. It grows because the base grows each period. This is <strong>exponential growth</strong>.
+          <div class="arabic-note">الفائدة المتولدة في كل فترة ترتفع تدريجياً لأن الأساس الذي تُحتسب عليه يكبر مع كل فترة — وهذا هو الفرق الجوهري بين الفائدة البسيطة والفائدة المركبة.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 4 – COMPARISON
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s4">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>Simple vs. Compound Interest — Comparison
+      <span class="ar">مقارنة بين الفائدة البسيطة والمركبة</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="compare-grid">
+      <div class="compare-card">
+        <div class="compare-card-header simple-h">Simple Interest</div>
+        <div class="compare-card-body">
+          <ul>
+            <li>Interest on <strong>principal only</strong></li>
+            <li>Constant interest each period</li>
+            <li>Growth is <strong>linear</strong></li>
+            <li>Formula: \( F = P(1 + Ni) \)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-card-header compound-h">Compound Interest</div>
+        <div class="compare-card-body">
+          <ul>
+            <li>Interest on <strong>principal + accumulated interest</strong></li>
+            <li>Interest grows each period</li>
+            <li>Growth is <strong>exponential</strong></li>
+            <li>Formula: \( F = P(1 + i)^N \)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <h3>Growth Comparison Table — EGP 1,000 at 20%</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Year (N)</th><th>Simple (EGP)</th><th>Compound (EGP)</th><th>Difference (EGP)</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>1,000</td><td>1,000</td><td>—</td></tr>
+          <tr><td>1</td><td>1,200</td><td>1,200</td><td>0</td></tr>
+          <tr><td>2</td><td>1,400</td><td>1,440</td><td>40</td></tr>
+          <tr><td>3</td><td>1,600</td><td>1,728</td><td>128</td></tr>
+          <tr><td>4</td><td>1,800</td><td>2,074</td><td>274</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout info">
+      <span class="nh">Key Insight</span>
+      The gap widens <strong>significantly over time</strong>. In Year 1 there is no difference. By Year 4 compound yields 274 EGP more per 1,000 EGP invested. The longer the time horizon, the greater the advantage of compounding.
+      <div class="arabic-note">الفجوة بين الفائدة البسيطة (Simple Interest) والفائدة المركبة (Compound Interest) تتسع بشكل ملحوظ مع مرور الوقت وتزداد بشكل أُسّي مع طول فترة الاستثمار.</div>
+    </div>
+  </div>
+</section>
+
+<div class="break-sep"><div class="break-pill"><span class="break-icon">📊</span><span class="break-label">Nominal vs. Effective</span><span class="break-note">Interest Rate Types</span></div></div>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 5 – TERMINOLOGY
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s5">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>Interest Rate Terminology — t, CP, m
+      <span class="ar">مصطلحات معدل الفائدة</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="tb"><span class="k">Interest Period (t)</span><span class="d">—</span> The period of time over which the interest rate is expressed.<span class="ar">الفترة الزمنية التي يُعبَّر عنها معدل الفائدة. مثلاً: "12% في السنة" → فترة الفائدة هي السنة.</span></div>
+    <div class="tb"><span class="k">Compounding Period (CP)</span><span class="d">—</span> The shortest time unit over which interest is charged or earned and added to the balance.<span class="ar">أصغر وحدة زمنية يتم خلالها احتساب الفائدة وإضافتها للرصيد. مثال: "10% per year compounded monthly" → فترة التراكم (CP) هي الشهر.</span></div>
+    <div class="tb"><span class="k">Compounding Frequency (m)</span><span class="d">—</span> Number of times compounding occurs within the interest period t.<span class="ar">عدد مرات تكرار فترة التراكم (CP) خلال فترة الفائدة (t). يُحسب بقسمة فترة الفائدة على فترة التراكم (Compounding Period).</span></div>
+
+    <div class="formula-box">
+      <span class="label">Compounding Frequency Formula</span>
+      <div class="math">\[ m = \frac{\text{Interest Period }(t)}{\text{Compounding Period }(CP)} \]</div>
+    </div>
+
+    <div class="callout teal">
+      <span class="nh">Reference — Common Period Conversions</span>
+      <div class="table-wrap" style="margin-top:10px;">
+        <table>
+          <thead><tr><th>Period</th><th>Arabic</th><th>Months</th><th>Per Year (m)</th></tr></thead>
+          <tbody>
+            <tr><td>Annual</td><td>سنوي</td><td>12</td><td>1</td></tr>
+            <tr><td>Semiannual</td><td>نصف سنوي</td><td>6</td><td>2</td></tr>
+            <tr><td>Quarterly</td><td>ربع سنوي</td><td>3</td><td>4</td></tr>
+            <tr><td>Monthly</td><td>شهري</td><td>1</td><td>12</td></tr>
+            <tr><td>Weekly</td><td>أسبوعي</td><td>≈0.23</td><td>52</td></tr>
+            <tr><td>Daily</td><td>يومي</td><td>—</td><td>365</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="callout warn">
+      <span class="nh">Important Note — Identifying Nominal vs. Effective</span>
+      <ul style="margin-top:8px;">
+        <li><strong>No CP stated</strong> → <span class="highlight">Effective rate</span> &nbsp;Example: "10% per year"</li>
+        <li><strong>interest period = CP</strong> → <span class="highlight">Effective rate</span> &nbsp;Example: "10% per month, compounded monthly"</li>
+        <li><strong>interest period ≠ CP</strong> → <span class="highlight">Nominal rate</span> &nbsp;Example: "10% per year, compounded quarterly"</li>
+      </ul>
+      <div class="arabic-note">إذا اختلفت فترة الفائدة عن فترة التراكم (Compounding Period)، فالمعدل اسمي (Nominal). أما إذا تساوتا أو لم تُذكر فترة تراكم أصلاً، فالمعدل فعلي (Effective).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 6 – NOMINAL INTEREST RATE
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s6">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>Nominal Interest Rate
+      <span class="ar">معدل الفائدة الاسمي</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="callout info">
+      <span class="nh">Definition</span>
+      The <strong>Nominal Interest Rate (r)</strong> is the stated annual rate <em>without</em> accounting for compounding within the year. It is the periodic rate × number of periods — simple multiplication only.
+      <div class="arabic-note">معدل الفائدة الاسمي (Nominal Interest Rate) هو المعدل المُعلَن دون الأخذ بعين الاعتبار تأثير التراكم داخل الفترة. يُستخدم هذا المعدل في التعبير والإعلان فقط، ولا يُمكن استخدامه مباشرة في معادلات الحساب المالي — بل يجب تحويله إلى معدل فعلي (Effective Rate) أولاً.</div>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">Nominal Rate Formula — The Golden Rule</span>
+      <div class="math">\[ r_{\text{nom}} = i_{\text{period}} \times m \]</div>
+      <p>r = nominal rate &nbsp;|&nbsp; i_period = rate per compounding sub-period &nbsp;|&nbsp; m = number of CP per year</p>
+    </div>
+
+    <div class="callout danger">
+      <span class="nh">Critical Rule</span>
+      The nominal interest rate <strong>can NEVER be used directly</strong> in interest formulas. It must first be converted to an effective rate.
+      <div class="arabic-note">تحذير هام: لا يُستخدم معدل الفائدة الاسمي (Nominal Rate) أبداً في معادلات الحساب المالي بشكل مباشر. يجب دائماً تحويله إلى معدل فائدة فعلي (Effective Rate) قبل الاستخدام.</div>
+    </div>
+
+    <h3>Worked Examples — Nominal Rate</h3>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 1</span>Credit card charges 1.5% per month — Find nominal annual rate</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">i_period = 1.5% per month &nbsp;|&nbsp; m = 12 months/year</div>
+        <span class="sl">Solution</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Apply Nominal Rate Formula</div>
+            <div class="step-detail">\( r_{\text{nom}} = 1.5\% \times 12 = \mathbf{18\%} \text{ per year} \)</div>
+          </div>
+        </div>
+        <div class="answer-badge">✅ r_nom = 18% per year</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 2</span>Car loan at 2.0% per quarter — Find nominal annual rate</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">i_period = 2% per quarter &nbsp;|&nbsp; m = 4 quarters/year</div>
+        <span class="sl">Solution</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Apply Nominal Rate Formula</div>
+            <div class="step-detail">\( r_{\text{nom}} = 2\% \times 4 = \mathbf{8\%} \text{ per year (APR)} \)</div>
+          </div>
+        </div>
+        <p style="font-size:13.5px;color:var(--text-light);margin-top:8px;">Even though charged quarterly, the bank advertises this simply as an "8% Annual Percentage Rate" — هذا هو المبدأ الأساسي لمعدل الفائدة الاسمي (Nominal Rate).</p>
+        <div class="answer-badge">✅ r_nom = 8% per year</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 3</span>Payday lender charges 3% per week — Find nominal annual rate</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">i_period = 3% per week &nbsp;|&nbsp; m = 52 weeks/year</div>
+        <span class="sl">Solution</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Apply Nominal Rate Formula</div>
+            <div class="step-detail">\( r_{\text{nom}} = 3\% \times 52 = \mathbf{156\%} \text{ per year} \)</div>
+          </div>
+        </div>
+        <div class="callout danger" style="margin-top:8px;font-size:13.5px;">Short-term lenders hide the true cost by quoting a small weekly rate. 156% reveals the real picture!<br><span class="arabic-note" style="margin:4px 0 0;">يُخفي بعض المقرضين التكلفة الحقيقية بالتعبير عن معدل صغير أسبوعياً، لكن المعدل الاسمي السنوي (Nominal Rate) البالغ 156% يكشف الحقيقة.</span></div>
+        <div class="answer-badge">✅ r_nom = 156% per year</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 4</span>Summary Table — Nominal Rate for Various Compounding Frequencies</div>
+      <div class="example-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Periodic Rate (r)</th><th>Compounding</th><th>m</th><th>Nominal Rate (r_nom = r × m)</th></tr></thead>
+            <tbody>
+              <tr><td>4.00%</td><td>Semiannually</td><td>2</td><td>4% × 2 = 8.00%</td></tr>
+              <tr><td>1.50%</td><td>Quarterly</td><td>4</td><td>1.5% × 4 = 6.00%</td></tr>
+              <tr><td>1.00%</td><td>Monthly</td><td>12</td><td>1% × 12 = 12.00%</td></tr>
+              <tr><td>0.10%</td><td>Weekly</td><td>52</td><td>0.1% × 52 = 5.20%</td></tr>
+              <tr><td>0.02%</td><td>Daily</td><td>365</td><td>0.02% × 365 = 7.30%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 7 – EFFECTIVE INTEREST RATE
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s7">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <h2>Effective Interest Rate
+      <span class="ar">معدل الفائدة الفعلي</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="callout good">
+      <span class="nh">Definition</span>
+      The <strong>Effective Interest Rate (i)</strong> is the <em>true, actual</em> rate you pay or earn, fully accounting for compounding frequency. If compounding occurs more than once a year, the effective rate is always <strong>greater</strong> than the nominal rate.
+      <div class="arabic-note">معدل الفائدة الفعلي (Effective Interest Rate) هو المعدل الحقيقي الذي يأخذ بعين الاعتبار تأثير التراكم (Compounding) الكامل. هذا هو المعدل الوحيد المسموح باستخدامه في جميع معادلات الحساب المالي.</div>
+    </div>
+
+    <h3>Formula — Annual Effective Rate</h3>
+    <div class="formula-box">
+      <span class="label">Annual Effective Interest Rate</span>
+      <div class="math">\[ i_{\text{eff}}^{\text{annual}} = \left(1 + \frac{r_{\text{nom}}}{n}\right)^{n} - 1 \]</div>
+      <p>r_nom = nominal annual rate &nbsp;|&nbsp; n = number of compounding sub-periods per year</p>
+    </div>
+
+    <h3>Formula — Effective Rate for Any Period (pr)</h3>
+    <div class="formula-box">
+      <span class="label">Effective Rate for a Specific Period (pr)</span>
+      <div class="math">\[ i_{\text{eff}}^{(pr)} = \left(1 + \frac{r_{\text{nom}}}{n}\right)^{m} - 1 \]</div>
+      <p>n = number of CP per year &nbsp;|&nbsp; m = number of CP within the required period (pr)</p>
+    </div>
+
+    <div class="callout warn">
+      <span class="nh">Critical Note</span>
+      Both r_nom and n must be expressed with respect to the <strong>same time unit as the required period</strong>.
+      <div class="arabic-note">يجب أن يكون كل من المعدل الاسمي (r_nom) وعدد الفترات (n) بنفس الوحدة الزمنية للفترة المطلوبة.</div>
+    </div>
+
+    <h3>Worked Examples — Annual Effective Rate</h3>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 1</span>6% nominal annual, compounded monthly — Find effective annual rate</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">r_nom = 6%/year &nbsp;|&nbsp; CP = monthly &nbsp;|&nbsp; n = 12</div>
+        <span class="sl">Required: i_eff (annual)</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Apply Annual Effective Rate Formula</div>
+            <div class="step-detail">\( i_{\text{eff}} = \left(1 + \frac{0.06}{12}\right)^{12} - 1 = (1.005)^{12} - 1 \)</div>
+          </div>
+        </div>
+        <div class="res-box">i_eff = <span class="val">6.167% per year</span></div>
+        <div class="answer-badge">✅ i_eff = 6.167% per year</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 2</span>10% nominal — Compare quarterly vs. daily compounding</div>
+      <div class="example-body">
+        <span class="sl">Quarterly (n = 4)</span>
+        <div class="step-box">\( i_{\text{eff}} = \left(1 + \frac{0.10}{4}\right)^4 - 1 = (1.025)^4 - 1 \)</div>
+        <div class="res-box">i_eff = <span class="val">10.38%</span></div>
+        <span class="sl">Daily (n = 365)</span>
+        <div class="step-box">\( i_{\text{eff}} = \left(1 + \frac{0.10}{365}\right)^{365} - 1 \)</div>
+        <div class="res-box">i_eff = <span class="val">10.51%</span></div>
+        <div class="callout teal" style="margin-top:8px;font-size:13.5px;">More frequent compounding → higher effective rate. Both exceed the 10% nominal rate.<br><span class="arabic-note" style="margin:4px 0 0;">كلما زادت تكرارية التراكم (Compounding)، ارتفع معدل الفائدة الفعلي (Effective Rate) عن المعدل الاسمي (Nominal Rate).</span></div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 3</span>Credit card: 18% APR, charged 1.5% monthly — Find true annual rate</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">r_nom = 18%/year &nbsp;|&nbsp; n = 12 (monthly)</div>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-detail">\( i_{\text{eff}} = \left(1 + \frac{0.18}{12}\right)^{12} - 1 = (1.015)^{12} - 1 \)</div>
+          </div>
+        </div>
+        <div class="res-box">i_eff = <span class="val">19.56% per year</span></div>
+        <div class="callout danger" style="margin-top:8px;font-size:13.5px;">You pay <strong>1.56% more</strong> than the advertised nominal rate!<br><span class="arabic-note" style="margin:4px 0 0;">أنت تدفع 1.56% أكثر من المعدل الاسمي (Nominal Rate) المُعلَن.</span></div>
+        <div class="answer-badge">✅ i_eff = 19.56% per year</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 4</span>2% per week, compounded weekly — (a) nominal yearly, (b) effective annual</div>
+      <div class="example-body">
+        <span class="sl">Part (a) — Nominal Annual Rate</span>
+        <div class="step-box">\( r_{\text{nom}} = 0.02 \times 52 = \mathbf{1.04} = \mathbf{104\%} \text{ per year} \)</div>
+        <span class="sl">Part (b) — Effective Annual Rate</span>
+        <div class="step-box">\( i_{\text{eff}} = \left(1 + \frac{1.04}{52}\right)^{52} - 1 \)</div>
+        <div class="res-box">i_eff = <span class="val">180% per year</span></div>
+        <div class="callout danger" style="margin-top:8px;font-size:13.5px;">Effective (180%) far exceeds nominal (104%) — weekly compounding is extremely costly!<br><span class="arabic-note" style="margin:4px 0 0;">المعدل الفعلي (Effective Rate) البالغ 180% أعلى بكثير من المعدل الاسمي (Nominal Rate) البالغ 104% بسبب التراكم الأسبوعي المستمر.</span></div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 5</span>Bank A: 12% nominal/monthly vs. Bank B: 12.2% nominal/semiannual — Which is better?</div>
+      <div class="example-body">
+        <span class="sl">Bank A (n = 12)</span>
+        <div class="step-box">\( i_{\text{eff}}(A) = \left(1 + \frac{0.12}{12}\right)^{12} - 1 = (1.01)^{12} - 1 \)</div>
+        <div class="res-box">i_eff(A) = <span class="val">12.68%</span></div>
+        <span class="sl">Bank B (n = 2)</span>
+        <div class="step-box">\( i_{\text{eff}}(B) = \left(1 + \frac{0.122}{2}\right)^{2} - 1 = (1.061)^{2} - 1 \)</div>
+        <div class="res-box">i_eff(B) = <span class="val">12.57%</span></div>
+        <div class="callout good" style="margin-top:8px;font-size:13.5px;"><strong>Bank A wins</strong> (12.68%) despite the lower nominal rate — monthly compounding amplifies the actual yield.<br><span class="arabic-note" style="margin:4px 0 0;">البنك A يقدم عائداً فعلياً أفضل رغم معدله الاسمي الأقل، لأن التراكم الشهري (Monthly Compounding) يُضخّم العائد الحقيقي بشكل أكبر.</span></div>
+        <div class="answer-badge">✅ Bank A is the better offer (i_eff = 12.68%)</div>
+      </div>
+    </div>
+
+    <h3>Worked Examples — Effective Rate for Sub-Annual Periods</h3>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 6</span>12% nominal compounded weekly — Find effective 6-month rate</div>
+      <div class="example-body">
+        <span class="sl">Given: r_nom = 12%/year, CP = weekly (n = 52), pr = 6-month → m = 26 weeks</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-detail">\( i_{\text{eff}}^{(6\text{-month})} = \left(1 + \frac{0.12}{52}\right)^{26} - 1 \)</div>
+          </div>
+        </div>
+        <div class="res-box">i_eff = <span class="val">6.18%</span></div>
+        <div class="answer-badge">✅ i_eff (6-month) = 6.18%</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 7</span>24% nominal compounded monthly — Find effective 6-month rate</div>
+      <div class="example-body">
+        <span class="sl">Given: r_nom = 24%/year, n = 12, pr = 6-month → m = 6</span>
+        <div class="step-box">\( i_{\text{eff}}^{(6\text{-month})} = \left(1 + \frac{0.24}{12}\right)^{6} - 1 = (1.02)^6 - 1 \)</div>
+        <div class="res-box">i_eff = <span class="val">12.61%</span></div>
+        <div class="answer-badge">✅ i_eff (6-month) = 12.61%</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 8</span>10.4% nominal compounded weekly — Find effective quarterly rate</div>
+      <div class="example-body">
+        <span class="sl">Given: r_nom = 10.4%/year, n = 52, pr = quarterly → m = 13 weeks</span>
+        <div class="step-box">\( i_{\text{eff}}^{(\text{quarter})} = \left(1 + \frac{0.104}{52}\right)^{13} - 1 = (1.002)^{13} - 1 \)</div>
+        <div class="res-box">i_eff = <span class="val">2.63%</span></div>
+        <div class="answer-badge">✅ i_eff (quarterly) = 2.63%</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 9</span>12% nominal compounded quarterly — Find effective monthly rate</div>
+      <div class="example-body">
+        <span class="sl">Given: r_nom = 12%/year, CP = quarterly (n = 4), pr = monthly → m = 1/3</span>
+        <div class="step-box">\( i_{\text{eff}}^{(\text{monthly})} = \left(1 + \frac{0.12}{4}\right)^{1/3} - 1 = (1.03)^{1/3} - 1 \)</div>
+        <div class="res-box">i_eff = <span class="val">0.99%</span></div>
+        <div class="answer-badge">✅ i_eff (monthly) = 0.99%</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 10</span>18% nominal compounded semiannually — Find effective monthly rate</div>
+      <div class="example-body">
+        <span class="sl">Given: r_nom = 18%/year, CP = semiannual (n = 2), pr = monthly → m = 1/6</span>
+        <div class="step-box">\( i_{\text{eff}}^{(\text{monthly})} = \left(1 + \frac{0.18}{2}\right)^{1/6} - 1 = (1.09)^{1/6} - 1 \)</div>
+        <div class="res-box">i_eff = <span class="val">1.45%</span></div>
+        <div class="answer-badge">✅ i_eff (monthly) = 1.45%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="break-sep"><div class="break-pill"><span class="break-icon">💡</span><span class="break-label">PP &amp; CP</span><span class="break-note">Payment Period vs. Compounding Period</span></div></div>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 8 – PP & CP
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s8">
+  <div class="section-header">
+    <div class="section-num">8</div>
+    <h2>Payment Period (PP) vs. Compounding Period (CP)
+      <span class="ar">فترة الدفع مقابل فترة التراكم</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="tb"><span class="k">Payment Period (PP)</span><span class="d">—</span> Length of time between consecutive cash flows.<span class="ar">فترة الدفع (Payment Period - PP) هي الزمن الفاصل بين كل دفعة نقدية والدفعة التي تليها.</span></div>
+    <div class="tb"><span class="k">Compounding Period (CP)</span><span class="d">—</span> Shortest time unit over which interest is computed and added to the balance.<span class="ar">فترة التراكم (Compounding Period - CP) هي أصغر وحدة زمنية يتم خلالها احتساب الفائدة وإضافتها للرصيد.</span></div>
+
+    <!-- PP vs CP Diagram -->
+    <div class="cf-wrapper">
+      <div class="cf-title">PP &lt; CP Example — r = 8%/year compounded semiannually, monthly payments</div>
+      <svg viewBox="0 0 560 130" width="100%" style="max-width:560px;">
+        <!-- timeline -->
+        <line x1="30" y1="80" x2="530" y2="80" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="530,76 540,80 530,84" fill="#1a3a6b"/>
+        <!-- CP markers (every 6 months = every ~240px) -->
+        <line x1="30" y1="55" x2="30" y2="80" stroke="#B45309" stroke-width="2"/>
+        <line x1="270" y1="55" x2="270" y2="80" stroke="#B45309" stroke-width="2"/>
+        <line x1="510" y1="55" x2="510" y2="80" stroke="#B45309" stroke-width="2"/>
+        <!-- CP label -->
+        <line x1="30" y1="60" x2="270" y2="60" stroke="#B45309" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <text x="150" y="52" text-anchor="middle" fill="#B45309" font-size="11" font-family="monospace" font-weight="700">← CP = 6 months →</text>
+        <line x1="270" y1="60" x2="510" y2="60" stroke="#B45309" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <text x="390" y="52" text-anchor="middle" fill="#B45309" font-size="11" font-family="monospace" font-weight="700">← CP = 6 months →</text>
+        <!-- monthly ticks (every 20px) -->
+        <line x1="50"  y1="75" x2="50"  y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="47,85 50,92 53,85" fill="#0e90d2"/>
+        <line x1="70"  y1="75" x2="70"  y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="67,85 70,92 73,85" fill="#0e90d2"/>
+        <line x1="90"  y1="75" x2="90"  y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="87,85 90,92 93,85" fill="#0e90d2"/>
+        <line x1="110" y1="75" x2="110" y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="107,85 110,92 113,85" fill="#0e90d2"/>
+        <line x1="130" y1="75" x2="130" y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="127,85 130,92 133,85" fill="#0e90d2"/>
+        <line x1="150" y1="75" x2="150" y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="147,85 150,92 153,85" fill="#0e90d2"/>
+        <line x1="170" y1="75" x2="170" y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="167,85 170,92 173,85" fill="#0e90d2"/>
+        <line x1="190" y1="75" x2="190" y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="187,85 190,92 193,85" fill="#0e90d2"/>
+        <line x1="210" y1="75" x2="210" y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="207,85 210,92 213,85" fill="#0e90d2"/>
+        <line x1="230" y1="75" x2="230" y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="227,85 230,92 233,85" fill="#0e90d2"/>
+        <line x1="250" y1="75" x2="250" y2="85" stroke="#0e90d2" stroke-width="1.5"/><polygon points="247,85 250,92 253,85" fill="#0e90d2"/>
+        <!-- month numbers -->
+        <text x="30"  y="108" text-anchor="middle" fill="#2c4066" font-size="10" font-family="monospace">0</text>
+        <text x="50"  y="108" text-anchor="middle" fill="#2c4066" font-size="10" font-family="monospace">1</text>
+        <text x="70"  y="108" text-anchor="middle" fill="#2c4066" font-size="10" font-family="monospace">2</text>
+        <text x="90"  y="108" text-anchor="middle" fill="#2c4066" font-size="10" font-family="monospace">3</text>
+        <text x="250" y="108" text-anchor="middle" fill="#2c4066" font-size="10" font-family="monospace">11</text>
+        <text x="270" y="108" text-anchor="middle" fill="#B45309" font-size="10" font-family="monospace" font-weight="700">12</text>
+        <text x="540" y="84" text-anchor="start" fill="#4a6fa5" font-size="10" font-family="monospace">Months</text>
+        <!-- PP label -->
+        <line x1="30" y1="115" x2="50" y2="115" stroke="#0e90d2" stroke-width="1.5"/>
+        <text x="40" y="128" text-anchor="middle" fill="#0e90d2" font-size="10" font-family="monospace">PP=1mo</text>
+      </svg>
+    </div>
+
+    <div class="callout warn">
+      <span class="nh">Why This Relationship Matters</span>
+      Three possible cases:
+      <ul style="margin-top:8px;">
+        <li><strong>PP = CP</strong> — Standard; use effective rate per PP directly</li>
+        <li><strong>PP &gt; CP</strong> — Find effective i per PP; n = number of PP intervals</li>
+        <li><strong>PP &lt; CP</strong> — Special handling required (two policies)</li>
+      </ul>
+      <div class="arabic-note">العلاقة بين فترة الدفع (PP) وفترة التراكم (CP) هي التي تحدد طريقة الحل الصحيحة. في حالة كانت فترة الدفع أصغر (PP &lt; CP)، توجد سياستان للتعامل مع الدفعات التي تقع داخل الفترة (Inter-period Cash Flows).</div>
+    </div>
+    <div class="callout info">
+      <span class="nh">Golden Rules for i and n</span>
+      <ul>
+        <li>Always use the <strong>effective interest rate</strong> in all formulas</li>
+        <li>i and n must always share the same time unit</li>
+        <li>If i = 10%/month → n must be in months</li>
+      </ul>
+      <div class="arabic-note">القاعدة الذهبية: يجب أن يكون كل من معدل الفائدة (i) وعدد الفترات (n) بنفس الوحدة الزمنية دائماً. وتذكر دائماً استخدام معدل الفائدة الفعلي (Effective Interest Rate).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 9 – SINGLE PAYMENTS
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s9">
+  <div class="section-header">
+    <div class="section-num">9</div>
+    <h2>Single Payments (F &amp; P) with PP ≥ CP
+      <span class="ar">المدفوعات المفردة عندما PP ≥ CP</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="compare-grid">
+      <div class="compare-card">
+        <div class="compare-card-header simple-h">Method 1 — Recommended</div>
+        <div class="compare-card-body">Find effective i per CP → n = total number of CP periods.<br><em>Simpler — preferred approach.</em></div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-card-header compound-h">Method 2</div>
+        <div class="compare-card-body">Find effective i for any period t → use n in units of t.<br><em>Use when a specific period is required.</em></div>
+      </div>
+    </div>
+    <div class="callout info">
+      <span class="nh">Equivalence Note</span>
+      <code>i = 10% per year</code> ≡ <code>i = 10% per year, compounded annually</code>.<br>
+      When CP = interest period = PP, the stated rate is already effective — no conversion needed.
+      <div class="arabic-note">عندما تتساوى فترة الفائدة مع فترة التراكم (Compounding)، فإن المعدل المعطى هو معدل فعلي (Effective) بالفعل ولا يحتاج إلى تحويل.</div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 1</span>$10,000 at 1%/month — Find F after 5 years using three different periods</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">P = $10,000 &nbsp;|&nbsp; i = 1% per month &nbsp;|&nbsp; N = 5 years = 60 months</div>
+        <span class="sl">(a) Monthly — i = 1%/month, n = 60 months</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-detail">\( F = 10{,}000 \times (1.01)^{60} \)</div>
+          </div>
+        </div>
+        <div class="res-box">F = <span class="val">$18,167</span></div>
+        <span class="sl">(b) Quarterly — i_eff(quarter) = (1.01)³ − 1 = 3.03%, n = 20 quarters</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-detail">\( F = 10{,}000 \times (1.0303)^{20} \)</div>
+          </div>
+        </div>
+        <div class="res-box">F = <span class="val">$18,167 ✓</span></div>
+        <span class="sl">(c) Yearly — i_eff(annual) = (1.01)¹² − 1 = 12.68%, n = 5 years</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-detail">\( F = 10{,}000 \times (1.1268)^{5} \)</div>
+          </div>
+        </div>
+        <div class="res-box">F = <span class="val">$18,167 ✓</span></div>
+        <div class="callout good" style="margin-top:8px;font-size:13.5px;">All three methods give the same answer — confirming the <strong>equivalence principle</strong>.<br><span class="arabic-note" style="margin:4px 0 0;">الطرق الثلاث تعطي نفس الناتج — تأكيداً لمبدأ التكافؤ (Equivalence).</span></div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 2</span>A garage door company wants $1.2M available in 5 years at 14%/yr compounded semiannually — Find deposit needed now</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">F = $1,200,000 &nbsp;|&nbsp; r_nom = 14%/year &nbsp;|&nbsp; CP = semiannual &nbsp;|&nbsp; t = 5 years</div>
+        <span class="sl">Required: Present worth P</span>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Find effective rate per CP (semiannual)</div>
+            <div class="step-detail">\( i_{\text{eff}}^{(\text{semi})} = \frac{14\%}{2} = 7\% \text{ per semiannual period} \)</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Find n in semiannual periods</div>
+            <div class="step-detail">n = 5 years × 2 = 10 semiannual periods</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">Apply P/F formula</div>
+            <div class="step-detail">\( P = 1{,}200{,}000 \times (P/F;\;7\%,\;10) = 1{,}200{,}000 \times (1.07)^{-10} = 1{,}200{,}000 \times 0.5083 \)</div>
+          </div>
+        </div>
+        <div class="res-box">P = <span class="val">$609,996 ≈ $610,000</span></div>
+        <div class="callout good" style="margin-top:8px;font-size:13.5px;">Choices: (a) $585,000 &nbsp; <strong>(b) $610,000 ✓</strong> &nbsp; (c) $625,000 &nbsp; (d) $703,000</div>
+        <div class="answer-badge">✅ Final Answer: (b) $610,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 10 – SERIES
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s10">
+  <div class="section-header">
+    <div class="section-num">10</div>
+    <h2>Series (Uniform A) with PP ≥ CP and PP &lt; CP
+      <span class="ar">سلاسل الدفع المنتظمة</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="callout info">
+      <span class="nh">Two-Step Procedure for PP ≥ CP</span>
+      <div class="step-box" style="font-size:14px;line-height:2.2;">
+        <span class="key">Step 1:</span> Find effective interest rate (i) per Payment Period (PP)<br>
+        <span class="key">Step 2:</span> n = total number of A payments (in units of PP)
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 1</span>$500 every 6 months for 10 years at 1%/month — Find F</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">A = $500 per 6 months &nbsp;|&nbsp; i = 1%/month &nbsp;|&nbsp; t = 10 years &nbsp;|&nbsp; PP = 6 months &gt; CP = 1 month</div>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Find i_eff per PP (6 months)</div>
+            <div class="step-detail">\( i_{\text{eff}}^{(6\text{-mo})} = (1.01)^6 - 1 = 6.15\% \)</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Find n = number of semiannual payments</div>
+            <div class="step-detail">n = 10 years × 2 = 20 payments</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">Apply F/A formula</div>
+            <div class="step-detail">\( F = 500 \times (F/A;\;6.15\%,\;20) = 500 \times \frac{(1.0615)^{20}-1}{0.0615} \)</div>
+          </div>
+        </div>
+        <div class="res-box">F = <span class="val">$18,420</span></div>
+        <div class="answer-badge">✅ F = $18,420</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 2</span>Present worth of semiannual $500 for 8 years at 12%/year compounded monthly</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">A = $500 per 6 months &nbsp;|&nbsp; r_nom = 12%/year &nbsp;|&nbsp; CP = monthly &nbsp;|&nbsp; t = 8 years</div>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Find i_eff per PP (6 months)</div>
+            <div class="step-detail">\( i_{\text{eff}}^{(6\text{-mo})} = (1.01)^6 - 1 = 6.152\% \)</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">n = 8 × 2 = 16 semiannual payments</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">Apply P/A formula</div>
+            <div class="step-detail">\( P = 500 \times (P/A;\;6.152\%,\;16) = 500 \times \frac{(1.06152)^{16}-1}{0.06152 \times (1.06152)^{16}} \)</div>
+          </div>
+        </div>
+        <div class="res-box">P = <span class="val">$5,031 → Answer: (B)</span></div>
+        <div class="callout good" style="font-size:13.5px;">Choices: (a) $5,001 &nbsp;<strong>(b) $5,031 ✓</strong>&nbsp; (c) $5,051 &nbsp; (d) $5,081</div>
+        <div class="answer-badge">✅ Final Answer: (B) $5,031</div>
+      </div>
+    </div>
+
+    <h3>Series with PP &lt; CP — Two Policies</h3>
+    <div class="callout warn">
+      <span class="nh">When PP &lt; CP</span>
+      Payments fall <em>within</em> the compounding period. These are <strong>inter-period cash flows</strong>.
+      <div class="arabic-note">عندما تكون فترة الدفع أصغر من فترة التراكم (PP &lt; CP)، تقع بعض الدفعات داخل فترة التراكم (Compounding). هذه تسمى دفعات داخل الفترة (Inter-period Cash Flows) وتحتاج إلى معالجة خاصة.</div>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <div class="compare-card-header simple-h">Policy 1 — No Inter-Period Interest (Most Common)</div>
+        <div class="compare-card-body" style="font-size:13.5px;line-height:1.8;">
+          Inter-period flows earn <strong>no</strong> interest.<br>
+          <strong>Positive</strong> flows → move to <em>beginning</em> of CP.<br>
+          <strong>Negative</strong> flows → move to <em>end</em> of CP.<br>
+          Apply effective i per CP.
+          <div class="arabic-note" style="font-size:12.5px;margin-top:6px;">الدفعات الموجبة تُنقل لبداية فترة التراكم (CP)، والسالبة لنهايتها.</div>
+        </div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-card-header compound-h">Policy 2 — Inter-Period Compound Interest (Rare)</div>
+        <div class="compare-card-body" style="font-size:13.5px;line-height:1.8;">
+          Inter-period flows <strong>earn</strong> compound interest.<br>
+          Cash flows <strong>not</strong> moved arbitrarily — use factors.<br>
+          Apply effective i per PP.
+          <div class="arabic-note" style="font-size:12.5px;margin-top:6px;">الدفعات تكسب فائدة مركبة وتُستخدم عوامل (Factors) لنقلها بدقة.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example — Policy 1</span>$400/month for 5 years at 6%/year compounded semiannually, with $3,000 withdrawal at month 16 — Find F</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">A = $400/month &nbsp;|&nbsp; r_nom = 6%/year &nbsp;|&nbsp; CP = semiannual &nbsp;|&nbsp; PP = 1 month &lt; CP = 6 months &nbsp;|&nbsp; Withdrawal $3,000 at month 16</div>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Identify: PP &lt; CP → Apply Policy 1</div>
+            <div class="step-detail">i_eff(semi) = 6%/2 = 3% per 6-month period; n = 5×2 = 10 semiannual periods</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Consolidate monthly deposits per CP</div>
+            <div class="step-detail">6 monthly deposits per CP → A_per_semi = 400 × 6 = $2,400</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">Move withdrawal — month 16 → end of 3rd CP (month 18) = 7 periods from end</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-label">Calculate F at end of year 5 (month 60)</div>
+            <div class="step-detail">\( F = 2400(F/A;\;3\%,\;10) - 3000(F/P;\;3\%,\;7) \)<br>= 2400 × 11.464 − 3000 × 1.2299<br>= 27,514 − 3,690</div>
+          </div>
+        </div>
+        <div class="res-box">F = <span class="val">$23,824</span></div>
+        <div class="answer-badge">✅ F ≈ $23,824</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="break-sep"><div class="break-pill"><span class="break-icon">∞</span><span class="break-label">Advanced Topics</span><span class="break-note">Continuous &amp; Varying Rates</span></div></div>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 11 – CONTINUOUS COMPOUNDING
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s11">
+  <div class="section-header">
+    <div class="section-num">11</div>
+    <h2>Continuous Compounding
+      <span class="ar">التراكم المستمر</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="callout info">
+      <span class="nh">Concept</span>
+      When m → ∞, interest is compounded <strong>continuously</strong>. Taking the limit of the effective rate formula as m → ∞:
+      <div class="arabic-note">عندما تصبح فترة التراكم (Compounding Period) صغيرة جداً إلى حد اللانهاية (m → ∞)، ننتج معادلة التراكم المستمر (Continuous Compounding). هذه الحالة تُعطي أعلى معدل فائدة فعلي ممكن لمعدل اسمي معيّن.</div>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">Effective Interest Rate — Continuous Compounding</span>
+      <div class="math">\[ i_{\text{eff}} = e^{r} - 1 \]</div>
+      <p>r = Nominal rate for the same period &nbsp;|&nbsp; e = Euler's number ≈ 2.71828</p>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 1</span>$500/quarter at 6%/year compounded continuously for 5 years — Find F</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">A = $500/quarter &nbsp;|&nbsp; r_nom = 6%/year &nbsp;|&nbsp; Compounded continuously &nbsp;|&nbsp; t = 5 years</div>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Find r per quarter</div>
+            <div class="step-detail">r_quarterly = 6% / 4 = 1.5%</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Find i_eff per quarter using continuous formula</div>
+            <div class="step-detail">\( i_{\text{eff}} = e^{0.015} - 1 = 1.511\% \text{ per quarter} \)</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">n = 5 years × 4 quarters = 20 quarters. Apply F/A</div>
+            <div class="step-detail">\( F = 500 \times \frac{(1.01511)^{20}-1}{0.01511} \)</div>
+          </div>
+        </div>
+        <div class="res-box">F ≈ <span class="val">$11,939</span></div>
+        <div class="answer-badge">✅ F ≈ $11,939</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 2</span>$1,000/quarter for 5 years at 12%/year compounded continuously — Find P</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">A = $1,000/quarter &nbsp;|&nbsp; r_nom = 12%/year &nbsp;|&nbsp; Compounded continuously &nbsp;|&nbsp; t = 5 years</div>
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">r_quarterly = 12%/4 = 3%</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">i_eff (quarterly) = e^0.03 − 1 = 3.045%</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">n = 20 quarters. Apply P/A</div>
+            <div class="step-detail">\( P = 1000 \times \frac{1-(1.03045)^{-20}}{0.03045} \)</div>
+          </div>
+        </div>
+        <div class="res-box">P ≈ <span class="val">$14,815 → Answer: (b)</span></div>
+        <div class="callout good" style="font-size:13.5px;">Choices: (a) $13,619 &nbsp;<strong>(b) $14,815 ✓</strong>&nbsp; (c) $15,772 &nbsp; (d) $16,031</div>
+        <div class="answer-badge">✅ Final Answer: (b) $14,815</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 12 – VARYING INTEREST RATES
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s12">
+  <div class="section-header">
+    <div class="section-num">12</div>
+    <h2>Varying Interest Rates
+      <span class="ar">معدلات الفائدة المتغيرة</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="callout info">
+      <span class="nh">Concept</span>
+      When interest rates change over time, use the specific rate for each period. Move each cash flow using the rate that governs the period through which it travels.
+      <div class="arabic-note">عندما تتغير معدلات الفائدة، يُستخدم المعدل المحدد لكل فترة زمنية على حدة. كل تدفق نقدي (Cash Flow) يُنقل باستخدام المعدل الخاص بالفترة التي يعبرها.</div>
+    </div>
+    <div class="formula-box">
+      <span class="label">Step-by-Step Discounting with Varying Rates</span>
+      <div class="math">\[ P_0 = F_k \times \frac{1}{(1+i_1)} \times \frac{1}{(1+i_2)} \times \cdots \times \frac{1}{(1+i_k)} \]</div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 1</span>$2,500/year for years 1–8: 7% for years 1–5, 10% for years 6–8 — Find P</div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">A = $2,500/year &nbsp;|&nbsp; i₁ = 7% (years 1-5) &nbsp;|&nbsp; i₂ = 10% (years 6-8)</div>
+
+        <!-- CF Diagram -->
+        <div class="cf-wrapper" style="margin:12px 0;">
+          <div class="cf-title">Cash Flow Diagram — Varying Interest Rates</div>
+          <svg viewBox="0 0 560 170" width="100%" style="max-width:560px;">
+            <line x1="40" y1="110" x2="520" y2="110" stroke="#1a3a6b" stroke-width="2"/>
+            <polygon points="520,106 530,110 520,114" fill="#1a3a6b"/>
+            <line x1="40" y1="98" x2="40" y2="110" stroke="#1a3a6b" stroke-width="2"/>
+            <line x1="100" y1="105" x2="100" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+            <line x1="160" y1="105" x2="160" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+            <line x1="220" y1="105" x2="220" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+            <line x1="280" y1="105" x2="280" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+            <line x1="340" y1="105" x2="340" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+            <line x1="400" y1="105" x2="400" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+            <line x1="460" y1="105" x2="460" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+            <line x1="510" y1="105" x2="510" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+            <text x="40"  y="128" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">0</text>
+            <text x="100" y="128" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">1</text>
+            <text x="160" y="128" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">2</text>
+            <text x="220" y="128" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">3</text>
+            <text x="280" y="128" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">4</text>
+            <text x="340" y="128" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">5</text>
+            <text x="400" y="128" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">6</text>
+            <text x="460" y="128" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">7</text>
+            <text x="510" y="128" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">8</text>
+            <text x="535" y="114" fill="#4a6fa5" font-size="10" font-family="monospace">Yr</text>
+            <!-- A arrows (years 1-5, i=7%) -->
+            <line x1="100" y1="110" x2="100" y2="70" stroke="#0e90d2" stroke-width="2"/>
+            <polygon points="96,70 100,58 104,70" fill="#0e90d2"/>
+            <line x1="160" y1="110" x2="160" y2="70" stroke="#0e90d2" stroke-width="2"/>
+            <polygon points="156,70 160,58 164,70" fill="#0e90d2"/>
+            <line x1="220" y1="110" x2="220" y2="70" stroke="#0e90d2" stroke-width="2"/>
+            <polygon points="216,70 220,58 224,70" fill="#0e90d2"/>
+            <line x1="280" y1="110" x2="280" y2="70" stroke="#0e90d2" stroke-width="2"/>
+            <polygon points="276,70 280,58 284,70" fill="#0e90d2"/>
+            <line x1="340" y1="110" x2="340" y2="70" stroke="#0e90d2" stroke-width="2"/>
+            <polygon points="336,70 340,58 344,70" fill="#0e90d2"/>
+            <text x="220" y="50" text-anchor="middle" fill="#0e90d2" font-size="11" font-family="monospace">$2,500/yr</text>
+            <!-- A arrows (years 6-8, i=10%) -->
+            <line x1="400" y1="110" x2="400" y2="70" stroke="#e8b84b" stroke-width="2"/>
+            <polygon points="396,70 400,58 404,70" fill="#e8b84b"/>
+            <line x1="460" y1="110" x2="460" y2="70" stroke="#e8b84b" stroke-width="2"/>
+            <polygon points="456,70 460,58 464,70" fill="#e8b84b"/>
+            <line x1="510" y1="110" x2="510" y2="70" stroke="#e8b84b" stroke-width="2"/>
+            <polygon points="506,70 510,58 514,70" fill="#e8b84b"/>
+            <!-- rate labels -->
+            <rect x="60" y="140" width="120" height="18" rx="4" fill="#EFF6FF"/>
+            <text x="120" y="153" text-anchor="middle" fill="#1D4ED8" font-size="10" font-family="monospace">i = 7% (yrs 1–5)</text>
+            <rect x="360" y="140" width="120" height="18" rx="4" fill="#FFFBEB"/>
+            <text x="420" y="153" text-anchor="middle" fill="#B45309" font-size="10" font-family="monospace">i = 10% (yrs 6–8)</text>
+            <!-- P at t=0 -->
+            <line x1="40" y1="110" x2="40" y2="150" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="4,2"/>
+            <polygon points="36,150 40,162 44,150" fill="#c0392b"/>
+            <text x="40" y="170" text-anchor="middle" fill="#c0392b" font-size="11" font-family="monospace">P=?</text>
+          </svg>
+        </div>
+
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Series 1: years 1–5 at 7% — find P at t = 0</div>
+            <div class="step-detail">\( P_1 = 2500 \times (P/A;\;7\%,\;5) = 2500 \times 4.1002 = \mathbf{\$10{,}250.50} \)</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Series 2: years 6–8 at 10% — find P at t = 5</div>
+            <div class="step-detail">\( P_5 = 2500 \times (P/A;\;10\%,\;3) = 2500 \times 2.4869 = \mathbf{\$6{,}217.25} \)</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-label">Move P₅ to t = 0 using i = 7%</div>
+            <div class="step-detail">\( P_0' = 6{,}217.25 \times (P/F;\;7\%,\;5) = 6{,}217.25 \times 0.7130 = \mathbf{\$4{,}432.90} \)</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-label">Total P at t = 0</div>
+            <div class="step-detail">\( P = P_1 + P_0' = 10{,}250.50 + 4{,}432.90 \)</div>
+          </div>
+        </div>
+        <div class="res-box">P = <span class="val">$14,683.40</span></div>
+        <div class="answer-badge">✅ P ≈ $14,683</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header"><span class="example-badge">Example 2</span>$10,000 at 6%/yr compounded quarterly for 12 yrs, then 10%/yr compounded semiannually for 8 yrs — Find F</div>
+      <div class="example-body">
+        <div class="sol-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-label">Phase 1: i = 1.5%/quarter, n = 12×4 = 48 quarters</div>
+            <div class="step-detail">\( F_{12} = 10{,}000 \times (1.015)^{48} = \mathbf{\$20{,}435} \)</div>
+          </div>
+        </div>
+        <div class="sol-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-label">Phase 2: i = 5%/semi, n = 8×2 = 16 periods</div>
+            <div class="step-detail">\( F = 20{,}435 \times (1.05)^{16} = 20{,}435 \times 2.1829 \)</div>
+          </div>
+        </div>
+        <div class="res-box">F = <span class="val">$44,610 → Answer: (d)</span></div>
+        <div class="callout good" style="font-size:13.5px;">Choices: (a) &lt;$36,000 &nbsp; (b) $36,510 &nbsp; (c) $40,290 &nbsp;<strong>(d) $44,610 ✓</strong></div>
+        <div class="answer-badge">✅ Final Answer: (d) $44,610</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 13 – SUMMARY
+═══════════════════════════════════════════════════ -->
+<section class="section" id="s13">
+  <div class="section-header sage-header">
+    <div class="section-num">✓</div>
+    <h2>Summary — Important Rules &amp; Notes
+      <span class="ar">ملخص القواعد الأساسية</span>
+    </h2>
+  </div>
+  <div class="section-body">
+    <div class="summary-grid">
+      <div class="summary-item"><strong>Always Use Effective Rate</strong>Never use nominal rate directly in any formula. Always convert first using i_eff = (1 + r/n)ⁿ − 1.</div>
+      <div class="summary-item"><strong>Match Units of i and n</strong>i and n must always share the same time unit. If i = per month → n must be in months.</div>
+      <div class="summary-item"><strong>Series with PP ≥ CP</strong>Step 1: Find effective i per PP. Step 2: n = number of A payments.</div>
+      <div class="summary-item"><strong>Series with PP &lt; CP</strong>Apply Policy 1 (most common): move positive flows to start of CP, negative to end.</div>
+      <div class="summary-item"><strong>Continuous Compounding</strong>Use i = eʳ − 1 to find effective rate from nominal rate r.</div>
+      <div class="summary-item"><strong>Varying Rates</strong>Apply each period's own rate. Move cash flows step by step through each rate period.</div>
+    </div>
+  </div>
+</section>
+
+<div class="break-sep"><div class="break-pill"><span class="break-icon">📝</span><span class="break-label">Practice Questions</span><span class="break-note">Quiz &amp; Exercises</span></div></div>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION Q&A – QUIZ & PRACTICE
+═══════════════════════════════════════════════════ -->
+<section class="section" id="qa">
+  <div class="section-header amber-header">
+    <div class="section-num">Q&amp;A</div>
+    <h2>Quiz &amp; Practice Problems — Chapter 4
+      <span class="ar">أسئلة تدريبية — الفصل الرابع</span>
+    </h2>
+  </div>
+  <div class="section-body">
+
+    <!-- Q1 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q1</span>
+        <span class="qa-question">For an interest rate of 20% per year compounded quarterly, the effective interest rate per semiannual period is closest to:</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) 10.11%</div>
+          <div class="qa-choice correct">(b) 10.25% ✓</div>
+          <div class="qa-choice">(c) 20.99%</div>
+          <div class="qa-choice">(d) 21.55%</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">r_nom = 20%/year &nbsp;|&nbsp; CP = quarterly &nbsp;|&nbsp; Required: i_eff per semiannual period</div>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Identify parameters</div>
+              <div class="step-detail">n = 4 (quarterly CPs per year) &nbsp;|&nbsp; m = 2 (quarters per semiannual period)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Apply Effective Rate Formula for Period (pr = semiannual)</div>
+              <div class="step-detail">\( i_{\text{eff}}^{(\text{semi})} = \left(1 + \frac{0.20}{4}\right)^2 - 1 = (1.05)^2 - 1 = 1.1025 - 1 = 0.1025 \)</div>
+            </div>
+          </div>
+          <div class="res-box">i_eff = <span class="val">10.25% per semiannual period</span></div>
+          <div class="answer-badge">✅ Final Answer: (b) 10.25%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q2</span>
+        <span class="qa-question">For an effective interest rate of 20% per year compounded continuously, the nominal rate per month is closest to:</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) 1.50%</div>
+          <div class="qa-choice correct">(b) 1.52% ✓</div>
+          <div class="qa-choice">(c) 1.67%</div>
+          <div class="qa-choice">(d) over 1.7%</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">i_eff = 20%/year &nbsp;|&nbsp; Compounded continuously &nbsp;|&nbsp; Required: r_nom per month</div>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Use continuous compounding formula in reverse: i_eff = eʳ − 1</div>
+              <div class="step-detail">\( e^r = 1 + i_{\text{eff}} = 1.20 \implies r_{\text{nom,annual}} = \ln(1.20) = 0.18232 = 18.232\% \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Convert to monthly rate</div>
+              <div class="step-detail">\( r_{\text{monthly}} = \frac{18.232\%}{12} = 1.519\% \approx 1.52\% \)</div>
+            </div>
+          </div>
+          <div class="res-box">r_monthly = <span class="val">1.52%</span></div>
+          <div class="answer-badge">✅ Final Answer: (b) 1.52%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q3</span>
+        <span class="qa-question">A textile company purchased a water treatment unit for $800,000. The equation that expresses how much additional money the company must make each month to recover its investment in 3 years at an interest rate of 16% per year compounded semiannually is:</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) A = 800,000(A/P; 16%, 3)/6</div>
+          <div class="qa-choice correct">(b) A = 800,000(A/P; 8%, 6)/6 ✓</div>
+          <div class="qa-choice">(c) A = 800,000(A/P; 16.99%, 3)/6</div>
+          <div class="qa-choice">(d) A = 800,000(A/P; 4%, 12)/6</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">P = $800,000 &nbsp;|&nbsp; r_nom = 16%/year &nbsp;|&nbsp; CP = semiannual &nbsp;|&nbsp; PP = monthly &nbsp;|&nbsp; t = 3 years</div>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Identify PP vs CP relationship</div>
+              <div class="step-detail">PP = 1 month &lt; CP = 6 months → Apply <strong>Policy 1</strong> (most common)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Find i_eff per CP (semiannual)</div>
+              <div class="step-detail">i_eff(semi) = 16%/2 = <strong>8%</strong> per semiannual period</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-label">n = number of semiannual periods</div>
+              <div class="step-detail">n = 3 years × 2 = <strong>6 semiannual periods</strong></div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-label">Consolidate monthly payments (Policy 1): 6 monthly payments per CP → equivalent semiannual payment = 6A</div>
+              <div class="step-detail">\( 800{,}000 = 6A \times (P/A;\;8\%,\;6) \implies A = \frac{800{,}000 \times (A/P;\;8\%,\;6)}{6} \)</div>
+            </div>
+          </div>
+          <div class="answer-badge">✅ Final Answer: (b) A = 800,000(A/P; 8%, 6)/6</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q4</span>
+        <span class="qa-question">If you wanted to be able to withdraw $10,000 per month for 30 years beginning 10 years and 1 month from now (i.e., 121 months from now), the amount you would have to deposit now at an interest rate of 12% per year compounded monthly is closest to:</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice correct">(a) $295,000 ✓</div>
+          <div class="qa-choice">(b) $394,000</div>
+          <div class="qa-choice">(c) $421,000</div>
+          <div class="qa-choice">(d) over $422,000</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">A = $10,000/month &nbsp;|&nbsp; r_nom = 12%/year, monthly CP &nbsp;|&nbsp; n_withdrawal = 30×12 = 360 months &nbsp;|&nbsp; First withdrawal at month 121</div>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Effective monthly rate</div>
+              <div class="step-detail">i = 12%/12 = <strong>1% per month</strong></div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Find P at month 120 (one period before first withdrawal)</div>
+              <div class="step-detail">\( P_{120} = 10{,}000 \times (P/A;\;1\%,\;360) = 10{,}000 \times 97.218 = \$972{,}180 \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-label">Discount P₁₂₀ back to t = 0 using 120 months</div>
+              <div class="step-detail">\( P_0 = 972{,}180 \times (P/F;\;1\%,\;120) = 972{,}180 \times (1.01)^{-120} = 972{,}180 \times 0.3030 \)</div>
+            </div>
+          </div>
+          <div class="res-box">P₀ = <span class="val">$294,570 ≈ $295,000</span></div>
+          <div class="answer-badge">✅ Final Answer: (a) $295,000</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q5</span>
+        <span class="qa-question">What is the present worth of $50,000 thirty years from now if the interest rate is 16% per year compounded quarterly?</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice correct">(a) $450 ✓</div>
+          <div class="qa-choice">(b) $2,600</div>
+          <div class="qa-choice">(c) $4,100</div>
+          <div class="qa-choice">(d) over $4,200</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">F = $50,000 &nbsp;|&nbsp; r_nom = 16%/year &nbsp;|&nbsp; CP = quarterly &nbsp;|&nbsp; t = 30 years</div>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Find i per CP (quarterly)</div>
+              <div class="step-detail">i = 16%/4 = <strong>4% per quarter</strong></div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Find n in quarters</div>
+              <div class="step-detail">n = 30 × 4 = <strong>120 quarters</strong></div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-label">Apply P/F formula</div>
+              <div class="step-detail">\( P = 50{,}000 \times (1.04)^{-120} = 50{,}000 \times 0.009095 \)</div>
+            </div>
+          </div>
+          <div class="res-box">P = <span class="val">$454.75 ≈ $450</span></div>
+          <div class="answer-badge">✅ Final Answer: (a) $450</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q6</span>
+        <span class="qa-question">How much money would have to be deposited every six months in order to accumulate $20,000 in 4 years at an interest rate of 12% per year compounded monthly?</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) $1,525</div>
+          <div class="qa-choice">(b) $1,790</div>
+          <div class="qa-choice correct">(c) $2,010 ✓</div>
+          <div class="qa-choice">(d) over $2,100</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">F = $20,000 &nbsp;|&nbsp; r_nom = 12%/year &nbsp;|&nbsp; CP = monthly &nbsp;|&nbsp; PP = semiannual &nbsp;|&nbsp; t = 4 years</div>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">PP = 6 months &gt; CP = 1 month → PP ≥ CP case</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Find i_eff per PP (semiannual)</div>
+              <div class="step-detail">\( i_{\text{eff}}^{(\text{semi})} = (1.01)^6 - 1 = 1.061520 - 1 = 6.152\% \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-label">n = 4 years × 2 = 8 semiannual deposits</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-label">Apply A/F formula</div>
+              <div class="step-detail">\( A = 20{,}000 \times (A/F;\;6.152\%,\;8) = 20{,}000 \times \frac{0.06152}{(1.06152)^8 - 1} = 20{,}000 \times 0.10052 \)</div>
+            </div>
+          </div>
+          <div class="res-box">A = <span class="val">$2,010</span></div>
+          <div class="answer-badge">✅ Final Answer: (c) $2,010</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q7</span>
+        <span class="qa-question">How much money will be accumulated in 20 years if $10,000 is deposited now into an account which earns interest at 6% per year compounded quarterly for the first 12 years and 10% per year compounded semiannually for the last 8 years?</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) Less than $36,000</div>
+          <div class="qa-choice">(b) $36,510</div>
+          <div class="qa-choice">(c) $40,290</div>
+          <div class="qa-choice correct">(d) $44,610 ✓</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">P = $10,000 &nbsp;|&nbsp; Phase 1: 6%/yr quarterly, 12 years &nbsp;|&nbsp; Phase 2: 10%/yr semiannual, 8 years</div>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Phase 1: i = 6%/4 = 1.5%/quarter, n = 12×4 = 48 quarters</div>
+              <div class="step-detail">\( F_{12} = 10{,}000 \times (1.015)^{48} = 10{,}000 \times 2.0435 = \mathbf{\$20{,}435} \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Phase 2: i = 10%/2 = 5%/semi, n = 8×2 = 16 periods</div>
+              <div class="step-detail">\( F_{20} = 20{,}435 \times (1.05)^{16} = 20{,}435 \times 2.1829 = \mathbf{\$44{,}610} \)</div>
+            </div>
+          </div>
+          <div class="res-box">F = <span class="val">$44,610</span></div>
+          <div class="answer-badge">✅ Final Answer: (d) $44,610</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q8</span>
+        <span class="qa-question">An interest rate is an effective rate under all of the following conditions, EXCEPT when:</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) The compounding period is not stated</div>
+          <div class="qa-choice">(b) The interest period and compounding period are the same</div>
+          <div class="qa-choice">(c) The interest statement says that the interest rate is effective</div>
+          <div class="qa-choice correct">(d) The interest period is shorter than the compounding period ✓</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Recall the rule: a rate is Nominal when interest period ≠ CP</div>
+              <div class="step-detail">If interest period &lt; CP → the rate is <strong>Nominal</strong>, NOT effective<br>→ Choice (d) is the exception — this makes it a Nominal rate</div>
+            </div>
+          </div>
+          <div class="callout warn" style="margin-top:8px;font-size:13.5px;">Options (a), (b), (c) all describe conditions for an Effective rate. Only (d) describes a Nominal rate situation.<br><span class="arabic-note" style="margin:4px 0 0;">الحالة الوحيدة التي يكون فيها المعدل اسمياً (Nominal) هي عندما تختلف فترة الفائدة عن فترة التراكم (Compounding).</span></div>
+          <div class="answer-badge">✅ Final Answer: (d)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q9</span>
+        <span class="qa-question">An interest rate of nominal 12% per year, compounded weekly, is:</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) An effective rate per year</div>
+          <div class="qa-choice">(b) An effective rate per week</div>
+          <div class="qa-choice correct">(c) A nominal rate per year ✓</div>
+          <div class="qa-choice">(d) A nominal rate per week</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Compare interest period and CP</div>
+              <div class="step-detail">Interest period = year &nbsp;|&nbsp; CP = week &nbsp;→&nbsp; interest period ≠ CP<br>Therefore: <strong>Nominal rate</strong>, expressed per year</div>
+            </div>
+          </div>
+          <div class="answer-badge">✅ Final Answer: (c) A nominal rate per year</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q10</span>
+        <span class="qa-question">An interest rate of 1.5% per month, compounded continuously, is the same as:</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) An effective 1.5% per month</div>
+          <div class="qa-choice correct">(b) 4.5% per quarter, compounded continuously ✓</div>
+          <div class="qa-choice">(c) 6.0% per quarter, compounded continuously</div>
+          <div class="qa-choice">(d) 9% per 6 months</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Convert to quarterly nominal rate (Nominal rates are additive)</div>
+              <div class="step-detail">r_quarterly = 1.5%/month × 3 months/quarter = <strong>4.5% per quarter, compounded continuously</strong></div>
+            </div>
+          </div>
+          <div class="callout info" style="font-size:13.5px;margin-top:8px;">Note: "compounded continuously" is preserved — only the time unit changes, not the compounding type.<br><span class="arabic-note" style="margin:4px 0 0;">معدل الفائدة الاسمي (Nominal Rate) يُضرب في عدد الفترات لتحويله إلى فترة زمنية أطول مع الحفاظ على نوع التراكم (Compounding).</span></div>
+          <div class="answer-badge">✅ Final Answer: (b) 4.5% per quarter, compounded continuously</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q11</span>
+        <span class="qa-question">An effective 12.68% per year, compounded monthly, is closest to:</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) 12% per year</div>
+          <div class="qa-choice">(b) 12% per year, compounded annually</div>
+          <div class="qa-choice correct">(c) 1% per month ✓</div>
+          <div class="qa-choice">(d) 1% per month, compounded annually</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Verify: if i = 1% per month compounded monthly</div>
+              <div class="step-detail">\( i_{\text{eff}}^{(\text{annual})} = (1.01)^{12} - 1 = 1.1268 - 1 = 12.68\% \) ✓</div>
+            </div>
+          </div>
+          <div class="callout good" style="font-size:13.5px;margin-top:8px;">Note: "1% per month" already implies compounded monthly (CP = interest period). Option (d) is wrong because monthly compounding ≠ annual compounding.<br><span class="arabic-note" style="margin:4px 0 0;">نسبة الـ 1% شهرياً مع التراكم الشهري (Monthly Compounding) ينتج معدل 12.68% فعلي (Effective) سنوياً.</span></div>
+          <div class="answer-badge">✅ Final Answer: (c) 1% per month</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     ADDITIONAL QUESTIONS
+═══════════════════════════════════════════════════ -->
+<section class="section" id="addq">
+  <div class="section-header add-header">
+    <div class="section-num">+</div>
+    <h2>Additional Questions — Chapter 4
+      <span class="ar">أسئلة إضافية — الفصل الرابع</span>
+    </h2>
+  </div>
+  <div class="section-body">
+
+    <!-- AQ1 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">AQ1</span>
+        <span class="qa-question">An engineer who is saving for her retirement plans to deposit $500 every quarter, starting one quarter from now, into an investment account. If the account pays interest at 6% per year compounded semiannually, the total she will have at the end of 25 years is closest to:</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) $50,000</div>
+          <div class="qa-choice">(b) $56,400</div>
+          <div class="qa-choice">(c) $79,700</div>
+          <div class="qa-choice correct">(d) $112,800 ✓</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">A = $500 per quarter &nbsp;|&nbsp; r_nom = 6%/year &nbsp;|&nbsp; CP = semiannual &nbsp;|&nbsp; PP = quarterly &nbsp;|&nbsp; t = 25 years</div>
+          <span class="sl">Required: F at end of 25 years</span>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Compare PP vs CP</div>
+              <div class="step-detail">PP = 1 quarter (3 months) &lt; CP = 6 months → Apply <strong>Policy 1</strong></div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">i_eff per CP (semiannual)</div>
+              <div class="step-detail">i_eff(semi) = 6%/2 = <strong>3%</strong> per semiannual period</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-label">Consolidate quarterly deposits per CP (Policy 1)</div>
+              <div class="step-detail">2 quarterly deposits per CP → A_semi = 500 × 2 = <strong>$1,000 per semiannual period</strong></div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-label">n = 25 × 2 = 50 semiannual periods</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-label">Apply F/A formula</div>
+              <div class="step-detail">\( F = 1000 \times (F/A;\;3\%,\;50) = 1000 \times \frac{(1.03)^{50}-1}{0.03} = 1000 \times \frac{4.3839-1}{0.03} = 1000 \times 112.797 \)</div>
+            </div>
+          </div>
+          <div class="res-box">F = <span class="val">$112,797 ≈ $112,800</span></div>
+          <div class="answer-badge">✅ Final Answer: (d) $112,800</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AQ2 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">AQ2</span>
+        <span class="qa-question">Find (a) the present worth P, and (b) the equivalent uniform annual worth A for the following cash flows: $100/year for years 1–5 at i = 10%, and $160/year for years 6–8 at i = 14% (varying interest rates).</span>
+      </div>
+      <div class="qa-body">
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given (from diagram)</span>
+          <div class="step-box">A₁ = $100/year, years 1-5, i₁ = 10% &nbsp;|&nbsp; A₂ = $160/year, years 6-8, i₂ = 14%</div>
+
+          <!-- CF Diagram -->
+          <div class="cf-wrapper">
+            <div class="cf-title">Cash Flow Diagram — AQ2 (Varying Rates)</div>
+            <svg viewBox="0 0 520 180" width="100%" style="max-width:520px;">
+              <line x1="40" y1="100" x2="490" y2="100" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="490,96 500,100 490,104" fill="#1a3a6b"/>
+              <line x1="40" y1="88" x2="40" y2="100" stroke="#1a3a6b" stroke-width="2"/>
+              <line x1="95" y1="95" x2="95" y2="105" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="150" y1="95" x2="150" y2="105" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="205" y1="95" x2="205" y2="105" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="260" y1="95" x2="260" y2="105" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="315" y1="95" x2="315" y2="105" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="370" y1="95" x2="370" y2="105" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="425" y1="95" x2="425" y2="105" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="480" y1="95" x2="480" y2="105" stroke="#1a3a6b" stroke-width="1.5"/>
+              <text x="40"  y="120" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">0</text>
+              <text x="95"  y="120" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">1</text>
+              <text x="150" y="120" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">2</text>
+              <text x="205" y="120" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">3</text>
+              <text x="260" y="120" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">4</text>
+              <text x="315" y="120" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">5</text>
+              <text x="370" y="120" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">6</text>
+              <text x="425" y="120" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">7</text>
+              <text x="480" y="120" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">8</text>
+              <text x="508" y="104" fill="#4a6fa5" font-size="10" font-family="monospace">Yr</text>
+              <!-- $100 arrows years 1-5 -->
+              <line x1="95"  y1="100" x2="95"  y2="60" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="91,60 95,48 99,60" fill="#0e90d2"/>
+              <line x1="150" y1="100" x2="150" y2="60" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="146,60 150,48 154,60" fill="#0e90d2"/>
+              <line x1="205" y1="100" x2="205" y2="60" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="201,60 205,48 209,60" fill="#0e90d2"/>
+              <line x1="260" y1="100" x2="260" y2="60" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="256,60 260,48 264,60" fill="#0e90d2"/>
+              <line x1="315" y1="100" x2="315" y2="60" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="311,60 315,48 319,60" fill="#0e90d2"/>
+              <text x="205" y="40" text-anchor="middle" fill="#0e90d2" font-size="11" font-family="monospace">$100/yr</text>
+              <!-- $160 arrows years 6-8 -->
+              <line x1="370" y1="100" x2="370" y2="55" stroke="#e8b84b" stroke-width="2"/>
+              <polygon points="366,55 370,43 374,55" fill="#e8b84b"/>
+              <line x1="425" y1="100" x2="425" y2="55" stroke="#e8b84b" stroke-width="2"/>
+              <polygon points="421,55 425,43 429,55" fill="#e8b84b"/>
+              <line x1="480" y1="100" x2="480" y2="55" stroke="#e8b84b" stroke-width="2"/>
+              <polygon points="476,55 480,43 484,55" fill="#e8b84b"/>
+              <text x="425" y="35" text-anchor="middle" fill="#B45309" font-size="11" font-family="monospace">$160/yr</text>
+              <!-- P arrow -->
+              <line x1="40" y1="100" x2="40" y2="140" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="4,2"/>
+              <polygon points="36,140 40,152 44,140" fill="#c0392b"/>
+              <text x="40" y="168" text-anchor="middle" fill="#c0392b" font-size="11" font-family="monospace">P=?</text>
+              <!-- rate labels -->
+              <rect x="55" y="125" width="120" height="16" rx="3" fill="#EFF6FF"/>
+              <text x="115" y="137" text-anchor="middle" fill="#1D4ED8" font-size="9.5" font-family="monospace">i = 10% (yrs 1-5)</text>
+              <rect x="340" y="125" width="120" height="16" rx="3" fill="#FFFBEB"/>
+              <text x="400" y="137" text-anchor="middle" fill="#B45309" font-size="9.5" font-family="monospace">i = 14% (yrs 6-8)</text>
+            </svg>
+          </div>
+
+          <span class="sl">Part (a) — Find P at t = 0</span>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Segment 1: years 1–5 at i = 10%</div>
+              <div class="step-detail">\( P_1 = 100 \times (P/A;\;10\%,\;5) = 100 \times 3.7908 = \mathbf{\$379.08} \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Segment 2: years 6–8 at i = 14% — find value at t = 5</div>
+              <div class="step-detail">\( P_5 = 160 \times (P/A;\;14\%,\;3) = 160 \times 2.3216 = \mathbf{\$371.46} \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-label">Move P₅ to t = 0 using i = 10%</div>
+              <div class="step-detail">\( P_0' = 371.46 \times (P/F;\;10\%,\;5) = 371.46 \times 0.6209 = \mathbf{\$230.65} \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-label">Total P</div>
+              <div class="step-detail">\( P = 379.08 + 230.65 = \mathbf{\$609.73} \)</div>
+            </div>
+          </div>
+          <div class="res-box">P = <span class="val">$609.73 ≈ $610</span></div>
+
+          <span class="sl">Part (b) — Find equivalent uniform annual worth A (years 1–8)</span>
+          <div class="sol-step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-label">Since rates vary, equate P to uniform A series with varying rates</div>
+              <div class="step-detail">\( P = A \times [(P/A;\;10\%,\;5) + (P/A;\;14\%,\;3) \times (P/F;\;10\%,\;5)] \)<br>609.73 = A × [3.7908 + 2.3216 × 0.6209]<br>609.73 = A × [3.7908 + 1.4413]<br>609.73 = A × 5.2321</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">6</div>
+            <div class="step-content">
+              <div class="step-label">Solve for A</div>
+              <div class="step-detail">\( A = \frac{609.73}{5.2321} \approx \mathbf{\$116.53/year} \)</div>
+            </div>
+          </div>
+          <div class="res-box">A = <span class="val">≈ $116.53/year</span></div>
+          <div class="answer-badge">✅ (a) P ≈ $610 &nbsp;|&nbsp; (b) A ≈ $116.53/year</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AQ3 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">AQ3</span>
+        <span class="qa-question">For the cash flow diagram shown below, solve for F using an interest rate of 1% per month. Cash flows: deposits of $30 at years 1–6 (annually), withdrawals of $50 at years 6, 7, 8 (annually). Find F at year 8.</span>
+      </div>
+      <div class="qa-body">
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">A_in = $30/year at years 1–6 &nbsp;|&nbsp; A_out = $50/year at years 6,7,8 &nbsp;|&nbsp; i = 1%/month &nbsp;|&nbsp; Find F at year 8</div>
+
+          <!-- CF Diagram -->
+          <div class="cf-wrapper">
+            <div class="cf-title">Cash Flow Diagram — AQ3 (i = 1% per month)</div>
+            <svg viewBox="0 0 520 200" width="100%" style="max-width:520px;">
+              <line x1="30" y1="110" x2="500" y2="110" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="500,106 510,110 500,114" fill="#1a3a6b"/>
+              <line x1="30" y1="98" x2="30" y2="110" stroke="#1a3a6b" stroke-width="2"/>
+              <line x1="88"  y1="105" x2="88"  y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="146" y1="105" x2="146" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="204" y1="105" x2="204" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="262" y1="105" x2="262" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="320" y1="105" x2="320" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="378" y1="105" x2="378" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="436" y1="105" x2="436" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="490" y1="105" x2="490" y2="115" stroke="#1a3a6b" stroke-width="1.5"/>
+              <text x="30"  y="130" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">0</text>
+              <text x="88"  y="130" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">1</text>
+              <text x="146" y="130" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">2</text>
+              <text x="204" y="130" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">3</text>
+              <text x="262" y="130" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">4</text>
+              <text x="320" y="130" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">5</text>
+              <text x="378" y="130" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">6</text>
+              <text x="436" y="130" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">7</text>
+              <text x="490" y="130" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">8</text>
+              <text x="518" y="114" fill="#4a6fa5" font-size="10" font-family="monospace">Yr</text>
+              <!-- $30 arrows down at years 1-6 -->
+              <line x1="88"  y1="110" x2="88"  y2="150" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="84,150 88,162 92,150" fill="#0e90d2"/>
+              <line x1="146" y1="110" x2="146" y2="150" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="142,150 146,162 150,150" fill="#0e90d2"/>
+              <line x1="204" y1="110" x2="204" y2="150" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="200,150 204,162 208,150" fill="#0e90d2"/>
+              <line x1="262" y1="110" x2="262" y2="150" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="258,150 262,162 266,150" fill="#0e90d2"/>
+              <line x1="320" y1="110" x2="320" y2="150" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="316,150 320,162 324,150" fill="#0e90d2"/>
+              <line x1="378" y1="110" x2="378" y2="150" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="374,150 378,162 382,150" fill="#0e90d2"/>
+              <text x="204" y="178" text-anchor="middle" fill="#0e90d2" font-size="11" font-family="monospace">$30 (yrs 1–6)</text>
+              <!-- $50 arrows down at years 6,7,8 -->
+              <line x1="378" y1="110" x2="378" y2="155" stroke="#c0392b" stroke-width="2"/>
+              <polygon points="374,155 378,167 382,155" fill="#c0392b"/>
+              <line x1="436" y1="110" x2="436" y2="155" stroke="#c0392b" stroke-width="2"/>
+              <polygon points="432,155 436,167 440,155" fill="#c0392b"/>
+              <line x1="490" y1="110" x2="490" y2="155" stroke="#c0392b" stroke-width="2"/>
+              <polygon points="486,155 490,167 494,155" fill="#c0392b"/>
+              <text x="436" y="185" text-anchor="middle" fill="#c0392b" font-size="11" font-family="monospace">$50 (yrs 6,7,8)</text>
+              <!-- F up at year 8 -->
+              <line x1="490" y1="110" x2="490" y2="60" stroke="#1a7f5a" stroke-width="3"/>
+              <polygon points="486,60 490,48 494,60" fill="#1a7f5a"/>
+              <text x="490" y="40" text-anchor="middle" fill="#1a7f5a" font-size="12" font-family="monospace" font-weight="700">F = ?</text>
+              <!-- i label -->
+              <rect x="120" y="88" width="160" height="16" rx="3" fill="#edfaf4"/>
+              <text x="200" y="100" text-anchor="middle" fill="#1a7f5a" font-size="10" font-family="monospace">i = 1% per month</text>
+            </svg>
+          </div>
+
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">PP = annual, CP = monthly → PP &gt; CP → Use i_eff(annual)</div>
+              <div class="step-detail">\( i_{\text{eff}}^{(\text{annual})} = (1.01)^{12} - 1 = 12.68\% \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">F from $30 deposits (years 1–6) evaluated at year 8</div>
+              <div class="step-detail">\( F_1 = 30 \times (F/A;\;12.68\%,\;6) \times (F/P;\;12.68\%,\;2) \)<br>(F/A;12.68%,6) = [(1.1268)⁶−1]/0.1268 = 8.351<br>(F/P;12.68%,2) = (1.1268)² = 1.2697<br>\( F_1 = 30 \times 8.351 \times 1.2697 = \mathbf{\$318.03} \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-label">F from $50 withdrawals (years 6, 7, 8) evaluated at year 8</div>
+              <div class="step-detail">\( F_2 = 50 \times (F/A;\;12.68\%,\;3) \)<br>(F/A;12.68%,3) = [(1.1268)³−1]/0.1268 = 3.394<br>\( F_2 = 50 \times 3.394 = \mathbf{\$169.70} \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-label">Net F = F₁ − F₂ (deposits minus withdrawals)</div>
+              <div class="step-detail">\( F = 318.03 - 169.70 = \mathbf{\$148.33} \)</div>
+            </div>
+          </div>
+          <div class="res-box">F = <span class="val">≈ $148.33</span></div>
+          <div class="answer-badge">✅ F ≈ $148.33 at year 8</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AQ4 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">AQ4</span>
+        <span class="qa-question">For the cash flows shown below, determine the equivalent uniform annual worth in years 1 through 5 at an interest rate of 18% per year compounded monthly. Cash flows: Year 1 = $200,000; Year 2 = $0; Year 3 = $350,000; Year 4 = $0; Year 5 = $400,000.</span>
+      </div>
+      <div class="qa-body">
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">Year 1: $200,000 | Year 2: $0 | Year 3: $350,000 | Year 4: $0 | Year 5: $400,000<br>r_nom = 18%/year, CP = monthly &nbsp;|&nbsp; Required: equivalent A for years 1–5</div>
+
+          <!-- CF Diagram -->
+          <div class="cf-wrapper">
+            <div class="cf-title">Cash Flow Diagram — AQ4</div>
+            <svg viewBox="0 0 420 180" width="100%" style="max-width:420px;">
+              <line x1="30" y1="120" x2="390" y2="120" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="390,116 400,120 390,124" fill="#1a3a6b"/>
+              <line x1="30" y1="108" x2="30" y2="120" stroke="#1a3a6b" stroke-width="2"/>
+              <line x1="100" y1="115" x2="100" y2="125" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="165" y1="115" x2="165" y2="125" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="230" y1="115" x2="230" y2="125" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="295" y1="115" x2="295" y2="125" stroke="#1a3a6b" stroke-width="1.5"/>
+              <line x1="360" y1="115" x2="360" y2="125" stroke="#1a3a6b" stroke-width="1.5"/>
+              <text x="30"  y="140" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">0</text>
+              <text x="100" y="140" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">1</text>
+              <text x="165" y="140" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">2</text>
+              <text x="230" y="140" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">3</text>
+              <text x="295" y="140" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">4</text>
+              <text x="360" y="140" text-anchor="middle" fill="#2c4066" font-size="11" font-family="monospace">5</text>
+              <text x="410" y="124" fill="#4a6fa5" font-size="10" font-family="monospace">Yr</text>
+              <!-- 200k at year 1 -->
+              <line x1="100" y1="120" x2="100" y2="80" stroke="#0e90d2" stroke-width="2.5"/>
+              <polygon points="96,80 100,68 104,80" fill="#0e90d2"/>
+              <text x="100" y="60" text-anchor="middle" fill="#0e90d2" font-size="9.5" font-family="monospace">$200k</text>
+              <!-- 350k at year 3 -->
+              <line x1="230" y1="120" x2="230" y2="70" stroke="#0e90d2" stroke-width="2.5"/>
+              <polygon points="226,70 230,58 234,70" fill="#0e90d2"/>
+              <text x="230" y="50" text-anchor="middle" fill="#0e90d2" font-size="9.5" font-family="monospace">$350k</text>
+              <!-- 400k at year 5 -->
+              <line x1="360" y1="120" x2="360" y2="65" stroke="#e8b84b" stroke-width="3"/>
+              <polygon points="356,65 360,53 364,65" fill="#e8b84b"/>
+              <text x="360" y="45" text-anchor="middle" fill="#B45309" font-size="9.5" font-family="monospace" font-weight="700">$400k</text>
+              <!-- i label -->
+              <rect x="80" y="152" width="230" height="18" rx="4" fill="#FFFBEB"/>
+              <text x="195" y="165" text-anchor="middle" fill="#B45309" font-size="10" font-family="monospace">i = 18%/yr compounded monthly</text>
+            </svg>
+          </div>
+
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Find i_eff (annual) — PP = year, CP = month → PP &gt; CP</div>
+              <div class="step-detail">\( i_{\text{eff}}^{(\text{annual})} = \left(1 + \frac{0.18}{12}\right)^{12} - 1 = (1.015)^{12} - 1 = 0.1956 = \mathbf{19.56\%} \)</div>
+            </div>
+          </div>
+          <div class="sol-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-label">Find P at t = 0 using P/F factor with i = 19.56%</div>
+              <div class="step-detail">
+                \( P = 200{,}000(P/F;\;19.56\%,\;1) + 350{,}000(P/F;\;19.56\%,\;3) + 400{,}000(P/F;\;19.56\%,\;5) \)<br>
+                (P/F;19.56%,1) = 1/1.1956 = 0.8364<br>
+                (P/F;19.56%,3) = 1/(1.1956)³ = 1/1.7087 = 0.5852<br>
+                (P/F;19.56%,5) = 1/(1.1956)⁵ = 1/2.4292 = 0.4118<br>
+                P = 200,000(0.8364) + 350,000(0.5852) + 400,000(0.4118)<br>
+                P = 167,280 + 204,820 + 164,720
+              </div>
+            </div>
+          </div>
+          <div class="step-box">P = $536,820</div>
+          <div class="sol-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-label">Convert P to equivalent uniform A over 5 years using A/P factor</div>
+              <div class="step-detail">
+                \( (A/P;\;19.56\%,\;5) = \frac{0.1956 \times (1.1956)^5}{(1.1956)^5 - 1} = \frac{0.1956 \times 2.4292}{2.4292-1} = \frac{0.47515}{1.4292} = 0.3324 \)<br>
+                \( A = 536{,}820 \times 0.3324 \)
+              </div>
+            </div>
+          </div>
+          <div class="res-box">A = <span class="val">≈ $178,444/year</span></div>
+          <div class="answer-badge">✅ Equivalent A ≈ $178,444/year for years 1–5</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- end container -->
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  GE 205 — Engineering Economics &nbsp;|&nbsp; Chapter 4: Interest &nbsp;|&nbsp; Instructor: Islam Atta Abdullah &nbsp;|&nbsp; Cairo University
+</footer>
+
+</body>
+</html>
