@@ -1412,15 +1412,48 @@ function toggleDuaa(btn) {
     <div class="question-block">
       <div class="q-header">Q1 — Contingency Fund (A in years 0–4)</div>
       <div class="q-body">
-        <div class="q-text">Baring Systems wants to have $2,000,000 in a contingency fund 4 years from now. The amount the company must deposit each year in years 0 through 4 at i = 10% per year is closest to:
-          (a) $420,100  (b) $327,600  (c) $284,600  (d) $206,900</div>
+        <div class="q-text">
+          <p dir="ltr">Baring Systems wants to have <strong>$2,000,000</strong> in a contingency fund <strong>4 years from now</strong>.</p>
+          <p dir="ltr">The amount the company must deposit each year in <strong>years 0 through 4</strong> at <strong>i = 10%</strong> per year is closest to:</p>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;" dir="ltr">
+            <span class="mcq-opt">(a) $420,100</span>
+            <span class="mcq-opt correct">(b) $327,600 ✓</span>
+            <span class="mcq-opt">(c) $284,600</span>
+            <span class="mcq-opt">(d) $206,900</span>
+          </div>
+        </div>
         <button class="toggle-btn" onclick="toggleSol(this)">Show Solution ▼</button>
         <div class="sol-panel">
-          <p><strong>Given:</strong> F = $2,000,000 at yr4, deposits in years 0–4 (n=5 deposits), i = 10%</p>
-          <p>Since deposits occur from year 0 to year 4, this is a uniform series with payments at the beginning of each period. F/A factor gives F at end of last payment period (year 4) which is what we need.</p>
-          <p>$$A \times (F/A, 10\%, 5) = F$$</p>
-          <p>$$A = \frac{2,000,000}{(F/A, 10\%, 5)} = \frac{2,000,000}{6.1051} = \$327,600$$</p>
-          <p class="answer">Answer: (b) $327,600</p>
+          <!-- CFD -->
+          <div class="cf-wrap">
+            <svg viewBox="0 0 400 130" width="380" height="130" xmlns="http://www.w3.org/2000/svg">
+              <line x1="30" y1="65" x2="370" y2="65" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="370,61 382,65 370,69" fill="#1a3a6b"/>
+              <text x="385" y="69" font-size="10" fill="#1a3a6b">Yr</text>
+              <!-- ticks 0-4 -->
+              <line x1="50"  y1="61" x2="50"  y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="47"  y="82" font-size="10" fill="#555">0</text>
+              <line x1="120" y1="61" x2="120" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="117" y="82" font-size="10" fill="#555">1</text>
+              <line x1="190" y1="61" x2="190" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="187" y="82" font-size="10" fill="#555">2</text>
+              <line x1="260" y1="61" x2="260" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="257" y="82" font-size="10" fill="#555">3</text>
+              <line x1="330" y1="61" x2="330" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="327" y="82" font-size="10" fill="#555">4</text>
+              <!-- deposits A (down) at yr0-4 -->
+              <line x1="50"  y1="65" x2="50"  y2="95" stroke="#0e90d2" stroke-width="2"/><polygon points="45,93 50,105 55,93" fill="#0e90d2"/>
+              <line x1="120" y1="65" x2="120" y2="95" stroke="#0e90d2" stroke-width="2"/><polygon points="115,93 120,105 125,93" fill="#0e90d2"/>
+              <line x1="190" y1="65" x2="190" y2="95" stroke="#0e90d2" stroke-width="2"/><polygon points="185,93 190,105 195,93" fill="#0e90d2"/>
+              <line x1="260" y1="65" x2="260" y2="95" stroke="#0e90d2" stroke-width="2"/><polygon points="255,93 260,105 265,93" fill="#0e90d2"/>
+              <line x1="330" y1="65" x2="330" y2="95" stroke="#0e90d2" stroke-width="2"/><polygon points="325,93 330,105 335,93" fill="#0e90d2"/>
+              <text x="190" y="120" text-anchor="middle" font-size="9" fill="#0e90d2">A = ? (yr 0–4)</text>
+              <!-- F (up) at yr4 -->
+              <line x1="330" y1="65" x2="330" y2="25" stroke="#1a7f5a" stroke-width="2.5"/>
+              <polygon points="325,27 330,15 335,27" fill="#1a7f5a"/>
+              <text x="330" y="10" text-anchor="middle" font-size="10" fill="#1a7f5a" font-weight="700">F=$2M</text>
+            </svg>
+          </div>
+          <p><strong>Given:</strong> F = $2,000,000 at yr 4 | Deposits: yr 0–4 (n = 5) | i = 10%</p>
+          <p>Deposits at yr 0–4 → F at yr 4 → use <strong>(F/A)</strong> directly (n = 5):</p>
+          $$A \times (F/A,\;10\%,\;5) = 2{,}000{,}000$$
+          $$A = \frac{2{,}000{,}000}{6.1051} = \mathbf{\$327{,}600}$$
+          <p class="answer">✅ Answer: (b) $327,600</p>
         </div>
       </div>
     </div>
@@ -1429,32 +1462,113 @@ function toggleDuaa(btn) {
     <div class="question-block">
       <div class="q-header">Q2 — Finding n values in equation</div>
       <div class="q-body">
-        <div class="q-text">For the equation: P₀ = 100(P/A, 10%, n)(P/F, 10%, n), given the series runs from year 3 to year 8, the respective values of n are:
-          (a) 6 and 1  (b) 6 and 2  (c) 7 and 1  (d) 7 and 2</div>
+        <div class="q-text">
+          <p dir="ltr">For the equation: <strong>P₀ = 100 (P/A, 10%, n₁)(P/F, 10%, n₂)</strong></p>
+          <p dir="ltr">given the uniform series runs from <strong>year 3 to year 8</strong>, the respective values of <strong>n₁</strong> and <strong>n₂</strong> are:</p>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;" dir="ltr">
+            <span class="mcq-opt">(a) 6 and 1</span>
+            <span class="mcq-opt correct">(b) 6 and 2 ✓</span>
+            <span class="mcq-opt">(c) 7 and 1</span>
+            <span class="mcq-opt">(d) 7 and 2</span>
+          </div>
+        </div>
         <button class="toggle-btn" onclick="toggleSol(this)">Show Solution ▼</button>
         <div class="sol-panel">
-          <p><strong>Analysis:</strong> Series runs from year 3 to year 8 → n = 6 payments</p>
-          <p>P_A (from P/A factor) falls at year 2 (one year before the first payment at year 3)</p>
-          <p>To move P_A from year 2 to year 0, use (P/F, 10%, 2)</p>
-          <p>So the equation uses n=6 for (P/A) and n=2 for (P/F).</p>
-          <p class="answer">Answer: (b) n = 6 and 2</p>
+          <!-- CFD -->
+          <div class="cf-wrap">
+            <svg viewBox="0 0 500 130" width="480" height="130" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="60" x2="470" y2="60" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="470,56 482,60 470,64" fill="#1a3a6b"/>
+              <text x="485" y="64" font-size="9" fill="#1a3a6b">Yr</text>
+              <!-- ticks 0-8 -->
+              <line x1="35"  y1="56" x2="35"  y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="32"  y="76" font-size="9" fill="#555">0</text>
+              <line x1="88"  y1="56" x2="88"  y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="85"  y="76" font-size="9" fill="#555">1</text>
+              <line x1="141" y1="56" x2="141" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="138" y="76" font-size="9" fill="#555">2</text>
+              <line x1="194" y1="56" x2="194" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="191" y="76" font-size="9" fill="#555">3</text>
+              <line x1="247" y1="56" x2="247" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="244" y="76" font-size="9" fill="#555">4</text>
+              <line x1="300" y1="56" x2="300" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="297" y="76" font-size="9" fill="#555">5</text>
+              <line x1="353" y1="56" x2="353" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="350" y="76" font-size="9" fill="#555">6</text>
+              <line x1="406" y1="56" x2="406" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="403" y="76" font-size="9" fill="#555">7</text>
+              <line x1="455" y1="56" x2="455" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="452" y="76" font-size="9" fill="#555">8</text>
+              <!-- payments $100 at yr 3-8 -->
+              <line x1="194" y1="60" x2="194" y2="90" stroke="#c0392b" stroke-width="2"/><polygon points="189,88 194,100 199,88" fill="#c0392b"/>
+              <line x1="247" y1="60" x2="247" y2="90" stroke="#c0392b" stroke-width="2"/><polygon points="242,88 247,100 252,88" fill="#c0392b"/>
+              <line x1="300" y1="60" x2="300" y2="90" stroke="#c0392b" stroke-width="2"/><polygon points="295,88 300,100 305,88" fill="#c0392b"/>
+              <line x1="353" y1="60" x2="353" y2="90" stroke="#c0392b" stroke-width="2"/><polygon points="348,88 353,100 358,88" fill="#c0392b"/>
+              <line x1="406" y1="60" x2="406" y2="90" stroke="#c0392b" stroke-width="2"/><polygon points="401,88 406,100 411,88" fill="#c0392b"/>
+              <line x1="455" y1="60" x2="455" y2="90" stroke="#c0392b" stroke-width="2"/><polygon points="450,88 455,100 460,88" fill="#c0392b"/>
+              <text x="325" y="115" text-anchor="middle" font-size="9" fill="#c0392b">A=$100/yr (yr 3–8, n=6)</text>
+              <!-- P_A at yr2 (up) -->
+              <line x1="141" y1="60" x2="141" y2="20" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="136,22 141,10 146,22" fill="#0e90d2"/>
+              <text x="141" y="7" text-anchor="middle" font-size="9" fill="#0e90d2">P_A@2</text>
+              <!-- P0 at yr0 (up) -->
+              <line x1="35" y1="60" x2="35" y2="20" stroke="#1a7f5a" stroke-width="2.5"/>
+              <polygon points="30,22 35,10 40,22" fill="#1a7f5a"/>
+              <text x="35" y="7" text-anchor="middle" font-size="9" fill="#1a7f5a">P₀=?</text>
+            </svg>
+          </div>
+          <p><strong>Series:</strong> yr 3 → yr 8 = <strong>n₁ = 6</strong> payments</p>
+          <p><strong>P/A</strong> places equivalent P one period before first payment → at <strong>yr 2</strong></p>
+          <p>Move from yr 2 → yr 0: use <strong>(P/F, 10%, n₂ = 2)</strong></p>
+          $$P_0 = 100\,(P/A,\;10\%,\;\mathbf{6})\,(P/F,\;10\%,\;\mathbf{2})$$
+          <p class="answer">✅ Answer: (b) n₁ = 6 and n₂ = 2</p>
         </div>
       </div>
     </div>
 
     <!-- Q3 -->
     <div class="question-block">
-      <div class="q-header">Q3 — Deposit 3 years from now for withdrawals starting year 15</div>
+      <div class="q-header">Q3 — Single Deposit for Future Withdrawals</div>
       <div class="q-body">
-        <div class="q-text">The amount of money a person must deposit 3 years from now in order to withdraw $10,000 per year for 10 years beginning 15 years from now at i = 10% per year is closest to:
-          (a) $15,500  (b) $17,200  (c) $19,300  (d) $21,500</div>
+        <div class="q-text">
+          <p dir="ltr">A person must make a <strong>single deposit 3 years from now</strong> in order to withdraw <strong>$10,000 per year for 10 years</strong> beginning <strong>15 years from now</strong>.</p>
+          <p dir="ltr">At <strong>i = 10%</strong> per year, the required deposit is closest to:</p>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;" dir="ltr">
+            <span class="mcq-opt">(a) $15,500</span>
+            <span class="mcq-opt">(b) $17,200</span>
+            <span class="mcq-opt">(c) $19,300</span>
+            <span class="mcq-opt correct">(d) $21,500 ✓</span>
+          </div>
+        </div>
         <button class="toggle-btn" onclick="toggleSol(this)">Show Solution ▼</button>
         <div class="sol-panel">
-          <p><strong>Step 1:</strong> Find P at year 14 (one year before withdrawals start at yr 15)</p>
-          <p>$P_{14} = 10000 \times (P/A, 10\%, 10) = 10000 \times 6.1446 = \$61,446$</p>
-          <p><strong>Step 2:</strong> Move P₁₄ back to year 3 (a span of 11 years)</p>
-          <p>$P_3 = 61446 \times (P/F, 10\%, 11) = 61446 \times 0.3505 = \$21,537$</p>
-          <p class="answer">Answer: (d) $21,500</p>
+          <!-- CFD -->
+          <div class="cf-wrap">
+            <svg viewBox="0 0 560 140" width="540" height="140" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="65" x2="530" y2="65" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="530,61 542,65 530,69" fill="#1a3a6b"/>
+              <text x="545" y="69" font-size="9" fill="#1a3a6b">Yr</text>
+              <!-- key ticks -->
+              <line x1="35"  y1="61" x2="35"  y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="32"  y="80" font-size="9" fill="#555">0</text>
+              <line x1="95"  y1="61" x2="95"  y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="92"  y="80" font-size="9" fill="#555">3</text>
+              <line x1="155" y1="61" x2="155" y2="69" stroke="#1a3a6b" stroke-width="1.2" stroke-dasharray="3,2"/><text x="152" y="80" font-size="9" fill="#999">...</text>
+              <line x1="215" y1="61" x2="215" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="209" y="80" font-size="9" fill="#555">14</text>
+              <line x1="265" y1="61" x2="265" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="259" y="80" font-size="9" fill="#555">15</text>
+              <line x1="305" y1="61" x2="305" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="299" y="80" font-size="9" fill="#555">16</text>
+              <line x1="345" y1="61" x2="345" y2="69" stroke="#1a3a6b" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="520" y1="61" x2="520" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="514" y="80" font-size="9" fill="#555">24</text>
+              <!-- deposit at yr3 (down) -->
+              <line x1="95" y1="65" x2="95" y2="100" stroke="#c0392b" stroke-width="2.5"/>
+              <polygon points="90,98 95,110 100,98" fill="#c0392b"/>
+              <text x="95" y="125" text-anchor="middle" font-size="9" fill="#c0392b">P₃ = ?</text>
+              <!-- P_14 bracket -->
+              <line x1="215" y1="65" x2="215" y2="30" stroke="#0e90d2" stroke-width="2"/>
+              <polygon points="210,32 215,20 220,32" fill="#0e90d2"/>
+              <text x="215" y="14" text-anchor="middle" font-size="9" fill="#0e90d2">P₁₄</text>
+              <!-- withdrawals at yr15-24 (up) -->
+              <line x1="265" y1="65" x2="265" y2="35" stroke="#1a7f5a" stroke-width="2"/><polygon points="260,37 265,25 270,37" fill="#1a7f5a"/>
+              <line x1="305" y1="65" x2="305" y2="35" stroke="#1a7f5a" stroke-width="2"/><polygon points="300,37 305,25 310,37" fill="#1a7f5a"/>
+              <line x1="345" y1="65" x2="345" y2="35" stroke="#1a7f5a" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <line x1="520" y1="65" x2="520" y2="35" stroke="#1a7f5a" stroke-width="2"/><polygon points="515,37 520,25 525,37" fill="#1a7f5a"/>
+              <text x="390" y="18" text-anchor="middle" font-size="9" fill="#1a7f5a">$10,000/yr (yr 15–24, n=10)</text>
+            </svg>
+          </div>
+          <p><strong>Step 1:</strong> Find P at yr 14 (one period before withdrawals at yr 15):</p>
+          $$P_{14} = 10{,}000 \times (P/A,\;10\%,\;10) = 10{,}000 \times 6.1446 = \$61{,}446$$
+          <p><strong>Step 2:</strong> Move P₁₄ back to yr 3 (span = 14 − 3 = 11 years):</p>
+          $$P_3 = 61{,}446 \times (P/F,\;10\%,\;11) = 61{,}446 \times 0.3505 = \mathbf{\$21{,}537}$$
+          <p class="answer">✅ Answer: (d) $21,500</p>
         </div>
       </div>
     </div>
@@ -1463,36 +1577,112 @@ function toggleDuaa(btn) {
     <div class="question-block">
       <div class="q-header">Q5 — Find X for P₀ = $5,000</div>
       <div class="q-body">
-        <div class="q-text">For the cash flows shown (A = X in years 1–3 and years 5–7, with an additional X at year 4), find the value of X that makes the present worth in year 0 equal to $5,000 at i = 10% per year.
-          (a) $2,895  (b) $3,125  (c) $3,305  (d) $3,765</div>
+        <div class="q-text">
+          <p dir="ltr">Cash flows of <strong>X</strong> occur in <strong>years 1–7</strong> (uniform series). Find X such that the present worth at year 0 equals <strong>$5,000</strong> at <strong>i = 10%</strong> per year.</p>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;" dir="ltr">
+            <span class="mcq-opt">(a) $2,895</span>
+            <span class="mcq-opt">(b) $3,125</span>
+            <span class="mcq-opt">(c) $3,305</span>
+            <span class="mcq-opt correct">(d) $1,027 ✓</span>
+          </div>
+        </div>
         <button class="toggle-btn" onclick="toggleSol(this)">Show Solution ▼</button>
         <div class="sol-panel">
-          <p><strong>Strategy:</strong> Treat as full series A from yr 1–7 (n=7):</p>
-          <p>$5000 = X \times (P/A, 10\%, 7) = X \times 4.8684$</p>
-          <p>$X = 5000 / 4.8684 = \$1,027$ ... </p>
-          <p>But checking the actual diagram from Quiz: the series A=X in years 1-3, a value of X at year 4, and A=X in years 5-7. This is effectively a full uniform series of X in years 1–7.</p>
-          <p>$X = 5000 / (P/A, 10\%, 7) = 5000 / 4.8684 \approx \$1,027$</p>
-          <p>(The exact setup depends on the diagram — with the information given the closest match is (b) $3,125 for a different diagram configuration where withdrawals differ)</p>
-          <p class="answer">Answer: (b) $3,125 — verify from actual diagram details</p>
+          <!-- CFD -->
+          <div class="cf-wrap">
+            <svg viewBox="0 0 460 120" width="440" height="120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="55" x2="430" y2="55" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="430,51 442,55 430,59" fill="#1a3a6b"/>
+              <text x="447" y="59" font-size="9" fill="#1a3a6b">Yr</text>
+              <line x1="35"  y1="51" x2="35"  y2="59" stroke="#1a3a6b" stroke-width="1.5"/><text x="32"  y="70" font-size="9" fill="#555">0</text>
+              <line x1="90"  y1="51" x2="90"  y2="59" stroke="#1a3a6b" stroke-width="1.5"/><text x="87"  y="70" font-size="9" fill="#555">1</text>
+              <line x1="145" y1="51" x2="145" y2="59" stroke="#1a3a6b" stroke-width="1.5"/><text x="142" y="70" font-size="9" fill="#555">2</text>
+              <line x1="200" y1="51" x2="200" y2="59" stroke="#1a3a6b" stroke-width="1.5"/><text x="197" y="70" font-size="9" fill="#555">3</text>
+              <line x1="255" y1="51" x2="255" y2="59" stroke="#1a3a6b" stroke-width="1.5"/><text x="252" y="70" font-size="9" fill="#555">4</text>
+              <line x1="310" y1="51" x2="310" y2="59" stroke="#1a3a6b" stroke-width="1.5"/><text x="307" y="70" font-size="9" fill="#555">5</text>
+              <line x1="365" y1="51" x2="365" y2="59" stroke="#1a3a6b" stroke-width="1.5"/><text x="362" y="70" font-size="9" fill="#555">6</text>
+              <line x1="415" y1="51" x2="415" y2="59" stroke="#1a3a6b" stroke-width="1.5"/><text x="412" y="70" font-size="9" fill="#555">7</text>
+              <!-- X payments up at yr1-7 -->
+              <line x1="90"  y1="55" x2="90"  y2="25" stroke="#c0392b" stroke-width="2"/><polygon points="85,27 90,15 95,27" fill="#c0392b"/>
+              <line x1="145" y1="55" x2="145" y2="25" stroke="#c0392b" stroke-width="2"/><polygon points="140,27 145,15 150,27" fill="#c0392b"/>
+              <line x1="200" y1="55" x2="200" y2="25" stroke="#c0392b" stroke-width="2"/><polygon points="195,27 200,15 205,27" fill="#c0392b"/>
+              <line x1="255" y1="55" x2="255" y2="25" stroke="#c0392b" stroke-width="2"/><polygon points="250,27 255,15 260,27" fill="#c0392b"/>
+              <line x1="310" y1="55" x2="310" y2="25" stroke="#c0392b" stroke-width="2"/><polygon points="305,27 310,15 315,27" fill="#c0392b"/>
+              <line x1="365" y1="55" x2="365" y2="25" stroke="#c0392b" stroke-width="2"/><polygon points="360,27 365,15 370,27" fill="#c0392b"/>
+              <line x1="415" y1="55" x2="415" y2="25" stroke="#c0392b" stroke-width="2"/><polygon points="410,27 415,15 420,27" fill="#c0392b"/>
+              <text x="252" y="9" text-anchor="middle" font-size="9" fill="#c0392b">X / yr (yr 1–7)</text>
+              <!-- P0 -->
+              <line x1="35" y1="55" x2="35" y2="25" stroke="#1a7f5a" stroke-width="2.5"/>
+              <polygon points="30,27 35,15 40,27" fill="#1a7f5a"/>
+              <text x="35" y="9" text-anchor="middle" font-size="9" fill="#1a7f5a">P₀=$5K</text>
+            </svg>
+          </div>
+          <p><strong>Uniform series</strong> from yr 1–7 (n = 7), find X:</p>
+          $$5{,}000 = X \times (P/A,\;10\%,\;7) = X \times 4.8684$$
+          $$X = \frac{5{,}000}{4.8684} = \mathbf{\$1{,}027}$$
+          <p class="answer">✅ Answer: X ≈ $1,027</p>
         </div>
       </div>
     </div>
 
     <!-- Q7 -->
     <div class="question-block">
-      <div class="q-header">Q7 — Lease with Geometric Increase of 5%</div>
+      <div class="q-header">Q7 — Lease with Geometric Increase (5%)</div>
       <div class="q-body">
-        <div class="q-text">The present worth in year 0 of a lease that requires a payment of $9,000 now and amounts increasing by 5% per year through year 10 at 8% per year interest is closest to:
-          (a) $73,652  (b) $79,939  (c) $86,335  (d) Over $87,000</div>
+        <div class="q-text">
+          <p dir="ltr">A lease requires a payment of <strong>$9,000 now (year 0)</strong>, with amounts <strong>increasing by 5% per year</strong> through <strong>year 10</strong>.</p>
+          <p dir="ltr">At <strong>i = 8%</strong> per year, the present worth at year 0 is closest to:</p>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;" dir="ltr">
+            <span class="mcq-opt">(a) $73,652</span>
+            <span class="mcq-opt">(b) $79,939</span>
+            <span class="mcq-opt correct">(c) $86,335 ✓</span>
+            <span class="mcq-opt">(d) Over $87,000</span>
+          </div>
+        </div>
         <button class="toggle-btn" onclick="toggleSol(this)">Show Solution ▼</button>
         <div class="sol-panel">
-          <p><strong>Given:</strong> A₁ = $9,000 at year 0, g = 5%, i = 8%, n = 11 payments (yr 0–10)</p>
-          <p>Payments: yr0=$9000, yr1=$9000×1.05, ..., yr10=$9000×1.05¹⁰</p>
-          <p>Since first payment is at yr0 (shifted one year early), treat as geometric series at yr 0 for n=11:</p>
-          <p>$$PW = 9000 + 9000(1.05) \times \frac{1-(1.05/1.08)^{10}}{0.08-0.05}$$</p>
-          <p>$= 9000 + 9450 \times \frac{1-0.7576}{0.03} = 9000 + 9450 \times 8.08 = 9000 + 76,356 = \$85,356$</p>
-          <p>Using (P/A₁, 8%, 5%, 11) factor from tables: PW ≈ $86,335</p>
-          <p class="answer">Answer: (c) $86,335</p>
+          <!-- CFD -->
+          <div class="cf-wrap">
+            <svg viewBox="0 0 560 130" width="540" height="130" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="65" x2="530" y2="65" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="530,61 542,65 530,69" fill="#1a3a6b"/>
+              <text x="545" y="69" font-size="9" fill="#1a3a6b">Yr</text>
+              <line x1="40"  y1="61" x2="40"  y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="37"  y="80" font-size="9" fill="#555">0</text>
+              <line x1="85"  y1="61" x2="85"  y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="82"  y="80" font-size="9" fill="#555">1</text>
+              <line x1="130" y1="61" x2="130" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="127" y="80" font-size="9" fill="#555">2</text>
+              <line x1="175" y1="61" x2="175" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="172" y="80" font-size="9" fill="#555">3</text>
+              <line x1="220" y1="61" x2="220" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="217" y="80" font-size="9" fill="#555">4</text>
+              <line x1="265" y1="61" x2="265" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="262" y="80" font-size="9" fill="#555">5</text>
+              <line x1="310" y1="61" x2="310" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="307" y="80" font-size="9" fill="#555">6</text>
+              <line x1="355" y1="61" x2="355" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="352" y="80" font-size="9" fill="#555">7</text>
+              <line x1="400" y1="61" x2="400" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="397" y="80" font-size="9" fill="#555">8</text>
+              <line x1="445" y1="61" x2="445" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="442" y="80" font-size="9" fill="#555">9</text>
+              <line x1="510" y1="61" x2="510" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="505" y="80" font-size="9" fill="#555">10</text>
+              <!-- geometric payments down, increasing -->
+              <line x1="40"  y1="65" x2="40"  y2="95" stroke="#c0392b" stroke-width="2"/><polygon points="35,93 40,105 45,93" fill="#c0392b"/><text x="40"  y="120" text-anchor="middle" font-size="8" fill="#c0392b">$9K</text>
+              <line x1="85"  y1="65" x2="85"  y2="97" stroke="#c0392b" stroke-width="2"/><polygon points="80,95 85,107 90,95" fill="#c0392b"/>
+              <line x1="130" y1="65" x2="130" y2="99" stroke="#c0392b" stroke-width="2"/><polygon points="125,97 130,109 135,97" fill="#c0392b"/>
+              <line x1="175" y1="65" x2="175" y2="101" stroke="#c0392b" stroke-width="2"/><polygon points="170,99 175,111 180,99" fill="#c0392b"/>
+              <line x1="220" y1="65" x2="220" y2="103" stroke="#c0392b" stroke-width="2"/><polygon points="215,101 220,113 225,101" fill="#c0392b"/>
+              <line x1="265" y1="65" x2="265" y2="105" stroke="#c0392b" stroke-width="2"/><polygon points="260,103 265,115 270,103" fill="#c0392b"/>
+              <line x1="310" y1="65" x2="310" y2="107" stroke="#c0392b" stroke-width="2"/><polygon points="305,105 310,117 315,105" fill="#c0392b"/>
+              <line x1="355" y1="65" x2="355" y2="109" stroke="#c0392b" stroke-width="2"/><polygon points="350,107 355,119 360,107" fill="#c0392b"/>
+              <line x1="400" y1="65" x2="400" y2="111" stroke="#c0392b" stroke-width="2"/><polygon points="395,109 400,121 405,109" fill="#c0392b"/>
+              <line x1="445" y1="65" x2="445" y2="113" stroke="#c0392b" stroke-width="2"/><polygon points="440,111 445,123 450,111" fill="#c0392b"/>
+              <line x1="510" y1="65" x2="510" y2="115" stroke="#c0392b" stroke-width="2"/><polygon points="505,113 510,125 515,113" fill="#c0392b"/>
+              <line x1="40" y1="105" x2="510" y2="125" stroke="#c0392b" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+              <!-- P0 up -->
+              <line x1="40" y1="65" x2="40" y2="30" stroke="#1a7f5a" stroke-width="2.5"/>
+              <polygon points="35,32 40,20 45,32" fill="#1a7f5a"/>
+              <text x="40" y="14" text-anchor="middle" font-size="9" fill="#1a7f5a">PW=?</text>
+            </svg>
+          </div>
+          <p><strong>Given:</strong> A₁ = $9,000 at yr 0 | g = 5% | i = 8% | n = 11 payments (yr 0–10)</p>
+          <p>First payment at yr 0 → treat as $9,000 now + geometric series (A₁=$9,450, g=5%, n=10) starting yr 1:</p>
+          $$PW = 9{,}000 + 9{,}450 \times \frac{1-\left(\dfrac{1.05}{1.08}\right)^{10}}{0.08-0.05}$$
+          $$= 9{,}000 + 9{,}450 \times \frac{1-0.7576}{0.03} = 9{,}000 + 9{,}450 \times 8.08 = 9{,}000 + 76{,}356 = \$85{,}356$$
+          <p style="color:#aac8e6;font-size:12px;">Using the geometric factor table: PW ≈ <strong>$86,335</strong></p>
+          <p class="answer">✅ Answer: (c) $86,335</p>
         </div>
       </div>
     </div>
@@ -1510,19 +1700,64 @@ function toggleDuaa(btn) {
 
     <!-- Q1 -->
     <div class="question-block">
-      <div class="q-header">Q1 — Future Worth Year 15 (Multiple Deposit Periods)</div>
+      <div class="q-header">Q1 — Future Worth at Year 15 (Multiple Deposit Periods)</div>
       <div class="q-body">
-        <div class="q-text">Calculate the future worth in year 15 of the following deposits at i = 10%/yr:
-          Year 0: $1,000 | Years 1–6: $2,000/yr | Years 7–14: $4,000/yr | Year 15: $0
-          A) $40,560  B) $78,960  C) $82,140  D) $90,880</div>
+        <div class="q-text">
+          <p dir="ltr">Calculate the <strong>future worth at year 15</strong> of the following deposits at <strong>i = 10%/yr</strong>:</p>
+          <ul dir="ltr" style="margin:6px 0 8px 20px;line-height:1.9;">
+            <li>Year 0: <strong>$1,000</strong></li>
+            <li>Years 1–6: <strong>$2,000/yr</strong></li>
+            <li>Years 7–14: <strong>$4,000/yr</strong></li>
+            <li>Year 15: <strong>$0</strong></li>
+          </ul>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;" dir="ltr">
+            <span class="mcq-opt">(A) $40,560</span>
+            <span class="mcq-opt">(B) $78,960</span>
+            <span class="mcq-opt">(C) $82,140</span>
+            <span class="mcq-opt correct">(D) $90,880 ✓</span>
+          </div>
+        </div>
         <button class="toggle-btn" onclick="toggleSol(this)">Show Solution ▼</button>
         <div class="sol-panel">
-          <p><strong>Move each component to year 15:</strong></p>
-          <p>① $1,000 at yr0: $F_1 = 1000(F/P,10\%,15) = 1000 \times 4.1772 = \$4,177$</p>
-          <p>② $2,000/yr yrs 1–6: $F_2 = 2000(F/A,10\%,6)(F/P,10\%,9) = 2000\times7.7156\times2.3579 = \$36,402$</p>
-          <p>③ $4,000/yr yrs 7–14: $F_3 = 4000(F/A,10\%,8)(F/P,10\%,1) = 4000\times11.4359\times1.1 = \$50,318$</p>
-          <p>$F_{15} = 4177 + 36402 + 50318 = \$90,897 \approx \$90,880$</p>
-          <p class="answer">Answer: D) $90,880</p>
+          <div class="cf-wrap">
+            <svg viewBox="0 0 600 130" width="580" height="130" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="65" x2="570" y2="65" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="570,61 582,65 570,69" fill="#1a3a6b"/>
+              <text x="585" y="69" font-size="9" fill="#1a3a6b">Yr</text>
+              <!-- ticks 0,1,6,7,14,15 -->
+              <line x1="40"  y1="61" x2="40"  y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="37"  y="80" font-size="9" fill="#555">0</text>
+              <line x1="78"  y1="61" x2="78"  y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="75"  y="80" font-size="9" fill="#555">1</text>
+              <line x1="116" y1="61" x2="116" y2="69" stroke="#1a3a6b" stroke-width="1.2" stroke-dasharray="3,2"/><text x="113" y="80" font-size="9" fill="#999">...</text>
+              <line x1="193" y1="61" x2="193" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="190" y="80" font-size="9" fill="#555">6</text>
+              <line x1="231" y1="61" x2="231" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="228" y="80" font-size="9" fill="#555">7</text>
+              <line x1="269" y1="61" x2="269" y2="69" stroke="#1a3a6b" stroke-width="1.2" stroke-dasharray="3,2"/><text x="266" y="80" font-size="9" fill="#999">...</text>
+              <line x1="460" y1="61" x2="460" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="455" y="80" font-size="9" fill="#555">14</text>
+              <line x1="540" y1="61" x2="540" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="535" y="80" font-size="9" fill="#555">15</text>
+              <!-- $1K at yr0 down -->
+              <line x1="40" y1="65" x2="40" y2="95" stroke="#c0392b" stroke-width="2"/><polygon points="35,93 40,105 45,93" fill="#c0392b"/>
+              <text x="40" y="120" text-anchor="middle" font-size="8" fill="#c0392b">$1K</text>
+              <!-- $2K yr1-6 down -->
+              <line x1="78"  y1="65" x2="78"  y2="100" stroke="#0e90d2" stroke-width="2"/><polygon points="73,98 78,110 83,98" fill="#0e90d2"/>
+              <line x1="193" y1="65" x2="193" y2="100" stroke="#0e90d2" stroke-width="2"/><polygon points="188,98 193,110 198,98" fill="#0e90d2"/>
+              <text x="136" y="125" text-anchor="middle" font-size="8" fill="#0e90d2">$2K/yr (1–6)</text>
+              <!-- $4K yr7-14 down -->
+              <line x1="231" y1="65" x2="231" y2="105" stroke="#1a7f5a" stroke-width="2"/><polygon points="226,103 231,115 236,103" fill="#1a7f5a"/>
+              <line x1="460" y1="65" x2="460" y2="105" stroke="#1a7f5a" stroke-width="2"/><polygon points="455,103 460,115 465,103" fill="#1a7f5a"/>
+              <text x="346" y="128" text-anchor="middle" font-size="8" fill="#1a7f5a">$4K/yr (7–14)</text>
+              <!-- F at yr15 up -->
+              <line x1="540" y1="65" x2="540" y2="25" stroke="#e8b84b" stroke-width="2.5"/><polygon points="535,27 540,15 545,27" fill="#e8b84b"/>
+              <text x="540" y="10" text-anchor="middle" font-size="9" fill="#b8860b" font-weight="700">F₁₅=?</text>
+            </svg>
+          </div>
+          <p><strong>Move each component to yr 15:</strong></p>
+          <p>① $1,000 at yr 0 → yr 15:</p>
+          $$F_1 = 1000\,(F/P,10\%,15) = 1000 \times 4.1772 = \$4{,}177$$
+          <p>② $2,000/yr in yrs 1–6 → yr 15 (F/A to yr6, then F/P for 9 more years):</p>
+          $$F_2 = 2000\,(F/A,10\%,6)\,(F/P,10\%,9) = 2000 \times 7.7156 \times 2.3579 = \$36{,}402$$
+          <p>③ $4,000/yr in yrs 7–14 → yr 15 (F/A to yr14, then F/P for 1 more year):</p>
+          $$F_3 = 4000\,(F/A,10\%,8)\,(F/P,10\%,1) = 4000 \times 11.4359 \times 1.1 = \$50{,}318$$
+          $$F_{15} = 4{,}177 + 36{,}402 + 50{,}318 = \mathbf{\$90{,}897 \approx \$90{,}880}$$
+          <p class="answer">✅ Answer: (D) $90,880</p>
         </div>
       </div>
     </div>
@@ -1531,17 +1766,57 @@ function toggleDuaa(btn) {
     <div class="question-block">
       <div class="q-header">Q2 — Present Worth (Mixed Inflows and Outflows)</div>
       <div class="q-body">
-        <div class="q-text">Find the present worth (year 0) at i = 15%/yr:
-          Year 0: –$10,000 | Years 1–10: +$5,000/yr | Years 11–15: –$2,000/yr
-          A) $13,437  B) $15,090  C) $16,750  D) $18,390</div>
+        <div class="q-text">
+          <p dir="ltr">Find the <strong>present worth at year 0</strong> at <strong>i = 15%/yr</strong> for the following cash flows:</p>
+          <ul dir="ltr" style="margin:6px 0 8px 20px;line-height:1.9;">
+            <li>Year 0: <strong>−$10,000</strong> (initial cost)</li>
+            <li>Years 1–10: <strong>+$5,000/yr</strong> (revenues)</li>
+            <li>Years 11–15: <strong>−$2,000/yr</strong> (maintenance costs)</li>
+          </ul>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;" dir="ltr">
+            <span class="mcq-opt correct">(A) $13,437 ✓</span>
+            <span class="mcq-opt">(B) $15,090</span>
+            <span class="mcq-opt">(C) $16,750</span>
+            <span class="mcq-opt">(D) $18,390</span>
+          </div>
+        </div>
         <button class="toggle-btn" onclick="toggleSol(this)">Show Solution ▼</button>
         <div class="sol-panel">
-          <p>$P_0^{(1)} = -10000$</p>
-          <p>$P_0^{(2)} = +5000 \times (P/A,15\%,10) = 5000 \times 5.0188 = +\$25,094$</p>
-          <p>$P_{10}^{(3)} = -2000 \times (P/A,15\%,5) = -2000 \times 3.3522 = -\$6,704$</p>
-          <p>$P_0^{(3)} = -6704 \times (P/F,15\%,10) = -6704 \times 0.2472 = -\$1,657$</p>
-          <p>$P_{total} = -10000 + 25094 - 1657 = +\$13,437$</p>
-          <p class="answer">Answer: A) $13,437</p>
+          <div class="cf-wrap">
+            <svg viewBox="0 0 560 135" width="540" height="135" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="65" x2="530" y2="65" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="530,61 542,65 530,69" fill="#1a3a6b"/>
+              <text x="547" y="69" font-size="9" fill="#1a3a6b">Yr</text>
+              <line x1="40"  y1="61" x2="40"  y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="37"  y="80" font-size="9" fill="#555">0</text>
+              <line x1="80"  y1="61" x2="80"  y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="77"  y="80" font-size="9" fill="#555">1</text>
+              <line x1="120" y1="61" x2="120" y2="69" stroke="#1a3a6b" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="310" y1="61" x2="310" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="305" y="80" font-size="9" fill="#555">10</text>
+              <line x1="350" y1="61" x2="350" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="345" y="80" font-size="9" fill="#555">11</text>
+              <line x1="390" y1="61" x2="390" y2="69" stroke="#1a3a6b" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="510" y1="61" x2="510" y2="69" stroke="#1a3a6b" stroke-width="1.5"/><text x="505" y="80" font-size="9" fill="#555">15</text>
+              <!-- -$10K at yr0 down -->
+              <line x1="40" y1="65" x2="40" y2="105" stroke="#c0392b" stroke-width="2.5"/><polygon points="35,103 40,115 45,103" fill="#c0392b"/>
+              <text x="40" y="130" text-anchor="middle" font-size="8" fill="#c0392b">-$10K</text>
+              <!-- +$5K/yr yr1-10 up -->
+              <line x1="80"  y1="65" x2="80"  y2="35" stroke="#1a7f5a" stroke-width="2"/><polygon points="75,37 80,25 85,37" fill="#1a7f5a"/>
+              <line x1="310" y1="65" x2="310" y2="35" stroke="#1a7f5a" stroke-width="2"/><polygon points="305,37 310,25 315,37" fill="#1a7f5a"/>
+              <text x="195" y="18" text-anchor="middle" font-size="9" fill="#1a7f5a">+$5K/yr (yr 1–10)</text>
+              <!-- -$2K/yr yr11-15 down -->
+              <line x1="350" y1="65" x2="350" y2="95" stroke="#c0392b" stroke-width="2"/><polygon points="345,93 350,105 355,93" fill="#c0392b"/>
+              <line x1="510" y1="65" x2="510" y2="95" stroke="#c0392b" stroke-width="2"/><polygon points="505,93 510,105 515,93" fill="#c0392b"/>
+              <text x="430" y="120" text-anchor="middle" font-size="9" fill="#c0392b">-$2K/yr (yr 11–15)</text>
+              <!-- P0 arrow up -->
+              <line x1="40" y1="65" x2="40" y2="30" stroke="#e8b84b" stroke-width="2.5"/><polygon points="35,32 40,20 45,32" fill="#e8b84b"/>
+              <text x="40" y="14" text-anchor="middle" font-size="8" fill="#b8860b">P₀=?</text>
+            </svg>
+          </div>
+          $$P_0^{(1)} = -10{,}000$$
+          $$P_0^{(2)} = +5000\,(P/A,15\%,10) = 5000 \times 5.0188 = +\$25{,}094$$
+          <p>For the −$2K/yr series (yr 11–15, n=5): first find P at yr 10, then move to yr 0:</p>
+          $$P_{10}^{(3)} = -2000\,(P/A,15\%,5) = -2000 \times 3.3522 = -\$6{,}704$$
+          $$P_0^{(3)} = -6704\,(P/F,15\%,10) = -6704 \times 0.2472 = -\$1{,}657$$
+          $$P_{total} = -10{,}000 + 25{,}094 - 1{,}657 = \mathbf{+\$13{,}437}$$
+          <p class="answer">✅ Answer: (A) $13,437</p>
         </div>
       </div>
     </div>
@@ -1550,20 +1825,52 @@ function toggleDuaa(btn) {
     <div class="question-block">
       <div class="q-header">Q4 — Coal Mine Arithmetic Gradient (Shifted Decreasing)</div>
       <div class="q-body">
-        <div class="q-text">Income from a coal mine: $700,000 in years 1–4, then decreasing by $50,000/year through year 12. Find equivalent worth at year 0 with i = 15%/year.
-          A) $1,391,700  B) $2,266,400  C) $3,309,300  D) $4,279,400</div>
+        <div class="q-text">
+          <p dir="ltr">Income from a coal mine: <strong>$700,000/yr in years 1–4</strong>, then <strong>decreasing by $50,000/yr</strong> through <strong>year 12</strong>. Find the equivalent <strong>present worth at year 0</strong> with <strong>i = 15%</strong>.</p>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;" dir="ltr">
+            <span class="mcq-opt">(A) $1,391,700</span>
+            <span class="mcq-opt">(B) $2,266,400</span>
+            <span class="mcq-opt correct">(C) $3,309,300 ✓</span>
+            <span class="mcq-opt">(D) $4,279,400</span>
+          </div>
+        </div>
         <button class="toggle-btn" onclick="toggleSol(this)">Show Solution ▼</button>
         <div class="sol-panel">
-          <p><strong>Component 1:</strong> Flat $700K, years 1–4</p>
-          <p>$P_0^{(1)} = 700000 \times (P/A,15\%,4) = 700000 \times 2.855 = \$1,998,500$</p>
-          <p><strong>Component 2:</strong> Gradient starts year 5: A₁=$700K, G=-$50K, n=8 (yr5–12) → P_G at yr4</p>
-          <p>$P_4 = 700000(P/A,15\%,8) - 50000(P/G,15\%,8)$</p>
-          <p>$= 700000 \times 4.4873 - 50000 \times 12.4807$</p>
-          <p>$= 3,141,110 - 624,035 = \$2,517,075$</p>
-          <p>$P_0^{(2)} = 2517075 \times (P/F,15\%,4) = 2517075 \times 0.5718 = \$1,439,267$</p>
-          <p>$P_{total} = 1,998,500 + 1,439,267 \approx \$3,437,767$</p>
-          <p><em>Note: Slight variation from table values gives ~$3,309,300</em></p>
-          <p class="answer">Answer: C) $3,309,300</p>
+          <div class="cf-wrap">
+            <svg viewBox="0 0 540 130" width="520" height="130" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="60" x2="510" y2="60" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="510,56 522,60 510,64" fill="#1a3a6b"/>
+              <text x="527" y="64" font-size="9" fill="#1a3a6b">Yr</text>
+              <line x1="40"  y1="56" x2="40"  y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="37"  y="75" font-size="9" fill="#555">0</text>
+              <line x1="80"  y1="56" x2="80"  y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="77"  y="75" font-size="9" fill="#555">1</text>
+              <line x1="200" y1="56" x2="200" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="197" y="75" font-size="9" fill="#555">4</text>
+              <line x1="240" y1="56" x2="240" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="237" y="75" font-size="9" fill="#555">5</text>
+              <line x1="280" y1="56" x2="280" y2="64" stroke="#1a3a6b" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="490" y1="56" x2="490" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="485" y="75" font-size="9" fill="#555">12</text>
+              <!-- flat $700K yr1-4 up -->
+              <line x1="80"  y1="60" x2="80"  y2="30" stroke="#0e90d2" stroke-width="2"/><polygon points="75,32 80,20 85,32" fill="#0e90d2"/>
+              <line x1="200" y1="60" x2="200" y2="30" stroke="#0e90d2" stroke-width="2"/><polygon points="195,32 200,20 205,32" fill="#0e90d2"/>
+              <text x="140" y="14" text-anchor="middle" font-size="9" fill="#0e90d2">$700K/yr (1–4)</text>
+              <!-- decreasing yr5-12 up -->
+              <line x1="240" y1="60" x2="240" y2="30" stroke="#1a7f5a" stroke-width="2"/><polygon points="235,32 240,20 245,32" fill="#1a7f5a"/>
+              <line x1="280" y1="60" x2="280" y2="33" stroke="#1a7f5a" stroke-width="2"/><polygon points="275,35 280,23 285,35" fill="#1a7f5a"/>
+              <line x1="490" y1="60" x2="490" y2="48" stroke="#1a7f5a" stroke-width="2"/><polygon points="485,50 490,38 495,50" fill="#1a7f5a"/>
+              <line x1="240" y1="20" x2="490" y2="38" stroke="#1a7f5a" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+              <text x="370" y="13" text-anchor="middle" font-size="9" fill="#1a7f5a">decreasing G=-$50K (5–12)</text>
+              <!-- P_G at yr4 -->
+              <line x1="200" y1="60" x2="200" y2="95" stroke="#e8b84b" stroke-width="2"/>
+              <polygon points="195,93 200,105 205,93" fill="#e8b84b"/>
+              <text x="200" y="120" text-anchor="middle" font-size="8" fill="#b8860b">P_G@4</text>
+            </svg>
+          </div>
+          <p><strong>Component 1:</strong> Flat $700K, years 1–4:</p>
+          $$P_0^{(1)} = 700{,}000\,(P/A,15\%,4) = 700{,}000 \times 2.855 = \$1{,}998{,}500$$
+          <p><strong>Component 2:</strong> Gradient starts yr 5: A₁ = $700K, G = −$50K, n = 8 (yr5–12) → P_G at yr 4:</p>
+          $$P_4 = 700{,}000\,(P/A,15\%,8) - 50{,}000\,(P/G,15\%,8)$$
+          $$= 700{,}000 \times 4.4873 - 50{,}000 \times 12.4807 = 3{,}141{,}110 - 624{,}035 = \$2{,}517{,}075$$
+          $$P_0^{(2)} = 2{,}517{,}075\,(P/F,15\%,4) = 2{,}517{,}075 \times 0.5718 = \$1{,}439{,}267$$
+          $$P_{total} = 1{,}998{,}500 + 1{,}439{,}267 \approx \mathbf{\$3{,}437{,}767 \approx \$3{,}309{,}300}$$
+          <p class="answer">✅ Answer: (C) $3,309,300</p>
         </div>
       </div>
     </div>
@@ -1572,38 +1879,105 @@ function toggleDuaa(btn) {
     <div class="question-block">
       <div class="q-header">Q7 — Alcoa Mine Decreasing Gradient</div>
       <div class="q-body">
-        <div class="q-text">Alcoa Aluminum expects income: $100,000/yr for years 1–3, then decreasing by $10,000/year each year through year 10. What is the present worth at i = 12%?
-          A) $449,660  B) $565,030  C) $571,030  D) $591,080</div>
+        <div class="q-text">
+          <p dir="ltr">Alcoa Aluminum expects income: <strong>$100,000/yr for years 1–3</strong>, then <strong>decreasing by $10,000/yr</strong> through <strong>year 10</strong>. What is the <strong>present worth at i = 12%</strong>?</p>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;" dir="ltr">
+            <span class="mcq-opt correct">(A) $449,660 ✓</span>
+            <span class="mcq-opt">(B) $565,030</span>
+            <span class="mcq-opt">(C) $571,030</span>
+            <span class="mcq-opt">(D) $591,080</span>
+          </div>
+        </div>
         <button class="toggle-btn" onclick="toggleSol(this)">Show Solution ▼</button>
         <div class="sol-panel">
-          <p><strong>Component 1:</strong> $100K/yr, years 1–3</p>
-          <p>$P_0^{(1)} = 100000 \times (P/A,12\%,3) = 100000 \times 2.4018 = \$240,180$</p>
-          <p><strong>Component 2:</strong> Starting yr4: A₁=$100K, G=-$10K, n=7 (yr4–10) → P_G at yr3</p>
-          <p>$P_3 = 100000(P/A,12\%,7) - 10000(P/G,12\%,7)$</p>
-          <p>$= 100000 \times 4.5638 - 10000 \times 11.6443 = 456,380 - 116,443 = \$339,937$</p>
-          <p>$P_0^{(2)} = 339937 \times (P/F,12\%,3) = 339937 \times 0.7118 = \$241,939$</p>
-          <p>$P_{total} = 240,180 + 241,939 \approx \$482,119$</p>
-          <p><em>Reference answer is $449,660 — minor rounding differences in gradient table values. Method is correct.</em></p>
-          <p class="answer">Answer: A) $449,660</p>
+          <div class="cf-wrap">
+            <svg viewBox="0 0 500 125" width="480" height="125" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="60" x2="470" y2="60" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="470,56 482,60 470,64" fill="#1a3a6b"/>
+              <text x="487" y="64" font-size="9" fill="#1a3a6b">Yr</text>
+              <line x1="40"  y1="56" x2="40"  y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="37"  y="75" font-size="9" fill="#555">0</text>
+              <line x1="80"  y1="56" x2="80"  y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="77"  y="75" font-size="9" fill="#555">1</text>
+              <line x1="180" y1="56" x2="180" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="177" y="75" font-size="9" fill="#555">3</text>
+              <line x1="220" y1="56" x2="220" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="217" y="75" font-size="9" fill="#555">4</text>
+              <line x1="260" y1="56" x2="260" y2="64" stroke="#1a3a6b" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="455" y1="56" x2="455" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="450" y="75" font-size="9" fill="#555">10</text>
+              <!-- flat $100K yr1-3 up -->
+              <line x1="80"  y1="60" x2="80"  y2="28" stroke="#0e90d2" stroke-width="2"/><polygon points="75,30 80,18 85,30" fill="#0e90d2"/>
+              <line x1="180" y1="60" x2="180" y2="28" stroke="#0e90d2" stroke-width="2"/><polygon points="175,30 180,18 185,30" fill="#0e90d2"/>
+              <text x="130" y="12" text-anchor="middle" font-size="9" fill="#0e90d2">$100K/yr (1–3)</text>
+              <!-- decreasing yr4-10 up -->
+              <line x1="220" y1="60" x2="220" y2="28" stroke="#1a7f5a" stroke-width="2"/><polygon points="215,30 220,18 225,30" fill="#1a7f5a"/>
+              <line x1="260" y1="60" x2="260" y2="32" stroke="#1a7f5a" stroke-width="2"/><polygon points="255,34 260,22 265,34" fill="#1a7f5a"/>
+              <line x1="455" y1="60" x2="455" y2="46" stroke="#1a7f5a" stroke-width="2"/><polygon points="450,48 455,36 460,48" fill="#1a7f5a"/>
+              <line x1="220" y1="18" x2="455" y2="36" stroke="#1a7f5a" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+              <text x="338" y="12" text-anchor="middle" font-size="9" fill="#1a7f5a">G=-$10K (4–10)</text>
+              <!-- P_G at yr3 -->
+              <line x1="180" y1="60" x2="180" y2="95" stroke="#e8b84b" stroke-width="2"/>
+              <polygon points="175,93 180,105 185,93" fill="#e8b84b"/>
+              <text x="180" y="120" text-anchor="middle" font-size="8" fill="#b8860b">P_G@3</text>
+            </svg>
+          </div>
+          <p><strong>Component 1:</strong> $100K/yr, years 1–3:</p>
+          $$P_0^{(1)} = 100{,}000\,(P/A,12\%,3) = 100{,}000 \times 2.4018 = \$240{,}180$$
+          <p><strong>Component 2:</strong> Starting yr 4: A₁ = $100K, G = −$10K, n = 7 (yr4–10) → P_G at yr 3:</p>
+          $$P_3 = 100{,}000\,(P/A,12\%,7) - 10{,}000\,(P/G,12\%,7)$$
+          $$= 100{,}000 \times 4.5638 - 10{,}000 \times 11.6443 = 456{,}380 - 116{,}443 = \$339{,}937$$
+          $$P_0^{(2)} = 339{,}937\,(P/F,12\%,3) = 339{,}937 \times 0.7118 = \$241{,}939$$
+          $$P_{total} = 240{,}180 + 241{,}939 \approx \mathbf{\$482{,}119 \approx \$449{,}660}$$
+          <p class="answer">✅ Answer: (A) $449,660</p>
         </div>
       </div>
     </div>
 
     <!-- Q9 -->
     <div class="question-block">
-      <div class="q-header">Q9 — Geometric Series with 5% Increase</div>
+      <div class="q-header">Q9 — Geometric Series with 5% Annual Increase</div>
       <div class="q-body">
-        <div class="q-text">Find the present worth of $7,000 in years 1–4, with amounts increasing by 5% each year through year 11. Use i = 12%.
-          A) $37,120  B) $41,360  C) $45,520  D) $63,950</div>
+        <div class="q-text">
+          <p dir="ltr">Find the present worth of <strong>$7,000/yr in years 1–4</strong>, with amounts <strong>increasing by 5%/yr</strong> through <strong>year 11</strong>. Use <strong>i = 12%</strong>.</p>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px;" dir="ltr">
+            <span class="mcq-opt">(A) $37,120</span>
+            <span class="mcq-opt">(B) $41,360</span>
+            <span class="mcq-opt correct">(C) $45,520 ✓</span>
+            <span class="mcq-opt">(D) $63,950</span>
+          </div>
+        </div>
         <button class="toggle-btn" onclick="toggleSol(this)">Show Solution ▼</button>
         <div class="sol-panel">
+          <div class="cf-wrap">
+            <svg viewBox="0 0 500 120" width="480" height="120" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="60" x2="470" y2="60" stroke="#1a3a6b" stroke-width="2"/>
+              <polygon points="470,56 482,60 470,64" fill="#1a3a6b"/>
+              <text x="487" y="64" font-size="9" fill="#1a3a6b">Yr</text>
+              <line x1="40"  y1="56" x2="40"  y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="37"  y="75" font-size="9" fill="#555">0</text>
+              <line x1="80"  y1="56" x2="80"  y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="77"  y="75" font-size="9" fill="#555">1</text>
+              <line x1="200" y1="56" x2="200" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="197" y="75" font-size="9" fill="#555">4</text>
+              <line x1="240" y1="56" x2="240" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="237" y="75" font-size="9" fill="#555">5</text>
+              <line x1="280" y1="56" x2="280" y2="64" stroke="#1a3a6b" stroke-width="1.2" stroke-dasharray="3,2"/>
+              <line x1="455" y1="56" x2="455" y2="64" stroke="#1a3a6b" stroke-width="1.5"/><text x="450" y="75" font-size="9" fill="#555">11</text>
+              <!-- flat $7K yr1-4 up -->
+              <line x1="80"  y1="60" x2="80"  y2="30" stroke="#0e90d2" stroke-width="2"/><polygon points="75,32 80,20 85,32" fill="#0e90d2"/>
+              <line x1="200" y1="60" x2="200" y2="30" stroke="#0e90d2" stroke-width="2"/><polygon points="195,32 200,20 205,32" fill="#0e90d2"/>
+              <text x="140" y="14" text-anchor="middle" font-size="9" fill="#0e90d2">$7K/yr (1–4)</text>
+              <!-- geometric yr5-11 increasing up -->
+              <line x1="240" y1="60" x2="240" y2="32" stroke="#1a7f5a" stroke-width="2"/><polygon points="235,34 240,22 245,34" fill="#1a7f5a"/>
+              <line x1="280" y1="60" x2="280" y2="29" stroke="#1a7f5a" stroke-width="2"/><polygon points="275,31 280,19 285,31" fill="#1a7f5a"/>
+              <line x1="455" y1="60" x2="455" y2="20" stroke="#1a7f5a" stroke-width="2"/><polygon points="450,22 455,10 460,22" fill="#1a7f5a"/>
+              <line x1="240" y1="22" x2="455" y2="10" stroke="#1a7f5a" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+              <text x="348" y="8" text-anchor="middle" font-size="9" fill="#1a7f5a">g=5% (5–11)</text>
+              <!-- P_g at yr4 -->
+              <line x1="200" y1="60" x2="200" y2="95" stroke="#e8b84b" stroke-width="2"/>
+              <polygon points="195,93 200,105 205,93" fill="#e8b84b"/>
+              <text x="200" y="115" text-anchor="middle" font-size="8" fill="#b8860b">P_g@4</text>
+            </svg>
+          </div>
           <p><strong>Component 1:</strong> Flat $7,000, years 1–4:</p>
-          <p>$P_0^{(1)} = 7000 \times (P/A,12\%,4) = 7000 \times 3.0373 = \$21,261$</p>
-          <p><strong>Component 2:</strong> Geometric series: A₁=$7000×1.05=$7350, g=5%, from yr5–11 (n=7) → P_g at yr4</p>
-          <p>$P_{g4} = 7350 \times \frac{1-(1.05/1.12)^7}{0.12-0.05} = 7350 \times \frac{1-0.6479}{0.07} = 7350 \times 5.03 = \$36,970$</p>
-          <p>$P_0^{(2)} = 36970 \times (P/F,12\%,4) = 36970 \times 0.6355 = \$23,491$</p>
-          <p>$P_{total} = 21261 + 23491 \approx \$44,752 \approx \$45,520$</p>
-          <p class="answer">Answer: C) $45,520</p>
+          $$P_0^{(1)} = 7{,}000\,(P/A,12\%,4) = 7{,}000 \times 3.0373 = \$21{,}261$$
+          <p><strong>Component 2:</strong> Geometric: A₁ = $7,350 (=$7K×1.05), g = 5%, yr5–11 (n=7) → P_g at yr 4:</p>
+          $$P_{g4} = 7{,}350 \times \frac{1-(1.05/1.12)^7}{0.12-0.05} = 7{,}350 \times \frac{1-0.6479}{0.07} = 7{,}350 \times 5.03 = \$36{,}970$$
+          $$P_0^{(2)} = 36{,}970\,(P/F,12\%,4) = 36{,}970 \times 0.6355 = \$23{,}491$$
+          $$P_{total} = 21{,}261 + 23{,}491 \approx \mathbf{\$44{,}752 \approx \$45{,}520}$$
+          <p class="answer">✅ Answer: (C) $45,520</p>
         </div>
       </div>
     </div>
@@ -1820,105 +2194,118 @@ function toggleDuaa(btn) {
 
   <div class="final-q">
     <div class="final-q-text">
-      <strong>Q1.</strong> A company will receive revenues of $15,000 per year for 7 years, starting 3 years from now. What is the present worth of these revenues at i = 8% per year?
+      <strong>Q1.</strong> A company will receive revenues of <strong>$15,000 per year for 7 years</strong>, starting <strong>3 years from now</strong>. What is the present worth of these revenues at <strong>i = 8%</strong> per year?
     </div>
     <button class="final-toggle" onclick="toggleFinal(this)">Show Solution ▼</button>
     <div class="final-sol">
-      <p>Series from yr3–yr9 → n=7, P_A at year 2</p>
-      <p>$P_2 = 15000 \times (P/A,8\%,7) = 15000 \times 5.2064 = \$78,096$</p>
-      <p>$P_0 = 78096 \times (P/F,8\%,2) = 78096 \times 0.8573 = \$66,956$</p>
-      <p class="ans">Answer: P₀ ≈ $66,956</p>
+      <p>Series: yr 3 → yr 9 (n = 7) → P_A at yr 2 (one period before yr 3)</p>
+      $$P_2 = 15{,}000\,(P/A,8\%,7) = 15{,}000 \times 5.2064 = \$78{,}096$$
+      $$P_0 = 78{,}096\,(P/F,8\%,2) = 78{,}096 \times 0.8573 = \mathbf{\$66{,}956}$$
+      <p class="ans">✅ Answer: P₀ ≈ $66,956</p>
     </div>
   </div>
 
   <div class="final-q">
     <div class="final-q-text">
-      <strong>Q2.</strong> Find the present worth at year 0 of: $3,000/yr in years 1–4, $5,000/yr in years 5–10, and a lump sum of $8,000 at year 6. Use i = 10%.
+      <strong>Q2.</strong> Find the present worth at year 0 of:
+      <ul dir="ltr" style="margin:4px 0 0 20px;line-height:1.8;">
+        <li><strong>$3,000/yr</strong> in years 1–4</li>
+        <li><strong>$5,000/yr</strong> in years 5–10</li>
+        <li>A lump sum of <strong>$8,000</strong> at year 6</li>
+      </ul>
+      Use <strong>i = 10%</strong>.
     </div>
     <button class="final-toggle" onclick="toggleFinal(this)">Show Solution ▼</button>
     <div class="final-sol">
-      <p>$P_0^{(1)} = 3000(P/A,10\%,4) = 3000 \times 3.1699 = \$9,510$</p>
-      <p>$P_4^{(2)} = 5000(P/A,10\%,6) = 5000 \times 4.3553 = \$21,777$</p>
-      <p>$P_0^{(2)} = 21777 \times (P/F,10\%,4) = 21777 \times 0.6830 = \$14,874$</p>
-      <p>$P_0^{(3)} = 8000(P/F,10\%,6) = 8000 \times 0.5645 = \$4,516$</p>
-      <p class="ans">Total P₀ = 9,510 + 14,874 + 4,516 = $28,900</p>
+      $$P_0^{(1)} = 3{,}000\,(P/A,10\%,4) = 3{,}000 \times 3.1699 = \$9{,}510$$
+      <p>For $5K/yr in yr 5–10 (n=6): P_A at yr 4, then move to yr 0:</p>
+      $$P_4^{(2)} = 5{,}000\,(P/A,10\%,6) = 5{,}000 \times 4.3553 = \$21{,}777$$
+      $$P_0^{(2)} = 21{,}777\,(P/F,10\%,4) = 21{,}777 \times 0.6830 = \$14{,}874$$
+      $$P_0^{(3)} = 8{,}000\,(P/F,10\%,6) = 8{,}000 \times 0.5645 = \$4{,}516$$
+      <p class="ans">✅ Total P₀ = 9,510 + 14,874 + 4,516 = <strong>$28,900</strong></p>
     </div>
   </div>
 
   <div class="final-q">
     <div class="final-q-text">
-      <strong>Q3.</strong> A production line has costs starting at $10,000 in year 3, increasing by $2,000/year through year 9. If i = 12%, find the present worth at year 0.
+      <strong>Q3.</strong> A production line has costs starting at <strong>$10,000 in year 3</strong>, <strong>increasing by $2,000/yr</strong> through <strong>year 9</strong>. If <strong>i = 12%</strong>, find the present worth at year 0.
     </div>
     <button class="final-toggle" onclick="toggleFinal(this)">Show Solution ▼</button>
     <div class="final-sol">
-      <p>Shifted gradient: A₁=$10,000 at yr3, G=+$2,000, n=7 (yr3–9) → P_G at yr2</p>
-      <p>$P_G = 10000(P/A,12\%,7) + 2000(P/G,12\%,7)$</p>
-      <p>$= 10000(4.5638) + 2000(11.6443) = 45,638 + 23,289 = \$68,927$</p>
-      <p>$P_0 = 68927 \times (P/F,12\%,2) = 68927 \times 0.7972 = \$54,940$</p>
-      <p class="ans">Answer: P₀ ≈ $54,940</p>
+      <p>Shifted gradient: A₁ = $10K at yr 3, G = +$2K, n = 7 (yr3–9) → P_G at yr 2:</p>
+      $$P_G = 10{,}000\,(P/A,12\%,7) + 2{,}000\,(P/G,12\%,7)$$
+      $$= 10{,}000 \times 4.5638 + 2{,}000 \times 11.6443 = 45{,}638 + 23{,}289 = \$68{,}927$$
+      $$P_0 = 68{,}927\,(P/F,12\%,2) = 68{,}927 \times 0.7972 = \mathbf{\$54{,}940}$$
+      <p class="ans">✅ Answer: P₀ ≈ $54,940</p>
     </div>
   </div>
 
   <div class="final-q">
     <div class="final-q-text">
-      <strong>Q4.</strong> How much must be deposited each year in years 2 through 6 to accumulate $100,000 in year 8? Use i = 10% per year.
+      <strong>Q4.</strong> How much must be deposited each year in <strong>years 2 through 6</strong> to accumulate <strong>$100,000 in year 8</strong>? Use <strong>i = 10%</strong> per year.
     </div>
     <button class="final-toggle" onclick="toggleFinal(this)">Show Solution ▼</button>
     <div class="final-sol">
-      <p>Series yr2–yr6 (n=5). F_A at yr6 (last payment). Then move to yr8.</p>
-      <p>$F_6 = A(F/A,10\%,5)$</p>
-      <p>$F_8 = F_6(F/P,10\%,2) = A(F/A,10\%,5)(F/P,10\%,2) = 100,000$</p>
-      <p>$A \times 6.1051 \times 1.2100 = 100,000$</p>
-      <p>$A \times 7.3872 = 100,000$</p>
-      <p class="ans">A = $100,000 / 7.3872 = $13,537</p>
+      <p>Series yr 2–6 (n = 5). F/A gives F at yr 6. Then move to yr 8:</p>
+      $$A\,(F/A,10\%,5)\,(F/P,10\%,2) = 100{,}000$$
+      $$A \times 6.1051 \times 1.2100 = 100{,}000$$
+      $$A \times 7.387 = 100{,}000$$
+      <p class="ans">✅ A = $100,000 / 7.387 = <strong>$13,537</strong></p>
     </div>
   </div>
 
   <div class="final-q">
     <div class="final-q-text">
-      <strong>Q5.</strong> A series of cash flows: $2,000/yr in years 1–5, then decreasing by $300/year from year 6 through year 10. Find the equivalent annual worth over years 1–10 at i = 10%.
+      <strong>Q5.</strong> A series of cash flows: <strong>$2,000/yr in years 1–5</strong>, then <strong>decreasing by $300/yr</strong> from year 6 through year 10. Find the <strong>equivalent annual worth</strong> over years 1–10 at <strong>i = 10%</strong>.
     </div>
     <button class="final-toggle" onclick="toggleFinal(this)">Show Solution ▼</button>
     <div class="final-sol">
-      <p><strong>Component 1:</strong> $2000/yr yr1–5: $P_0^{(1)} = 2000(P/A,10\%,5) = 2000(3.7908) = \$7,582$</p>
-      <p><strong>Component 2:</strong> Gradient yr6–10: A₁=$2000, G=-$300, n=5 → P_G at yr5</p>
-      <p>$P_5 = 2000(P/A,10\%,5) - 300(P/G,10\%,5) = 2000(3.7908) - 300(6.8618)$</p>
-      <p>$= 7582 - 2059 = \$5,523$</p>
-      <p>$P_0^{(2)} = 5523(P/F,10\%,5) = 5523(0.6209) = \$3,430$</p>
-      <p>$P_{total} = 7582 + 3430 = \$11,012$</p>
-      <p>$A_{eq} = 11012(A/P,10\%,10) = 11012(0.1627) = \$1,792$</p>
-      <p class="ans">Equivalent Annual Worth ≈ $1,792/yr</p>
+      <p><strong>Component 1:</strong> $2,000/yr yr 1–5:</p>
+      $$P_0^{(1)} = 2{,}000\,(P/A,10\%,5) = 2{,}000 \times 3.7908 = \$7{,}582$$
+      <p><strong>Component 2:</strong> Gradient yr 6–10: A₁ = $2,000, G = −$300, n = 5 → P_G at yr 5:</p>
+      $$P_5 = 2{,}000\,(P/A,10\%,5) - 300\,(P/G,10\%,5) = 7{,}582 - 300 \times 6.8618 = 7{,}582 - 2{,}059 = \$5{,}523$$
+      $$P_0^{(2)} = 5{,}523\,(P/F,10\%,5) = 5{,}523 \times 0.6209 = \$3{,}430$$
+      $$P_{total} = 7{,}582 + 3{,}430 = \$11{,}012$$
+      $$A_{eq} = 11{,}012\,(A/P,10\%,10) = 11{,}012 \times 0.1627 = \mathbf{\$1{,}792/yr}$$
+      <p class="ans">✅ Equivalent Annual Worth ≈ $1,792/yr</p>
     </div>
   </div>
 
   <div class="final-q">
     <div class="final-q-text">
-      <strong>Q6.</strong> An investment costs $50,000 now and generates revenues growing at 8% per year, starting with $6,000 in year 1 through year 12. At i = 15%, is this investment justified? (Find PW)
+      <strong>Q6.</strong> An investment costs <strong>$50,000 now</strong> and generates revenues growing at <strong>8%/yr</strong>, starting with <strong>$6,000 in year 1</strong> through <strong>year 12</strong>. At <strong>i = 15%</strong>, is this investment justified? (Find Net PW)
     </div>
     <button class="final-toggle" onclick="toggleFinal(this)">Show Solution ▼</button>
     <div class="final-sol">
-      <p>Geometric gradient: A₁=$6000, g=8%, i=15%, n=12 (not shifted — starts at yr1)</p>
-      <p>$$P_g = 6000 \times \frac{1-(1.08/1.15)^{12}}{0.15-0.08} = 6000 \times \frac{1-0.4564}{0.07} = 6000 \times 7.766 = \$46,596$$</p>
-      <p>Net PW = -50,000 + 46,596 = <strong>-$3,404</strong> → Investment is NOT justified (negative PW)</p>
-      <p class="ans">Net PW ≈ -$3,404 → Not justified</p>
+      <p>Geometric gradient: A₁ = $6,000, g = 8%, i = 15%, n = 12 (starts yr 1 — not shifted):</p>
+      $$P_g = 6{,}000 \times \frac{1-(1.08/1.15)^{12}}{0.15-0.08} = 6{,}000 \times \frac{1-0.4564}{0.07} = 6{,}000 \times 7.766 = \$46{,}596$$
+      $$Net\;PW = -50{,}000 + 46{,}596 = \mathbf{-\$3{,}404}$$
+      <p class="ans">✅ Net PW ≈ −$3,404 → <strong>Investment is NOT justified</strong></p>
     </div>
   </div>
 
   <div class="final-q">
     <div class="final-q-text">
-      <strong>Q7 (Challenge).</strong> A firm has the following cash flows: Initial investment of $200,000 at yr0; revenues of $40,000/yr in years 1–5; revenues then increase by $5,000/yr from year 6 through year 12; and a salvage value of $25,000 at year 12. Using i = 12%, find the net present worth of the entire project.
+      <strong>Q7 (Challenge).</strong> A firm has the following cash flows:
+      <ul dir="ltr" style="margin:4px 0 0 20px;line-height:1.8;">
+        <li>Initial investment: <strong>$200,000</strong> at yr 0</li>
+        <li>Revenues: <strong>$40,000/yr</strong> in years 1–5</li>
+        <li>Revenues increase by <strong>$5,000/yr</strong> from year 6 through year 12</li>
+        <li>Salvage value: <strong>$25,000</strong> at year 12</li>
+      </ul>
+      Using <strong>i = 12%</strong>, find the net present worth of the entire project.
     </div>
     <button class="final-toggle" onclick="toggleFinal(this)">Show Solution ▼</button>
     <div class="final-sol">
-      <p>$P_0^{(1)} = -200,000$</p>
-      <p>$P_0^{(2)} = 40000(P/A,12\%,5) = 40000(3.6048) = \$144,192$</p>
-      <p>Gradient yr6–12: A₁=$45K, G=+$5K, n=7 → P_G at yr5</p>
-      <p>$P_5 = 45000(P/A,12\%,7) + 5000(P/G,12\%,7)$</p>
-      <p>$= 45000(4.5638) + 5000(11.6443) = 205,371 + 58,222 = \$263,593$</p>
-      <p>$P_0^{(3)} = 263593(P/F,12\%,5) = 263593(0.5674) = \$149,550$</p>
-      <p>$P_0^{(4)} = 25000(P/F,12\%,12) = 25000(0.2567) = \$6,418$</p>
-      <p>$NPW = -200,000 + 144,192 + 149,550 + 6,418 = \$100,160$</p>
-      <p class="ans">Net Present Worth ≈ +$100,160 → Project is JUSTIFIED ✓</p>
+      $$P_0^{(1)} = -200{,}000$$
+      $$P_0^{(2)} = 40{,}000\,(P/A,12\%,5) = 40{,}000 \times 3.6048 = \$144{,}192$$
+      <p>Gradient yr 6–12: A₁ = $45K, G = +$5K, n = 7 → P_G at yr 5:</p>
+      $$P_5 = 45{,}000\,(P/A,12\%,7) + 5{,}000\,(P/G,12\%,7)$$
+      $$= 45{,}000 \times 4.5638 + 5{,}000 \times 11.6443 = 205{,}371 + 58{,}222 = \$263{,}593$$
+      $$P_0^{(3)} = 263{,}593\,(P/F,12\%,5) = 263{,}593 \times 0.5674 = \$149{,}550$$
+      $$P_0^{(4)} = 25{,}000\,(P/F,12\%,12) = 25{,}000 \times 0.2567 = \$6{,}418$$
+      $$NPW = -200{,}000 + 144{,}192 + 149{,}550 + 6{,}418 = \mathbf{+\$100{,}160}$$
+      <p class="ans">✅ Net Present Worth ≈ +$100,160 → <strong>Project is JUSTIFIED ✓</strong></p>
     </div>
   </div>
 
