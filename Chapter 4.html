@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
@@ -529,31 +529,24 @@ function toggleSol(btn) {
       <span class="ar">ما هي الفائدة ومعدل الفائدة؟</span>
     </h2>
   </div>
-  <div class="section-body">
-    <div class="tb">
-      <span class="k">Interest</span><span class="d">—</span>
-      The fee paid to use someone else's money, or the return earned on an original investment. It is the picture of the <strong>Time Value of Money</strong>.
-      <span class="ar">الفائدة (Interest) هي التجسيد العملي لمفهوم القيمة الزمنية للنقود (Time Value of Money). ببساطة، هي التكلفة التي يدفعها المقترض مقابل استخدام أموال شخص آخر، أو العائد الذي يكسبه المستثمر على أمواله الأصلية.</span>
+  <div class="section-body" style="direction:rtl;text-align:right;">
+    <div class="callout info">
+      <span class="nh">ما هي الـ Interest (الفائدة)؟</span>
+      الـ <strong>Interest</strong> هي التكلفة التي يدفعها المقترض مقابل استخدام أموال شخص آخر، أو العائد الذي يكسبه المستثمر على استثماره. وهي التجسيد العملي لمفهوم <strong>Time Value of Money (القيمة الزمنية للنقود)</strong> — أي إن قيمة المال النهارده غير قيمته في المستقبل.
     </div>
-    <div class="tb">
-      <span class="k">Interest Rate</span><span class="d">—</span>
-      The percentage of the principal charged or paid over a specific time period (usually per year).
-      <span class="ar">معدل الفائدة (Interest Rate) هو النسبة المئوية من المبلغ الأصلي (Principal) التي يتم احتسابها أو دفعها خلال فترة زمنية محددة (عادةً السنة).</span>
+    <div class="callout info" style="margin-top:14px;">
+      <span class="nh">ما هو الـ Interest Rate (معدل الفائدة)؟</span>
+      الـ <strong>Interest Rate</strong> هو النسبة المئوية من المبلغ الأصلي <strong>(Principal)</strong> التي تُحتسب أو تُدفع خلال فترة زمنية محددة — غالباً السنة.
     </div>
-    <div class="callout info" style="margin-top:18px;">
-      <span class="nh">Why It Matters in Engineering Economics</span>
-      In Engineering Economics, accurately evaluating interest rates is essential to determine project viability and select the most profitable alternatives.
-      <div class="arabic-note">في الاقتصاد الهندسي، يُعدّ التقييم الدقيق لمعدلات الفائدة ضرورةً أساسية لتحديد جدوى المشاريع واختيار أفضل البدائل من حيث الربحية.</div>
+    <div class="callout warn" style="margin-top:14px;">
+      <span class="nh">ليه مهمة في الـ Engineering Economics؟</span>
+      في الاقتصاد الهندسي، التقييم الدقيق لمعدلات الفائدة ضروري لتحديد جدوى المشاريع واختيار أفضل البدائل من حيث الربحية.
     </div>
-    <h3>Agenda — Topics Covered in This Chapter</h3>
-    <ul>
-      <li><strong>Interest &amp; Interest Rate</strong> — Definition and importance</li>
-      <li><strong>Simple Interest</strong> vs. <strong>Compound Interest</strong></li>
-      <li><strong>Nominal Interest Rate</strong> vs. <strong>Effective Interest Rate</strong></li>
-      <li><strong>Payment Period (PP)</strong> vs. <strong>Compounding Period (CP)</strong></li>
-      <li>Single payments and Series (A) with PP ≥ CP and PP &lt; CP</li>
-      <li><strong>Continuous Compounding</strong></li>
-      <li><strong>Varying Interest Rates</strong></li>
+    <h3 style="direction:rtl;">المواضيع اللي هنتكلم عنها في الفصل ده:</h3>
+    <ul style="direction:rtl;padding-right:22px;padding-left:0;">
+      <li><strong>Interest &amp; Interest Rate</strong> — تعريف ومفهوم</li>
+      <li><strong>Simple Interest</strong> مقابل <strong>Compound Interest</strong></li>
+      <li><strong>Nominal Interest Rate</strong> مقابل <strong>Effective Interest Rate</strong></li>
     </ul>
   </div>
 </section>
@@ -570,25 +563,25 @@ function toggleSol(btn) {
       <span class="ar">الفائدة البسيطة</span>
     </h2>
   </div>
-  <div class="section-body">
+  <div class="section-body" style="direction:rtl;text-align:right;">
     <div class="callout info">
-      <span class="nh">Definition</span>
-      Interest is calculated <strong>only on the initial principal amount</strong>. Accumulated interest from previous periods does <em>not</em> earn interest.
-      <div class="arabic-note">في الفائدة البسيطة (Simple Interest)، تُحتسب الفائدة على المبلغ الأصلي (Principal) فقط في كل فترة. الفائدة المتراكمة من الفترات السابقة لا تُضاف إلى الأصل ولا تُولّد فائدة إضافية. لذلك تنمو القيمة بشكل <strong>خطي (Linear)</strong> مع مرور الوقت.</div>
+      <span class="nh">ما هي الـ Simple Interest (الفائدة البسيطة)؟</span>
+      في الـ <strong>Simple Interest</strong>، الفائدة بتتحسب <strong>على المبلغ الأصلي (Principal) بس</strong> في كل فترة. الفائدة المتراكمة من الفترات السابقة مش بتتضاف للأصل ومش بتولّد فائدة جديدة. عشان كده القيمة بتنمو بشكل <strong>خطي (Linear)</strong> مع الوقت.
     </div>
 
-    <h3>Formula — Future Value with Simple Interest</h3>
+    <h3 style="direction:rtl;">المعادلة — القيمة المستقبلية بالـ Simple Interest:</h3>
     <div class="formula-box">
       <span class="label">Simple Interest — Future Value Formula</span>
       <div class="math">\( F = P \,(1 + N \cdot i) \)</div>
-      <p>P = Principal | i = Interest rate per period | N = Number of periods | F = Future value</p>
+      <p>P = المبلغ الأصلي | i = معدل الفائدة لكل فترة | N = عدد الفترات | F = القيمة المستقبلية</p>
     </div>
 
-    <div class="tb">
-      <span class="k">P</span><span class="d">—</span> Principal (initial amount invested or borrowed)
-      <br><span class="k">i</span><span class="d">—</span> Interest rate per period (as a decimal)
-      <br><span class="k">N</span><span class="d">—</span> Number of interest periods
-      <br><span class="k">F</span><span class="d">—</span> Future value (accumulated amount) at end of period N
+    <div class="callout good" style="margin-top:14px;">
+      <span class="nh">القاعدة الذهبية لـ Simple Interest:</span>
+      ✅ الـ <strong>P</strong> — هو المبلغ الأصلي (Principal) اللي اتاستثمر أو اتاقترض<br>
+      ✅ الـ <strong>i</strong> — معدل الفائدة لكل فترة (بالـ decimal)<br>
+      ✅ الـ <strong>N</strong> — عدد فترات الفائدة<br>
+      ✅ الـ <strong>F</strong> — القيمة المستقبلية (المبلغ الكلي) في نهاية الفترة N
     </div>
 
     <!-- Bar Chart Diagram — Lecture Slide Style -->
@@ -673,40 +666,39 @@ function toggleSol(btn) {
 
     <div class="example-box">
       <div class="example-header">
-        <span class="example-badge">Example</span>
-        P = 1,000 EGP at 20% Simple Interest — Trace 3 Years
+        <span class="example-badge">مثال</span>
+        P = 1,000 جنيه بـ 20% Simple Interest — تتبع 3 سنين
       </div>
-      <div class="example-body">
-        <span class="sl">Given</span>
-        <div class="step-box">P = 1,000 EGP &nbsp;|&nbsp; i = 20% = 0.2 &nbsp;|&nbsp; N = 1, 2, 3 years</div>
-        <span class="sl">Required</span>
-        <div class="step-box">Find F₁, F₂, F₃ using F = P(1 + N·i)</div>
-        <span class="sl">Solution — Step by Step</span>
+      <div class="example-body" style="direction:rtl;text-align:right;">
+        <span class="sl">المعطيات</span>
+        <div class="step-box">P = 1,000 جنيه &nbsp;|&nbsp; i = 20% = 0.2 &nbsp;|&nbsp; N = 1, 2, 3 سنوات</div>
+        <span class="sl">المطلوب</span>
+        <div class="step-box">إيجاد F₁ وF₂ وF₃ باستخدام F = P(1 + N·i)</div>
+        <span class="sl">الحل — خطوة بخطوة</span>
         <div class="sol-step">
           <div class="step-num">1</div>
           <div class="step-content">
-            <div class="step-label">Year 1</div>
+            <div class="step-label">السنة الأولى (Year 1)</div>
             <div class="step-detail">\( F_1 = 1000(1 + 1 \times 0.2) = 1000 \times 1.2 = \mathbf{1{,}200} \text{ EGP} \)</div>
           </div>
         </div>
         <div class="sol-step">
           <div class="step-num">2</div>
           <div class="step-content">
-            <div class="step-label">Year 2</div>
+            <div class="step-label">السنة الثانية (Year 2)</div>
             <div class="step-detail">\( F_2 = 1000(1 + 2 \times 0.2) = 1000 \times 1.4 = \mathbf{1{,}400} \text{ EGP} \)</div>
           </div>
         </div>
         <div class="sol-step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <div class="step-label">Year 3</div>
+            <div class="step-label">السنة الثالثة (Year 3)</div>
             <div class="step-detail">\( F_3 = 1000(1 + 3 \times 0.2) = 1000 \times 1.6 = \mathbf{1{,}600} \text{ EGP} \)</div>
           </div>
         </div>
         <div class="callout teal" style="margin-top:12px;">
-          <span class="nh">Key Observation</span>
-          The interest earned each year is <strong>always 200 EGP</strong> — constant because it is always calculated on the same principal. This produces <strong>linear growth</strong>.
-          <div class="arabic-note">في الفائدة البسيطة، مقدار الفائدة المكتسب في كل سنة ثابت دائماً (200 جنيه)، لأنه يُحتسب على المبلغ الأصلي الثابت. هذا يجعل النمو خطياً مستقيماً.</div>
+          <span class="nh">الملاحظة الأساسية 🔑</span>
+          في الـ <strong>Simple Interest</strong>، الفائدة المكتسبة كل سنة <strong>ثابتة دايماً (200 جنيه)</strong> — لأنها بتتحسب دايماً على نفس الـ <strong>Principal</strong>. ده بيخلي النمو <strong>خطياً (Linear)</strong> مستقيم.
         </div>
       </div>
     </div>
@@ -723,18 +715,22 @@ function toggleSol(btn) {
       <span class="ar">الفائدة المركبة</span>
     </h2>
   </div>
-  <div class="section-body">
+  <div class="section-body" style="direction:rtl;text-align:right;">
     <div class="callout info">
-      <span class="nh">Definition</span>
-      Interest is calculated on the <strong>initial principal AND all accumulated interest</strong> from previous periods — "interest on interest."
-      <div class="arabic-note">في الفائدة المركبة (Compound Interest)، تُحتسب الفائدة على المبلغ الأصلي بالإضافة إلى جميع الفوائد المتراكمة من الفترات السابقة. هذا ما يُسمى "الفائدة على الفائدة"، وهو ما يجعل النمو أُسّياً (Exponential) بدلاً من خطي.</div>
+      <span class="nh">ما هي الـ Compound Interest (الفائدة المركبة)؟</span>
+      في الـ <strong>Compound Interest</strong>، الفائدة بتتحسب على <strong>المبلغ الأصلي (Principal) + كل الفوائد المتراكمة</strong> من الفترات السابقة — اللي بيُقال عنها "فائدة على الفائدة". ده اللي بيخلي النمو <strong>أُسّياً (Exponential)</strong> مش خطي.
+    </div>
+    <div class="callout good" style="margin-top:14px;">
+      <span class="nh">الفرق الجوهري بين Simple وCompound:</span>
+      📌 في الـ <strong>Simple Interest</strong>: الفائدة كل سنة = P × i (ثابت)<br>
+      📌 في الـ <strong>Compound Interest</strong>: الفائدة كل سنة = الرصيد الكامل × i (متزايد)
     </div>
 
-    <h3>Formula — Future Value with Compound Interest</h3>
+    <h3 style="direction:rtl;">المعادلة — القيمة المستقبلية بالـ Compound Interest:</h3>
     <div class="formula-box">
       <span class="label">Compound Interest — Future Value Formula</span>
       <div class="math">\( F = P\,(1 + i)^{N} \)</div>
-      <p>P = Principal | i = Rate per period | N = Number of periods | F = Future value</p>
+      <p>P = المبلغ الأصلي | i = معدل الفائدة لكل فترة | N = عدد الفترات | F = القيمة المستقبلية</p>
     </div>
 
     <!-- Bar Chart Diagram — Compound Interest Lecture Style -->
@@ -818,7 +814,7 @@ function toggleSol(btn) {
     <div class="example-box">
       <div class="example-header">
         <span class="example-badge">Example</span>
-        P = 1,000 EGP at 20% Compound Interest — Trace 3 Years
+        P = 1,000 جنيه بـ 20% Compound Interest — تتبع 3 سنين
       </div>
       <div class="example-body">
         <span class="sl">Given</span>
@@ -834,14 +830,14 @@ function toggleSol(btn) {
         <div class="sol-step">
           <div class="step-num">2</div>
           <div class="step-content">
-            <div class="step-label">Year 2 — interest calculated on 1,200 (not 1,000)</div>
+            <div class="step-label">السنة الثانية — الفائدة اتحسبت على 1,200 مش 1,000</div>
             <div class="step-detail">\( F_2 = 1000(1.2)^2 = \mathbf{1{,}440} \text{ EGP} \) &nbsp;→ Interest = 240</div>
           </div>
         </div>
         <div class="sol-step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <div class="step-label">Year 3 — interest calculated on 1,440</div>
+            <div class="step-label">السنة الثالثة — الفائدة اتحسبت على 1,440</div>
             <div class="step-detail">\( F_3 = 1000(1.2)^3 = \mathbf{1{,}728} \text{ EGP} \) &nbsp;→ Interest = 288</div>
           </div>
         </div>
@@ -871,9 +867,9 @@ function toggleSol(btn) {
         <div class="compare-card-header simple-h">Simple Interest</div>
         <div class="compare-card-body">
           <ul>
-            <li>Interest on <strong>principal only</strong></li>
-            <li>Constant interest each period</li>
-            <li>Growth is <strong>linear</strong></li>
+            <li>الفائدة على <strong>الـ Principal فقط</strong></li>
+            <li>الفائدة ثابتة كل فترة</li>
+            <li>النمو <strong>خطي (Linear)</strong></li>
             <li>Formula: \( F = P(1 + Ni) \)</li>
           </ul>
         </div>
@@ -882,18 +878,18 @@ function toggleSol(btn) {
         <div class="compare-card-header compound-h">Compound Interest</div>
         <div class="compare-card-body">
           <ul>
-            <li>Interest on <strong>principal + accumulated interest</strong></li>
-            <li>Interest grows each period</li>
-            <li>Growth is <strong>exponential</strong></li>
+            <li>الفائدة على <strong>Principal + الفوائد المتراكمة</strong></li>
+            <li>الفائدة بتنمو كل فترة</li>
+            <li>النمو <strong>أُسّي (Exponential)</strong></li>
             <li>Formula: \( F = P(1 + i)^N \)</li>
           </ul>
         </div>
       </div>
     </div>
-    <h3>Growth Comparison Table — EGP 1,000 at 20%</h3>
+    <h3 style="direction:rtl;">جدول المقارنة — 1,000 جنيه بـ 20% Simple مقابل Compound:</h3>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Year (N)</th><th>Simple (EGP)</th><th>Compound (EGP)</th><th>Difference (EGP)</th></tr></thead>
+        <thead><tr><th>Year (N)</th><th>Simple (EGP)</th><th>Compound (EGP)</th><th>الفرق (جنيه)</th></tr></thead>
         <tbody>
           <tr><td>0</td><td>1,000</td><td>1,000</td><td>—</td></tr>
           <tr><td>1</td><td>1,200</td><td>1,200</td><td>0</td></tr>
@@ -1417,8 +1413,8 @@ function toggleSol(btn) {
                 <div class="solution-content open">
           <div class="callout good" style="margin-top:0;">
             <span class="nh">Explanation</span>
-            Simple interest: F = P(1 + Ni) — only principal earns interest. Growth is <strong>linear</strong>.<br>
-            Compound interest: F = P(1+i)^N — interest earns interest. Growth is <strong>exponential</strong>.
+            Simple interest: F = P(1 + Ni) — only principal earns interest. النمو <strong>خطي (Linear)</strong>.<br>
+            Compound interest: F = P(1+i)^N — interest earns interest. النمو <strong>أُسّي (Exponential)</strong>.
             <div class="arabic-note">الفائدة البسيطة تُحتسب على المبلغ الأصلي فقط، بينما الفائدة المركبة تُحتسب على الأصل + الفوائد المتراكمة.</div>
           </div>
           <div class="answer-badge">✅ Answer: (b)</div>
