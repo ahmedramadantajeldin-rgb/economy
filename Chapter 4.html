@@ -512,6 +512,7 @@ function toggleSol(btn) {
       <li><a href="#s5">Interest Rate Terminology — t, CP, m</a></li>
       <li><a href="#s6">Nominal Interest Rate</a></li>
       <li><a href="#s7">Effective Interest Rate</a></li>
+      <li><a href="#qa">Quiz &amp; Practice Problems</a></li>
     </ol>
   </div>
 </div>
@@ -1157,7 +1158,204 @@ function toggleSol(btn) {
 
 </div><!-- end container -->
 
+
+<div class="break-sep"><div class="break-pill"><span class="break-icon">📝</span><span class="break-label">Quiz</span><span class="break-note">Practice Problems</span></div></div>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION QA – QUIZ & PRACTICE PROBLEMS
+═══════════════════════════════════════════════════ -->
+<section class="section" id="qa">
+  <div class="section-header amber-header">
+    <div class="section-num">Q</div>
+    <h2>Quiz &amp; Practice Problems
+      <span class="ar">أسئلة تدريبية</span>
+    </h2>
+  </div>
+  <div class="section-body">
+
+    <!-- Q1 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q1</span>
+        <span class="qa-question">For an interest rate of 20% per year compounded quarterly, the effective interest rate per semiannual period is closest to:</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) 10.00%</div>
+          <div class="qa-choice correct">(b) 10.25%</div>
+          <div class="qa-choice">(c) 10.38%</div>
+          <div class="qa-choice">(d) 10.50%</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">r_nom = 20%/year | CP = quarterly → n = 4 | pr = semiannual → m = 2</div>
+          <span class="sl">Solution</span>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-detail">\( i_{\text{eff}}^{(\text{semi})} = \left(1 + \frac{0.20}{4}\right)^{2} - 1 = (1.05)^{2} - 1 \)</div>
+            </div>
+          </div>
+          <div class="res-box">i_eff = <span class="val">10.25%</span></div>
+          <div class="answer-badge">✅ Answer: (b) 10.25%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q2</span>
+        <span class="qa-question">An investment of EGP 5,000 is made at 15% simple interest per year. What is the value of the investment after 4 years?</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) EGP 7,500</div>
+          <div class="qa-choice correct">(b) EGP 8,000</div>
+          <div class="qa-choice">(c) EGP 8,745</div>
+          <div class="qa-choice">(d) EGP 9,000</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">P = 5,000 EGP | i = 15% = 0.15 | N = 4 years</div>
+          <span class="sl">Solution</span>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Apply Simple Interest Formula</div>
+              <div class="step-detail">\( F = P(1 + Ni) = 5000(1 + 4 \times 0.15) = 5000 \times 1.6 \)</div>
+            </div>
+          </div>
+          <div class="res-box">F = <span class="val">EGP 8,000</span></div>
+          <div class="answer-badge">✅ Answer: (b) EGP 8,000</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q3</span>
+        <span class="qa-question">An investment of EGP 10,000 at 12% compound interest per year. What is the future value after 3 years?</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) EGP 13,200</div>
+          <div class="qa-choice">(b) EGP 13,600</div>
+          <div class="qa-choice correct">(c) EGP 14,049</div>
+          <div class="qa-choice">(d) EGP 14,400</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">P = 10,000 EGP | i = 12% = 0.12 | N = 3 years</div>
+          <span class="sl">Solution</span>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Apply Compound Interest Formula</div>
+              <div class="step-detail">\( F = P(1 + i)^N = 10000 \times (1.12)^3 = 10000 \times 1.4049 \)</div>
+            </div>
+          </div>
+          <div class="res-box">F = <span class="val">EGP 14,049</span></div>
+          <div class="answer-badge">✅ Answer: (c) EGP 14,049</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q4</span>
+        <span class="qa-question">A bank advertises a nominal interest rate of 12% per year compounded monthly. What is the effective annual interest rate?</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) 12.00%</div>
+          <div class="qa-choice correct">(b) 12.68%</div>
+          <div class="qa-choice">(c) 12.75%</div>
+          <div class="qa-choice">(d) 13.00%</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">r_nom = 12%/year | CP = monthly | n = 12</div>
+          <span class="sl">Solution</span>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-detail">\( i_{\text{eff}} = \left(1 + \frac{0.12}{12}\right)^{12} - 1 = (1.01)^{12} - 1 \)</div>
+            </div>
+          </div>
+          <div class="res-box">i_eff = <span class="val">12.68% per year</span></div>
+          <div class="answer-badge">✅ Answer: (b) 12.68%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q5</span>
+        <span class="qa-question">A credit card charges 2% per month. What is the nominal annual interest rate?</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) 2%</div>
+          <div class="qa-choice">(b) 12%</div>
+          <div class="qa-choice correct">(c) 24%</div>
+          <div class="qa-choice">(d) 26.82%</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <span class="sl">Given</span>
+          <div class="step-box">i_period = 2% per month | m = 12 months/year</div>
+          <span class="sl">Solution</span>
+          <div class="sol-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-label">Apply Nominal Rate Formula</div>
+              <div class="step-detail">\( r_{\text{nom}} = i_{\text{period}} \times m = 2\% \times 12 = 24\% \text{ per year} \)</div>
+            </div>
+          </div>
+          <div class="answer-badge">✅ Answer: (c) 24%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qa-outer">
+      <div class="qa-header">
+        <span class="qa-num">Q6</span>
+        <span class="qa-question">Which statement correctly distinguishes simple interest from compound interest?</span>
+      </div>
+      <div class="qa-body">
+        <div class="qa-choices">
+          <div class="qa-choice">(a) Simple interest grows exponentially; compound interest grows linearly</div>
+          <div class="qa-choice correct">(b) Simple interest is calculated on principal only; compound interest is calculated on principal + accumulated interest</div>
+          <div class="qa-choice">(c) Both produce the same future value after 1 year</div>
+          <div class="qa-choice">(d) Compound interest is always less than simple interest</div>
+        </div>
+        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
+        <div class="solution-content">
+          <div class="callout good" style="margin-top:0;">
+            <span class="nh">Explanation</span>
+            Simple interest: F = P(1 + Ni) — only principal earns interest. Growth is <strong>linear</strong>.<br>
+            Compound interest: F = P(1+i)^N — interest earns interest. Growth is <strong>exponential</strong>.
+            <div class="arabic-note">الفائدة البسيطة تُحتسب على المبلغ الأصلي فقط، بينما الفائدة المركبة تُحتسب على الأصل + الفوائد المتراكمة.</div>
+          </div>
+          <div class="answer-badge">✅ Answer: (b)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══════════ FOOTER ═══════════ -->
+
 <footer class="site-footer">
   GE 205 — Engineering Economics &nbsp;|&nbsp; Chapter 4: Interest &nbsp;|&nbsp; Cairo University
 </footer>
