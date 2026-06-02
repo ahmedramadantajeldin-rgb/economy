@@ -587,79 +587,74 @@ function toggleSol(btn) {
     <!-- Bar Chart Diagram — Lecture Slide Style -->
     <div class="cf-wrapper">
       <div class="cf-title">Simple Interest — Bar Chart (P = 1,000 EGP, i = 20%) — الفائدة ثابتة كل سنة</div>
-      <svg viewBox="0 0 620 310" width="100%" style="max-width:680px;font-family:'IBM Plex Sans',sans-serif;">
+      <svg viewBox="0 0 620 330" width="100%" style="max-width:680px;font-family:'IBM Plex Sans',sans-serif;">
         <!-- Y-axis -->
-        <line x1="70" y1="15" x2="70" y2="255" stroke="#1a3a6b" stroke-width="2"/>
-        <polygon points="66,15 70,5 74,15" fill="#1a3a6b"/>
+        <line x1="70" y1="40" x2="70" y2="265" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="66,40 70,30 74,40" fill="#1a3a6b"/>
         <!-- Y label -->
-        <text x="14" y="140" text-anchor="middle" fill="#2c4066" font-size="11" transform="rotate(-90,14,140)">VALUE (EGP)</text>
-        <!-- Y axis ticks -->
-        <line x1="65" y1="215" x2="70" y2="215" stroke="#1a3a6b" stroke-width="1.5"/>
-        <text x="62" y="219" text-anchor="end" fill="#4a6fa5" font-size="10">1000</text>
-        <line x1="65" y1="175" x2="70" y2="175" stroke="#1a3a6b" stroke-width="1.5"/>
-        <text x="62" y="179" text-anchor="end" fill="#4a6fa5" font-size="10">1200</text>
-        <line x1="65" y1="135" x2="70" y2="135" stroke="#1a3a6b" stroke-width="1.5"/>
-        <text x="62" y="139" text-anchor="end" fill="#4a6fa5" font-size="10">1400</text>
-        <line x1="65" y1="95" x2="70" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
-        <text x="62" y="99" text-anchor="end" fill="#4a6fa5" font-size="10">1600</text>
-        <!-- X-axis -->
-        <line x1="70" y1="255" x2="590" y2="255" stroke="#1a3a6b" stroke-width="2"/>
-        <polygon points="586,251 596,255 586,259" fill="#1a3a6b"/>
+        <text x="14" y="150" text-anchor="middle" fill="#2c4066" font-size="11" transform="rotate(-90,14,150)">VALUE (EGP)</text>
+        
+        <!-- Y axis ticks (Scale: 1px = 10 units. 0 is at y=265) -->
+        <line x1="65" y1="165" x2="70" y2="165" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="56" y="169" text-anchor="end" fill="#4a6fa5" font-size="11">1000</text>
+        
+        <line x1="65" y1="145" x2="70" y2="145" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="56" y="149" text-anchor="end" fill="#4a6fa5" font-size="11">1200</text>
+        
+        <line x1="65" y1="125" x2="70" y2="125" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="56" y="129" text-anchor="end" fill="#4a6fa5" font-size="11">1400</text>
+        
+        <line x1="65" y1="105" x2="70" y2="105" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="56" y="109" text-anchor="end" fill="#4a6fa5" font-size="11">1600</text>
 
-        <!-- ═══ BAR 0: Present — Principal only ═══ -->
-        <!-- Principal box solid -->
-        <rect x="88" y="215" width="90" height="0" fill="none"/>
-        <rect x="88" y="55" width="90" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
-        <!-- value label inside -->
-        <text x="133" y="145" text-anchor="middle" fill="#8898aa" font-size="18" font-weight="600">1000</text>
-        <!-- x label -->
-        <text x="133" y="275" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="600">Present</text>
+        <!-- X-axis -->
+        <line x1="70" y1="265" x2="590" y2="265" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="586,261 596,265 586,269" fill="#1a3a6b"/>
+
+        <!-- ═══ BAR 0: Present ═══ -->
+        <rect x="90" y="165" width="80" height="100" fill="white" stroke="#1a3a6b" stroke-width="2"/>
+        <text x="130" y="220" text-anchor="middle" fill="#8898aa" font-size="16" font-weight="600">1000</text>
+        <text x="130" y="285" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="600">Present</text>
 
         <!-- ═══ BAR 1: End of Year 1 ═══ -->
-        <!-- Principal solid -->
-        <rect x="208" y="55" width="90" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
-        <text x="253" y="145" text-anchor="middle" fill="#8898aa" font-size="18" font-weight="600">1000</text>
-        <!-- Interest dashed on top -->
-        <rect x="208" y="15" width="90" height="40" fill="#f0fdf4" stroke="#1a7f5a" stroke-width="2" stroke-dasharray="6,3"/>
-        <text x="253" y="40" text-anchor="middle" fill="#166534" font-size="13" font-weight="700">200</text>
-        <!-- x label -->
-        <text x="253" y="275" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="600">End of Year 1</text>
+        <rect x="210" y="165" width="80" height="100" fill="white" stroke="#1a3a6b" stroke-width="2"/>
+        <text x="250" y="220" text-anchor="middle" fill="#8898aa" font-size="16" font-weight="600">1000</text>
+        <!-- Interest 200 (height=20) -->
+        <rect x="210" y="145" width="80" height="20" fill="#f0fdf4" stroke="#1a7f5a" stroke-width="2" stroke-dasharray="4,2"/>
+        <text x="250" y="159" text-anchor="middle" fill="#166534" font-size="12" font-weight="700">200</text>
+        <text x="250" y="285" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="600">End of Year 1</text>
 
         <!-- ═══ BAR 2: End of Year 2 ═══ -->
-        <!-- Principal solid -->
-        <rect x="328" y="55" width="90" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
-        <text x="373" y="145" text-anchor="middle" fill="#8898aa" font-size="18" font-weight="600">1000</text>
-        <!-- Interest layer 1 -->
-        <rect x="328" y="35" width="90" height="20" fill="#f0fdf4" stroke="#1a7f5a" stroke-width="1.5" stroke-dasharray="5,3"/>
-        <text x="373" y="30" text-anchor="middle" fill="#166534" font-size="11" font-weight="600">200</text>
-        <!-- Interest layer 2 dashed on top -->
-        <rect x="328" y="15" width="90" height="20" fill="#dcfce7" stroke="#1a7f5a" stroke-width="2" stroke-dasharray="6,3"/>
-        <text x="373" y="50" text-anchor="middle" fill="#166534" font-size="11" font-weight="600">200</text>
-        <!-- x label -->
-        <text x="373" y="275" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="600">End of Year 2</text>
+        <rect x="330" y="165" width="80" height="100" fill="white" stroke="#1a3a6b" stroke-width="2"/>
+        <text x="370" y="220" text-anchor="middle" fill="#8898aa" font-size="16" font-weight="600">1000</text>
+        <!-- Interest 1 -->
+        <rect x="330" y="145" width="80" height="20" fill="#f0fdf4" stroke="#1a7f5a" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <!-- Interest 2 -->
+        <rect x="330" y="125" width="80" height="20" fill="#dcfce7" stroke="#1a7f5a" stroke-width="2" stroke-dasharray="4,2"/>
+        <text x="370" y="139" text-anchor="middle" fill="#166534" font-size="11" font-weight="600">200</text>
+        <text x="370" y="285" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="600">End of Year 2</text>
 
-        <!-- ═══ BAR 3: End of Year 3 (implied) — callout labels only ═══ -->
-        <text x="490" y="275" text-anchor="middle" fill="#9ca3af" font-size="12">End of Year 3</text>
+        <!-- ═══ BAR 3: End of Year 3 (implied) ═══ -->
+        <text x="490" y="285" text-anchor="middle" fill="#9ca3af" font-size="12">End of Year 3</text>
 
         <!-- ═══ CALLOUT: Interest bracket ═══ -->
-        <!-- bracket line right of bar 1 -->
-        <line x1="302" y1="15" x2="312" y2="15" stroke="#1a7f5a" stroke-width="2"/>
-        <line x1="302" y1="55" x2="312" y2="55" stroke="#1a7f5a" stroke-width="2"/>
-        <line x1="312" y1="15" x2="312" y2="55" stroke="#1a7f5a" stroke-width="2"/>
-        <line x1="312" y1="35" x2="320" y2="35" stroke="#1a7f5a" stroke-width="2"/>
-        <text x="322" y="30" text-anchor="start" fill="#1a7f5a" font-size="12" font-weight="700">Interest</text>
+        <line x1="300" y1="145" x2="308" y2="145" stroke="#1a7f5a" stroke-width="1.5"/>
+        <line x1="300" y1="165" x2="308" y2="165" stroke="#1a7f5a" stroke-width="1.5"/>
+        <line x1="308" y1="145" x2="308" y2="165" stroke="#1a7f5a" stroke-width="1.5"/>
+        <line x1="308" y1="155" x2="314" y2="155" stroke="#1a7f5a" stroke-width="1.5"/>
+        <text x="318" y="159" text-anchor="start" fill="#1a7f5a" font-size="12" font-weight="700">Interest</text>
 
-        <!-- bracket line: Principal -->
-        <line x1="302" y1="55" x2="312" y2="55" stroke="#0e90d2" stroke-width="2"/>
-        <line x1="302" y1="215" x2="312" y2="215" stroke="#0e90d2" stroke-width="2"/>
-        <line x1="312" y1="55" x2="312" y2="215" stroke="#0e90d2" stroke-width="2"/>
-        <line x1="312" y1="135" x2="320" y2="135" stroke="#0e90d2" stroke-width="2"/>
-        <text x="322" y="125" text-anchor="start" fill="#0e90d2" font-size="12" font-weight="700">Principal</text>
-        <text x="322" y="140" text-anchor="start" fill="#0e90d2" font-size="11">amount</text>
+        <!-- Bracket for Principal -->
+        <line x1="300" y1="165" x2="308" y2="165" stroke="#0e90d2" stroke-width="1.5"/>
+        <line x1="300" y1="265" x2="308" y2="265" stroke="#0e90d2" stroke-width="1.5"/>
+        <line x1="308" y1="165" x2="308" y2="265" stroke="#0e90d2" stroke-width="1.5"/>
+        <line x1="308" y1="215" x2="314" y2="215" stroke="#0e90d2" stroke-width="1.5"/>
+        <text x="318" y="211" text-anchor="start" fill="#0e90d2" font-size="12" font-weight="700">Principal</text>
+        <text x="318" y="225" text-anchor="start" fill="#0e90d2" font-size="11">amount</text>
 
         <!-- bottom note -->
-        <rect x="95" y="285" width="290" height="22" rx="6" fill="#edfaf4" stroke="#1a7f5a" stroke-width="1"/>
-        <text x="240" y="300" text-anchor="middle" fill="#166534" font-size="11" font-family="monospace">Interest each year = +200 (constant — LINEAR growth)</text>
+        <rect x="90" y="300" width="310" height="22" rx="6" fill="#edfaf4" stroke="#1a7f5a" stroke-width="1"/>
+        <text x="245" y="315" text-anchor="middle" fill="#166534" font-size="11" font-family="monospace">Interest each year = +200 (constant — LINEAR growth)</text>
       </svg>
     </div>
 
@@ -736,77 +731,77 @@ function toggleSol(btn) {
     <!-- Bar Chart Diagram — Compound Interest Lecture Style -->
     <div class="cf-wrapper">
       <div class="cf-title">Compound Interest — Bar Chart (P = 1,000 EGP, i = 20%) — الفائدة تنمو كل سنة</div>
-      <svg viewBox="0 0 640 330" width="100%" style="max-width:700px;font-family:'IBM Plex Sans',sans-serif;">
+      <svg viewBox="0 0 640 340" width="100%" style="max-width:700px;font-family:'IBM Plex Sans',sans-serif;">
         <!-- Y-axis -->
-        <line x1="70" y1="15" x2="70" y2="265" stroke="#1a3a6b" stroke-width="2"/>
-        <polygon points="66,15 70,5 74,15" fill="#1a3a6b"/>
+        <line x1="70" y1="40" x2="70" y2="265" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="66,40 70,30 74,40" fill="#1a3a6b"/>
         <!-- Y label -->
-        <text x="14" y="145" text-anchor="middle" fill="#2c4066" font-size="11" transform="rotate(-90,14,145)">VALUE (EGP)</text>
+        <text x="14" y="150" text-anchor="middle" fill="#2c4066" font-size="11" transform="rotate(-90,14,150)">VALUE (EGP)</text>
+        
         <!-- Y ticks -->
-        <line x1="65" y1="225" x2="70" y2="225" stroke="#1a3a6b" stroke-width="1.5"/>
-        <text x="62" y="229" text-anchor="end" fill="#4a6fa5" font-size="10">1000</text>
-        <line x1="65" y1="185" x2="70" y2="185" stroke="#1a3a6b" stroke-width="1.5"/>
-        <text x="62" y="189" text-anchor="end" fill="#4a6fa5" font-size="10">1200</text>
-        <line x1="65" y1="137" x2="70" y2="137" stroke="#1a3a6b" stroke-width="1.5"/>
-        <text x="62" y="141" text-anchor="end" fill="#4a6fa5" font-size="10">1440</text>
-        <line x1="65" y1="80" x2="70" y2="80" stroke="#1a3a6b" stroke-width="1.5"/>
-        <text x="62" y="84" text-anchor="end" fill="#4a6fa5" font-size="10">1728</text>
+        <line x1="65" y1="165" x2="70" y2="165" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="56" y="169" text-anchor="end" fill="#4a6fa5" font-size="11">1000</text>
+        
+        <line x1="65" y1="145" x2="70" y2="145" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="56" y="149" text-anchor="end" fill="#4a6fa5" font-size="11">1200</text>
+        
+        <line x1="65" y1="121" x2="70" y2="121" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="56" y="125" text-anchor="end" fill="#4a6fa5" font-size="11">1440</text>
+        
+        <line x1="65" y1="92.2" x2="70" y2="92.2" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="56" y="96" text-anchor="end" fill="#4a6fa5" font-size="11">1728</text>
+
         <!-- X-axis -->
         <line x1="70" y1="265" x2="570" y2="265" stroke="#1a3a6b" stroke-width="2"/>
         <polygon points="566,261 576,265 566,269" fill="#1a3a6b"/>
 
         <!-- ═══ BAR 0: Present ═══ -->
-        <!-- Principal: 1000 → height=160px, top=65 -->
-        <rect x="78" y="65" width="85" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
-        <text x="120" y="153" text-anchor="middle" fill="#8898aa" font-size="17" font-weight="600">1000</text>
-        <text x="120" y="285" text-anchor="middle" fill="#2c4066" font-size="11" font-weight="700">Present</text>
+        <rect x="90" y="165" width="80" height="100" fill="white" stroke="#1a3a6b" stroke-width="2"/>
+        <text x="130" y="220" text-anchor="middle" fill="#8898aa" font-size="16" font-weight="600">1000</text>
+        <text x="130" y="285" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="700">Present</text>
 
-        <!-- ═══ BAR 1: Year 1 → F=1200 ═══ -->
-        <!-- Principal 1000 solid -->
-        <rect x="193" y="65" width="85" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
-        <text x="235" y="153" text-anchor="middle" fill="#8898aa" font-size="17" font-weight="600">1000</text>
-        <!-- Interest 200 dashed (40px) -->
-        <rect x="193" y="25" width="85" height="40" fill="#fff7ed" stroke="#B45309" stroke-width="2" stroke-dasharray="6,3"/>
-        <text x="235" y="49" text-anchor="middle" fill="#92400e" font-size="13" font-weight="700">200</text>
-        <text x="235" y="285" text-anchor="middle" fill="#2c4066" font-size="11" font-weight="700">End of Year 1</text>
+        <!-- ═══ BAR 1: Year 1 ═══ -->
+        <rect x="210" y="165" width="80" height="100" fill="white" stroke="#1a3a6b" stroke-width="2"/>
+        <text x="250" y="220" text-anchor="middle" fill="#8898aa" font-size="16" font-weight="600">1000</text>
+        <rect x="210" y="145" width="80" height="20" fill="#fff7ed" stroke="#B45309" stroke-width="2" stroke-dasharray="4,2"/>
+        <text x="250" y="159" text-anchor="middle" fill="#92400e" font-size="12" font-weight="700">200</text>
+        <text x="250" y="285" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="700">End of Year 1</text>
 
-        <!-- ═══ BAR 2: Year 2 → F=1440 ═══ -->
-        <!-- Principal 1000 solid -->
-        <rect x="308" y="65" width="85" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
-        <text x="350" y="153" text-anchor="middle" fill="#8898aa" font-size="17" font-weight="600">1000</text>
-        <!-- Accumulated interest from Y1 (200) + new interest (240) = 440 total →  88px -->
-        <!-- Layer 1: first 200 -->
-        <rect x="308" y="17" width="85" height="48" fill="#fff7ed" stroke="#B45309" stroke-width="1.5" stroke-dasharray="5,3"/>
-        <text x="350" y="44" text-anchor="middle" fill="#92400e" font-size="12" font-weight="600">240</text>
-        <text x="350" y="285" text-anchor="middle" fill="#2c4066" font-size="11" font-weight="700">End of Year 2</text>
+        <!-- ═══ BAR 2: Year 2 ═══ -->
+        <rect x="330" y="165" width="80" height="100" fill="white" stroke="#1a3a6b" stroke-width="2"/>
+        <text x="370" y="220" text-anchor="middle" fill="#8898aa" font-size="16" font-weight="600">1000</text>
+        <rect x="330" y="145" width="80" height="20" fill="#fff7ed" stroke="#B45309" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <rect x="330" y="121" width="80" height="24" fill="#fef3c7" stroke="#B45309" stroke-width="2" stroke-dasharray="4,2"/>
+        <text x="370" y="137" text-anchor="middle" fill="#92400e" font-size="12" font-weight="700">240</text>
+        <text x="370" y="285" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="700">End of Year 2</text>
 
-        <!-- ═══ BAR 3: Year 3 → F=1728 ═══ -->
-        <!-- Principal 1000 solid -->
-        <rect x="423" y="65" width="85" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
-        <text x="465" y="153" text-anchor="middle" fill="#8898aa" font-size="17" font-weight="600">1000</text>
-        <!-- Compound interest 728 → 57.6px -->
-        <rect x="423" y="8" width="85" height="57" fill="#fef3c7" stroke="#B45309" stroke-width="2" stroke-dasharray="6,3"/>
-        <text x="465" y="36" text-anchor="middle" fill="#92400e" font-size="12" font-weight="700">288</text>
-        <text x="465" y="285" text-anchor="middle" fill="#2c4066" font-size="11" font-weight="700">End of Year 3</text>
+        <!-- ═══ BAR 3: Year 3 ═══ -->
+        <rect x="450" y="165" width="80" height="100" fill="white" stroke="#1a3a6b" stroke-width="2"/>
+        <text x="490" y="220" text-anchor="middle" fill="#8898aa" font-size="16" font-weight="600">1000</text>
+        <rect x="450" y="145" width="80" height="20" fill="#fff7ed" stroke="#B45309" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <rect x="450" y="121" width="80" height="24" fill="#fef3c7" stroke="#B45309" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <rect x="450" y="92.2" width="80" height="28.8" fill="#fde68a" stroke="#B45309" stroke-width="2" stroke-dasharray="4,2"/>
+        <text x="490" y="111" text-anchor="middle" fill="#92400e" font-size="12" font-weight="700">288</text>
+        <text x="490" y="285" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="700">End of Year 3</text>
 
-        <!-- ═══ CALLOUT: Accumulated Amount bracket (right of Bar3) ═══ -->
-        <line x1="512" y1="8"  x2="522" y2="8"  stroke="#B45309" stroke-width="2"/>
-        <line x1="512" y1="225" x2="522" y2="225" stroke="#B45309" stroke-width="2"/>
-        <line x1="522" y1="8"  x2="522" y2="225" stroke="#B45309" stroke-width="2"/>
-        <line x1="522" y1="116" x2="530" y2="116" stroke="#B45309" stroke-width="2"/>
-        <text x="533" y="108" text-anchor="start" fill="#B45309" font-size="12" font-weight="700">Accumulated</text>
-        <text x="533" y="122" text-anchor="start" fill="#B45309" font-size="11">amount</text>
+        <!-- ═══ CALLOUT: Accumulated Amount bracket ═══ -->
+        <line x1="538" y1="92.2" x2="546" y2="92.2" stroke="#B45309" stroke-width="1.5"/>
+        <line x1="538" y1="265" x2="546" y2="265" stroke="#B45309" stroke-width="1.5"/>
+        <line x1="546" y1="92.2" x2="546" y2="265" stroke="#B45309" stroke-width="1.5"/>
+        <line x1="546" y1="178" x2="552" y2="178" stroke="#B45309" stroke-width="1.5"/>
+        <text x="558" y="174" text-anchor="start" fill="#B45309" font-size="12" font-weight="700">Accumulated</text>
+        <text x="558" y="188" text-anchor="start" fill="#B45309" font-size="11">amount</text>
 
-        <!-- CALLOUT: Interest bracket -->
-        <line x1="512" y1="8"  x2="522" y2="8"  stroke="#1a7f5a" stroke-width="2"/>
-        <line x1="512" y1="65" x2="522" y2="65" stroke="#1a7f5a" stroke-width="2"/>
-        <line x1="517" y1="8"  x2="517" y2="65" stroke="#1a7f5a" stroke-width="2"/>
-        <line x1="517" y1="36" x2="525" y2="36" stroke="#1a7f5a" stroke-width="2"/>
-        <text x="527" y="32" text-anchor="start" fill="#1a7f5a" font-size="12" font-weight="700">Interest</text>
+        <!-- CALLOUT: Interest bracket (Year 3) -->
+        <line x1="538" y1="92.2" x2="546" y2="92.2" stroke="#1a7f5a" stroke-width="1.5"/>
+        <line x1="538" y1="165" x2="546" y2="165" stroke="#1a7f5a" stroke-width="1.5"/>
+        <line x1="542" y1="92.2" x2="542" y2="165" stroke="#1a7f5a" stroke-width="1.5"/>
+        <line x1="542" y1="128" x2="548" y2="128" stroke="#1a7f5a" stroke-width="1.5"/>
+        <text x="552" y="132" text-anchor="start" fill="#1a7f5a" font-size="12" font-weight="700">Interest</text>
 
         <!-- bottom note -->
-        <rect x="78" y="298" width="380" height="22" rx="6" fill="#FEF3C7" stroke="#B45309" stroke-width="1"/>
-        <text x="268" y="313" text-anchor="middle" fill="#92400e" font-size="11" font-family="monospace">Interest: 200 → 240 → 288 (GROWING — Exponential!)</text>
+        <rect x="90" y="310" width="350" height="22" rx="6" fill="#FEF3C7" stroke="#B45309" stroke-width="1"/>
+        <text x="265" y="325" text-anchor="middle" fill="#92400e" font-size="11" font-family="monospace">Interest: 200 → 240 → 288 (GROWING — Exponential!)</text>
       </svg>
     </div>
 
@@ -885,22 +880,154 @@ function toggleSol(btn) {
         </div>
       </div>
     </div>
-    <h3 style="direction:rtl;">جدول المقارنة — 1,000 جنيه بـ 20% Simple مقابل Compound:</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Year (N)</th><th>Simple (EGP)</th><th>Compound (EGP)</th><th>الفرق (جنيه)</th></tr></thead>
-        <tbody>
-          <tr><td>0</td><td>1,000</td><td>1,000</td><td>—</td></tr>
-          <tr><td>1</td><td>1,200</td><td>1,200</td><td>0</td></tr>
-          <tr><td>2</td><td>1,400</td><td>1,440</td><td>40</td></tr>
-          <tr><td>3</td><td>1,600</td><td>1,728</td><td>128</td></tr>
-          <tr><td>4</td><td>1,800</td><td>2,074</td><td>274</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="callout info">
-      <span class="nh">الاستنتاج الأساسي 💡</span>
-      الفجوة بين الـ <strong>Simple Interest</strong> والـ <strong>Compound Interest</strong> <strong>بتتسع بشكل ملحوظ مع مرور الوقت</strong>. في السنة الأولى مفيش فرق — لكن في السنة 4 الـ Compound بيدي 274 جنيه أكتر لكل 1,000 جنيه. كلما زاد وقت الاستثمار، كلما زادت ميزة الـ Compounding.
+    <div class="example-box">
+      <div class="example-header">
+        <span class="example-badge">Example</span>
+        Growth Comparison: EGP 1000 at 20%
+      </div>
+      <div class="example-body">
+        <span class="sl">Given</span>
+        <div class="step-box">P = 1000 EGP &nbsp;|&nbsp; i = 20% = 0.2 &nbsp;|&nbsp; comparing Simple vs. Compound Interest</div>
+        
+        <span class="sl">Solution — Comparison Table</span>
+        <div class="table-wrap" style="margin-top: 15px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Year (n)</th>
+                <th>Value with Simple Interest (EGP)</th>
+                <th>Value with Compound Interest (EGP)</th>
+                <th>Difference</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Now</td><td>1000</td><td>1000</td><td>-</td></tr>
+              <tr><td>1</td><td>1200</td><td>1200</td><td>-</td></tr>
+              <tr><td>2</td><td>1400</td><td>1440</td><td>40</td></tr>
+              <tr><td>3</td><td>1600</td><td>1728</td><td>128</td></tr>
+              <tr><td>4</td><td>1800</td><td>2074</td><td>274</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <span class="sl" style="margin-top: 20px;">Solution — Line Chart (Years 0 to 7)</span>
+        <div class="cf-wrapper" style="text-align: center; margin-top: 15px;">
+          <svg viewBox="0 0 650 350" width="100%" style="max-width:650px; font-family:'IBM Plex Sans',sans-serif;">
+            <!-- Grid Lines -->
+            <g stroke="#e2e8f0" stroke-width="1">
+              <!-- Horizontal -->
+              <line x1="70" y1="267.5" x2="520" y2="267.5"/>
+              <line x1="70" y1="235" x2="520" y2="235"/>
+              <line x1="70" y1="202.5" x2="520" y2="202.5"/>
+              <line x1="70" y1="170" x2="520" y2="170"/>
+              <line x1="70" y1="137.5" x2="520" y2="137.5"/>
+              <line x1="70" y1="105" x2="520" y2="105"/>
+              <line x1="70" y1="72.5" x2="520" y2="72.5"/>
+              <line x1="70" y1="40" x2="520" y2="40"/>
+              <!-- Vertical -->
+              <line x1="90" y1="40" x2="90" y2="300"/>
+              <line x1="150" y1="40" x2="150" y2="300"/>
+              <line x1="210" y1="40" x2="210" y2="300"/>
+              <line x1="270" y1="40" x2="270" y2="300"/>
+              <line x1="330" y1="40" x2="330" y2="300"/>
+              <line x1="390" y1="40" x2="390" y2="300"/>
+              <line x1="450" y1="40" x2="450" y2="300"/>
+              <line x1="510" y1="40" x2="510" y2="300"/>
+            </g>
+
+            <!-- Y Axis -->
+            <line x1="70" y1="300" x2="70" y2="20" stroke="black" stroke-width="2.5"/>
+            <polygon points="65,20 75,20 70,10" fill="black"/>
+            <text x="15" y="160" text-anchor="middle" fill="#1e293b" font-size="14" transform="rotate(-90,15,160)" font-weight="600">Value (EGP)</text>
+
+            <!-- Y Axis Labels -->
+            <g font-size="12" fill="#475569" text-anchor="end" font-weight="600">
+              <text x="60" y="304">0</text>
+              <text x="60" y="271.5">500</text>
+              <text x="60" y="239">1000</text>
+              <text x="60" y="206.5">1500</text>
+              <text x="60" y="174">2000</text>
+              <text x="60" y="141.5">2500</text>
+              <text x="60" y="109">3000</text>
+              <text x="60" y="76.5">3500</text>
+              <text x="60" y="44">4000</text>
+            </g>
+
+            <!-- X Axis -->
+            <line x1="70" y1="300" x2="550" y2="300" stroke="black" stroke-width="2.5"/>
+            <polygon points="550,295 550,305 560,300" fill="black"/>
+            <text x="570" y="304" text-anchor="start" fill="#1e293b" font-size="14" font-weight="600">Year</text>
+
+            <!-- X Axis Ticks -->
+            <g stroke="black" stroke-width="2.5">
+              <line x1="90" y1="295" x2="90" y2="305"/>
+              <line x1="150" y1="295" x2="150" y2="305"/>
+              <line x1="210" y1="295" x2="210" y2="305"/>
+              <line x1="270" y1="295" x2="270" y2="305"/>
+              <line x1="330" y1="295" x2="330" y2="305"/>
+              <line x1="390" y1="295" x2="390" y2="305"/>
+              <line x1="450" y1="295" x2="450" y2="305"/>
+              <line x1="510" y1="295" x2="510" y2="305"/>
+            </g>
+
+            <!-- X Axis Labels -->
+            <g font-size="13" fill="#475569" text-anchor="middle" font-weight="600">
+              <text x="90" y="325">0</text>
+              <text x="150" y="325">1</text>
+              <text x="210" y="325">2</text>
+              <text x="270" y="325">3</text>
+              <text x="330" y="325">4</text>
+              <text x="390" y="325">5</text>
+              <text x="450" y="325">6</text>
+              <text x="510" y="325">7</text>
+            </g>
+
+            <!-- Data Lines -->
+            <!-- Simple Interest -->
+            <polyline points="90,235 150,222 210,209 270,196 330,183 390,170 450,157 510,144" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+            <!-- Compound Interest -->
+            <polyline points="90,235 150,222 210,206.4 270,187.68 330,165.22 390,138.26 450,105.91 510,67.09" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+
+            <!-- Points for Simple -->
+            <g fill="#1d4ed8">
+              <circle cx="90" cy="235" r="3.5"/>
+              <circle cx="150" cy="222" r="3.5"/>
+              <circle cx="210" cy="209" r="3.5"/>
+              <circle cx="270" cy="196" r="3.5"/>
+              <circle cx="330" cy="183" r="3.5"/>
+              <circle cx="390" cy="170" r="3.5"/>
+              <circle cx="450" cy="157" r="3.5"/>
+              <circle cx="510" cy="144" r="3.5"/>
+            </g>
+
+            <!-- Points for Compound -->
+            <g fill="#ea580c">
+              <circle cx="90" cy="235" r="3.5"/>
+              <circle cx="150" cy="222" r="3.5"/>
+              <circle cx="210" cy="206.4" r="3.5"/>
+              <circle cx="270" cy="187.68" r="3.5"/>
+              <circle cx="330" cy="165.22" r="3.5"/>
+              <circle cx="390" cy="138.26" r="3.5"/>
+              <circle cx="450" cy="105.91" r="3.5"/>
+              <circle cx="510" cy="67.09" r="3.5"/>
+            </g>
+
+            <!-- Legend -->
+            <g transform="translate(540, 160)">
+              <line x1="0" y1="0" x2="20" y2="0" stroke="#1d4ed8" stroke-width="2.5"/>
+              <circle cx="10" cy="0" r="3.5" fill="#1d4ed8"/>
+              <text x="28" y="4" font-size="14" font-weight="600" fill="#1e293b">Simple</text>
+
+              <line x1="0" y1="30" x2="20" y2="30" stroke="#ea580c" stroke-width="2.5"/>
+              <circle cx="10" cy="30" r="3.5" fill="#ea580c"/>
+              <text x="28" y="34" font-size="14" font-weight="600" fill="#1e293b">Compound</text>
+            </g>
+          </svg>
+          <div style="font-size: 16px; text-align: left; margin-top: 15px; color: #1e293b; font-weight: 500;">
+            The gap between simple interest (linear) and compound interest (exponential curve) widens significantly over time.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -986,7 +1113,7 @@ function toggleSol(btn) {
     <h3>Worked Examples — Nominal Rate</h3>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 1</span>Credit card charges 1.5% per month — Find nominal annual rate</div>
+      <div class="example-header"><span class="example-badge">Example 1</span>A credit card charging 1.5% per month will advertise a nominal annual rate of ....... (Complete)</div>
       <div class="example-body">
         <span class="sl">Given</span>
         <div class="step-box">i_period = 1.5% per month &nbsp;|&nbsp; m = 12 months/year</div>
@@ -1003,7 +1130,7 @@ function toggleSol(btn) {
     </div>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 2</span>Car loan at 2.0% per quarter — Find nominal annual rate</div>
+      <div class="example-header"><span class="example-badge">Example 2</span>Imagine a local credit union offers you a car loan and states that the interest rate is 2.0% per quarter. Calculate the Nominal interest rate.</div>
       <div class="example-body">
         <span class="sl">Given</span>
         <div class="step-box">i_period = 2% per quarter &nbsp;|&nbsp; m = 4 quarters/year</div>
@@ -1021,7 +1148,7 @@ function toggleSol(btn) {
     </div>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 3</span>Payday lender charges 3% per week — Find nominal annual rate</div>
+      <div class="example-header"><span class="example-badge">Example 3</span>Short-term lenders often hide the true cost of borrowing by quoting a very small periodic rate over a short timeframe. Suppose a payday lender charges 3% interest per week. The nominal annual rate is ...... (Complete)</div>
       <div class="example-body">
         <span class="sl">Given</span>
         <div class="step-box">i_period = 3% per week &nbsp;|&nbsp; m = 52 weeks/year</div>
@@ -1039,7 +1166,7 @@ function toggleSol(btn) {
     </div>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 4</span>Summary Table — Nominal Rate for Various Compounding Frequencies</div>
+      <div class="example-header"><span class="example-badge">Example 4</span>Calculate the Nominal Interest Rate, given that:</div>
       <div class="example-body">
         <div class="table-wrap">
           <table>
@@ -1098,7 +1225,7 @@ function toggleSol(btn) {
     <h3>Worked Examples — Annual Effective Rate</h3>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 1</span>6% nominal annual, compounded monthly — Find effective annual rate</div>
+      <div class="example-header"><span class="example-badge">Example 1</span>A bank offers a savings account with a 6% nominal annual interest rate, compounded monthly. What is the effective rate?</div>
       <div class="example-body">
         <span class="sl">Given</span>
         <div class="step-box">r_nom = 6%/year &nbsp;|&nbsp; CP = monthly &nbsp;|&nbsp; n = 12</div>
@@ -1116,7 +1243,7 @@ function toggleSol(btn) {
     </div>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 2</span>10% nominal — Compare quarterly vs. daily compounding</div>
+      <div class="example-header"><span class="example-badge">Example 2</span>An annual 10% nominal rate. What happens when we compound it quarterly versus daily.</div>
       <div class="example-body">
         <span class="sl">Quarterly (n = 4)</span>
         <div class="step-box">\( i_{\text{eff}} = \left(1 + \frac{0.10}{4}\right)^4 - 1 = (1.025)^4 - 1 \)</div>
@@ -1129,7 +1256,7 @@ function toggleSol(btn) {
     </div>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 3</span>Credit card: 18% APR, charged 1.5% monthly — Find true annual rate</div>
+      <div class="example-header"><span class="example-badge">Example 3</span>A credit card advertises an 18% Annual Percentage Rate. However, they charge you 1.5% interest every single month. Because you are paying interest on your previous month's interest. Calculate the actual rate you pay over the year.</div>
       <div class="example-body">
         <span class="sl">Given</span>
         <div class="step-box">r_nom = 18%/year &nbsp;|&nbsp; n = 12 (monthly)</div>
@@ -1146,7 +1273,7 @@ function toggleSol(btn) {
     </div>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 4</span>2% per week, compounded weekly — (a) nominal yearly, (b) effective annual</div>
+      <div class="example-header"><span class="example-badge">Example 4</span>Interest on a loan is computed as 2% per week compounded weekly. (a) What is the nominal yearly interest rate? (b) What is the effective annual interest rate?</div>
       <div class="example-body">
         <span class="sl">Part (a) — Nominal Annual Rate</span>
         <div class="step-box">\( r_{\text{nom}} = 0.02 \times 52 = \mathbf{1.04} = \mathbf{104\%} \text{ per year} \)</div>
@@ -1158,7 +1285,7 @@ function toggleSol(btn) {
     </div>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 5</span>Bank A: 12% nominal/monthly vs. Bank B: 12.2% nominal/semiannual — Which is better?</div>
+      <div class="example-header"><span class="example-badge">Example 5</span>An engineer must invest company funds and has two options: Bank A: 12% nominal, compounded monthly. Bank B: 12.2% nominal, compounded semiannually. Determine the best offer.</div>
       <div class="example-body">
         <span class="sl">Bank A (n = 12)</span>
         <div class="step-box">\( i_{\text{eff}}(A) = \left(1 + \frac{0.12}{12}\right)^{12} - 1 = (1.01)^{12} - 1 \)</div>
@@ -1174,7 +1301,7 @@ function toggleSol(btn) {
     <h3>Worked Examples — Effective Rate for Sub-Annual Periods</h3>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 6</span>12% nominal compounded weekly — Find effective 6-month rate</div>
+      <div class="example-header"><span class="example-badge">Example 6</span>What is the effective 6-month loan rate if the nominal yearly rate is 12% compounded weekly?</div>
       <div class="example-body">
         <span class="sl">Given: r_nom = 12%/year, CP = weekly (n = 52), pr = 6-month → m = 26 weeks</span>
         <div class="sol-step">
@@ -1189,7 +1316,7 @@ function toggleSol(btn) {
     </div>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 7</span>24% nominal compounded monthly — Find effective 6-month rate</div>
+      <div class="example-header"><span class="example-badge">Example 7</span>What is the effective 6-month interest rate if the nominal yearly rate is 24% compounded monthly?</div>
       <div class="example-body">
         <span class="sl">Given: r_nom = 24%/year, n = 12, pr = 6-month → m = 6</span>
         <div class="step-box">\( i_{\text{eff}}^{(6\text{-month})} = \left(1 + \frac{0.24}{12}\right)^{6} - 1 = (1.02)^6 - 1 \)</div>
@@ -1199,7 +1326,7 @@ function toggleSol(btn) {
     </div>
 
     <div class="example-box">
-      <div class="example-header"><span class="example-badge">Example 8</span>10.4% nominal compounded weekly — Find effective quarterly rate</div>
+      <div class="example-header"><span class="example-badge">Example 8</span>Determine the effective quarterly (3-month) interest rate if the nominal yearly rate is 10.4% compounded weekly.</div>
       <div class="example-body">
         <span class="sl">Given: r_nom = 10.4%/year, n = 52, pr = quarterly → m = 13 weeks</span>
         <div class="step-box">\( i_{\text{eff}}^{(\text{quarter})} = \left(1 + \frac{0.104}{52}\right)^{13} - 1 = (1.002)^{13} - 1 \)</div>
