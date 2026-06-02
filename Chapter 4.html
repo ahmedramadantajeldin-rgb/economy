@@ -591,45 +591,85 @@ function toggleSol(btn) {
       <br><span class="k">F</span><span class="d">—</span> Future value (accumulated amount) at end of period N
     </div>
 
-    <!-- Cash Flow Diagram -->
+    <!-- Bar Chart Diagram — Lecture Slide Style -->
     <div class="cf-wrapper">
-      <div class="cf-title">Simple Interest — Linear Growth Diagram (P = 1,000 EGP, i = 20%)</div>
-      <svg viewBox="0 0 580 220" width="100%" style="max-width:580px;">
-        <!-- baseline -->
-        <line x1="50" y1="130" x2="530" y2="130" stroke="#1a3a6b" stroke-width="2.5"/>
-        <polygon points="530,126 540,130 530,134" fill="#1a3a6b"/>
-        <!-- tick marks -->
-        <line x1="90" y1="125" x2="90" y2="135" stroke="#1a3a6b" stroke-width="2"/>
-        <line x1="210" y1="125" x2="210" y2="135" stroke="#1a3a6b" stroke-width="2"/>
-        <line x1="330" y1="125" x2="330" y2="135" stroke="#1a3a6b" stroke-width="2"/>
-        <line x1="450" y1="125" x2="450" y2="135" stroke="#1a3a6b" stroke-width="2"/>
-        <!-- time labels -->
-        <text x="90" y="150" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">0</text>
-        <text x="210" y="150" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">1</text>
-        <text x="330" y="150" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">2</text>
-        <text x="450" y="150" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">3</text>
-        <text x="548" y="134" text-anchor="start" fill="#4a6fa5" font-size="12" font-family="monospace">Year</text>
-        <!-- P arrow up -->
-        <line x1="90" y1="130" x2="90" y2="90" stroke="#1a7f5a" stroke-width="2.5"/>
-        <polygon points="86,90 90,78 94,90" fill="#1a7f5a"/>
-        <text x="90" y="72" text-anchor="middle" fill="#1a7f5a" font-size="12" font-family="monospace">P=1000</text>
-        <!-- F1 -->
-        <line x1="210" y1="130" x2="210" y2="78" stroke="#0e90d2" stroke-width="2.5"/>
-        <polygon points="206,78 210,66 214,78" fill="#0e90d2"/>
-        <text x="210" y="60" text-anchor="middle" fill="#0e90d2" font-size="12" font-family="monospace">1200</text>
-        <!-- F2 -->
-        <line x1="330" y1="130" x2="330" y2="66" stroke="#0e90d2" stroke-width="2.5"/>
-        <polygon points="326,66 330,54 334,66" fill="#0e90d2"/>
-        <text x="330" y="48" text-anchor="middle" fill="#0e90d2" font-size="12" font-family="monospace">1400</text>
-        <!-- F3 -->
-        <line x1="450" y1="130" x2="450" y2="54" stroke="#e8b84b" stroke-width="3"/>
-        <polygon points="446,54 450,42 454,54" fill="#e8b84b"/>
-        <text x="450" y="36" text-anchor="middle" fill="#B45309" font-size="12" font-family="monospace" font-weight="700">F₃=1600</text>
-        <!-- interest annotation -->
-        <rect x="155" y="165" width="200" height="28" rx="6" fill="#edfaf4" stroke="#1a7f5a" stroke-width="1"/>
-        <text x="255" y="183" text-anchor="middle" fill="#166534" font-size="11" font-family="monospace">Interest each year = +200 (constant)</text>
+      <div class="cf-title">Simple Interest — Bar Chart (P = 1,000 EGP, i = 20%) — الفائدة ثابتة كل سنة</div>
+      <svg viewBox="0 0 620 310" width="100%" style="max-width:680px;font-family:'IBM Plex Sans',sans-serif;">
+        <!-- Y-axis -->
+        <line x1="70" y1="15" x2="70" y2="255" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="66,15 70,5 74,15" fill="#1a3a6b"/>
+        <!-- Y label -->
+        <text x="14" y="140" text-anchor="middle" fill="#2c4066" font-size="11" transform="rotate(-90,14,140)">VALUE (EGP)</text>
+        <!-- Y axis ticks -->
+        <line x1="65" y1="215" x2="70" y2="215" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="62" y="219" text-anchor="end" fill="#4a6fa5" font-size="10">1000</text>
+        <line x1="65" y1="175" x2="70" y2="175" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="62" y="179" text-anchor="end" fill="#4a6fa5" font-size="10">1200</text>
+        <line x1="65" y1="135" x2="70" y2="135" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="62" y="139" text-anchor="end" fill="#4a6fa5" font-size="10">1400</text>
+        <line x1="65" y1="95" x2="70" y2="95" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="62" y="99" text-anchor="end" fill="#4a6fa5" font-size="10">1600</text>
+        <!-- X-axis -->
+        <line x1="70" y1="255" x2="590" y2="255" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="586,251 596,255 586,259" fill="#1a3a6b"/>
+
+        <!-- ═══ BAR 0: Present — Principal only ═══ -->
+        <!-- Principal box solid -->
+        <rect x="88" y="215" width="90" height="0" fill="none"/>
+        <rect x="88" y="55" width="90" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
+        <!-- value label inside -->
+        <text x="133" y="145" text-anchor="middle" fill="#8898aa" font-size="18" font-weight="600">1000</text>
+        <!-- x label -->
+        <text x="133" y="275" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="600">Present</text>
+
+        <!-- ═══ BAR 1: End of Year 1 ═══ -->
+        <!-- Principal solid -->
+        <rect x="208" y="55" width="90" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
+        <text x="253" y="145" text-anchor="middle" fill="#8898aa" font-size="18" font-weight="600">1000</text>
+        <!-- Interest dashed on top -->
+        <rect x="208" y="15" width="90" height="40" fill="#f0fdf4" stroke="#1a7f5a" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="253" y="40" text-anchor="middle" fill="#166534" font-size="13" font-weight="700">200</text>
+        <!-- x label -->
+        <text x="253" y="275" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="600">End of Year 1</text>
+
+        <!-- ═══ BAR 2: End of Year 2 ═══ -->
+        <!-- Principal solid -->
+        <rect x="328" y="55" width="90" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
+        <text x="373" y="145" text-anchor="middle" fill="#8898aa" font-size="18" font-weight="600">1000</text>
+        <!-- Interest layer 1 -->
+        <rect x="328" y="35" width="90" height="20" fill="#f0fdf4" stroke="#1a7f5a" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="373" y="30" text-anchor="middle" fill="#166534" font-size="11" font-weight="600">200</text>
+        <!-- Interest layer 2 dashed on top -->
+        <rect x="328" y="15" width="90" height="20" fill="#dcfce7" stroke="#1a7f5a" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="373" y="50" text-anchor="middle" fill="#166534" font-size="11" font-weight="600">200</text>
+        <!-- x label -->
+        <text x="373" y="275" text-anchor="middle" fill="#2c4066" font-size="12" font-weight="600">End of Year 2</text>
+
+        <!-- ═══ BAR 3: End of Year 3 (implied) — callout labels only ═══ -->
+        <text x="490" y="275" text-anchor="middle" fill="#9ca3af" font-size="12">End of Year 3</text>
+
+        <!-- ═══ CALLOUT: Interest bracket ═══ -->
+        <!-- bracket line right of bar 1 -->
+        <line x1="302" y1="15" x2="312" y2="15" stroke="#1a7f5a" stroke-width="2"/>
+        <line x1="302" y1="55" x2="312" y2="55" stroke="#1a7f5a" stroke-width="2"/>
+        <line x1="312" y1="15" x2="312" y2="55" stroke="#1a7f5a" stroke-width="2"/>
+        <line x1="312" y1="35" x2="320" y2="35" stroke="#1a7f5a" stroke-width="2"/>
+        <text x="322" y="30" text-anchor="start" fill="#1a7f5a" font-size="12" font-weight="700">Interest</text>
+
+        <!-- bracket line: Principal -->
+        <line x1="302" y1="55" x2="312" y2="55" stroke="#0e90d2" stroke-width="2"/>
+        <line x1="302" y1="215" x2="312" y2="215" stroke="#0e90d2" stroke-width="2"/>
+        <line x1="312" y1="55" x2="312" y2="215" stroke="#0e90d2" stroke-width="2"/>
+        <line x1="312" y1="135" x2="320" y2="135" stroke="#0e90d2" stroke-width="2"/>
+        <text x="322" y="125" text-anchor="start" fill="#0e90d2" font-size="12" font-weight="700">Principal</text>
+        <text x="322" y="140" text-anchor="start" fill="#0e90d2" font-size="11">amount</text>
+
+        <!-- bottom note -->
+        <rect x="95" y="285" width="290" height="22" rx="6" fill="#edfaf4" stroke="#1a7f5a" stroke-width="1"/>
+        <text x="240" y="300" text-anchor="middle" fill="#166534" font-size="11" font-family="monospace">Interest each year = +200 (constant — LINEAR growth)</text>
       </svg>
     </div>
+
 
     <div class="example-box">
       <div class="example-header">
@@ -697,42 +737,83 @@ function toggleSol(btn) {
       <p>P = Principal | i = Rate per period | N = Number of periods | F = Future value</p>
     </div>
 
-    <!-- Cash Flow Diagram Compound -->
+    <!-- Bar Chart Diagram — Compound Interest Lecture Style -->
     <div class="cf-wrapper">
-      <div class="cf-title">Compound Interest — Exponential Growth Diagram (P = 1,000 EGP, i = 20%)</div>
-      <svg viewBox="0 0 580 220" width="100%" style="max-width:580px;">
-        <line x1="50" y1="150" x2="530" y2="150" stroke="#1a3a6b" stroke-width="2.5"/>
-        <polygon points="530,146 540,150 530,154" fill="#1a3a6b"/>
-        <line x1="90" y1="145" x2="90" y2="155" stroke="#1a3a6b" stroke-width="2"/>
-        <line x1="210" y1="145" x2="210" y2="155" stroke="#1a3a6b" stroke-width="2"/>
-        <line x1="330" y1="145" x2="330" y2="155" stroke="#1a3a6b" stroke-width="2"/>
-        <line x1="450" y1="145" x2="450" y2="155" stroke="#1a3a6b" stroke-width="2"/>
-        <text x="90"  y="170" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">0</text>
-        <text x="210" y="170" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">1</text>
-        <text x="330" y="170" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">2</text>
-        <text x="450" y="170" text-anchor="middle" fill="#2c4066" font-size="13" font-family="monospace">3</text>
-        <text x="548" y="154" text-anchor="start" fill="#4a6fa5" font-size="12" font-family="monospace">Year</text>
-        <!-- P -->
-        <line x1="90" y1="150" x2="90" y2="110" stroke="#1a7f5a" stroke-width="2.5"/>
-        <polygon points="86,110 90,98 94,110" fill="#1a7f5a"/>
-        <text x="90" y="92" text-anchor="middle" fill="#1a7f5a" font-size="12" font-family="monospace">P=1000</text>
-        <!-- F1=1200 -->
-        <line x1="210" y1="150" x2="210" y2="98" stroke="#0e90d2" stroke-width="2.5"/>
-        <polygon points="206,98 210,86 214,98" fill="#0e90d2"/>
-        <text x="210" y="80" text-anchor="middle" fill="#0e90d2" font-size="12" font-family="monospace">1200</text>
-        <!-- F2=1440 -->
-        <line x1="330" y1="150" x2="330" y2="80" stroke="#0e90d2" stroke-width="2.5"/>
-        <polygon points="326,80 330,68 334,80" fill="#0e90d2"/>
-        <text x="330" y="62" text-anchor="middle" fill="#0e90d2" font-size="12" font-family="monospace">1440</text>
-        <!-- F3=1728 -->
-        <line x1="450" y1="150" x2="450" y2="58" stroke="#e8b84b" stroke-width="3"/>
-        <polygon points="446,58 450,46 454,58" fill="#e8b84b"/>
-        <text x="450" y="40" text-anchor="middle" fill="#B45309" font-size="12" font-family="monospace" font-weight="700">F₃=1728</text>
-        <!-- growing interest label -->
-        <rect x="130" y="185" width="280" height="28" rx="6" fill="#FEF3C7" stroke="#B45309" stroke-width="1"/>
-        <text x="270" y="203" text-anchor="middle" fill="#92400e" font-size="11" font-family="monospace">Interest grows: 200 → 240 → 288 (Exponential!)</text>
+      <div class="cf-title">Compound Interest — Bar Chart (P = 1,000 EGP, i = 20%) — الفائدة تنمو كل سنة</div>
+      <svg viewBox="0 0 640 330" width="100%" style="max-width:700px;font-family:'IBM Plex Sans',sans-serif;">
+        <!-- Y-axis -->
+        <line x1="70" y1="15" x2="70" y2="265" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="66,15 70,5 74,15" fill="#1a3a6b"/>
+        <!-- Y label -->
+        <text x="14" y="145" text-anchor="middle" fill="#2c4066" font-size="11" transform="rotate(-90,14,145)">VALUE (EGP)</text>
+        <!-- Y ticks -->
+        <line x1="65" y1="225" x2="70" y2="225" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="62" y="229" text-anchor="end" fill="#4a6fa5" font-size="10">1000</text>
+        <line x1="65" y1="185" x2="70" y2="185" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="62" y="189" text-anchor="end" fill="#4a6fa5" font-size="10">1200</text>
+        <line x1="65" y1="137" x2="70" y2="137" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="62" y="141" text-anchor="end" fill="#4a6fa5" font-size="10">1440</text>
+        <line x1="65" y1="80" x2="70" y2="80" stroke="#1a3a6b" stroke-width="1.5"/>
+        <text x="62" y="84" text-anchor="end" fill="#4a6fa5" font-size="10">1728</text>
+        <!-- X-axis -->
+        <line x1="70" y1="265" x2="570" y2="265" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="566,261 576,265 566,269" fill="#1a3a6b"/>
+
+        <!-- ═══ BAR 0: Present ═══ -->
+        <!-- Principal: 1000 → height=160px, top=65 -->
+        <rect x="78" y="65" width="85" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
+        <text x="120" y="153" text-anchor="middle" fill="#8898aa" font-size="17" font-weight="600">1000</text>
+        <text x="120" y="285" text-anchor="middle" fill="#2c4066" font-size="11" font-weight="700">Present</text>
+
+        <!-- ═══ BAR 1: Year 1 → F=1200 ═══ -->
+        <!-- Principal 1000 solid -->
+        <rect x="193" y="65" width="85" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
+        <text x="235" y="153" text-anchor="middle" fill="#8898aa" font-size="17" font-weight="600">1000</text>
+        <!-- Interest 200 dashed (40px) -->
+        <rect x="193" y="25" width="85" height="40" fill="#fff7ed" stroke="#B45309" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="235" y="49" text-anchor="middle" fill="#92400e" font-size="13" font-weight="700">200</text>
+        <text x="235" y="285" text-anchor="middle" fill="#2c4066" font-size="11" font-weight="700">End of Year 1</text>
+
+        <!-- ═══ BAR 2: Year 2 → F=1440 ═══ -->
+        <!-- Principal 1000 solid -->
+        <rect x="308" y="65" width="85" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
+        <text x="350" y="153" text-anchor="middle" fill="#8898aa" font-size="17" font-weight="600">1000</text>
+        <!-- Accumulated interest from Y1 (200) + new interest (240) = 440 total →  88px -->
+        <!-- Layer 1: first 200 -->
+        <rect x="308" y="17" width="85" height="48" fill="#fff7ed" stroke="#B45309" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="350" y="44" text-anchor="middle" fill="#92400e" font-size="12" font-weight="600">240</text>
+        <text x="350" y="285" text-anchor="middle" fill="#2c4066" font-size="11" font-weight="700">End of Year 2</text>
+
+        <!-- ═══ BAR 3: Year 3 → F=1728 ═══ -->
+        <!-- Principal 1000 solid -->
+        <rect x="423" y="65" width="85" height="160" fill="white" stroke="#1a3a6b" stroke-width="2.5"/>
+        <text x="465" y="153" text-anchor="middle" fill="#8898aa" font-size="17" font-weight="600">1000</text>
+        <!-- Compound interest 728 → 57.6px -->
+        <rect x="423" y="8" width="85" height="57" fill="#fef3c7" stroke="#B45309" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="465" y="36" text-anchor="middle" fill="#92400e" font-size="12" font-weight="700">288</text>
+        <text x="465" y="285" text-anchor="middle" fill="#2c4066" font-size="11" font-weight="700">End of Year 3</text>
+
+        <!-- ═══ CALLOUT: Accumulated Amount bracket (right of Bar3) ═══ -->
+        <line x1="512" y1="8"  x2="522" y2="8"  stroke="#B45309" stroke-width="2"/>
+        <line x1="512" y1="225" x2="522" y2="225" stroke="#B45309" stroke-width="2"/>
+        <line x1="522" y1="8"  x2="522" y2="225" stroke="#B45309" stroke-width="2"/>
+        <line x1="522" y1="116" x2="530" y2="116" stroke="#B45309" stroke-width="2"/>
+        <text x="533" y="108" text-anchor="start" fill="#B45309" font-size="12" font-weight="700">Accumulated</text>
+        <text x="533" y="122" text-anchor="start" fill="#B45309" font-size="11">amount</text>
+
+        <!-- CALLOUT: Interest bracket -->
+        <line x1="512" y1="8"  x2="522" y2="8"  stroke="#1a7f5a" stroke-width="2"/>
+        <line x1="512" y1="65" x2="522" y2="65" stroke="#1a7f5a" stroke-width="2"/>
+        <line x1="517" y1="8"  x2="517" y2="65" stroke="#1a7f5a" stroke-width="2"/>
+        <line x1="517" y1="36" x2="525" y2="36" stroke="#1a7f5a" stroke-width="2"/>
+        <text x="527" y="32" text-anchor="start" fill="#1a7f5a" font-size="12" font-weight="700">Interest</text>
+
+        <!-- bottom note -->
+        <rect x="78" y="298" width="380" height="22" rx="6" fill="#FEF3C7" stroke="#B45309" stroke-width="1"/>
+        <text x="268" y="313" text-anchor="middle" fill="#92400e" font-size="11" font-family="monospace">Interest: 200 → 240 → 288 (GROWING — Exponential!)</text>
       </svg>
     </div>
+
 
     <div class="example-box">
       <div class="example-header">
@@ -1186,8 +1267,7 @@ function toggleSol(btn) {
           <div class="qa-choice">(c) 10.38%</div>
           <div class="qa-choice">(d) 10.50%</div>
         </div>
-        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
-        <div class="solution-content">
+                <div class="solution-content open">
           <span class="sl">Given</span>
           <div class="step-box">r_nom = 20%/year | CP = quarterly → n = 4 | pr = semiannual → m = 2</div>
           <span class="sl">Solution</span>
@@ -1216,8 +1296,7 @@ function toggleSol(btn) {
           <div class="qa-choice">(c) EGP 8,745</div>
           <div class="qa-choice">(d) EGP 9,000</div>
         </div>
-        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
-        <div class="solution-content">
+                <div class="solution-content open">
           <span class="sl">Given</span>
           <div class="step-box">P = 5,000 EGP | i = 15% = 0.15 | N = 4 years</div>
           <span class="sl">Solution</span>
@@ -1247,8 +1326,7 @@ function toggleSol(btn) {
           <div class="qa-choice correct">(c) EGP 14,049</div>
           <div class="qa-choice">(d) EGP 14,400</div>
         </div>
-        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
-        <div class="solution-content">
+                <div class="solution-content open">
           <span class="sl">Given</span>
           <div class="step-box">P = 10,000 EGP | i = 12% = 0.12 | N = 3 years</div>
           <span class="sl">Solution</span>
@@ -1278,8 +1356,7 @@ function toggleSol(btn) {
           <div class="qa-choice">(c) 12.75%</div>
           <div class="qa-choice">(d) 13.00%</div>
         </div>
-        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
-        <div class="solution-content">
+                <div class="solution-content open">
           <span class="sl">Given</span>
           <div class="step-box">r_nom = 12%/year | CP = monthly | n = 12</div>
           <span class="sl">Solution</span>
@@ -1308,8 +1385,7 @@ function toggleSol(btn) {
           <div class="qa-choice correct">(c) 24%</div>
           <div class="qa-choice">(d) 26.82%</div>
         </div>
-        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
-        <div class="solution-content">
+                <div class="solution-content open">
           <span class="sl">Given</span>
           <div class="step-box">i_period = 2% per month | m = 12 months/year</div>
           <span class="sl">Solution</span>
@@ -1338,8 +1414,7 @@ function toggleSol(btn) {
           <div class="qa-choice">(c) Both produce the same future value after 1 year</div>
           <div class="qa-choice">(d) Compound interest is always less than simple interest</div>
         </div>
-        <button class="solution-toggle" onclick="toggleSol(this)">Show Full Solution ▼</button>
-        <div class="solution-content">
+                <div class="solution-content open">
           <div class="callout good" style="margin-top:0;">
             <span class="nh">Explanation</span>
             Simple interest: F = P(1 + Ni) — only principal earns interest. Growth is <strong>linear</strong>.<br>
