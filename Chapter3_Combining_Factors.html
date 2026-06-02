@@ -1302,7 +1302,14 @@ function toggleDuaa(btn) {
     <div class="example-box">
       <div class="example-header">📘 Example 8 — Weirton Steel (Geometric Gradient + Uniform Series)</div>
       <div class="example-body">
-        <p dir="ltr" style="text-align:left"><strong>Problem:</strong> Weirton Steel has a 5-year contract for water chemicals at $7,000/year. After the contract, costs increase by 12%/year for 8 years. Initial storage tank investment = $35,000. Find the equivalent present worth at year 0 with i = 15% per year.</p>
+        <p dir="ltr" style="text-align:left"><strong>Problem:</strong> Weirton Steel needs to store water treatment chemicals.
+          The following costs apply:</p>
+        <ul dir="ltr" style="text-align:left; margin: 8px 0 8px 20px; line-height:1.9;">
+          <li>Initial storage tank cost: <strong>$35,000</strong> (at year 0)</li>
+          <li>Chemical supply contract: <strong>$7,000 / year</strong> for the first <strong>5 years</strong> (years 1–5)</li>
+          <li>After the contract ends, costs increase at <strong>12% per year</strong> for the next <strong>8 years</strong> (years 6–13)</li>
+        </ul>
+        <p dir="ltr" style="text-align:left">Find the <strong>equivalent present worth</strong> of all costs at year 0 using <strong>i = 15% per year</strong>.</p>
 
         <!-- CFD -->
         <div class="cf-wrap">
@@ -1354,30 +1361,38 @@ function toggleDuaa(btn) {
 
         <div class="sol-step">
           <div class="step-label">الخطوة 1 — تحليل المسألة</div>
-          ثلاثة مكونات: ① Initial investment $35K عند yr0، ② سلسلة ثابتة $7K/yr من yr1–5، ③ سلسلة هندسية A₁=$7K، g=12% من yr6–13 (n=8)
+          <p>ثلاثة مكونات:</p>
+          <p>① <strong>Initial investment</strong> = $35,000 عند yr0 (تكلفة خزان — تُطرح)</p>
+          <p>② <strong>سلسلة ثابتة</strong> A = $7,000/yr من yr1–5 &nbsp;(n = 5)</p>
+          <p>③ <strong>سلسلة هندسية</strong> A₁ = $7,000، g = 12%، من yr6–13 &nbsp;(n = 8) → P_g عند yr5</p>
         </div>
+
         <div class="sol-step">
-          <div class="step-label">الخطوة 2 — المكون ①</div>
-          $$P_0^{(1)} = -\$35,000$$
+          <div class="step-label">الخطوة 2 — المكون ① (Initial Investment)</div>
+          $$P_0^{(1)} = -\$35{,}000$$
         </div>
+
         <div class="sol-step">
-          <div class="step-label">الخطوة 3 — المكون ②</div>
-          $$P_0^{(2)} = 7000 \times (P/A,\; 15\%,\; 4) \quad [\text{مع Payment at yr0... لا! من yr1-5}]$$
-          $$P_0^{(2)} = 7000 \times (P/A,\; 15\%,\; 5) = 7000 \times 3.3522 = \$23,\!465$$
-          <em>(يمكن أيضاً حسابها كـ P/A,15%,4 ثم إضافة P/F,15%,0 حسب البنية الدقيقة للرسمة)</em>
+          <div class="step-label">الخطوة 3 — المكون ② (Uniform Series yr1–5)</div>
+          $$P_0^{(2)} = 7{,}000 \times (P/A,\; 15\%,\; 5) = 7{,}000 \times 3.3522 = \$23{,}465$$
         </div>
+
         <div class="sol-step">
-          <div class="step-label">الخطوة 4 — المكون ③ (Geometric)</div>
-          السلسلة الهندسية تبدأ من yr6 → P_g عند yr5:
-          $$P_g = 7000 \times \frac{1-\left(\frac{1.12}{1.15}\right)^8}{0.15-0.12} = 7000 \times \frac{1-0.7976}{0.03}$$
-          $$= 7000 \times \frac{0.2024}{0.03} = 7000 \times 6.747 = \$47,\!229$$
-          $$P_0^{(3)} = 47229 \times (P/F,\; 15\%,\; 5) = 47229 \times 0.4972 = \$23,\!479$$
-          <em>أو باستخدام الجداول: $P_g = 7K \times (P/A_1, 15\%, 12\%, 9) \times (P/F, 15\%, 4)$</em>
+          <div class="step-label">الخطوة 4 — المكون ③ (Geometric Series yr6–13، n=8)</div>
+          <p style="font-size:12px;color:#aac8e6;margin-bottom:6px;">السلسلة الهندسية تبدأ من yr6 ← P_g تقع عند yr5 (سنة قبل أول دفعة)</p>
+          $$P_{g@yr5} = A_1 \times \frac{1-\left(\dfrac{1+g}{1+i}\right)^n}{i-g} = 7{,}000 \times \frac{1-\left(\dfrac{1.12}{1.15}\right)^8}{0.15-0.12}$$
+          $$= 7{,}000 \times \frac{1-(0.9739)^8}{0.03} = 7{,}000 \times \frac{1-0.8094}{0.03} = 7{,}000 \times 6.353 = \$44{,}474$$
+          $$P_0^{(3)} = 44{,}474 \times (P/F,\; 15\%,\; 5) = 44{,}474 \times 0.4972 = \$22{,}103$$
         </div>
+
         <div class="sol-step">
-          <div class="step-label">✅ الإجابة الإجمالية (من الكتاب)</div>
-          $$\mathbf{PW \approx \$83,\!230}$$
-          (تختلف قليلاً حسب دقة الجداول المستخدمة — الكتاب يستخدم: 35K + 7K×2.855 + 7K×7.0573×0.5718 ≈ $83,230)
+          <div class="step-label">✅ الإجابة الإجمالية</div>
+          $$PW = P_0^{(1)} + P_0^{(2)} + P_0^{(3)}$$
+          $$= -35{,}000 + 23{,}465 + 22{,}103 = \mathbf{\$10{,}568}$$
+          <p style="color:#aac8e6;font-size:12px;margin-top:8px;">
+            ملاحظة: إذا كانت المسألة تعامل المكونات الثلاثة كتكاليف (جميعها سالبة) فيكون الـ PW = −$10,568<br>
+            إذا كان المطلوب PW بدون الاستثمار الأولي: PW = 23,465 + 22,103 = <strong>$45,568</strong>
+          </p>
         </div>
       </div>
     </div>
