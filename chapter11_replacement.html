@@ -1043,6 +1043,95 @@ function toggleDuaa(btn) {
       </p>
     </div>
 
+    <!-- ═══ FULL COMPARISON TABLE ═══ -->
+    <h3 style="margin-top:28px;margin-bottom:12px;">📊 Outsider's Viewpoint vs Insider's Viewpoint — Full Comparison</h3>
+
+    <table class="data-table" style="margin-top:8px;">
+      <thead>
+        <tr>
+          <th style="width:26%;">Element</th>
+          <th style="width:37%;background:rgba(14,144,210,.18);color:#0e90d2;">👁️ Outsider's Viewpoint</th>
+          <th style="width:37%;background:rgba(26,127,90,.18);color:#1a7f5a;">🏠 Insider's Viewpoint</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>الفكرة الأساسية</strong></td>
+          <td>نفترض أن طرفاً خارجياً يريد شراء المدافع الآن من السوق</td>
+          <td>نظرة الشركة المالكة التي لديها المدافع بالفعل</td>
+        </tr>
+        <tr>
+          <td><strong>تكلفة المدافع (P<sub>D</sub>)</strong></td>
+          <td style="font-weight:700;color:#0e90d2;">= القيمة السوقية الحالية (MV)</td>
+          <td style="font-weight:700;color:#1a7f5a;">= $0 (لا تكلفة استثمارية جديدة)</td>
+        </tr>
+        <tr>
+          <td><strong>تكلفة المنافس (P<sub>C</sub>)</strong></td>
+          <td style="font-weight:700;color:#0e90d2;">= سعر الشراء الكامل للمنافس</td>
+          <td style="font-weight:700;color:#1a7f5a;">= P<sub>C</sub> − MV<sub>D</sub> (صافي التكلفة)</td>
+        </tr>
+        <tr>
+          <td><strong>الفرق بين البديلين</strong></td>
+          <td>P<sub>C</sub> − MV<sub>D</sub></td>
+          <td>(P<sub>C</sub> − MV<sub>D</sub>) − 0 = P<sub>C</sub> − MV<sub>D</sub></td>
+        </tr>
+        <tr>
+          <td><strong>القرار النهائي</strong></td>
+          <td colspan="2" style="text-align:center;font-weight:700;color:var(--primary);">✅ نفس القرار دائماً (احتفاظ أو استبدال)</td>
+        </tr>
+        <tr>
+          <td><strong>الاستخدام</strong></td>
+          <td style="color:#0e90d2;">⭐ الأكثر شيوعاً في الكتب المرجعية (Blank &amp; Tarquin)</td>
+          <td style="color:#1a7f5a;">تُستخدم للتحقق من الإجابة فقط</td>
+        </tr>
+        <tr>
+          <td><strong>AW الدفاع</strong></td>
+          <td>AW<sub>D</sub> = MV × (A/P,i,n) + AOC<sub>D</sub> − SV<sub>D</sub>(A/F,i,n)</td>
+          <td>AW<sub>D</sub> = 0 + AOC<sub>D</sub> − SV<sub>D</sub>(A/F,i,n)</td>
+        </tr>
+        <tr>
+          <td><strong>AW المنافس</strong></td>
+          <td>AW<sub>C</sub> = P<sub>C</sub>(A/P,i,n) + AOC<sub>C</sub> − SV<sub>C</sub>(A/F,i,n)</td>
+          <td>AW<sub>C</sub> = (P<sub>C</sub>−MV<sub>D</sub>)(A/P,i,n) + AOC<sub>C</sub> − SV<sub>C</sub>(A/F,i,n)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Formula Summary Cards -->
+    <div class="two-col" style="margin-top:22px;">
+      <div class="col-card blue-card">
+        <h4 class="blue">👁️ Outsider's Viewpoint — الصيغة</h4>
+        <div style="background:rgba(14,144,210,.1);border-radius:8px;padding:12px;font-family:monospace;font-size:13.5px;line-height:2;">
+          <strong>P<sub>Defender</sub> = MV (current)</strong><br>
+          <strong>P<sub>Challenger</sub> = Full Purchase Price</strong><br><br>
+          AW<sub>D</sub> = MV(A/P,i,n) + AOC<sub>D</sub> − SV<sub>D</sub>(A/F,i,n)<br>
+          AW<sub>C</sub> = P<sub>C</sub>(A/P,i,n) + AOC<sub>C</sub> − SV<sub>C</sub>(A/F,i,n)
+        </div>
+        <p style="margin-top:10px;font-size:13px;color:#0e90d2;">⭐ هذه الطريقة هي المعتمدة في هذا الكورس</p>
+      </div>
+      <div class="col-card" style="border:2px solid var(--green);background:rgba(26,127,90,.06);border-radius:12px;padding:18px;">
+        <h4 class="green">🏠 Insider's Viewpoint — الصيغة</h4>
+        <div style="background:rgba(26,127,90,.1);border-radius:8px;padding:12px;font-family:monospace;font-size:13.5px;line-height:2;">
+          <strong>P<sub>Defender</sub> = $0</strong><br>
+          <strong>P<sub>Challenger</sub> = P<sub>C</sub> − MV<sub>D</sub></strong><br><br>
+          AW<sub>D</sub> = 0 + AOC<sub>D</sub> − SV<sub>D</sub>(A/F,i,n)<br>
+          AW<sub>C</sub> = (P<sub>C</sub>−MV<sub>D</sub>)(A/P,i,n) + AOC<sub>C</sub> − SV<sub>C</sub>(A/F,i,n)
+        </div>
+        <p style="margin-top:10px;font-size:13px;color:var(--green);">✅ يُعطي نفس القرار النهائي دائماً</p>
+      </div>
+    </div>
+
+    <!-- Key Insight Box -->
+    <div style="margin-top:20px;background:linear-gradient(135deg,rgba(26,58,107,.12),rgba(14,144,210,.08));border:2px solid var(--primary);border-radius:12px;padding:18px;">
+      <p style="font-weight:700;font-size:15px;color:var(--primary);margin-bottom:10px;">🔑 الفكرة الجوهرية — Why Both Give the Same Decision?</p>
+      <p class="text-en" style="font-size:14px;line-height:1.8;">
+        The difference between the two alternatives is always <strong>(P<sub>C</sub> − MV<sub>D</sub>)</strong> in both methods:<br>
+        • <strong>Outsider:</strong> &nbsp;P<sub>C</sub> − MV<sub>D</sub> = $68K − $9K = $59K difference<br>
+        • <strong>Insider:</strong> &nbsp;(P<sub>C</sub>−MV<sub>D</sub>) − $0 = $59K difference<br><br>
+        Since AW is a <em>linear function</em> of the first cost, the same difference means the same relative ranking → same decision. ✅
+      </p>
+    </div>
+
     <h3>مقارنة الطريقتين بمثال توضيحي</h3>
     <p>لنفترض: P_C = $68,000 و MV_D = $9,000</p>
     <div class="two-col">
@@ -1295,71 +1384,131 @@ function toggleDuaa(btn) {
           </tbody>
         </table>
 
-        <p class="text-en" style="margin-top:14px;font-weight:600;color:var(--primary);">AW Calculations Year-by-Year:</p>
-
-        <div class="sol-step">
-          <strong>AW₁ (keep 1 year):</strong>
-          <span class="text-en" style="display:block;margin-top:6px;">
-            AW₁ = {20K + 5K(P/F,10%,1)} × (A/P,10%,1) − 10K × (A/F,10%,1)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {20K + 5K(0.9091)} × 1.1000 − 10K × 1.0000<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {20K + 4.545K} × 1.1 − 10K<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 24.545K × 1.1 − 10K<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 26.999K − 10K = <strong>$17,000/year</strong>
-          </span>
+        <div class="note-box" style="margin-bottom:14px;">
+          <span class="icon">📌</span>
+          <p>
+            <strong>CR<sub>n</sub> = P × (A/P, i%, n) − S<sub>n</sub> × (A/F, i%, n)</strong><br>
+            <strong>AOC<sub>n</sub> = [Σ AOC<sub>k</sub> × (P/F, i%, k)] × (A/P, i%, n)</strong><br>
+            <strong>A<sub>Total</sub> = CR<sub>n</sub> + AOC<sub>n</sub></strong>
+            &nbsp;|&nbsp; P = $20,000 &nbsp;|&nbsp; i = 10%
+          </p>
         </div>
 
+        <!-- ── Year 1 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:14px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 1 &nbsp;(n = 1) &nbsp;— SV = $10,000 | AOC = $5,000</p>
         <div class="sol-step">
-          <strong>AW₂ (keep 2 years):</strong>
-          <span class="text-en" style="display:block;margin-top:6px;">
-            AW₂ = {20K + 5K(0.9091) + 6.5K(0.8264)} × (A/P,10%,2) − 8K × (A/F,10%,2)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {20K + 4.545K + 5.372K} × 0.5762 − 8K × 0.4762<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 29.917K × 0.5762 − 3.810K<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 17.234K − 3.810K = <strong>$13,424/year</strong>
+          <strong>CR₁ = P × (A/P,10%,1) − S₁ × (A/F,10%,1)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 20,000 × 1.1000 − 10,000 × 1.0000<br>
+            = 22,000 − 10,000 = <strong>$12,000/yr</strong>
           </span>
         </div>
-
         <div class="sol-step">
-          <strong>AW₃ (keep 3 years):</strong>
-          <span class="text-en" style="display:block;margin-top:6px;">
-            AW₃ = {29.917K + 9K(0.7513)} × (A/P,10%,3) − 5K × (A/F,10%,3)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {29.917K + 6.762K} × 0.4021 − 5K × 0.3021<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 36.679K × 0.4021 − 1.510K<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 14.743K − 1.510K = <strong>$13,233/year</strong>
+          <strong>AOC₁ = [AOC₁×(P/F,10%,1)] × (A/P,10%,1)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = [5,000 × 0.9091] × 1.1000<br>
+            = 4,545.5 × 1.1000 = <strong>$5,000/yr</strong>
           </span>
         </div>
-
-        <div class="sol-step">
-          <strong>AW₄ (keep 4 years):</strong>
-          <span class="text-en" style="display:block;margin-top:6px;">
-            AW₄ = {36.679K + 11K(0.6830)} × (A/P,10%,4) − 5K × (A/F,10%,4)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {36.679K + 7.513K} × 0.3155 − 5K × 0.2155<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 44.192K × 0.3155 − 1.077K<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 13.943K − 1.077K = <strong>$12,866/year</strong> ← Minimum!
-          </span>
+        <div class="sol-step" style="background:rgba(26,127,90,.08);border-right:4px solid var(--green);">
+          <strong>A<sub>Total 1</sub> = CR₁ + AOC₁ = 12,000 + 5,000 = <span style="color:var(--primary);">$17,000/yr</span></strong>
         </div>
 
+        <!-- ── Year 2 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:18px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 2 &nbsp;(n = 2) &nbsp;— SV = $8,000 | AOC = $6,500</p>
         <div class="sol-step">
-          <strong>AW₅ (keep 5 years):</strong>
-          <span class="text-en" style="display:block;margin-top:6px;">
-            AW₅ = {44.192K + 15K(0.6209)} × (A/P,10%,5) − 3K × (A/F,10%,5)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= {44.192K + 9.314K} × 0.2638 − 3K × 0.1638<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 53.506K × 0.2638 − 0.491K<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 14.115K − 0.491K = <strong>$13,624/year</strong>
+          <strong>CR₂ = P × (A/P,10%,2) − S₂ × (A/F,10%,2)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 20,000 × 0.5762 − 8,000 × 0.4762<br>
+            = 11,524 − 3,810 = <strong>$7,714/yr</strong>
           </span>
         </div>
+        <div class="sol-step">
+          <strong>AOC₂ = [ΣPWAOC₂] × (A/P,10%,2)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            ΣPWAOC₂ = 5,000×0.9091 + 6,500×0.8264 = 4,545.5 + 5,371.6 = 9,917.1<br>
+            AOC₂ = 9,917.1 × 0.5762 = <strong>$5,714/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step" style="background:rgba(26,127,90,.08);border-right:4px solid var(--green);">
+          <strong>A<sub>Total 2</sub> = CR₂ + AOC₂ = 7,714 + 5,714 = <span style="color:var(--primary);">$13,428/yr</span></strong>
+        </div>
 
-        <table class="data-table" style="margin-top:14px;">
-          <thead><tr><th>Year (n)</th><th>AW ($/year)</th><th>Trend</th></tr></thead>
+        <!-- ── Year 3 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:18px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 3 &nbsp;(n = 3) &nbsp;— SV = $5,000 | AOC = $9,000</p>
+        <div class="sol-step">
+          <strong>CR₃ = P × (A/P,10%,3) − S₃ × (A/F,10%,3)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 20,000 × 0.4021 − 5,000 × 0.3021<br>
+            = 8,042 − 1,510.5 = <strong>$6,531/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step">
+          <strong>AOC₃ = [ΣPWAOC₃] × (A/P,10%,3)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            ΣPWAOC₃ = 9,917.1 + 9,000×0.7513 = 9,917.1 + 6,761.7 = 16,678.8<br>
+            AOC₃ = 16,678.8 × 0.4021 = <strong>$6,706/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step" style="background:rgba(26,127,90,.08);border-right:4px solid var(--green);">
+          <strong>A<sub>Total 3</sub> = CR₃ + AOC₃ = 6,531 + 6,706 = <span style="color:var(--primary);">$13,237/yr</span></strong>
+        </div>
+
+        <!-- ── Year 4 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:18px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 4 &nbsp;(n = 4) &nbsp;— SV = $5,000 | AOC = $11,000</p>
+        <div class="sol-step">
+          <strong>CR₄ = P × (A/P,10%,4) − S₄ × (A/F,10%,4)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 20,000 × 0.3155 − 5,000 × 0.2155<br>
+            = 6,310 − 1,077.5 = <strong>$5,232/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step">
+          <strong>AOC₄ = [ΣPWAOC₄] × (A/P,10%,4)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            ΣPWAOC₄ = 16,678.8 + 11,000×0.6830 = 16,678.8 + 7,513 = 24,191.8<br>
+            AOC₄ = 24,191.8 × 0.3155 = <strong>$7,633/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step" style="background:rgba(26,127,90,.15);border-right:4px solid var(--green);border:2px solid var(--green);border-radius:8px;">
+          <strong>A<sub>Total 4</sub> = CR₄ + AOC₄ = 5,232 + 7,633 = <span style="color:var(--green);font-size:1.1em;">$12,865/yr ← MINIMUM ✅ ESL</span></strong>
+        </div>
+
+        <!-- ── Year 5 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:18px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 5 &nbsp;(n = 5) &nbsp;— SV = $3,000 | AOC = $15,000</p>
+        <div class="sol-step">
+          <strong>CR₅ = P × (A/P,10%,5) − S₅ × (A/F,10%,5)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 20,000 × 0.2638 − 3,000 × 0.1638<br>
+            = 5,276 − 491.4 = <strong>$4,785/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step">
+          <strong>AOC₅ = [ΣPWAOC₅] × (A/P,10%,5)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            ΣPWAOC₅ = 24,191.8 + 15,000×0.6209 = 24,191.8 + 9,313.5 = 33,505.3<br>
+            AOC₅ = 33,505.3 × 0.2638 = <strong>$8,839/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step" style="background:rgba(26,127,90,.08);border-right:4px solid var(--green);">
+          <strong>A<sub>Total 5</sub> = CR₅ + AOC₅ = 4,785 + 8,839 = <span style="color:var(--primary);">$13,624/yr</span></strong>
+        </div>
+
+        <!-- Summary Table -->
+        <p class="text-en" style="margin-top:22px;font-weight:700;color:var(--primary);">📊 Summary Table — Comparison of All Years:</p>
+        <table class="data-table" style="margin-top:8px;">
+          <thead>
+            <tr><th>Year (n)</th><th>CR ($/yr)</th><th>AOC ($/yr)</th><th>A<sub>Total</sub> = CR + AOC ($/yr)</th><th></th></tr>
+          </thead>
           <tbody>
-            <tr><td>1</td><td>17,000</td><td>↓</td></tr>
-            <tr><td>2</td><td>13,424</td><td>↓</td></tr>
-            <tr><td>3</td><td>13,233</td><td>↓</td></tr>
-            <tr class="esl"><td>4</td><td><strong>12,866 ← MINIMUM</strong></td><td>⬅ ESL</td></tr>
-            <tr><td>5</td><td>13,624</td><td>↑</td></tr>
+            <tr><td>1</td><td>12,000</td><td>5,000</td><td>17,000</td><td>↓</td></tr>
+            <tr><td>2</td><td>7,714</td><td>5,714</td><td>13,428</td><td>↓</td></tr>
+            <tr><td>3</td><td>6,531</td><td>6,706</td><td>13,237</td><td>↓</td></tr>
+            <tr class="esl"><td><strong>4</strong></td><td><strong>5,232</strong></td><td><strong>7,633</strong></td><td><strong>12,865 ← MIN</strong></td><td>⬅ ESL</td></tr>
+            <tr><td>5</td><td>4,785</td><td>8,839</td><td>13,624</td><td>↑</td></tr>
           </tbody>
         </table>
-
-        <div class="esl-highlight">✅ ESL = 4 years &nbsp;|&nbsp; Minimum AW = $12,866/year</div>
+        <div class="esl-highlight">✅ ESL = 4 years &nbsp;|&nbsp; Minimum A<sub>Total</sub> = $12,865/year &nbsp;|&nbsp; CR₄ = $5,232 &nbsp;+&nbsp; AOC₄ = $7,633</div>
       </div>
     </div>
 
@@ -1460,7 +1609,16 @@ function toggleDuaa(btn) {
   <div class="section-body">
 
     <div class="example-box">
-      <div class="example-header">📘 Problem 11.22 — Replacement Study (Solved in Lecture)<span class="lec-badge">★ من المحاضرة</span></div>
+      <div class="example-header">📘 Problem 11.22 — Replacement Study (Solved in Lecture)<span class="lec-badge">★ من المحاضرة</span>
+        <div style="margin-top:8px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; font-size:13px; font-weight:600;">
+          <span style="background:rgba(255,255,255,0.22); border:2px solid #4ecdc4; border-radius:20px; padding:4px 14px; color:#d4f7f4; letter-spacing:0.3px;">
+            👁️ Outsider's Viewpoint &nbsp;✅ &nbsp;<span style="color:#a8f0eb;">المنظور الخارجي — الطريقة المعتمدة</span>
+          </span>
+          <span style="background:rgba(0,0,0,0.18); border:2px solid rgba(255,120,120,0.55); border-radius:20px; padding:4px 14px; color:#ffb3b3; letter-spacing:0.3px;">
+            🏠 Insider's Viewpoint &nbsp;❌ &nbsp;<span style="color:#ff9a9a;">المنظور الداخلي — لا يُستخدم هنا</span>
+          </span>
+        </div>
+      </div>
       <div class="example-body">
         <p class="text-en">Three years ago, Witt Gas Controls purchased equipment for <strong>$80,000</strong> that was expected to have a useful life of 5 years with a $9,000 salvage value. Increased demand necessitated an upgrade costing <strong>$30,000</strong> one year ago. Technology changes now require that the equipment be upgraded again for another <strong>$25,000</strong> so that it can be used for <strong>3 more years</strong>. Its annual operating cost will be <strong>$47,000</strong>, and it will have a <strong>$22,000 salvage</strong> after 3 years. Alternatively, it can be replaced with new equipment costing <strong>$68,000</strong>, operating cost <strong>$35,000/year</strong>, salvage <strong>$21,000</strong> after 3 years. If replaced now, the existing equipment can be sold for <strong>$9,000</strong>. Perform the replacement study at i = 10%/year.</p>
 
@@ -1974,48 +2132,129 @@ function toggleDuaa(btn) {
           </svg>
         </div>
 
+        <div class="note-box" style="margin-bottom:14px;">
+          <span class="icon">📌</span>
+          <p>
+            <strong>CR<sub>n</sub> = P × (A/P, i%, n) − S<sub>n</sub> × (A/F, i%, n)</strong><br>
+            <strong>AOC<sub>n</sub> = [Σ AOC<sub>k</sub> × (P/F, i%, k)] × (A/P, i%, n)</strong><br>
+            <strong>A<sub>Total</sub> = CR<sub>n</sub> + AOC<sub>n</sub></strong>
+            &nbsp;|&nbsp; P = $10,000 &nbsp;|&nbsp; i = 10%
+          </p>
+        </div>
+
+        <!-- ── Year 1 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:14px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 1 &nbsp;(n = 1) &nbsp;— SV = $7,000 | AOC = $1,000</p>
         <div class="sol-step">
-          <strong>Running sum of PW of AOC (needed for each AW_n):</strong>
-          <span class="text-en" style="display:block;margin-top:4px;font-size:13.5px;">
-            ΣPWAOC₁ = 1K(0.9091) = 0.9091K<br>
-            ΣPWAOC₂ = 0.9091K + 1.2K(0.8264) = 0.9091K + 0.9917K = 1.9008K<br>
-            ΣPWAOC₃ = 1.9008K + 1.3K(0.7513) = 1.9008K + 0.9767K = 2.8775K<br>
-            ΣPWAOC₄ = 2.8775K + 2K(0.6830) = 2.8775K + 1.3660K = 4.2435K<br>
-            ΣPWAOC₅ = 4.2435K + 3K(0.6209) = 4.2435K + 1.8627K = 6.1062K
+          <strong>CR₁ = P × (A/P,10%,1) − S₁ × (A/F,10%,1)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 10,000 × 1.1000 − 7,000 × 1.0000<br>
+            = 11,000 − 7,000 = <strong>$4,000/yr</strong>
           </span>
         </div>
         <div class="sol-step">
-          <strong>AW₁:</strong>
-          <span class="text-en" style="display:block;">(10K + 0.9091K)(1.1) − 7K(1.0) = 10.9091K × 1.1 − 7K = 12.0K − 7K = <strong>$5,000/yr</strong></span>
+          <strong>AOC₁ = [AOC₁×(P/F,10%,1)] × (A/P,10%,1)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = [1,000 × 0.9091] × 1.1000 = 909.1 × 1.1000 = <strong>$1,000/yr</strong>
+          </span>
         </div>
-        <div class="sol-step">
-          <strong>AW₂:</strong>
-          <span class="text-en" style="display:block;">(10K + 1.9008K)(0.5762) − 5K(0.4762) = 11.9008K × 0.5762 − 2.381K = 6.856K − 2.381K = <strong>$4,475/yr</strong></span>
-        </div>
-        <div class="sol-step" style="border-right:4px solid var(--green);">
-          <strong>AW₃ ← MINIMUM:</strong>
-          <span class="text-en" style="display:block;">(10K + 2.8775K)(0.4021) − 4.5K(0.3021) = 12.8775K × 0.4021 − 1.360K = 5.177K − 1.360K = <strong>$3,817 ≈ $3,819/yr</strong></span>
-        </div>
-        <div class="sol-step">
-          <strong>AW₄:</strong>
-          <span class="text-en" style="display:block;">(10K + 4.2435K)(0.3155) − 3K(0.2155) = 14.2435K × 0.3155 − 0.6465K = 4.494K − 0.646K = <strong>$3,848/yr</strong></span>
-        </div>
-        <div class="sol-step">
-          <strong>AW₅:</strong>
-          <span class="text-en" style="display:block;">(10K + 6.1062K)(0.2638) − 2K(0.1638) = 16.1062K × 0.2638 − 0.328K = 4.249K − 0.328K = <strong>$3,921/yr</strong></span>
+        <div class="sol-step" style="background:rgba(26,127,90,.08);border-right:4px solid var(--green);">
+          <strong>A<sub>Total 1</sub> = CR₁ + AOC₁ = 4,000 + 1,000 = <span style="color:var(--primary);">$5,000/yr</span></strong>
         </div>
 
+        <!-- ── Year 2 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:18px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 2 &nbsp;(n = 2) &nbsp;— SV = $5,000 | AOC = $1,200</p>
+        <div class="sol-step">
+          <strong>CR₂ = P × (A/P,10%,2) − S₂ × (A/F,10%,2)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 10,000 × 0.5762 − 5,000 × 0.4762<br>
+            = 5,762 − 2,381 = <strong>$3,381/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step">
+          <strong>AOC₂ = [ΣPWAOC₂] × (A/P,10%,2)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            ΣPWAOC₂ = 1,000×0.9091 + 1,200×0.8264 = 909.1 + 991.7 = 1,900.8<br>
+            AOC₂ = 1,900.8 × 0.5762 = <strong>$1,095/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step" style="background:rgba(26,127,90,.08);border-right:4px solid var(--green);">
+          <strong>A<sub>Total 2</sub> = CR₂ + AOC₂ = 3,381 + 1,095 = <span style="color:var(--primary);">$4,476/yr</span></strong>
+        </div>
+
+        <!-- ── Year 3 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:18px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 3 &nbsp;(n = 3) &nbsp;— SV = $4,500 | AOC = $1,300</p>
+        <div class="sol-step">
+          <strong>CR₃ = P × (A/P,10%,3) − S₃ × (A/F,10%,3)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 10,000 × 0.4021 − 4,500 × 0.3021<br>
+            = 4,021 − 1,359.5 = <strong>$2,661/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step">
+          <strong>AOC₃ = [ΣPWAOC₃] × (A/P,10%,3)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            ΣPWAOC₃ = 1,900.8 + 1,300×0.7513 = 1,900.8 + 976.7 = 2,877.5<br>
+            AOC₃ = 2,877.5 × 0.4021 = <strong>$1,157/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step" style="background:rgba(26,127,90,.15);border:2px solid var(--green);border-radius:8px;">
+          <strong>A<sub>Total 3</sub> = CR₃ + AOC₃ = 2,661 + 1,157 = <span style="color:var(--green);font-size:1.1em;">$3,818 ≈ $3,819/yr ← MINIMUM ✅ ESL</span></strong>
+        </div>
+
+        <!-- ── Year 4 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:18px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 4 &nbsp;(n = 4) &nbsp;— SV = $3,000 | AOC = $2,000</p>
+        <div class="sol-step">
+          <strong>CR₄ = P × (A/P,10%,4) − S₄ × (A/F,10%,4)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 10,000 × 0.3155 − 3,000 × 0.2155<br>
+            = 3,155 − 646.5 = <strong>$2,508/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step">
+          <strong>AOC₄ = [ΣPWAOC₄] × (A/P,10%,4)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            ΣPWAOC₄ = 2,877.5 + 2,000×0.6830 = 2,877.5 + 1,366 = 4,243.5<br>
+            AOC₄ = 4,243.5 × 0.3155 = <strong>$1,339/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step" style="background:rgba(26,127,90,.08);border-right:4px solid var(--green);">
+          <strong>A<sub>Total 4</sub> = CR₄ + AOC₄ = 2,508 + 1,339 = <span style="color:var(--primary);">$3,847/yr</span></strong>
+        </div>
+
+        <!-- ── Year 5 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:18px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 5 &nbsp;(n = 5) &nbsp;— SV = $2,000 | AOC = $3,000</p>
+        <div class="sol-step">
+          <strong>CR₅ = P × (A/P,10%,5) − S₅ × (A/F,10%,5)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 10,000 × 0.2638 − 2,000 × 0.1638<br>
+            = 2,638 − 327.6 = <strong>$2,310/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step">
+          <strong>AOC₅ = [ΣPWAOC₅] × (A/P,10%,5)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            ΣPWAOC₅ = 4,243.5 + 3,000×0.6209 = 4,243.5 + 1,862.7 = 6,106.2<br>
+            AOC₅ = 6,106.2 × 0.2638 = <strong>$1,611/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step" style="background:rgba(26,127,90,.08);border-right:4px solid var(--green);">
+          <strong>A<sub>Total 5</sub> = CR₅ + AOC₅ = 2,310 + 1,611 = <span style="color:var(--primary);">$3,921/yr</span></strong>
+        </div>
+
+        <p class="text-en" style="margin-top:22px;font-weight:700;color:var(--primary);">📊 Summary Table — Comparison of All Years:</p>
         <table class="data-table">
-          <thead><tr><th>Year</th><th>AW ($/yr)</th><th></th></tr></thead>
+          <thead>
+            <tr><th>Year (n)</th><th>CR ($/yr)</th><th>AOC ($/yr)</th><th>A<sub>Total</sub> = CR + AOC ($/yr)</th><th></th></tr>
+          </thead>
           <tbody>
-            <tr><td>1</td><td>5,000</td><td>↓</td></tr>
-            <tr><td>2</td><td>4,475</td><td>↓</td></tr>
-            <tr class="esl"><td>3</td><td><strong>3,819 ← MIN</strong></td><td>⬅ ESL</td></tr>
-            <tr><td>4</td><td>3,848</td><td>↑</td></tr>
-            <tr><td>5</td><td>3,921</td><td>↑</td></tr>
+            <tr><td>1</td><td>4,000</td><td>1,000</td><td>5,000</td><td>↓</td></tr>
+            <tr><td>2</td><td>3,381</td><td>1,095</td><td>4,476</td><td>↓</td></tr>
+            <tr class="esl"><td><strong>3</strong></td><td><strong>2,661</strong></td><td><strong>1,157</strong></td><td><strong>3,818 ← MIN</strong></td><td>⬅ ESL</td></tr>
+            <tr><td>4</td><td>2,508</td><td>1,339</td><td>3,847</td><td>↑</td></tr>
+            <tr><td>5</td><td>2,310</td><td>1,611</td><td>3,921</td><td>↑</td></tr>
           </tbody>
         </table>
-        <div class="answer-badge">ESL = 3 years &nbsp;|&nbsp; Minimum AW = $3,819/year</div>
+        <div class="answer-badge">ESL = 3 years &nbsp;|&nbsp; Minimum A<sub>Total</sub> = $3,819/year &nbsp;|&nbsp; CR₃ = $2,661 &nbsp;+&nbsp; AOC₃ = $1,157</div>
       </div>
     </div>
 
@@ -2036,24 +2275,87 @@ function toggleDuaa(btn) {
           </tbody>
         </table>
 
+        <div class="note-box" style="margin-bottom:14px;">
+          <span class="icon">📌</span>
+          <p>
+            <strong>CR<sub>n</sub> = P × (A/P, i%, n) − S<sub>n</sub> × (A/F, i%, n)</strong><br>
+            <strong>AOC<sub>n</sub> = [Σ AOC<sub>k</sub> × (P/F, i%, k)] × (A/P, i%, n)</strong><br>
+            <strong>A<sub>Total</sub> = CR<sub>n</sub> + AOC<sub>n</sub></strong>
+            &nbsp;|&nbsp; P = $65,000 &nbsp;|&nbsp; i = 10%
+          </p>
+        </div>
+
+        <!-- ── Year 1 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:14px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 1 &nbsp;(n = 1) &nbsp;— SV = $30,000 | AOC = $50,000</p>
         <div class="sol-step">
-          <strong>AW₁:</strong>
-          <span class="text-en" style="display:block;">(65K + 50K×0.9091)(1.1) − 30K(1.0) = (65K + 45.455K)(1.1) − 30K = 110.455K × 1.1 − 30K = 121.5K − 30K = <strong>$91,500/yr</strong></span>
-        </div>
-        <div class="sol-step" style="border-right:4px solid var(--green);">
-          <strong>AW₂ ← MINIMUM:</strong>
-          <span class="text-en" style="display:block;">(65K + 50K×0.9091 + 60K×0.8264)(0.5762) − 30K(0.4762)<br>
-          = (65K + 45.455K + 49.584K)(0.5762) − 14.286K<br>
-          = 160.039K × 0.5762 − 14.286K<br>
-          = 92.198K − 14.286K = <strong>$77,912 ≈ $77,929/yr</strong></span>
+          <strong>CR₁ = P × (A/P,10%,1) − S₁ × (A/F,10%,1)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 65,000 × 1.1000 − 30,000 × 1.0000<br>
+            = 71,500 − 30,000 = <strong>$41,500/yr</strong>
+          </span>
         </div>
         <div class="sol-step">
-          <strong>AW₃ (SV drops to $20K):</strong>
-          <span class="text-en" style="display:block;">(160.039K + 70K×0.7513)(0.4021) − 20K(0.3021)<br>
-          = (160.039K + 52.591K)(0.4021) − 6.042K<br>
-          = 212.630K × 0.4021 − 6.042K = 85.479K − 6.042K = <strong>$79,437/yr</strong> (higher → ESL confirmed)</span>
+          <strong>AOC₁ = [AOC₁×(P/F,10%,1)] × (A/P,10%,1)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = [50,000 × 0.9091] × 1.1000 = 45,455 × 1.1000 = <strong>$50,001 ≈ $50,000/yr</strong>
+          </span>
         </div>
-        <div class="answer-badge">ESL = 2 years &nbsp;|&nbsp; AW = $77,929/year</div>
+        <div class="sol-step" style="background:rgba(26,127,90,.08);border-right:4px solid var(--green);">
+          <strong>A<sub>Total 1</sub> = CR₁ + AOC₁ = 41,500 + 50,000 = <span style="color:var(--primary);">$91,500/yr</span></strong>
+        </div>
+
+        <!-- ── Year 2 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:18px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 2 &nbsp;(n = 2) &nbsp;— SV = $30,000 | AOC = $60,000</p>
+        <div class="sol-step">
+          <strong>CR₂ = P × (A/P,10%,2) − S₂ × (A/F,10%,2)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 65,000 × 0.5762 − 30,000 × 0.4762<br>
+            = 37,453 − 14,286 = <strong>$23,167/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step">
+          <strong>AOC₂ = [ΣPWAOC₂] × (A/P,10%,2)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            ΣPWAOC₂ = 50,000×0.9091 + 60,000×0.8264 = 45,455 + 49,584 = 95,039<br>
+            AOC₂ = 95,039 × 0.5762 = <strong>$54,762/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step" style="background:rgba(26,127,90,.15);border:2px solid var(--green);border-radius:8px;">
+          <strong>A<sub>Total 2</sub> = CR₂ + AOC₂ = 23,167 + 54,762 = <span style="color:var(--green);font-size:1.1em;">$77,929/yr ← MINIMUM ✅ ESL</span></strong>
+        </div>
+
+        <!-- ── Year 3 ── -->
+        <p class="text-en" style="font-weight:700;color:var(--primary);margin-top:18px;border-bottom:2px solid var(--primary);padding-bottom:4px;">📅 Year 3 &nbsp;(n = 3) &nbsp;— SV = $20,000 | AOC = $70,000</p>
+        <div class="sol-step">
+          <strong>CR₃ = P × (A/P,10%,3) − S₃ × (A/F,10%,3)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            = 65,000 × 0.4021 − 20,000 × 0.3021<br>
+            = 26,137 − 6,042 = <strong>$20,095/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step">
+          <strong>AOC₃ = [ΣPWAOC₃] × (A/P,10%,3)</strong>
+          <span class="text-en" style="display:block;margin-top:4px;">
+            ΣPWAOC₃ = 95,039 + 70,000×0.7513 = 95,039 + 52,591 = 147,630<br>
+            AOC₃ = 147,630 × 0.4021 = <strong>$59,342/yr</strong>
+          </span>
+        </div>
+        <div class="sol-step" style="background:rgba(26,127,90,.08);border-right:4px solid var(--green);">
+          <strong>A<sub>Total 3</sub> = CR₃ + AOC₃ = 20,095 + 59,342 = <span style="color:var(--primary);">$79,437/yr</span> &nbsp;↑ (higher → ESL confirmed at Year 2)</strong>
+        </div>
+
+        <p class="text-en" style="margin-top:22px;font-weight:700;color:var(--primary);">📊 Summary Table — Comparison of All Years:</p>
+        <table class="data-table" style="margin-top:8px;">
+          <thead>
+            <tr><th>Year (n)</th><th>CR ($/yr)</th><th>AOC ($/yr)</th><th>A<sub>Total</sub> = CR + AOC ($/yr)</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>41,500</td><td>50,000</td><td>91,500</td><td>↓</td></tr>
+            <tr class="esl"><td><strong>2</strong></td><td><strong>23,167</strong></td><td><strong>54,762</strong></td><td><strong>77,929 ← MIN</strong></td><td>⬅ ESL</td></tr>
+            <tr><td>3</td><td>20,095</td><td>59,342</td><td>79,437</td><td>↑</td></tr>
+          </tbody>
+        </table>
+        <div class="answer-badge">ESL = 2 years &nbsp;|&nbsp; Minimum A<sub>Total</sub> = $77,929/year &nbsp;|&nbsp; CR₂ = $23,167 &nbsp;+&nbsp; AOC₂ = $54,762</div>
       </div>
     </div>
 
@@ -2413,27 +2715,65 @@ function toggleDuaa(btn) {
               (A/F,15%,1)=1.0000 | (A/F,15%,2)=0.4651 | (A/F,15%,3)=0.2880
             </div>
     
-            <div class="sol-step">
-              <strong>AW₁:</strong>
-              <span class="text-en" style="display:block;">(150K + 70K×0.8696)(1.15) − 100K(1.0) = (150K+60.872K)(1.15) − 100K = 210.872K×1.15 − 100K = 242.503K − 100K = <strong>$142,503/yr</strong></span>
+            <p class="text-en" style="margin-top:4px;font-weight:600;color:var(--primary);">Step 1 — Capital Recovery (CR) for each year:</p>
+            <div class="note-box" style="margin-bottom:10px;">
+              <span class="icon">📌</span>
+              <p><strong>CR<sub>n</sub> = P × (A/P, i, n) − S<sub>n</sub> × (A/F, i, n)</strong> &nbsp;|&nbsp; P = $150,000 &nbsp;|&nbsp; i = 15%</p>
             </div>
             <div class="sol-step">
-              <strong>AW₂:</strong>
-              <span class="text-en" style="display:block;">(150K + 60.872K + 80K×0.7561)(0.6151) − 80K(0.4651)<br>
-              = (210.872K + 60.488K)(0.6151) − 37.208K<br>
-              = 271.360K × 0.6151 − 37.208K = 166.944K − 37.208K = <strong>$129,736/yr</strong></span>
-            </div>
-            <div class="sol-step" style="border-right:4px solid var(--green);">
-              <strong>AW₃ ← MINIMUM:</strong>
-              <span class="text-en" style="display:block;">(271.360K + 90K×0.6575)(0.4380) − 60K(0.2880)<br>
-              = (271.360K + 59.175K)(0.4380) − 17.280K<br>
-              = 330.535K × 0.4380 − 17.280K = 144.774K − 17.280K = <strong>$127,494 ≈ $127,489/yr</strong></span>
+              <strong>CR₁ &nbsp;(S₁ = $100,000):</strong>
+              <span class="text-en" style="display:block;">CR₁ = 150K × 1.1500 − 100K × 1.0000 = 172,500 − 100,000 = <strong>$72,500/yr</strong></span>
             </div>
             <div class="sol-step">
-              <strong>AW₄ (confirming ESL = 3):</strong>
-              <span class="text-en" style="display:block;">(330.535K + 100K×0.5718)(0.3503) − 40K(0.2003) = 387.715K×0.3503 − 8.012K = 135.820K − 8.012K = <strong>$127,808/yr</strong> (higher → ESL = 3 confirmed)</span>
+              <strong>CR₂ &nbsp;(S₂ = $80,000):</strong>
+              <span class="text-en" style="display:block;">CR₂ = 150K × 0.6151 − 80K × 0.4651 = 92,265 − 37,208 = <strong>$55,057/yr</strong></span>
             </div>
-            <div class="answer-badge">ESL = 3 years &nbsp;|&nbsp; AW = $127,489/year</div>
+            <div class="sol-step">
+              <strong>CR₃ &nbsp;(S₃ = $60,000):</strong>
+              <span class="text-en" style="display:block;">CR₃ = 150K × 0.4380 − 60K × 0.2880 = 65,700 − 17,280 = <strong>$48,420/yr</strong></span>
+            </div>
+            <div class="sol-step">
+              <strong>CR₄ &nbsp;(S₄ = $40,000) — for confirmation:</strong>
+              <span class="text-en" style="display:block;">CR₄ = 150K × 0.3503 − 40K × 0.2003 = 52,545 − 8,012 = <strong>$44,533/yr</strong></span>
+            </div>
+
+            <p class="text-en" style="margin-top:18px;font-weight:600;color:var(--primary);">Step 2 — Annual Operating Cost (AOC) as equivalent annual amount:</p>
+            <div class="sol-step">
+              <strong>Running PW of AOC:</strong>
+              <span class="text-en" style="display:block;font-size:13.5px;">
+                ΣPWAOC₁ = 70K × 0.8696 = <strong>60.872K</strong><br>
+                ΣPWAOC₂ = 60.872K + 80K × 0.7561 = 60.872K + 60.488K = <strong>121.360K</strong><br>
+                ΣPWAOC₃ = 121.360K + 90K × 0.6575 = 121.360K + 59.175K = <strong>180.535K</strong><br>
+                ΣPWAOC₄ = 180.535K + 100K × 0.5718 = 180.535K + 57.180K = <strong>237.715K</strong>
+              </span>
+            </div>
+            <div class="sol-step">
+              <strong>AOC₁:</strong><span class="text-en" style="display:block;">AOC₁ = 60.872K × (A/P,15%,1) = 60.872K × 1.1500 = <strong>$70,003/yr ≈ $70,000/yr</strong></span>
+            </div>
+            <div class="sol-step">
+              <strong>AOC₂:</strong><span class="text-en" style="display:block;">AOC₂ = 121.360K × (A/P,15%,2) = 121.360K × 0.6151 = <strong>$74,659/yr</strong></span>
+            </div>
+            <div class="sol-step">
+              <strong>AOC₃:</strong><span class="text-en" style="display:block;">AOC₃ = 180.535K × (A/P,15%,3) = 180.535K × 0.4380 = <strong>$79,074/yr</strong></span>
+            </div>
+            <div class="sol-step">
+              <strong>AOC₄ (confirmation):</strong><span class="text-en" style="display:block;">AOC₄ = 237.715K × (A/P,15%,4) = 237.715K × 0.3503 = <strong>$83,274/yr</strong></span>
+            </div>
+
+            <p class="text-en" style="margin-top:18px;font-weight:600;color:var(--primary);">Step 3 — Total Annual Cost: A<sub>Total</sub> = CR + AOC</p>
+
+            <table class="data-table" style="margin-top:10px;">
+              <thead>
+                <tr><th>Year (n)</th><th>CR ($/yr)</th><th>AOC ($/yr)</th><th>A<sub>Total</sub> = CR + AOC ($/yr)</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>72,500</td><td>70,000</td><td>142,500</td><td>↓</td></tr>
+                <tr><td>2</td><td>55,057</td><td>74,659</td><td>129,716</td><td>↓</td></tr>
+                <tr class="esl"><td><strong>3</strong></td><td><strong>48,420</strong></td><td><strong>79,074</strong></td><td><strong>127,494 ≈ 127,489 ← MIN</strong></td><td>⬅ ESL</td></tr>
+                <tr><td>4</td><td>44,533</td><td>83,274</td><td>127,807</td><td>↑</td></tr>
+              </tbody>
+            </table>
+            <div class="answer-badge">ESL = 3 years &nbsp;|&nbsp; Minimum A<sub>Total</sub> = $127,489/year &nbsp;|&nbsp; (CR₃ = $48,420 &nbsp;+&nbsp; AOC₃ = $79,074)</div>
           </div>
         </div>
     
@@ -2781,7 +3121,7 @@ function toggleDuaa(btn) {
 </div>
 
 <footer class="site-footer">
-  <p>Engineering Economy · Chapter 11 — Asset Depreciation &amp; Replacement Decisions &nbsp;|&nbsp; GE 205 · Islam Atta Abdullah, PhD &nbsp;|&nbsp; Based on Blank &amp; Tarquin</p>
+  <p>Engineering Economy · Chapter 11 — Asset Depreciation &amp; Replacement Decisions &nbsp;|&nbsp; GE 205 &nbsp;|&nbsp; Based on Blank &amp; Tarquin</p>
 </footer>
 
 <script>
