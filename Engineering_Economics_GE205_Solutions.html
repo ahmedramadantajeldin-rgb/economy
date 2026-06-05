@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GE205 — حلول الامتحانات النهائية | Engineering Economics Final Exam Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary:      #1a3a6b;
+  --primary-mid:  #2155a3;
+  --accent:       #0e90d2;
+  --accent-light: #4fb8e8;
+  --surface:      #f0f6ff;
+  --surface-2:    #ddeeff;
+  --white:        #ffffff;
+  --text-dark:    #0e1e3a;
+  --text-mid:     #2c4066;
+  --text-light:   #4a6fa5;
+  --gold:         #e8b84b;
+  --green:        #1a7f5a;
+  --green-bg:     #edfaf4;
+  --red:          #c0392b;
+  --red-bg:       #fdf0ef;
+  --warn-bg:      #fffbea;
+  --warn-border:  #e8b84b;
+  --shadow-sm:    0 2px 8px rgba(26,58,107,0.10);
+  --shadow-md:    0 6px 24px rgba(26,58,107,0.15);
+  --radius:       14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans','Amiri',sans-serif;background:linear-gradient(160deg,#e8f2ff 0%,#f5f9ff 40%,#eef5ff 100%);color:var(--text-dark);line-height:1.85;font-size:16px;min-height:100vh;}
+
+/* ── HEADER ── */
+.site-header{background:linear-gradient(135deg,var(--primary) 0%,#0f2554 60%,#152f6e 100%);color:white;padding:56px 40px 48px;text-align:center;position:relative;overflow:hidden;border-bottom:4px solid var(--gold);}
+.site-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(79,184,232,.15) 0%,transparent 65%),radial-gradient(ellipse at 80% 20%,rgba(232,184,75,.10) 0%,transparent 50%);pointer-events:none;}
+.header-tag{display:inline-block;background:rgba(232,184,75,.2);border:1px solid var(--gold);color:var(--gold);font-size:12px;font-weight:600;letter-spacing:2px;padding:4px 16px;border-radius:50px;margin-bottom:18px;text-transform:uppercase;}
+.site-header h1{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,40px);font-weight:900;letter-spacing:-.5px;line-height:1.2;margin-bottom:10px;}
+.site-header h1 span{color:var(--accent-light);}
+.site-header .subtitle{font-size:15px;color:rgba(255,255,255,.72);font-weight:300;margin-top:8px;}
+.header-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px;}
+.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);font-size:12px;padding:5px 14px;border-radius:50px;}
+
+/* ── LAYOUT ── */
+.container{max-width:980px;margin:0 auto;padding:0 24px 80px;}
+
+/* ── EXAM BANNER ── */
+.exam-banner{margin-top:44px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-mid) 100%);color:white;padding:18px 32px;border-radius:var(--radius) var(--radius) 0 0;display:flex;align-items:center;gap:14px;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;box-shadow:var(--shadow-md);}
+.exam-icon{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.35);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.exam-body-wrap{background:var(--white);border:1.5px solid rgba(33,85,163,.09);border-top:none;border-radius:0 0 var(--radius) var(--radius);padding:28px 32px 36px;box-shadow:var(--shadow-sm);margin-bottom:52px;}
+
+/* ── SECTION ── */
+.section{margin-top:36px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);border:1.5px solid rgba(33,85,163,.09);overflow:hidden;}
+.section-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-mid) 100%);color:white;padding:18px 28px;display:flex;align-items:center;gap:14px;}
+.section-num{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.35);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;flex-shrink:0;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;line-height:1.3;}
+.section-header h2 .ar{font-family:'Amiri',serif;font-size:16px;color:rgba(255,255,255,.75);display:block;font-weight:400;}
+.ch-badge{margin-right:auto;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);font-size:11px;padding:3px 12px;border-radius:50px;white-space:nowrap;}
+.section-body{padding:26px 30px;}
+
+/* ── PROBLEM BOX ── */
+.problem-box{background:var(--surface);border:1px solid var(--surface-2);border-right:4px solid var(--accent);border-radius:10px;padding:16px 20px;margin-bottom:18px;font-size:14.5px;color:var(--text-mid);}
+
+/* ── GIVEN ── */
+.given{background:white;border-radius:8px;border:1px solid var(--surface-2);padding:12px 16px;margin:12px 0;font-size:14px;color:var(--text-mid);text-align:right;}
+.given strong{color:var(--primary);}
+
+/* ── NOTE BOX ── */
+.note-box{background:var(--warn-bg);border:1.5px solid var(--warn-border);border-radius:10px;padding:14px 18px;margin:16px 0;display:flex;gap:10px;align-items:flex-start;}
+.note-box .icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.note-box p{margin:0;font-size:14px;color:#7a5800;}
+
+/* ── FORMULA BOX ── */
+.formula-box{background:linear-gradient(135deg,var(--primary) 0%,#1a4080 100%);border-radius:var(--radius);padding:18px 24px;margin:16px 0;text-align:center;box-shadow:var(--shadow-md);}
+.formula-box .label{color:rgba(255,255,255,.65);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;display:block;}
+.formula-box .math{color:white;font-size:15px;font-family:'IBM Plex Sans',monospace;direction:ltr;text-align:center;}
+
+/* ── SOL STEP ── */
+.sol-step{background:white;border-radius:8px;border-right:3px solid var(--green);padding:12px 16px;margin:10px 0;font-size:14.5px;color:var(--text-mid);text-align:left;direction:ltr;}
+.sol-step strong{color:var(--green);display:block;margin-bottom:6px;font-size:13px;text-align:left;}
+.sol-step b{color:var(--green);font-weight:700;}
+.sol-step.highlight-step{border-right:3px solid var(--accent);background:var(--surface);}
+.sol-step.answer-step{border:2px solid var(--green);background:var(--green-bg);border-radius:8px;}
+
+/* ── ANSWER BADGE ── */
+.answer-badge{display:inline-block;background:var(--green);color:white;font-weight:700;font-size:14px;padding:8px 20px;border-radius:8px;margin-top:12px;direction:ltr;text-align:left;}
+
+/* ── TABLE ── */
+.data-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;direction:ltr;text-align:left;}
+.data-table th{background:var(--primary);color:white;padding:10px 14px;text-align:center;font-weight:600;}
+.data-table td{padding:9px 14px;border-bottom:1px solid var(--surface-2);color:var(--text-mid);text-align:center;}
+.data-table tr:nth-child(even) td{background:var(--surface);}
+.data-table tr:hover td{background:#e0eeff;}
+.data-table .hl{color:var(--green);font-weight:700;}
+.data-table .total-row td{background:rgba(26,127,90,.12);font-weight:700;color:var(--green);}
+.data-table .sel-row td{background:rgba(26,127,90,.18);font-weight:700;color:var(--green);}
+
+/* ── CASH FLOW DIAGRAM ── */
+.cfd-wrap{background:white;border:1.5px solid var(--surface-2);border-radius:10px;padding:20px;margin:16px 0;overflow-x:auto;}
+.cfd-title{font-size:12px;font-weight:700;color:var(--text-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;text-align:center;}
+.cfd-wrap svg{display:block;margin:0 auto;}
+
+/* ── COMPARE GRID ── */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+.compare-card{border-radius:10px;padding:14px 18px;border:1.5px solid;}
+.compare-card.defender{background:var(--surface);border-color:var(--surface-2);}
+.compare-card.challenger{background:var(--green-bg);border-color:rgba(26,127,90,.3);}
+.compare-card .card-title{font-weight:700;font-size:13.5px;margin-bottom:10px;color:var(--primary);}
+.compare-card .card-body{font-size:13px;color:var(--text-mid);direction:ltr;text-align:left;line-height:2;}
+
+/* ── DECISION BOX ── */
+.decision-box{background:linear-gradient(135deg,var(--primary),#0f2957);color:white;border-radius:10px;padding:16px 22px;margin-top:16px;display:flex;align-items:center;gap:14px;}
+.decision-box .di{font-size:22px;}
+.decision-box .dt{font-size:14.5px;line-height:1.6;}
+.decision-box .dt strong{color:var(--gold);}
+
+/* ── FACTOR TABLE REFERENCE ── */
+.factor-ref{background:var(--surface);border:1.5px solid var(--surface-2);border-radius:10px;padding:14px 18px;margin:14px 0;font-size:13px;direction:ltr;text-align:left;}
+.factor-ref .fr-title{font-weight:700;color:var(--primary);margin-bottom:8px;font-size:13px;text-transform:uppercase;letter-spacing:.8px;}
+.factor-ref ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 20px;}
+.factor-ref ul li{color:var(--text-mid);}
+.factor-ref ul li code{background:white;border:1px solid var(--surface-2);border-radius:4px;padding:1px 7px;font-size:12.5px;color:var(--primary);font-weight:600;}
+
+/* ── SEPARATOR ── */
+.sep{border:none;border-top:2px dashed rgba(33,85,163,.12);margin:28px 0;}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--primary);color:rgba(255,255,255,.7);text-align:center;padding:28px;font-size:13px;margin-top:60px;}
+
+@media(max-width:640px){
+  .compare-grid{grid-template-columns:1fr;}
+  .exam-body-wrap{padding:16px;}
+  .section-body{padding:16px 14px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="site-header">
+  <div class="header-tag">GE205 · Industrial Systems Engineering</div>
+  <h1>Engineering Economics<br><span>Final Exam — Complete Solutions</span></h1>
+  <p class="subtitle">اقتصاديات الهندسة — حلول الامتحانات النهائية | Spring 2025 &amp; Fall 2025</p>
+  <div class="header-badges">
+    <span class="badge">📐 Standard Factor Notation — معاملات الجداول</span>
+    <span class="badge">💹 PW · FW · AW · CR · CC</span>
+    <span class="badge">🔄 Replacement Analysis — Ch. 11</span>
+    <span class="badge">📊 Cash Flow Diagrams</span>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ════════════════════════════════════════════
+     SPRING 2025
+════════════════════════════════════════════ -->
+<div class="exam-banner" style="margin-top:44px;">
+  <div class="exam-icon">🌸</div>
+  <div>
+    Final Exam — Spring 2025
+    <div style="font-size:13px;font-weight:400;opacity:.75;font-family:'IBM Plex Sans',sans-serif;">امتحان نهاية الفصل الدراسي — ربيع 2025</div>
+  </div>
+</div>
+<div class="exam-body-wrap">
+
+<!-- ─────── Q1 SPRING — Decreasing Gradient AW ─────── -->
+<div class="section" id="s1-q1">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>Annual Worth — Decreasing Arithmetic Gradient
+      <span class="ar">القيمة السنوية — تسلسل هندسي حسابي تنازلي</span>
+    </h2>
+    <span class="ch-badge">Ch. 6 · AW</span>
+  </div>
+  <div class="section-body">
+
+    <div class="problem-box">
+      <strong>Problem:</strong> Find the annual worth of the following cash flows at <strong>i = 12%/year</strong>, n = 6 years:<br>
+      Payments (end of year): Year 1 = $800, Year 2 = $700, Year 3 = $600, Year 4 = $500, Year 5 = $400, Year 6 = $300.
+    </div>
+
+    <!-- CFD -->
+    <div class="cfd-wrap">
+      <div class="cfd-title">📊 Cash Flow Diagram</div>
+      <svg width="580" height="160" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+        <!-- Timeline -->
+        <line x1="30" y1="100" x2="560" y2="100" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="560,96 570,100 560,104" fill="#1a3a6b"/>
+        <!-- Time labels -->
+        <text x="30" y="118" text-anchor="middle" font-size="12" fill="#2c4066">0</text>
+        <text x="110" y="118" text-anchor="middle" font-size="12" fill="#2c4066">1</text>
+        <text x="190" y="118" text-anchor="middle" font-size="12" fill="#2c4066">2</text>
+        <text x="270" y="118" text-anchor="middle" font-size="12" fill="#2c4066">3</text>
+        <text x="350" y="118" text-anchor="middle" font-size="12" fill="#2c4066">4</text>
+        <text x="430" y="118" text-anchor="middle" font-size="12" fill="#2c4066">5</text>
+        <text x="510" y="118" text-anchor="middle" font-size="12" fill="#2c4066">6</text>
+        <!-- Arrows UP (receipts) -->
+        <line x1="110" y1="100" x2="110" y2="16" stroke="#1a7f5a" stroke-width="2"/>
+        <polygon points="106,16 110,6 114,16" fill="#1a7f5a"/>
+        <text x="110" y="12" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">$800</text>
+
+        <line x1="190" y1="100" x2="190" y2="28" stroke="#1a7f5a" stroke-width="2"/>
+        <polygon points="186,28 190,18 194,28" fill="#1a7f5a"/>
+        <text x="190" y="14" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">$700</text>
+
+        <line x1="270" y1="100" x2="270" y2="40" stroke="#1a7f5a" stroke-width="2"/>
+        <polygon points="266,40 270,30 274,40" fill="#1a7f5a"/>
+        <text x="270" y="26" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">$600</text>
+
+        <line x1="350" y1="100" x2="350" y2="52" stroke="#1a7f5a" stroke-width="2"/>
+        <polygon points="346,52 350,42 354,52" fill="#1a7f5a"/>
+        <text x="350" y="38" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">$500</text>
+
+        <line x1="430" y1="100" x2="430" y2="64" stroke="#1a7f5a" stroke-width="2"/>
+        <polygon points="426,64 430,54 434,64" fill="#1a7f5a"/>
+        <text x="430" y="50" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">$400</text>
+
+        <line x1="510" y1="100" x2="510" y2="76" stroke="#1a7f5a" stroke-width="2"/>
+        <polygon points="506,76 510,66 514,76" fill="#1a7f5a"/>
+        <text x="510" y="62" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">$300</text>
+
+        <text x="575" y="103" font-size="11" fill="#2c4066">n</text>
+        <text x="30" y="140" font-size="11" fill="#2c4066">i = 12%/yr</text>
+      </svg>
+    </div>
+
+    <div class="given">
+      <strong>Given:</strong> A<sub>base</sub> = $800 &nbsp;|&nbsp; G = $100 (decreasing) &nbsp;|&nbsp; i = 12%/yr &nbsp;|&nbsp; n = 6 yrs &nbsp;|&nbsp; <strong>Find:</strong> AW = ?
+    </div>
+
+    <div class="note-box">
+      <span class="icon">💡</span>
+      <p><strong>المفهوم:</strong> نفصّل السلسلة إلى جزأين: قيمة ثابتة A<sub>base</sub> = $800 ناقص تسلسل تصاعدي G = $100. المعادلة: <strong>AW = A<sub>base</sub> − G × (A/G, i%, n)</strong></p>
+    </div>
+
+    <div class="formula-box">
+      <span class="label">Formula — Decreasing Arithmetic Gradient</span>
+      <div class="math">AW = A<sub style="color:#4fb8e8">base</sub> − G × (A/G, i%, n)</div>
+    </div>
+
+    <div class="factor-ref">
+      <div class="fr-title">📋 Table Factors at i = 12%, n = 6</div>
+      <ul>
+        <li><code>(A/G, 12%, 6) = 2.1720</code></li>
+      </ul>
+    </div>
+
+    <div class="sol-step">
+      <strong>AW = A<sub>base</sub> − G × (A/G, 12%, 6)</strong>
+      = 800 − 100 × (2.1720)<br>
+      = 800 − 217.20
+    </div>
+
+    <div class="answer-badge">AW = $582.80 / year</div>
+
+  </div>
+</div>
+
+<!-- ─────── Q2 SPRING — Rate of Return & n ─────── -->
+<div class="section" id="s1-q2" style="margin-top:28px;">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>Rate of Return &amp; Number of Years
+      <span class="ar">معدل العائد على الاستثمار — عدد السنوات اللازمة</span>
+    </h2>
+    <span class="ch-badge">Ch. 2 · F/P · P/A · F/A</span>
+  </div>
+  <div class="section-body">
+
+    <!-- Part a -->
+    <h3 style="color:var(--primary);font-size:16px;margin-bottom:12px;border-right:4px solid var(--accent);padding-right:10px;">Part (a) — Rate of Return on Investment</h3>
+    <div class="problem-box">
+      A company spent <strong>$4,868</strong> on a machine that provides an income of <strong>$1,000/year for 7 years</strong>. What is the rate of return?
+    </div>
+
+    <!-- CFD Part a -->
+    <div class="cfd-wrap">
+      <div class="cfd-title">📊 Cash Flow Diagram — Part (a)</div>
+      <svg width="520" height="165" viewBox="0 0 520 165" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+        <line x1="30" y1="100" x2="500" y2="100" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="500,96 510,100 500,104" fill="#1a3a6b"/>
+        <!-- Year labels -->
+        <text x="30" y="118" text-anchor="middle" font-size="12" fill="#2c4066">0</text>
+        <text x="90" y="118" text-anchor="middle" font-size="12" fill="#2c4066">1</text>
+        <text x="150" y="118" text-anchor="middle" font-size="12" fill="#2c4066">2</text>
+        <text x="210" y="118" text-anchor="middle" font-size="12" fill="#2c4066">3</text>
+        <text x="270" y="118" text-anchor="middle" font-size="12" fill="#2c4066">4</text>
+        <text x="330" y="118" text-anchor="middle" font-size="12" fill="#2c4066">5</text>
+        <text x="390" y="118" text-anchor="middle" font-size="12" fill="#2c4066">6</text>
+        <text x="450" y="118" text-anchor="middle" font-size="12" fill="#2c4066">7</text>
+        <!-- P down at 0 -->
+        <line x1="30" y1="100" x2="30" y2="148" stroke="#c0392b" stroke-width="2"/>
+        <polygon points="26,148 30,158 34,148" fill="#c0392b"/>
+        <text x="30" y="162" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="bold">$4,868</text>
+        <!-- A up 1-7 -->
+        <line x1="90" y1="100" x2="90" y2="52" stroke="#1a7f5a" stroke-width="2"/><polygon points="86,52 90,42 94,52" fill="#1a7f5a"/>
+        <line x1="150" y1="100" x2="150" y2="52" stroke="#1a7f5a" stroke-width="2"/><polygon points="146,52 150,42 154,52" fill="#1a7f5a"/>
+        <line x1="210" y1="100" x2="210" y2="52" stroke="#1a7f5a" stroke-width="2"/><polygon points="206,52 210,42 214,52" fill="#1a7f5a"/>
+        <line x1="270" y1="100" x2="270" y2="52" stroke="#1a7f5a" stroke-width="2"/><polygon points="266,52 270,42 274,52" fill="#1a7f5a"/>
+        <line x1="330" y1="100" x2="330" y2="52" stroke="#1a7f5a" stroke-width="2"/><polygon points="326,52 330,42 334,52" fill="#1a7f5a"/>
+        <line x1="390" y1="100" x2="390" y2="52" stroke="#1a7f5a" stroke-width="2"/><polygon points="386,52 390,42 394,52" fill="#1a7f5a"/>
+        <line x1="450" y1="100" x2="450" y2="52" stroke="#1a7f5a" stroke-width="2"/><polygon points="446,52 450,42 454,52" fill="#1a7f5a"/>
+        <text x="270" y="36" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">A = $1,000/yr</text>
+        <text x="515" y="103" font-size="11" fill="#2c4066">n</text>
+        <text x="30" y="10" font-size="11" fill="#2c4066">i = ? (Find)</text>
+      </svg>
+    </div>
+
+    <div class="given">
+      <strong>Given:</strong> P = $4,868 &nbsp;|&nbsp; A = $1,000/yr &nbsp;|&nbsp; n = 7 years &nbsp;|&nbsp; <strong>Find:</strong> i = ?
+    </div>
+
+    <div class="sol-step">
+      <strong>Set up equation:</strong>
+      P = A × (P/A, i%, 7)<br>
+      4,868 = 1,000 × (P/A, i%, 7)<br>
+      (P/A, i%, 7) = <strong>4.868</strong>
+    </div>
+
+    <div class="sol-step">
+      <strong>Trial &amp; Error — Look up (P/A) in tables at n = 7:</strong>
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>i (%)</th><th>(P/A, i%, 7) from Table</th><th>vs 4.868</th></tr></thead>
+      <tbody>
+        <tr><td>8%</td><td>5.2064</td><td>Too high ↑</td></tr>
+        <tr><td>9%</td><td>5.0330</td><td>Still high ↑</td></tr>
+        <tr class="sel-row"><td><strong>10%</strong></td><td><strong>4.8684</strong></td><td><strong>≈ 4.868 ✓</strong></td></tr>
+        <tr><td>11%</td><td>4.7122</td><td>Too low ↓</td></tr>
+      </tbody>
+    </table>
+
+    <div class="answer-badge">i = 10% per year</div>
+
+    <hr class="sep">
+
+    <!-- Part b -->
+    <h3 style="color:var(--primary);font-size:16px;margin:20px 0 12px;border-right:4px solid var(--accent);padding-right:10px;">Part (b) — Number of Years to Reach a Future Sum</h3>
+    <div class="problem-box">
+      Deposits of <strong>$52,052/year</strong> into an account earning <strong>8%/year</strong>. How many years until the account reaches <strong>$650,000</strong>?
+    </div>
+
+    <!-- CFD Part b -->
+    <div class="cfd-wrap">
+      <div class="cfd-title">📊 Cash Flow Diagram — Part (b)</div>
+      <svg width="480" height="155" viewBox="0 0 480 155" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+        <line x1="30" y1="110" x2="450" y2="110" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="450,106 460,110 450,114" fill="#1a3a6b"/>
+        <text x="30" y="128" text-anchor="middle" font-size="11" fill="#2c4066">0</text>
+        <text x="100" y="128" text-anchor="middle" font-size="11" fill="#2c4066">1</text>
+        <text x="170" y="128" text-anchor="middle" font-size="11" fill="#2c4066">2</text>
+        <text x="240" y="128" text-anchor="middle" font-size="11" fill="#2c4066">...</text>
+        <text x="370" y="128" text-anchor="middle" font-size="11" fill="#2c4066">n-1</text>
+        <text x="420" y="128" text-anchor="middle" font-size="11" fill="#2c4066">n=?</text>
+        <!-- A down arrows (deposits) -->
+        <line x1="100" y1="110" x2="100" y2="148" stroke="#c0392b" stroke-width="2"/><polygon points="96,148 100,158 104,148" fill="#c0392b"/>
+        <line x1="170" y1="110" x2="170" y2="148" stroke="#c0392b" stroke-width="2"/><polygon points="166,148 170,158 174,148" fill="#c0392b"/>
+        <line x1="370" y1="110" x2="370" y2="148" stroke="#c0392b" stroke-width="2"/><polygon points="366,148 370,158 374,148" fill="#c0392b"/>
+        <text x="200" y="152" text-anchor="middle" font-size="10" fill="#c0392b">A = $52,052/yr</text>
+        <!-- F up at n -->
+        <line x1="420" y1="110" x2="420" y2="30" stroke="#1a7f5a" stroke-width="2"/>
+        <polygon points="416,30 420,20 424,30" fill="#1a7f5a"/>
+        <text x="420" y="15" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">F=$650,000</text>
+        <text x="460" y="113" font-size="11" fill="#2c4066">n</text>
+        <text x="30" y="15" font-size="11" fill="#2c4066">i = 8%</text>
+      </svg>
+    </div>
+
+    <div class="given">
+      <strong>Given:</strong> A = $52,052/yr &nbsp;|&nbsp; F = $650,000 &nbsp;|&nbsp; i = 8% &nbsp;|&nbsp; <strong>Find:</strong> n = ?
+    </div>
+
+    <div class="sol-step">
+      <strong>Set up equation:</strong>
+      F = A × (F/A, 8%, n)<br>
+      650,000 = 52,052 × (F/A, 8%, n)<br>
+      (F/A, 8%, n) = 650,000 / 52,052 = <strong>12.4875</strong>
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>n (years)</th><th>(F/A, 8%, n) from Table</th><th>vs 12.4875</th></tr></thead>
+      <tbody>
+        <tr><td>7</td><td>8.9228</td><td>Too low ↓</td></tr>
+        <tr><td>8</td><td>10.6366</td><td>Too low ↓</td></tr>
+        <tr class="sel-row"><td><strong>9</strong></td><td><strong>12.4876</strong></td><td><strong>≈ 12.4875 ✓</strong></td></tr>
+        <tr><td>10</td><td>14.4866</td><td>Too high ↑</td></tr>
+      </tbody>
+    </table>
+
+    <div class="answer-badge">n = 9 years</div>
+
+  </div>
+</div>
+
+<!-- ─────── Q3 SPRING — CR & CC ─────── -->
+<div class="section" id="s1-q3" style="margin-top:28px;">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>Capital Recovery &amp; Capitalized Cost
+      <span class="ar">تكلفة استرداد رأس المال — التكلفة الرأسمالية الدائمة</span>
+    </h2>
+    <span class="ch-badge">Ch. 6 · CR &amp; CC</span>
+  </div>
+  <div class="section-body">
+
+    <h3 style="color:var(--primary);font-size:16px;margin-bottom:12px;border-right:4px solid var(--accent);padding-right:10px;">Part (a) — Capital Recovery of a Milling Machine</h3>
+    <div class="problem-box">
+      A milling machine: <strong>P = $85,000</strong>, <strong>S = $15,000</strong> after <strong>n = 10 years</strong>.<br>
+      Annual revenue = $18,000/yr. O&amp;M costs: A₁ = $1,800/yr increasing by G = $500/yr. i = 10%.
+    </div>
+
+    <!-- CFD -->
+    <div class="cfd-wrap">
+      <div class="cfd-title">📊 Cash Flow Diagram — Milling Machine</div>
+      <svg width="560" height="200" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+        <line x1="30" y1="110" x2="530" y2="110" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="530,106 540,110 530,114" fill="#1a3a6b"/>
+        <text x="30" y="128" text-anchor="middle" font-size="11" fill="#2c4066">0</text>
+        <text x="80" y="128" text-anchor="middle" font-size="11" fill="#2c4066">1</text>
+        <text x="130" y="128" text-anchor="middle" font-size="11" fill="#2c4066">2</text>
+        <text x="230" y="128" text-anchor="middle" font-size="11" fill="#2c4066">...</text>
+        <text x="480" y="128" text-anchor="middle" font-size="11" fill="#2c4066">10</text>
+        <!-- P down at 0 -->
+        <line x1="30" y1="110" x2="30" y2="158" stroke="#c0392b" stroke-width="2"/>
+        <polygon points="26,158 30,168 34,158" fill="#c0392b"/>
+        <text x="30" y="180" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="bold">P=$85K</text>
+        <!-- Revenue up 1-10 (uniform) -->
+        <line x1="80" y1="110" x2="80" y2="62" stroke="#1a7f5a" stroke-width="2"/><polygon points="76,62 80,52 84,62" fill="#1a7f5a"/>
+        <line x1="130" y1="110" x2="130" y2="62" stroke="#1a7f5a" stroke-width="2"/><polygon points="126,62 130,52 134,62" fill="#1a7f5a"/>
+        <line x1="480" y1="110" x2="480" y2="62" stroke="#1a7f5a" stroke-width="2"/><polygon points="476,62 480,52 484,62" fill="#1a7f5a"/>
+        <text x="280" y="46" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">Revenue = $18,000/yr</text>
+        <!-- S up at n=10 -->
+        <line x1="480" y1="62" x2="480" y2="22" stroke="#0e90d2" stroke-width="2" stroke-dasharray="4"/>
+        <polygon points="476,22 480,12 484,22" fill="#0e90d2"/>
+        <text x="480" y="8" text-anchor="middle" font-size="10" fill="#0e90d2" font-weight="bold">S=$15K</text>
+        <!-- O&M gradient note -->
+        <text x="280" y="145" text-anchor="middle" font-size="10" fill="#c0392b">O&amp;M: $1,800 + $500G ↑ (gradient)</text>
+        <text x="545" y="113" font-size="11" fill="#2c4066">n</text>
+      </svg>
+    </div>
+
+    <div class="given">
+      <strong>Given:</strong> P = $85,000 &nbsp;|&nbsp; S = $15,000 &nbsp;|&nbsp; n = 10 yrs &nbsp;|&nbsp; i = 10% &nbsp;|&nbsp; Revenue = $18,000/yr &nbsp;|&nbsp; AOC₁ = $1,800 &nbsp;|&nbsp; G = $500/yr
+    </div>
+
+    <div class="factor-ref">
+      <div class="fr-title">📋 Table Factors at i = 10%, n = 10</div>
+      <ul>
+        <li><code>(A/P, 10%, 10) = 0.1627</code></li>
+        <li><code>(A/F, 10%, 10) = 0.0627</code></li>
+        <li><code>(A/G, 10%, 10) = 3.7255</code></li>
+      </ul>
+    </div>
+
+    <div class="sol-step">
+      <strong>Step 1 — Capital Recovery (CR):</strong>
+      CR = P × (A/P, 10%, 10) − S × (A/F, 10%, 10)<br>
+      &nbsp;&nbsp;&nbsp;= 85,000 × <strong>0.1627</strong> − 15,000 × <strong>0.0627</strong><br>
+      &nbsp;&nbsp;&nbsp;= 13,829.50 − 940.50 = <strong>$12,889/yr</strong>
+    </div>
+
+    <div class="sol-step">
+      <strong>Step 2 — Equivalent Annual O&amp;M (Increasing Gradient):</strong>
+      AOC<sub>equiv</sub> = A₁ + G × (A/G, 10%, 10)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1,800 + 500 × <strong>3.7255</strong><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 1,800 + 1,862.75 = <strong>$3,662.75/yr</strong>
+    </div>
+
+    <div class="sol-step">
+      <strong>Step 3 — Annual Worth (Profitability Check):</strong>
+      AW = Revenue − CR − AOC<sub>equiv</sub><br>
+      &nbsp;&nbsp;&nbsp;= 18,000 − 12,889 − 3,662.75 = <strong>+$1,448.25/yr ✓ (profitable)</strong>
+    </div>
+
+    <div class="answer-badge">CR = $12,889/yr &nbsp;|&nbsp; AW = +$1,448/yr</div>
+
+    <hr class="sep">
+
+    <h3 style="color:var(--primary);font-size:16px;margin:20px 0 12px;border-right:4px solid var(--accent);padding-right:10px;">Part (b) — Capitalized Cost of a Perpetual Series</h3>
+    <div class="problem-box">
+      Find the <strong>Capitalized Cost</strong> of <strong>$10,000 every 5 years forever</strong>, starting year 5, at i = 12%/year.
+    </div>
+
+    <div class="given">
+      <strong>Given:</strong> A<sub>rep</sub> = $10,000 (every 5 yrs) &nbsp;|&nbsp; n<sub>cycle</sub> = 5 yrs &nbsp;|&nbsp; i = 12% &nbsp;|&nbsp; <strong>Find:</strong> CC = ?
+    </div>
+
+    <div class="formula-box">
+      <span class="label">Capitalized Cost — Perpetual Periodic Payments</span>
+      <div class="math">CC = A<sub style="color:#4fb8e8">rep</sub> / [(1 + i)<sup>n</sup> − 1]</div>
+    </div>
+
+    <div class="sol-step">
+      <strong>CC = 10,000 / [(1.12)⁵ − 1]</strong><br>
+      = 10,000 / [1.7623 − 1]<br>
+      = 10,000 / 0.7623 = <strong>$13,117</strong>
+    </div>
+
+    <div class="answer-badge">CC ≈ $13,117</div>
+
+  </div>
+</div>
+
+<!-- ─────── Q4 SPRING — Two Interest Rates ─────── -->
+<div class="section" id="s1-q4" style="margin-top:28px;">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>PW &amp; FW — Two Different Interest Rates
+      <span class="ar">القيمة الحالية والمستقبلية — معدلا فائدة مختلفان</span>
+    </h2>
+    <span class="ch-badge">Ch. 3+5 · Combining Factors</span>
+  </div>
+  <div class="section-body">
+
+    <div class="problem-box">
+      Cash flows: <strong>$30/yr</strong> at years 3, 4, 5 &nbsp;|&nbsp; <strong>$50/yr</strong> at years 6, 7, 8 &nbsp;(all payments are <strong>costs ↓</strong>)<br>
+      <strong>i₁ = 8%/yr</strong> for years 0 → 5 &nbsp;|&nbsp; <strong>i₂ = 10%/yr</strong> for years 5 → 8<br>
+      Find: (a) PW at year 0 &nbsp;|&nbsp; (b) FW at year 8
+    </div>
+
+    <!-- CFD -->
+    <div class="cfd-wrap">
+      <div class="cfd-title">📊 Cash Flow Diagram</div>
+      <svg width="580" height="195" viewBox="0 0 580 195" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+        <line x1="30" y1="90" x2="555" y2="90" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="555,86 565,90 555,94" fill="#1a3a6b"/>
+        <text x="30"  y="107" text-anchor="middle" font-size="12" fill="#2c4066">0</text>
+        <text x="100" y="107" text-anchor="middle" font-size="12" fill="#2c4066">1</text>
+        <text x="170" y="107" text-anchor="middle" font-size="12" fill="#2c4066">2</text>
+        <text x="240" y="107" text-anchor="middle" font-size="12" fill="#2c4066">3</text>
+        <text x="310" y="107" text-anchor="middle" font-size="12" fill="#2c4066">4</text>
+        <text x="380" y="107" text-anchor="middle" font-size="12" fill="#2c4066">5</text>
+        <text x="430" y="107" text-anchor="middle" font-size="12" fill="#2c4066">6</text>
+        <text x="480" y="107" text-anchor="middle" font-size="12" fill="#2c4066">7</text>
+        <text x="530" y="107" text-anchor="middle" font-size="12" fill="#2c4066">8</text>
+        <!-- i segments -->
+        <rect x="30" y="116" width="350" height="14" rx="3" fill="rgba(232,184,75,0.18)" stroke="#e8b84b" stroke-width="1.2"/>
+        <text x="205" y="127" text-anchor="middle" font-size="10" fill="#b8860b" font-weight="bold">i₁ = 8%  (years 0 – 5)</text>
+        <rect x="380" y="116" width="170" height="14" rx="3" fill="rgba(14,144,210,0.15)" stroke="#0e90d2" stroke-width="1.2"/>
+        <text x="465" y="127" text-anchor="middle" font-size="10" fill="#0e90d2" font-weight="bold">i₂ = 10%  (yrs 5–8)</text>
+        <!-- $30 DOWN at yrs 3, 4, 5 (red) -->
+        <line x1="240" y1="90" x2="240" y2="148" stroke="#c0392b" stroke-width="2.2"/>
+        <polygon points="236,148 240,158 244,148" fill="#c0392b"/>
+        <text x="240" y="170" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="bold">$30</text>
+        <line x1="310" y1="90" x2="310" y2="148" stroke="#c0392b" stroke-width="2.2"/>
+        <polygon points="306,148 310,158 314,148" fill="#c0392b"/>
+        <text x="310" y="170" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="bold">$30</text>
+        <line x1="380" y1="90" x2="380" y2="148" stroke="#c0392b" stroke-width="2.2"/>
+        <polygon points="376,148 380,158 384,148" fill="#c0392b"/>
+        <text x="380" y="170" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="bold">$30</text>
+        <!-- bracket for $30 group -->
+        <line x1="230" y1="180" x2="390" y2="180" stroke="#c0392b" stroke-width="1" stroke-dasharray="3"/>
+        <text x="310" y="190" text-anchor="middle" font-size="9" fill="#c0392b">A₁ = $30/yr  (n=3, i₁=8%)</text>
+        <!-- $50 DOWN at yrs 6, 7, 8 (purple) -->
+        <line x1="430" y1="90" x2="430" y2="148" stroke="#8e44ad" stroke-width="2.2"/>
+        <polygon points="426,148 430,158 434,148" fill="#8e44ad"/>
+        <text x="430" y="170" text-anchor="middle" font-size="11" fill="#8e44ad" font-weight="bold">$50</text>
+        <line x1="480" y1="90" x2="480" y2="148" stroke="#8e44ad" stroke-width="2.2"/>
+        <polygon points="476,148 480,158 484,148" fill="#8e44ad"/>
+        <text x="480" y="170" text-anchor="middle" font-size="11" fill="#8e44ad" font-weight="bold">$50</text>
+        <line x1="530" y1="90" x2="530" y2="148" stroke="#8e44ad" stroke-width="2.2"/>
+        <polygon points="526,148 530,158 534,148" fill="#8e44ad"/>
+        <text x="530" y="170" text-anchor="middle" font-size="11" fill="#8e44ad" font-weight="bold">$50</text>
+        <!-- bracket for $50 group -->
+        <line x1="420" y1="180" x2="540" y2="180" stroke="#8e44ad" stroke-width="1" stroke-dasharray="3"/>
+        <text x="480" y="190" text-anchor="middle" font-size="9" fill="#8e44ad">A₂ = $50/yr  (n=3, i₂=10%)</text>
+        <!-- PW / FW labels -->
+        <text x="30" y="20" font-size="11" fill="#c0392b" font-weight="bold">PW=?</text>
+        <text x="530" y="20" font-size="11" fill="#0e90d2" font-weight="bold">FW=?</text>
+        <text x="570" y="93" font-size="11" fill="#2c4066">n</text>
+      </svg>
+    </div>
+
+    <div class="given">
+      <strong>Given:</strong> A₁ = $30/yr (yrs 3,4,5) &nbsp;|&nbsp; A₂ = $50/yr (yrs 6,7,8) &nbsp;|&nbsp; i₁ = 8% (yrs 0→5) &nbsp;|&nbsp; i₂ = 10% (yrs 5→8)
+    </div>
+
+    <div class="note-box">
+      <span class="icon">🔑</span>
+      <p><strong>الاستراتيجية:</strong><br>
+      • <strong>PW:</strong> كل مجموعة → قيمتها عند بداية فترتها → ثم نخصم إلى yr 0 بمعدل i₁ = 8%.<br>
+      • <strong>FW:</strong> كل مجموعة → قيمتها عند نهاية فترتها → ثم نجمع عند yr 8.</p>
+    </div>
+
+    <div class="factor-ref">
+      <div class="fr-title">📋 Table Factors</div>
+      <ul>
+        <li><code>(P/A, 8%, 3) = 2.5771</code></li>
+        <li><code>(P/F, 8%, 2) = 0.8573</code></li>
+        <li><code>(P/F, 8%, 5) = 0.6806</code></li>
+        <li><code>(P/A, 10%, 3) = 2.4869</code></li>
+        <li><code>(F/A, 8%, 3) = 3.2464</code></li>
+        <li><code>(F/P, 10%, 3) = 1.3310</code></li>
+        <li><code>(F/A, 10%, 3) = 3.3100</code></li>
+      </ul>
+    </div>
+
+    <div class="sol-step">
+      <strong>Part (a) — PW at Year 0:</strong>
+      <u>Group 1 — $30/yr at yrs 3, 4, 5 (i₁ = 8%):</u><br>
+      &nbsp;&nbsp;PW at yr 2 &nbsp;= 30 × (P/A, 8%, 3) &nbsp;= 30 × <b>2.5771</b> &nbsp;= $77.31<br>
+      &nbsp;&nbsp;PW at yr 0 &nbsp;= 77.31 × (P/F, 8%, 2) = 77.31 × <b>0.8573</b> = <b>$66.27</b><br><br>
+      <u>Group 2 — $50/yr at yrs 6, 7, 8 (i₂ = 10%):</u><br>
+      &nbsp;&nbsp;PW at yr 5 &nbsp;= 50 × (P/A, 10%, 3) = 50 × <b>2.4869</b> &nbsp;= $124.35<br>
+      &nbsp;&nbsp;PW at yr 0 &nbsp;= 124.35 × (P/F, 8%, 5) = 124.35 × <b>0.6806</b> = <b>$84.64</b><br><br>
+      PW<sub>total</sub> = 66.27 + 84.64 = <b>$150.91</b>
+    </div>
+
+    <div class="answer-badge">PW ≈ $150.91</div>
+
+    <div class="sol-step" style="margin-top:16px;">
+      <strong>Part (b) — FW at Year 8:</strong>
+      <u>Group 1 — $30/yr (yrs 3,4,5) → FW at yr 5, then grow to yr 8 at i₂=10%:</u><br>
+      &nbsp;&nbsp;FW at yr 5 = 30 × (F/A, 8%, 3) &nbsp;= 30 × <b>3.2464</b> &nbsp;= $97.39<br>
+      &nbsp;&nbsp;FW at yr 8 = 97.39 × (F/P, 10%, 3) = 97.39 × <b>1.3310</b> = <b>$129.63</b><br><br>
+      <u>Group 2 — $50/yr (yrs 6,7,8) at i₂=10%:</u><br>
+      &nbsp;&nbsp;FW at yr 8 = 50 × (F/A, 10%, 3) = 50 × <b>3.3100</b> = <b>$165.50</b><br><br>
+      FW<sub>total</sub> = 129.63 + 165.50 = <b>$295.13</b>
+    </div>
+
+    <div class="sol-step answer-step">
+      <strong>✓ Cross-check:</strong> PW × (F/P,8%,5) × (F/P,10%,3) = 150.91 × 1.4693 × 1.3310 ≈ <strong>$295.13 ✓</strong>
+    </div>
+
+    <div class="answer-badge">PW = $150.91 &nbsp;|&nbsp; FW = $295.13</div>
+
+  </div>
+</div>
+
+<!-- ─────── Q5 SPRING — Semiannual Compounding ─────── -->
+<div class="section" id="s1-q5" style="margin-top:28px;">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>Present Worth — Non-Annual (Semiannual) Compounding
+      <span class="ar">القيمة الحالية — فائدة مركبة نصف سنوية</span>
+    </h2>
+    <span class="ch-badge">Ch. 4 · Nominal vs. Effective Rate</span>
+  </div>
+  <div class="section-body">
+
+    <div class="problem-box">
+      Determine the <strong>present worth</strong> of the following cash flows at an interest rate of <strong>16% per year compounded semiannually</strong>.
+    </div>
+
+    <!-- Original EOY data table from exam -->
+    <table class="data-table">
+      <thead>
+        <tr><th>EOY</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>$ (Cash Flow)</strong></td>
+          <td>0</td><td>0</td>
+          <td><strong class="hl">21,000</strong></td>
+          <td><strong class="hl">24,000</strong></td>
+          <td>0</td>
+          <td><strong class="hl">10,000</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- CFD by YEARS (EOY 0–5) -->
+    <div class="cfd-wrap">
+      <div class="cfd-title">📊 Cash Flow Diagram — Annual (EOY 0–5)</div>
+      <svg width="520" height="160" viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+        <line x1="30" y1="110" x2="490" y2="110" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="490,106 500,110 490,114" fill="#1a3a6b"/>
+        <!-- Year labels -->
+        <text x="30"  y="128" text-anchor="middle" font-size="12" fill="#2c4066">0</text>
+        <text x="100" y="128" text-anchor="middle" font-size="12" fill="#2c4066">1</text>
+        <text x="185" y="128" text-anchor="middle" font-size="12" fill="#2c4066">2</text>
+        <text x="270" y="128" text-anchor="middle" font-size="12" fill="#2c4066">3</text>
+        <text x="355" y="128" text-anchor="middle" font-size="12" fill="#2c4066">4</text>
+        <text x="440" y="128" text-anchor="middle" font-size="12" fill="#2c4066">5</text>
+        <!-- EOY label -->
+        <text x="30" y="148" font-size="10" fill="#888">EOY</text>
+        <!-- CF=0 at 0,1 — small tick only -->
+        <line x1="30"  y1="110" x2="30"  y2="105" stroke="#aaa" stroke-width="1"/>
+        <line x1="100" y1="110" x2="100" y2="105" stroke="#aaa" stroke-width="1"/>
+        <!-- $21,000 UP at yr 2 -->
+        <line x1="185" y1="110" x2="185" y2="35" stroke="#1a7f5a" stroke-width="2.5"/>
+        <polygon points="181,35 185,25 189,35" fill="#1a7f5a"/>
+        <text x="185" y="18" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">$21,000</text>
+        <!-- $24,000 UP at yr 3 -->
+        <line x1="270" y1="110" x2="270" y2="28" stroke="#1a7f5a" stroke-width="2.5"/>
+        <polygon points="266,28 270,18 274,28" fill="#1a7f5a"/>
+        <text x="270" y="12" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">$24,000</text>
+        <!-- CF=0 at yr 4 — small tick -->
+        <line x1="355" y1="110" x2="355" y2="105" stroke="#aaa" stroke-width="1"/>
+        <!-- $10,000 UP at yr 5 -->
+        <line x1="440" y1="110" x2="440" y2="52" stroke="#1a7f5a" stroke-width="2.5"/>
+        <polygon points="436,52 440,42 444,52" fill="#1a7f5a"/>
+        <text x="440" y="30" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">$10,000</text>
+        <!-- i label -->
+        <text x="30" y="18" font-size="10" fill="#0e90d2">i = 16%/yr compounded semiannually</text>
+        <text x="505" y="113" font-size="11" fill="#2c4066">n</text>
+      </svg>
+    </div>
+
+    <div class="given">
+      <strong>Given:</strong> Nominal i = 16%/yr, compounded semiannually &nbsp;|&nbsp; Payments at EOY 2, 3, 5 &nbsp;|&nbsp; <strong>Find:</strong> PW at yr 0 = ?
+    </div>
+
+    <div class="note-box">
+      <span class="icon">💡</span>
+      <p><strong>التحويل إلى الفترات النصف سنوية:</strong><br>
+      i<sub>semi</sub> = 16% ÷ 2 = <strong>8% per 6-month period</strong><br>
+      كل سنة = 2 فترات نصف سنوية → EOY 2 = Period 4 &nbsp;|&nbsp; EOY 3 = Period 6 &nbsp;|&nbsp; EOY 5 = Period 10</p>
+    </div>
+
+    <div class="factor-ref">
+      <div class="fr-title">📋 Table Factors at i = 8% per semiannual period</div>
+      <ul>
+        <li><code>(P/F, 8%, 4)  = 0.7350</code> &nbsp;← EOY 2</li>
+        <li><code>(P/F, 8%, 6)  = 0.6302</code> &nbsp;← EOY 3</li>
+        <li><code>(P/F, 8%, 10) = 0.4631</code> &nbsp;← EOY 5</li>
+      </ul>
+    </div>
+
+    <div class="sol-step">
+      <strong>PW = Σ CF × (P/F, 8%, period)</strong>
+      PW(EOY 2) = 21,000 × (P/F, 8%, 4)  = 21,000 × <b>0.7350</b>  = $15,435<br>
+      PW(EOY 3) = 24,000 × (P/F, 8%, 6)  = 24,000 × <b>0.6302</b>  = $15,125<br>
+      PW(EOY 5) = 10,000 × (P/F, 8%, 10) = 10,000 × <b>0.4631</b>  = $4,631
+    </div>
+
+    <div class="sol-step answer-step">
+      <strong>Total PW = 15,435 + 15,125 + 4,631 = <span style="color:var(--green);">$35,191</span></strong>
+    </div>
+
+    <div class="answer-badge">PW = $35,191</div>
+
+  </div>
+</div>
+
+
+<!-- ─────── Q6 SPRING — Replacement Study ─────── -->
+<div class="section" id="s1-q6" style="margin-top:28px;">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <h2>Replacement Study — Insider's vs. Outsider's Viewpoint
+      <span class="ar">دراسة الاستبدال — المنظور الداخلي مقابل المنظور الخارجي</span>
+    </h2>
+    <span class="ch-badge">Ch. 11 · Replacement Analysis</span>
+  </div>
+  <div class="section-body">
+
+    <div class="problem-box">
+      <strong>Defender (Existing Machine):</strong> Purchased 5 yrs ago for $75,000. Current MV = $35,000. AOC = $12,000/yr. SV after 3 yrs = $20,000.<br>
+      <strong>Challenger (New Machine):</strong> P = $45,000. AOC = $9,000/yr. SV after 3 yrs = $25,000.<br>
+      i = 10%, n = 3 years for both.
+    </div>
+
+    <h3 style="color:var(--primary);font-size:15px;margin-bottom:10px;border-right:4px solid var(--accent);padding-right:10px;">Part (a) — Cash Flow Diagrams: Insider's Viewpoint</h3>
+
+    <div class="note-box">
+      <span class="icon">📌</span>
+      <p><strong>المنظور الداخلي (Insider's):</strong> نتجاهل الـ Sunk Cost ($75,000 السعر الأصلي). المدافع لا يحتاج استثمار جديد عند السنة 0.</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card defender">
+        <div class="card-title">🛡 Defender — Insider's Viewpoint</div>
+        <div class="card-body">
+          Yr 0: &nbsp;$0 &nbsp;(no investment — keep it)<br>
+          Yrs 1–3: −$12,000/yr &nbsp;(AOC)<br>
+          Yr 3: &nbsp;+$20,000 &nbsp;(SV)<br>
+          <span style="color:#c0392b;font-size:12px;">$75,000 original cost = <strong>SUNK COST</strong> → IGNORE</span>
+        </div>
+      </div>
+      <div class="compare-card challenger">
+        <div class="card-title">⚔️ Challenger — Insider's Viewpoint</div>
+        <div class="card-body">
+          Yr 0: −$45,000 (buy) + $35,000 (sell defender)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <strong>−$10,000 net</strong><br>
+          Yrs 1–3: −$9,000/yr &nbsp;(AOC)<br>
+          Yr 3: &nbsp;+$25,000 &nbsp;(SV)
+        </div>
+      </div>
+    </div>
+
+    <!-- CFD Defender -->
+    <div class="cfd-wrap">
+      <div class="cfd-title">📊 CFD — Defender (Outsider's Viewpoint: P = MV = $35,000)</div>
+      <svg width="380" height="160" viewBox="0 0 380 160" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+        <line x1="30" y1="100" x2="360" y2="100" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="360,96 370,100 360,104" fill="#1a3a6b"/>
+        <text x="30" y="118" text-anchor="middle" font-size="12" fill="#2c4066">0</text>
+        <text x="130" y="118" text-anchor="middle" font-size="12" fill="#2c4066">1</text>
+        <text x="230" y="118" text-anchor="middle" font-size="12" fill="#2c4066">2</text>
+        <text x="330" y="118" text-anchor="middle" font-size="12" fill="#2c4066">3</text>
+        <!-- P down (MV = opportunity cost) -->
+        <line x1="30" y1="100" x2="30" y2="148" stroke="#c0392b" stroke-width="2"/>
+        <polygon points="26,148 30,158 34,148" fill="#c0392b"/>
+        <text x="30" y="162" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="bold">$35K (MV)</text>
+        <!-- AOC down -->
+        <line x1="130" y1="100" x2="130" y2="136" stroke="#c0392b" stroke-width="2"/>
+        <polygon points="126,136 130,146 134,136" fill="#c0392b"/>
+        <text x="130" y="150" text-anchor="middle" font-size="10" fill="#c0392b">$12K</text>
+        <line x1="230" y1="100" x2="230" y2="136" stroke="#c0392b" stroke-width="2"/>
+        <polygon points="226,136 230,146 234,136" fill="#c0392b"/>
+        <text x="230" y="150" text-anchor="middle" font-size="10" fill="#c0392b">$12K</text>
+        <!-- SV up at yr 3 -->
+        <line x1="330" y1="100" x2="330" y2="136" stroke="#c0392b" stroke-width="2"/>
+        <polygon points="326,136 330,146 334,136" fill="#c0392b"/>
+        <text x="330" y="150" text-anchor="middle" font-size="10" fill="#c0392b">$12K</text>
+        <line x1="330" y1="100" x2="330" y2="52" stroke="#1a7f5a" stroke-width="2" stroke-dasharray="4"/>
+        <polygon points="326,52 330,42 334,52" fill="#1a7f5a"/>
+        <text x="330" y="36" text-anchor="middle" font-size="10" fill="#1a7f5a" font-weight="bold">+$20K (SV)</text>
+        <text x="375" y="103" font-size="11" fill="#2c4066">n</text>
+      </svg>
+    </div>
+
+    <h3 style="color:var(--primary);font-size:15px;margin:20px 0 10px;border-right:4px solid var(--accent);padding-right:10px;">Part (b) — AW Analysis: Outsider's Viewpoint</h3>
+
+    <div class="note-box">
+      <span class="icon">👁️</span>
+      <p><strong>المنظور الخارجي (Outsider's):</strong> نعامل MV = $35,000 كأنه التكلفة الأولى للمدافع (تكلفة الفرصة البديلة).</p>
+    </div>
+
+    <div class="factor-ref">
+      <div class="fr-title">📋 Table Factors at i = 10%, n = 3</div>
+      <ul>
+        <li><code>(P/A, 10%, 3) = 2.4869</code></li>
+        <li><code>(P/F, 10%, 3) = 0.7513</code></li>
+      </ul>
+    </div>
+
+    <div class="sol-step">
+      <strong>PW(Defender) — P = MV = $35,000:</strong><br>
+      = −35,000 − 12,000 × (P/A,10%,3) + 20,000 × (P/F,10%,3)<br>
+      = −35,000 − 12,000 × <strong>2.4869</strong> + 20,000 × <strong>0.7513</strong><br>
+      = −35,000 − 29,843 + 15,026 = <strong>−$49,817</strong>
+    </div>
+
+    <div class="sol-step">
+      <strong>PW(Challenger) — P = $45,000:</strong><br>
+      = −45,000 − 9,000 × (P/A,10%,3) + 25,000 × (P/F,10%,3)<br>
+      = −45,000 − 9,000 × <strong>2.4869</strong> + 25,000 × <strong>0.7513</strong><br>
+      = −45,000 − 22,382 + 18,783 = <strong>−$48,599</strong>
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>Alternative</th><th>PW ($)</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>Defender</td><td>−$49,817</td><td>—</td></tr>
+        <tr class="sel-row"><td><strong>Challenger</strong></td><td><strong>−$48,599</strong></td><td><strong>✓ Selected</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="decision-box">
+      <span class="di">🔄</span>
+      <div class="dt"><strong>Decision: Replace — Select the Challenger.</strong><br>
+      PW(Challenger) = −$48,599 &gt; PW(Defender) = −$49,817 → Challenger saves ~$1,218 in PW terms.</div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /exam-body-wrap Spring -->
+
+
+<!-- ════════════════════════════════════════════
+     FALL 2025
+════════════════════════════════════════════ -->
+<div class="exam-banner">
+  <div class="exam-icon">🍂</div>
+  <div>
+    Final Exam — Fall 2025
+    <div style="font-size:13px;font-weight:400;opacity:.75;font-family:'IBM Plex Sans',sans-serif;">امتحان نهاية الفصل الدراسي — خريف 2025</div>
+  </div>
+</div>
+<div class="exam-body-wrap">
+
+<!-- ─────── Q1 FALL — Non-Uniform AW ─────── -->
+<div class="section" id="s2-q1">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>Equivalent Annual Worth — Non-Uniform Cash Flows
+      <span class="ar">القيمة السنوية المكافئة — تدفقات نقدية غير منتظمة</span>
+    </h2>
+    <span class="ch-badge">Ch. 6 · AW</span>
+  </div>
+  <div class="section-body">
+
+    <div class="problem-box">
+      Find the equivalent AW for years 1–8 at <strong>i = 10%/year</strong>.<br>
+      Cash flows: Yr1=$0, Yr2=$470, Yr3=$420, Yr4=$370, Yr5=$320, Yr6=$270, Yr7=$220, Yr8=$470.
+    </div>
+
+    <!-- CFD -->
+    <div class="cfd-wrap">
+      <div class="cfd-title">📊 Cash Flow Diagram</div>
+      <svg width="580" height="165" viewBox="0 0 580 165" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+        <line x1="30" y1="110" x2="555" y2="110" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="555,106 565,110 555,114" fill="#1a3a6b"/>
+        <text x="30" y="128" text-anchor="middle" font-size="11" fill="#2c4066">0</text>
+        <text x="90" y="128" text-anchor="middle" font-size="11" fill="#2c4066">1</text>
+        <text x="150" y="128" text-anchor="middle" font-size="11" fill="#2c4066">2</text>
+        <text x="210" y="128" text-anchor="middle" font-size="11" fill="#2c4066">3</text>
+        <text x="270" y="128" text-anchor="middle" font-size="11" fill="#2c4066">4</text>
+        <text x="330" y="128" text-anchor="middle" font-size="11" fill="#2c4066">5</text>
+        <text x="390" y="128" text-anchor="middle" font-size="11" fill="#2c4066">6</text>
+        <text x="450" y="128" text-anchor="middle" font-size="11" fill="#2c4066">7</text>
+        <text x="510" y="128" text-anchor="middle" font-size="11" fill="#2c4066">8</text>
+        <!-- Yr1 = 0, no arrow -->
+        <!-- Yr2=470 -->
+        <line x1="150" y1="110" x2="150" y2="25" stroke="#1a7f5a" stroke-width="2"/><polygon points="146,25 150,15 154,25" fill="#1a7f5a"/>
+        <text x="150" y="11" text-anchor="middle" font-size="10" fill="#1a7f5a" font-weight="bold">470</text>
+        <!-- Yr3=420 -->
+        <line x1="210" y1="110" x2="210" y2="32" stroke="#1a7f5a" stroke-width="2"/><polygon points="206,32 210,22 214,32" fill="#1a7f5a"/>
+        <text x="210" y="18" text-anchor="middle" font-size="10" fill="#1a7f5a" font-weight="bold">420</text>
+        <!-- Yr4=370 -->
+        <line x1="270" y1="110" x2="270" y2="39" stroke="#1a7f5a" stroke-width="2"/><polygon points="266,39 270,29 274,39" fill="#1a7f5a"/>
+        <text x="270" y="25" text-anchor="middle" font-size="10" fill="#1a7f5a" font-weight="bold">370</text>
+        <!-- Yr5=320 -->
+        <line x1="330" y1="110" x2="330" y2="46" stroke="#1a7f5a" stroke-width="2"/><polygon points="326,46 330,36 334,46" fill="#1a7f5a"/>
+        <text x="330" y="32" text-anchor="middle" font-size="10" fill="#1a7f5a" font-weight="bold">320</text>
+        <!-- Yr6=270 -->
+        <line x1="390" y1="110" x2="390" y2="53" stroke="#1a7f5a" stroke-width="2"/><polygon points="386,53 390,43 394,53" fill="#1a7f5a"/>
+        <text x="390" y="39" text-anchor="middle" font-size="10" fill="#1a7f5a" font-weight="bold">270</text>
+        <!-- Yr7=220 -->
+        <line x1="450" y1="110" x2="450" y2="60" stroke="#1a7f5a" stroke-width="2"/><polygon points="446,60 450,50 454,60" fill="#1a7f5a"/>
+        <text x="450" y="46" text-anchor="middle" font-size="10" fill="#1a7f5a" font-weight="bold">220</text>
+        <!-- Yr8=470 (same height as yr2) -->
+        <line x1="510" y1="110" x2="510" y2="25" stroke="#e8b84b" stroke-width="2"/><polygon points="506,25 510,15 514,25" fill="#e8b84b"/>
+        <text x="510" y="11" text-anchor="middle" font-size="10" fill="#e8b84b" font-weight="bold">470</text>
+        <text x="570" y="113" font-size="11" fill="#2c4066">n</text>
+        <text x="30" y="15" font-size="10" fill="#2c4066">i = 10%</text>
+      </svg>
+    </div>
+
+    <div class="note-box">
+      <span class="icon">💡</span>
+      <p><strong>الأسلوب:</strong> السلسلة غير منتظمة → نحسب PW لكل تدفق على حدة، نجمع، ثم نحوّل الإجمالي إلى AW باستخدام (A/P, 10%, 8).</p>
+    </div>
+
+    <div class="factor-ref">
+      <div class="fr-title">📋 Table Factors at i = 10%</div>
+      <ul>
+        <li><code>(P/F,10%,2)=0.8264</code></li>
+        <li><code>(P/F,10%,3)=0.7513</code></li>
+        <li><code>(P/F,10%,4)=0.6830</code></li>
+        <li><code>(P/F,10%,5)=0.6209</code></li>
+        <li><code>(P/F,10%,6)=0.5645</code></li>
+        <li><code>(P/F,10%,7)=0.5132</code></li>
+        <li><code>(P/F,10%,8)=0.4665</code></li>
+        <li><code>(A/P,10%,8)=0.1874</code></li>
+      </ul>
+    </div>
+
+    <div class="sol-step">
+      <strong>Step 1 — PW of each CF:</strong>
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>Year (n)</th><th>CF ($)</th><th>(P/F, 10%, n)</th><th>PW ($)</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>0</td><td>0.9091</td><td>0.00</td></tr>
+        <tr><td>2</td><td>470</td><td>0.8264</td><td>388.41</td></tr>
+        <tr><td>3</td><td>420</td><td>0.7513</td><td>315.55</td></tr>
+        <tr><td>4</td><td>370</td><td>0.6830</td><td>252.71</td></tr>
+        <tr><td>5</td><td>320</td><td>0.6209</td><td>198.69</td></tr>
+        <tr><td>6</td><td>270</td><td>0.5645</td><td>152.41</td></tr>
+        <tr><td>7</td><td>220</td><td>0.5132</td><td>112.90</td></tr>
+        <tr><td>8</td><td>470</td><td>0.4665</td><td>219.26</td></tr>
+        <tr class="total-row"><td colspan="3"><strong>Total PW</strong></td><td><strong>$1,639.93</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="sol-step">
+      <strong>Step 2 — Convert PW to AW:</strong><br>
+      AW = PW × (A/P, 10%, 8) = 1,639.93 × <strong>0.1874</strong> = <strong>$307.32/yr</strong>
+    </div>
+
+    <div class="answer-badge">AW ≈ $307 / year</div>
+
+  </div>
+</div>
+
+<!-- ─────── Q2 FALL — PW Comparison LCM ─────── -->
+<div class="section" id="s2-q2" style="margin-top:28px;">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>PW Comparison — Different Lives (LCM Method)
+      <span class="ar">مقارنة القيمة الحالية — أعمار مختلفة (طريقة المضاعف المشترك)</span>
+    </h2>
+    <span class="ch-badge">Ch. 5 · PW · LCM</span>
+  </div>
+  <div class="section-body">
+
+    <div class="problem-box">
+      Select the better machine using PW analysis at <strong>i = 10%/year</strong>.
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>Parameter</th><th>Machine A</th><th>Machine B</th></tr></thead>
+      <tbody>
+        <tr><td>First Cost (P)</td><td>$15,000</td><td>$18,000</td></tr>
+        <tr><td>Annual O&amp;M ($/yr)</td><td>$3,500</td><td>$3,100</td></tr>
+        <tr><td>Salvage Value (S)</td><td>$1,000</td><td>$2,000</td></tr>
+        <tr><td>Life (n years)</td><td><strong>4</strong></td><td><strong>8</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <span class="icon">🔑</span>
+      <p><strong>LCM Rule:</strong> LCM(4, 8) = <strong>8 years</strong>. Machine A repeats <strong>twice</strong>. Machine B runs one full cycle.</p>
+    </div>
+
+    <!-- CFD Machine A -->
+    <div class="cfd-wrap">
+      <div class="cfd-title">📊 Cash Flow Diagram — Machine A (Two Cycles, n=4 each)</div>
+      <svg width="560" height="175" viewBox="0 0 560 175" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+        <line x1="30" y1="110" x2="530" y2="110" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="530,106 540,110 530,114" fill="#1a3a6b"/>
+        <text x="30" y="128" text-anchor="middle" font-size="11" fill="#2c4066">0</text>
+        <text x="90" y="128" text-anchor="middle" font-size="11" fill="#2c4066">1</text>
+        <text x="150" y="128" text-anchor="middle" font-size="11" fill="#2c4066">2</text>
+        <text x="210" y="128" text-anchor="middle" font-size="11" fill="#2c4066">3</text>
+        <text x="280" y="128" text-anchor="middle" font-size="11" fill="#2c4066">4</text>
+        <text x="340" y="128" text-anchor="middle" font-size="11" fill="#2c4066">5</text>
+        <text x="400" y="128" text-anchor="middle" font-size="11" fill="#2c4066">6</text>
+        <text x="460" y="128" text-anchor="middle" font-size="11" fill="#2c4066">7</text>
+        <text x="510" y="128" text-anchor="middle" font-size="11" fill="#2c4066">8</text>
+        <!-- Cycle 1 -->
+        <line x1="30" y1="110" x2="30" y2="155" stroke="#c0392b" stroke-width="2"/>
+        <polygon points="26,155 30,165 34,155" fill="#c0392b"/>
+        <text x="30" y="170" text-anchor="middle" font-size="9" fill="#c0392b">$15K</text>
+        <line x1="90" y1="110" x2="90" y2="145" stroke="#c0392b" stroke-width="2"/><polygon points="86,145 90,155 94,145" fill="#c0392b"/><text x="90" y="158" text-anchor="middle" font-size="9" fill="#c0392b">3.5K</text>
+        <line x1="150" y1="110" x2="150" y2="145" stroke="#c0392b" stroke-width="2"/><polygon points="146,145 150,155 154,145" fill="#c0392b"/><text x="150" y="158" text-anchor="middle" font-size="9" fill="#c0392b">3.5K</text>
+        <line x1="210" y1="110" x2="210" y2="145" stroke="#c0392b" stroke-width="2"/><polygon points="206,145 210,155 214,145" fill="#c0392b"/><text x="210" y="158" text-anchor="middle" font-size="9" fill="#c0392b">3.5K</text>
+        <!-- SV yr4 + P yr4 (new cycle) -->
+        <line x1="280" y1="110" x2="280" y2="70" stroke="#1a7f5a" stroke-width="1.5" stroke-dasharray="3"/>
+        <polygon points="276,70 280,60 284,70" fill="#1a7f5a"/>
+        <text x="280" y="56" text-anchor="middle" font-size="9" fill="#1a7f5a">+$1K (SV)</text>
+        <line x1="280" y1="110" x2="280" y2="155" stroke="#c0392b" stroke-width="2"/>
+        <polygon points="276,155 280,165 284,155" fill="#c0392b"/>
+        <text x="280" y="170" text-anchor="middle" font-size="9" fill="#c0392b">$15K (new)</text>
+        <!-- Cycle 2 AOC -->
+        <line x1="340" y1="110" x2="340" y2="145" stroke="#c0392b" stroke-width="2"/><polygon points="336,145 340,155 344,145" fill="#c0392b"/><text x="340" y="158" text-anchor="middle" font-size="9" fill="#c0392b">3.5K</text>
+        <line x1="400" y1="110" x2="400" y2="145" stroke="#c0392b" stroke-width="2"/><polygon points="396,145 400,155 404,145" fill="#c0392b"/><text x="400" y="158" text-anchor="middle" font-size="9" fill="#c0392b">3.5K</text>
+        <line x1="460" y1="110" x2="460" y2="145" stroke="#c0392b" stroke-width="2"/><polygon points="456,145 460,155 464,145" fill="#c0392b"/><text x="460" y="158" text-anchor="middle" font-size="9" fill="#c0392b">3.5K</text>
+        <!-- SV yr 8 -->
+        <line x1="510" y1="110" x2="510" y2="145" stroke="#c0392b" stroke-width="2"/><polygon points="506,145 510,155 514,145" fill="#c0392b"/><text x="510" y="158" text-anchor="middle" font-size="9" fill="#c0392b">3.5K</text>
+        <line x1="510" y1="110" x2="510" y2="72" stroke="#1a7f5a" stroke-width="1.5" stroke-dasharray="3"/>
+        <polygon points="506,72 510,62 514,72" fill="#1a7f5a"/>
+        <text x="510" y="52" text-anchor="middle" font-size="9" fill="#1a7f5a">+$1K (SV)</text>
+        <text x="545" y="113" font-size="11" fill="#2c4066">n</text>
+      </svg>
+    </div>
+
+    <div class="factor-ref">
+      <div class="fr-title">📋 Table Factors at i = 10%</div>
+      <ul>
+        <li><code>(P/A, 10%, 4) = 3.1699</code></li>
+        <li><code>(P/F, 10%, 4) = 0.6830</code></li>
+        <li><code>(P/A, 10%, 8) = 5.3349</code></li>
+        <li><code>(P/F, 10%, 8) = 0.4665</code></li>
+      </ul>
+    </div>
+
+    <div class="sol-step">
+      <strong>PW(Machine A) — Two cycles over 8 years:</strong><br>
+      Cycle 1: PW<sub>A1</sub> = −15,000 − 3,500×(P/A,10%,4) + 1,000×(P/F,10%,4)<br>
+      &nbsp;&nbsp;&nbsp;= −15,000 − 3,500×<strong>3.1699</strong> + 1,000×<strong>0.6830</strong><br>
+      &nbsp;&nbsp;&nbsp;= −15,000 − 11,095 + 683 = <strong>−$25,412</strong><br><br>
+      Cycle 2 (at yr 0): PW<sub>A2</sub> = −25,412 × (P/F,10%,4) = −25,412 × <strong>0.6830</strong> = <strong>−$17,356</strong><br><br>
+      PW<sub>A total</sub> = −25,412 + (−17,356) = <strong>−$42,768</strong>
+    </div>
+
+    <div class="sol-step">
+      <strong>PW(Machine B) — Single cycle, 8 years:</strong><br>
+      = −18,000 − 3,100×(P/A,10%,8) + 2,000×(P/F,10%,8)<br>
+      = −18,000 − 3,100×<strong>5.3349</strong> + 2,000×<strong>0.4665</strong><br>
+      = −18,000 − 16,538 + 933 = <strong>−$33,605</strong>
+    </div>
+
+    <table class="data-table">
+      <thead><tr><th>Machine</th><th>PW over 8 yrs ($)</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>Machine A</td><td>−$42,768</td><td>—</td></tr>
+        <tr class="sel-row"><td><strong>Machine B</strong></td><td><strong>−$33,605</strong></td><td><strong>✓ Selected</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="decision-box">
+      <span class="di">⚙️</span>
+      <div class="dt"><strong>Select Machine B.</strong><br>
+      PW(B) = −$33,605 &gt; PW(A) = −$42,768. Machine B is <strong>$9,163</strong> less costly over the 8-year study period.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─────── Q3 FALL — CC Dam + CR Milling ─────── -->
+<div class="section" id="s2-q3" style="margin-top:28px;">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>Capitalized Cost &amp; Capital Recovery
+      <span class="ar">التكلفة الرأسمالية — تكلفة استرداد رأس المال</span>
+    </h2>
+    <span class="ch-badge">Ch. 5+6 · CC &amp; CR</span>
+  </div>
+  <div class="section-body">
+
+    <h3 style="color:var(--primary);font-size:15px;margin-bottom:10px;border-right:4px solid var(--accent);padding-right:10px;">Part (a) — Capitalized Cost of a Dam (i = 12%)</h3>
+    <div class="problem-box">
+      Dam: <strong>P = $2,000,000</strong>. Annual operating cost = <strong>$5,000/yr</strong>. Periodic maintenance = <strong>$10,000 every 5 years</strong> forever. i = 12%.
+    </div>
+
+    <div class="formula-box">
+      <span class="label">Capitalized Cost — Three Components</span>
+      <div class="math">CC = P + (AOC / i) + A<sub style="color:#4fb8e8">rep</sub> / [(1+i)<sup>n</sup> − 1]</div>
+    </div>
+
+    <div class="sol-step">
+      <strong>CC₁ — Initial Construction:</strong><br>
+      CC₁ = P = <strong>$2,000,000</strong>
+    </div>
+    <div class="sol-step">
+      <strong>CC₂ — Annual O&amp;M (forever):</strong><br>
+      CC₂ = AOC / i = 5,000 / 0.12 = <strong>$41,667</strong>
+    </div>
+    <div class="sol-step">
+      <strong>CC₃ — Periodic Maintenance (every 5 yrs, forever):</strong><br>
+      CC₃ = 10,000 / [(1.12)⁵ − 1] = 10,000 / [1.7623 − 1] = 10,000 / 0.7623 = <strong>$13,117</strong>
+    </div>
+    <div class="sol-step answer-step">
+      <strong>CC<sub>total</sub> = 2,000,000 + 41,667 + 13,117 = <span style="color:var(--green);">$2,054,784</span></strong>
+    </div>
+
+    <div class="answer-badge">CC ≈ $2,054,784</div>
+
+    <hr class="sep">
+
+    <h3 style="color:var(--primary);font-size:15px;margin:20px 0 10px;border-right:4px solid var(--accent);padding-right:10px;">Part (b) — Capital Recovery of a Milling Machine (i = 8%)</h3>
+    <div class="problem-box">
+      Milling machine: <strong>P = $285,000</strong>, <strong>S = $50,000</strong> after <strong>10 years</strong>.<br>
+      Annual revenue = $52,000/yr. AOC starts at $10,000 increasing by G = $1,000/yr. i = 8%.
+    </div>
+
+    <div class="factor-ref">
+      <div class="fr-title">📋 Table Factors at i = 8%, n = 10</div>
+      <ul>
+        <li><code>(A/P, 8%, 10) = 0.1490</code></li>
+        <li><code>(A/F, 8%, 10) = 0.0690</code></li>
+        <li><code>(A/G, 8%, 10) = 3.8713</code></li>
+      </ul>
+    </div>
+
+    <div class="sol-step">
+      <strong>Step 1 — Capital Recovery (CR):</strong><br>
+      CR = P×(A/P,8%,10) − S×(A/F,8%,10)<br>
+      &nbsp;&nbsp;&nbsp;= 285,000×<strong>0.1490</strong> − 50,000×<strong>0.0690</strong><br>
+      &nbsp;&nbsp;&nbsp;= 42,465 − 3,450 = <strong>$39,015/yr</strong>
+    </div>
+    <div class="sol-step">
+      <strong>Step 2 — Equivalent Annual O&amp;M (Gradient):</strong><br>
+      AOC<sub>equiv</sub> = 10,000 + 1,000×(A/G,8%,10)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 10,000 + 1,000×<strong>3.8713</strong><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 10,000 + 3,871 = <strong>$13,871/yr</strong>
+    </div>
+    <div class="sol-step">
+      <strong>Step 3 — AW Check:</strong><br>
+      AW = 52,000 − 39,015 − 13,871 = <strong>−$886/yr</strong> (slightly unprofitable at i = 8%)
+    </div>
+
+    <div class="answer-badge">CR = $39,015/yr &nbsp;|&nbsp; AW = −$886/yr</div>
+
+  </div>
+</div>
+
+<!-- ─────── Q5 FALL — Two-Segment PW/FW/i_eq ─────── -->
+<div class="section" id="s2-q5" style="margin-top:28px;">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <h2>PW, FW &amp; Equivalent Interest Rate — Two Segments
+      <span class="ar">القيمة الحالية والمستقبلية — معدل الفائدة المكافئ لقطاعين</span>
+    </h2>
+    <span class="ch-badge">Ch. 4+5 · PW · FW · i<sub>eq</sub></span>
+  </div>
+  <div class="section-body">
+
+    <div class="problem-box">
+      Cash flows: <strong>$100/yr at years 1–5</strong> at <strong>i₁ = 10%</strong>, then <strong>$160/yr at years 6–8</strong> at <strong>i₂ = 12%</strong>.<br>
+      Find: (a) PW at year 0 &nbsp;|&nbsp; (b) FW at year 8 &nbsp;|&nbsp; (c) Equivalent single interest rate i<sub>eq</sub>
+    </div>
+
+    <!-- CFD -->
+    <div class="cfd-wrap">
+      <div class="cfd-title">📊 Cash Flow Diagram — Two Segments</div>
+      <svg width="560" height="165" viewBox="0 0 560 165" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+        <line x1="30" y1="110" x2="530" y2="110" stroke="#1a3a6b" stroke-width="2"/>
+        <polygon points="530,106 540,110 530,114" fill="#1a3a6b"/>
+        <text x="30" y="128" text-anchor="middle" font-size="11" fill="#2c4066">0</text>
+        <text x="90" y="128" text-anchor="middle" font-size="11" fill="#2c4066">1</text>
+        <text x="155" y="128" text-anchor="middle" font-size="11" fill="#2c4066">2</text>
+        <text x="220" y="128" text-anchor="middle" font-size="11" fill="#2c4066">3</text>
+        <text x="285" y="128" text-anchor="middle" font-size="11" fill="#2c4066">4</text>
+        <text x="350" y="128" text-anchor="middle" font-size="11" fill="#2c4066">5</text>
+        <text x="405" y="128" text-anchor="middle" font-size="11" fill="#2c4066">6</text>
+        <text x="460" y="128" text-anchor="middle" font-size="11" fill="#2c4066">7</text>
+        <text x="515" y="128" text-anchor="middle" font-size="11" fill="#2c4066">8</text>
+        <!-- Segment 1 arrows (i1=10%) -->
+        <rect x="30" y="138" width="320" height="14" rx="3" fill="rgba(14,144,210,0.15)" stroke="#0e90d2" stroke-width="1"/>
+        <text x="190" y="149" text-anchor="middle" font-size="10" fill="#0e90d2" font-weight="bold">i₁ = 10% (yrs 0→5)</text>
+        <!-- Segment 2 (i2=12%) -->
+        <rect x="350" y="138" width="170" height="14" rx="3" fill="rgba(26,127,90,0.12)" stroke="#1a7f5a" stroke-width="1"/>
+        <text x="435" y="149" text-anchor="middle" font-size="10" fill="#1a7f5a" font-weight="bold">i₂ = 12% (yrs 5→8)</text>
+        <!-- A1=$100 yrs 1-5 -->
+        <line x1="90" y1="110" x2="90" y2="62" stroke="#0e90d2" stroke-width="2"/><polygon points="86,62 90,52 94,62" fill="#0e90d2"/>
+        <line x1="155" y1="110" x2="155" y2="62" stroke="#0e90d2" stroke-width="2"/><polygon points="151,62 155,52 159,62" fill="#0e90d2"/>
+        <line x1="220" y1="110" x2="220" y2="62" stroke="#0e90d2" stroke-width="2"/><polygon points="216,62 220,52 224,62" fill="#0e90d2"/>
+        <line x1="285" y1="110" x2="285" y2="62" stroke="#0e90d2" stroke-width="2"/><polygon points="281,62 285,52 289,62" fill="#0e90d2"/>
+        <line x1="350" y1="110" x2="350" y2="62" stroke="#0e90d2" stroke-width="2"/><polygon points="346,62 350,52 354,62" fill="#0e90d2"/>
+        <text x="220" y="40" text-anchor="middle" font-size="11" fill="#0e90d2" font-weight="bold">A₁=$100/yr</text>
+        <!-- A2=$160 yrs 6-8 -->
+        <line x1="405" y1="110" x2="405" y2="52" stroke="#1a7f5a" stroke-width="2"/><polygon points="401,52 405,42 409,52" fill="#1a7f5a"/>
+        <line x1="460" y1="110" x2="460" y2="52" stroke="#1a7f5a" stroke-width="2"/><polygon points="456,52 460,42 464,52" fill="#1a7f5a"/>
+        <line x1="515" y1="110" x2="515" y2="52" stroke="#1a7f5a" stroke-width="2"/><polygon points="511,52 515,42 519,52" fill="#1a7f5a"/>
+        <text x="460" y="30" text-anchor="middle" font-size="11" fill="#1a7f5a" font-weight="bold">A₂=$160/yr</text>
+        <text x="545" y="113" font-size="11" fill="#2c4066">n</text>
+        <text x="30" y="20" font-size="11" fill="#c0392b" font-weight="bold">PW=?</text>
+        <text x="515" y="20" font-size="11" fill="#0e90d2" font-weight="bold">FW=?</text>
+      </svg>
+    </div>
+
+    <div class="factor-ref">
+      <div class="fr-title">📋 Table Factors</div>
+      <ul>
+        <li><code>(P/A, 10%, 5) = 3.7908</code></li>
+        <li><code>(P/A, 12%, 3) = 2.4018</code></li>
+        <li><code>(P/F, 10%, 5) = 0.6209</code></li>
+        <li><code>(F/A, 10%, 5) = 6.1051</code></li>
+        <li><code>(F/P, 12%, 3) = 1.4049</code></li>
+        <li><code>(F/A, 12%, 3) = 3.3744</code></li>
+      </ul>
+    </div>
+
+    <div class="sol-step">
+      <strong>Part (a) — PW at Year 0:</strong><br><br>
+      <u>Segment 1</u> ($100/yr, yrs 1–5, i₁=10%):<br>
+      PW₁ = 100 × (P/A, 10%, 5) = 100 × <strong>3.7908</strong> = $379.08<br><br>
+      <u>Segment 2</u> ($160/yr, yrs 6–8, i₂=12%): bring to yr 5 first, then to yr 0:<br>
+      &nbsp;&nbsp;PW at yr 5 = 160 × (P/A, 12%, 3) = 160 × <strong>2.4018</strong> = $384.29<br>
+      &nbsp;&nbsp;PW at yr 0 = 384.29 × (P/F, 10%, 5) = 384.29 × <strong>0.6209</strong> = $238.62<br><br>
+      PW<sub>total</sub> = 379.08 + 238.62 = <strong>$617.70</strong>
+    </div>
+
+    <div class="answer-badge">PW = $617.70</div>
+
+    <div class="sol-step" style="margin-top:16px;">
+      <strong>Part (b) — FW at Year 8:</strong><br><br>
+      <u>Segment 1</u>: Compound $100/yr to yr 5, then grow to yr 8:<br>
+      &nbsp;&nbsp;F at yr 5 = 100 × (F/A, 10%, 5) = 100 × <strong>6.1051</strong> = $610.51<br>
+      &nbsp;&nbsp;F at yr 8 = 610.51 × (F/P, 12%, 3) = 610.51 × <strong>1.4049</strong> = $857.72<br><br>
+      <u>Segment 2</u>: $160/yr at yrs 6–8 at i₂=12%:<br>
+      &nbsp;&nbsp;F at yr 8 = 160 × (F/A, 12%, 3) = 160 × <strong>3.3744</strong> = $539.91<br><br>
+      FW<sub>total</sub> = 857.72 + 539.91 = <strong>$1,397.63</strong>
+    </div>
+
+    <div class="answer-badge">FW = $1,397.63</div>
+
+    <div class="sol-step" style="margin-top:16px;">
+      <strong>Part (c) — Equivalent Single Interest Rate (i<sub>eq</sub>):</strong><br><br>
+      Using: FW = PW × (1 + i<sub>eq</sub>)⁸<br>
+      (1 + i<sub>eq</sub>)⁸ = FW / PW = 1,397.63 / 617.70 = 2.2627<br>
+      i<sub>eq</sub> = (2.2627)^(1/8) − 1 = 1.1075 − 1 = <strong>0.1075 = 10.75%</strong><br><br>
+      ✓ Verification: 617.70 × (1.1075)⁸ = $1,397.63
+    </div>
+
+    <div class="answer-badge">PW = $617.70 &nbsp;|&nbsp; FW = $1,397.63 &nbsp;|&nbsp; i<sub>eq</sub> = 10.75%</div>
+
+  </div>
+</div>
+
+</div><!-- /exam-body-wrap Fall -->
+
+
+<!-- ═══ FACTOR QUICK REFERENCE ═══ -->
+<div class="exam-banner" style="margin-top:20px;background:linear-gradient(135deg,#1a3a6b,#2155a3);">
+  <div class="exam-icon">📐</div>
+  <div>Quick Reference — Engineering Economics Factors
+    <div style="font-size:13px;font-weight:400;opacity:.75;font-family:'IBM Plex Sans',sans-serif;">المعاملات الأساسية في اقتصاديات الهندسة</div>
+  </div>
+</div>
+<div class="exam-body-wrap" style="margin-bottom:0;">
+  <table class="data-table">
+    <thead>
+      <tr><th>Notation</th><th>Name</th><th>Formula</th><th>Use</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>(F/P, i%, n)</td><td>Single Payment Compound</td><td>(1+i)ⁿ</td><td>Find F given P</td></tr>
+      <tr><td>(P/F, i%, n)</td><td>Single Payment Present Worth</td><td>1 / (1+i)ⁿ</td><td>Find P given F</td></tr>
+      <tr><td>(F/A, i%, n)</td><td>Uniform Series Compound</td><td>[(1+i)ⁿ−1] / i</td><td>Find F given A</td></tr>
+      <tr><td>(P/A, i%, n)</td><td>Uniform Series Present Worth</td><td>[(1+i)ⁿ−1] / [i(1+i)ⁿ]</td><td>Find P given A</td></tr>
+      <tr><td>(A/P, i%, n)</td><td>Capital Recovery</td><td>i(1+i)ⁿ / [(1+i)ⁿ−1]</td><td>Find A given P</td></tr>
+      <tr><td>(A/F, i%, n)</td><td>Sinking Fund</td><td>i / [(1+i)ⁿ−1]</td><td>Find A given F</td></tr>
+      <tr><td>(A/G, i%, n)</td><td>Gradient to Annual</td><td>1/i − n/[(1+i)ⁿ−1]</td><td>Arithmetic Gradient → AW</td></tr>
+    </tbody>
+  </table>
+  <div class="note-box" style="margin-top:14px;">
+    <span class="icon">📝</span>
+    <p><strong>تذكير — Gradient:</strong> Increasing: AW = A<sub>base</sub> + G×(A/G, i%, n) &nbsp;|&nbsp; Decreasing: AW = A<sub>base</sub> − G×(A/G, i%, n)</p>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer class="site-footer">
+  Engineering Economics GE205 — Final Exam Solutions &nbsp;|&nbsp; اقتصاديات الهندسة · حلول الامتحانات النهائية
+</footer>
+
+</body>
+</html>
